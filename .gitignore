@@ -196,5 +196,5 @@ build_logs/
 # Tauri and CI outputs
 # -----------------------------------------------------------------------------
 src-tauri/gen/
-screenshots/
-logs/
+/screenshots/
+/logs/
