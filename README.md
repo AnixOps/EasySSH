@@ -99,7 +99,8 @@ npm run tauri dev    # the desktop app (needs Rust and the Tauri prerequisites)
 
 CI builds and tests every push on Windows, macOS and Linux, captures UI
 screenshots in light and dark, and publishes installers when a `v*` tag is
-pushed. See [AGENTS.md](AGENTS.md) for how changes are made and released, and
+pushed. See [AGENTS.md](AGENTS.md) for how changes are made,
+[RELEASING.md](RELEASING.md) for how versions ship, and
 [ROADMAP.md](ROADMAP.md) for what is planned.
 
 ## License

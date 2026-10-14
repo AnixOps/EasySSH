@@ -28,10 +28,9 @@ When rustfmt fails, `logs-Linux/logs/fmt.patch` holds the fix; apply it with
 - Work on a feature branch, open a PR with `gh pr create`, squash-merge once
   CI is green, and delete the branch (`gh pr merge --squash --delete-branch`).
   Deleting a branch also deletes its `ci-results/<branch>` (cleanup.yml).
-- To release, bump the version in `Cargo.toml` (workspace), `package.json`
-  and `src-tauri/tauri.conf.json`, merge that to `main`, then tag `main` with
-  `vX.Y.Z` and push the tag. release.yml checks the versions match, builds on
-  all three platforms and publishes a GitHub Release with the installers.
+- Releases follow [RELEASING.md](RELEASING.md): version bump pull request,
+  smoke test on a real machine, tag, and release.yml does the rest.
+- `main` is branch-protected: the CI checks must pass before merging.
 
 ## UI rules
 
