@@ -3,6 +3,9 @@
 //! This module never reads Git credentials, private keys, terminal output, or
 //! SSH command lines. It delegates authentication to the user's system Git.
 use crate::domain::{AppConfig, CommandSnippet, Connection, ConnectionTarget, Group};
+use crate::process::hide_window;
+use crate::security::validate_connection;
+use crate::tunnel::Tunnel;
 use chrono::Utc;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -44,6 +47,20 @@ pub struct SyncFile {
     pub connections: Vec<SyncConnection>,
     pub groups: Vec<SyncGroup>,
     pub snippets: Vec<SyncSnippet>,
+    #[serde(default)]
+    pub tunnels: Vec<Tunnel>,
+}
+
+/// What an import added or updated.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ImportSummary {
+    pub hosts: usize,
+    pub groups: usize,
+    pub snippets: usize,
+    pub tunnels: usize,
+    /// Hosts that failed validation and were left out.
+    pub skipped: usize,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
@@ -99,10 +116,12 @@ impl SyncFile {
                 .collect(),
             groups: config.groups.iter().map(SyncGroup::from).collect(),
             snippets: config.snippets.iter().map(SyncSnippet::from).collect(),
+            tunnels: config.tunnels.clone(),
         };
         file.connections.sort_by(|a, b| a.id.cmp(&b.id));
         file.groups.sort_by(|a, b| a.id.cmp(&b.id));
         file.snippets.sort_by(|a, b| a.id.cmp(&b.id));
+        file.tunnels.sort_by(|a, b| a.id.cmp(&b.id));
         file
     }
     pub fn canonical_json(&self) -> Result<Vec<u8>, SyncError> {
@@ -120,6 +139,57 @@ impl SyncFile {
             .collect();
         config.groups = self.groups.iter().map(SyncGroup::to_group).collect();
         config.snippets = self.snippets.iter().map(SyncSnippet::to_snippet).collect();
+        config.tunnels = self.tunnels.clone();
+    }
+
+    /// Adds or updates entries by id, keeping everything else in `config`.
+    /// Hosts are validated first; invalid ones are skipped and counted.
+    pub fn merge_into(&self, config: &mut AppConfig) -> ImportSummary {
+        let now = Utc::now();
+        let mut summary = ImportSummary::default();
+        for incoming in &self.connections {
+            let connection = incoming.to_connection(now);
+            if validate_connection(&connection).is_err() {
+                summary.skipped += 1;
+                continue;
+            }
+            upsert(&mut config.connections, connection, |c| &c.id);
+            summary.hosts += 1;
+        }
+        for group in &self.groups {
+            upsert(&mut config.groups, group.to_group(), |g| &g.id);
+            summary.groups += 1;
+        }
+        for snippet in &self.snippets {
+            upsert(&mut config.snippets, snippet.to_snippet(), |s| &s.id);
+            summary.snippets += 1;
+        }
+        for tunnel in &self.tunnels {
+            upsert(&mut config.tunnels, tunnel.clone(), |t| &t.id);
+            summary.tunnels += 1;
+        }
+        summary
+    }
+}
+
+fn upsert<T>(items: &mut Vec<T>, item: T, id: impl Fn(&T) -> &String) {
+    match items.iter().position(|existing| id(existing) == id(&item)) {
+        Some(index) => items[index] = item,
+        None => items.push(item),
+    }
+}
+
+impl SyncFile {
+    /// Parses an exported file, refusing anything that is not one.
+    pub fn parse(bytes: &[u8]) -> Result<Self, SyncError> {
+        let file: Self = serde_json::from_slice(bytes)?;
+        if file.version != 1 {
+            let version = file.version;
+            return Err(SyncError::GitFailed(format!(
+                "unsupported file version {version}"
+            )));
+        }
+        Ok(file)
     }
 }
 impl From<&Connection> for SyncConnection {
@@ -285,7 +355,7 @@ impl GitSync {
         Self::git(&repo, &["fetch", "origin"])?;
         let branch = config.sync.branch.clone().unwrap_or_else(|| "main".into());
         let spec = format!("origin/{branch}:{SYNC_FILE_NAME}");
-        let bytes = match Command::new("git")
+        let bytes = match hide_window(&mut Command::new("git"))
             .arg("-C")
             .arg(&repo)
             .args(["show", &spec])
@@ -322,7 +392,7 @@ impl GitSync {
         Ok(true)
     }
     fn git(repo: &Path, args: &[&str]) -> Result<String, SyncError> {
-        let output = Command::new("git")
+        let output = hide_window(&mut Command::new("git"))
             .args("-C".split_whitespace())
             .arg(repo)
             .args(args)
@@ -374,5 +444,34 @@ mod tests {
         assert!(!has_embedded_http_credentials(
             "git@example.test:team/repo.git"
         ));
+    }
+
+    #[test]
+    fn merge_adds_updates_and_skips_invalid_hosts() {
+        let mut config = AppConfig::new();
+        let mut existing = Connection::alias("Old name", "prod");
+        existing.id = "same".into();
+        config.connections.push(existing);
+
+        let mut source = AppConfig::new();
+        let mut renamed = Connection::alias("New name", "prod");
+        renamed.id = "same".into();
+        let mut bad = Connection::alias("Bad", "prod");
+        bad.target = ConnectionTarget::Endpoint {
+            hostname: "x; rm -rf /".into(),
+            username: None,
+            port: 22,
+        };
+        source
+            .connections
+            .extend([renamed, Connection::alias("New", "new"), bad]);
+        let json = SyncFile::from_config(&source).canonical_json().unwrap();
+        let file = SyncFile::parse(&json).unwrap();
+
+        let summary = file.merge_into(&mut config);
+        assert_eq!(summary.hosts, 2);
+        assert_eq!(summary.skipped, 1);
+        assert_eq!(config.connections.len(), 2);
+        assert_eq!(config.connections[0].name, "New name");
     }
 }

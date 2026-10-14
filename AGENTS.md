@@ -20,6 +20,8 @@ Windows, macOS and Linux.
 Results (logs, screenshots, lockfiles) are force-pushed to the branch
 `ci-results/<branch>`; read them with
 `git fetch origin ci-results/<branch>` and `git show FETCH_HEAD:<path>`.
+When rustfmt fails, `logs-Linux/logs/fmt.patch` holds the fix; apply it with
+`git show FETCH_HEAD:logs-Linux/logs/fmt.patch | git apply`.
 
 ## Branches and releases
 

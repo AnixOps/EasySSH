@@ -80,7 +80,12 @@ jobs:
       # reports every failure instead of stopping at the first.
       - name: rustfmt
         if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
-        run: cargo fmt --all --check 2>&1 | tee logs/fmt.log
+        # On failure, also save the exact fix as logs/fmt.patch.
+        run: |
+          cargo fmt --all --check 2>&1 | tee logs/fmt.log || {
+            cargo fmt --all && git diff > logs/fmt.patch
+            exit 1
+          }
       - name: clippy
         if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
         run: cargo clippy --workspace --all-targets -- -D warnings 2>&1 | tee logs/clippy.log

@@ -22,6 +22,7 @@ const scenes = [
   { name: "palette", query: "", open: ["prod-web-01"], keys: "Control+Shift+K", typeText: "prod" },
   { name: "settings", query: "", nav: "设置" },
   { name: "no-ssh", query: "ssh=missing" },
+  { name: "sync-setup", query: "", nav: "设置", click: "开始设置" },
   { name: "snippets", query: "", open: ["prod-web-01"], nav: "命令片段", run: "磁盘用量" },
   { name: "new-host", query: "hosts=empty", click: "新建主机" },
   { name: "first-run", query: "hosts=empty" },

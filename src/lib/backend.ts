@@ -1,7 +1,7 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
-import { open as openDialog } from "@tauri-apps/plugin-dialog";
+import { open as openDialog, save as saveDialog } from "@tauri-apps/plugin-dialog";
 import { revealItemInDir } from "@tauri-apps/plugin-opener";
 import { previewCancel, previewFiles, previewTransfer } from "./previewFiles";
 import { previewDeleteHost, previewSaveHost, previewSetFavorite, previewSnapshot } from "./preview";
@@ -412,4 +412,85 @@ export async function sshStatus(): Promise<SshStatus> {
     };
   }
   return invoke<SshStatus>("ssh_status");
+}
+
+export interface ImportSummary {
+  hosts: number;
+  groups: number;
+  snippets: number;
+  tunnels: number;
+  skipped: number;
+}
+
+export interface SyncState {
+  configured: boolean;
+  repositoryPath: string | null;
+  remoteUrl: string | null;
+  branch: string;
+  lastSuccessAt: string | null;
+  lastError: string | null;
+}
+
+/** Asks where to save, then writes the export. Returns false if cancelled. */
+export async function exportConfig(): Promise<boolean> {
+  if (!isTauri) return true;
+  const path = await saveDialog({
+    defaultPath: "anixops-ssh-hosts.json",
+    filters: [{ name: "JSON", extensions: ["json"] }],
+  });
+  if (!path) return false;
+  await invoke("config_export", { path });
+  return true;
+}
+
+/** Asks for a file, then merges it. Returns null if cancelled. */
+export async function importConfig(): Promise<ImportSummary | null> {
+  if (!isTauri) return { hosts: 7, groups: 3, snippets: 4, tunnels: 3, skipped: 0 };
+  const path = await openDialog({ multiple: false, directory: false, filters: [{ name: "JSON", extensions: ["json"] }] });
+  if (typeof path !== "string") return null;
+  return invoke<ImportSummary>("config_import", { path });
+}
+
+const previewSync: SyncState = {
+  configured: false,
+  repositoryPath: null,
+  remoteUrl: null,
+  branch: "main",
+  lastSuccessAt: null,
+  lastError: null,
+};
+
+export async function loadSync(): Promise<SyncState> {
+  if (!isTauri) return { ...previewSync };
+  return invoke<SyncState>("sync_get");
+}
+
+export async function setupSync(repositoryPath: string, remoteUrl: string | null, branch: string | null): Promise<void> {
+  if (!isTauri) {
+    Object.assign(previewSync, { configured: true, repositoryPath, remoteUrl, branch: branch ?? "main" });
+    return;
+  }
+  await invoke("sync_setup", { repositoryPath, remoteUrl, branch });
+}
+
+export async function pickFolder(): Promise<string | null> {
+  if (!isTauri) return "/Users/you/hosts-sync";
+  const picked = await openDialog({ directory: true, multiple: false });
+  return typeof picked === "string" ? picked : null;
+}
+
+export async function syncPush(): Promise<void> {
+  if (!isTauri) {
+    previewSync.lastSuccessAt = new Date().toISOString();
+    return;
+  }
+  await invoke("sync_push");
+}
+
+export async function syncPull(): Promise<boolean> {
+  if (!isTauri) {
+    previewSync.lastSuccessAt = new Date().toISOString();
+    return true;
+  }
+  return invoke<boolean>("sync_pull");
 }
