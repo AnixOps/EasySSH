@@ -43,6 +43,7 @@ jobs:
           path: |
             logs/
             screenshots/
+            dist/
             package-lock.json
           if-no-files-found: ignore
 

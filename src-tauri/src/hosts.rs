@@ -181,14 +181,19 @@ fn resolve(config: &AppConfig, host_id: &str) -> Result<Connection, String> {
         .ok_or_else(|| format!("unknown host: {host_id}"))
 }
 
-/// Opens the host in the platform terminal. Kept as a fallback once the
-/// embedded terminal lands.
-#[tauri::command]
-pub fn open_external(host_id: String) -> Result<(), String> {
+/// Resolves a host id from the frontend into a validated `ssh` invocation.
+pub fn invocation(host_id: &str) -> Result<(Connection, SshInvocation), String> {
     let config = load_config()?;
-    let connection = resolve(&config, &host_id)?;
+    let connection = resolve(&config, host_id)?;
     let invocation =
         SshInvocation::for_connection(&OpenSsh, &connection).map_err(|error| error.to_string())?;
+    Ok((connection, invocation))
+}
+
+/// Opens the host in the platform terminal, as a fallback to the embedded one.
+#[tauri::command]
+pub fn open_external(host_id: String) -> Result<(), String> {
+    let (connection, invocation) = invocation(&host_id)?;
     ExternalTerminal::launch(&connection.name, &invocation).map_err(|error| error.to_string())
 }
 

@@ -3,11 +3,14 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
 import { ComingSoonPanel, EmptyWorkspace } from "@/components/app/Placeholders";
-import { SessionView } from "@/components/app/SessionView";
 import { TabBar, type Tab } from "@/components/app/TabBar";
+import { TerminalView, type SessionStatus } from "@/components/app/TerminalView";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { loadHosts, type Host, type HostsSnapshot } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { appShortcut } from "@/lib/shortcuts";
+
+let nextTab = 1;
 
 export function App() {
   const [nav, setNav] = useState<NavKey>("hosts");
@@ -23,15 +26,23 @@ export function App() {
       .catch((reason) => setLoadError(String(reason)));
   }, []);
 
-  // One tab per host for now; the embedded terminal will allow several.
-  const openHost = useCallback((host: Host) => {
-    setTabs((current) =>
-      current.some((tab) => tab.key === host.id)
-        ? current
-        : [...current, { key: host.id, hostId: host.id, title: host.name, color: host.color }],
-    );
-    setActiveKey(host.id);
+  const addTab = useCallback((hostId: string | null, title: string, color: string | null) => {
+    const key = `tab-${nextTab++}`;
+    setTabs((current) => [...current, { key, hostId, title, color, status: { state: "connecting" } }]);
+    setActiveKey(key);
   }, []);
+
+  // Clicking a host focuses its open tab; a new session needs a closed tab.
+  const openHost = useCallback(
+    (host: Host) => {
+      const existing = tabs.find((tab) => tab.hostId === host.id);
+      if (existing) setActiveKey(existing.key);
+      else addTab(host.id, host.name, host.color);
+    },
+    [tabs, addTab],
+  );
+
+  const openLocal = useCallback(() => addTab(null, t.localTerminal, null), [addTab]);
 
   const closeTab = useCallback(
     (key: string) => {
@@ -43,6 +54,11 @@ export function App() {
     [tabs, activeKey],
   );
 
+  // Stable so terminals do not restart their sessions when the app re-renders.
+  const updateStatus = useCallback((key: string, status: SessionStatus) => {
+    setTabs((current) => current.map((tab) => (tab.key === key ? { ...tab, status } : tab)));
+  }, []);
+
   const focusSearch = useCallback(() => {
     setNav("hosts");
     window.requestAnimationFrame(() => searchRef.current?.focus());
@@ -50,21 +66,18 @@ export function App() {
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
-      const mod = event.ctrlKey || event.metaKey;
-      if (mod && (event.key === "k" || event.key === "t")) {
-        event.preventDefault();
-        focusSearch();
-      } else if (mod && event.key === "w" && activeKey) {
-        event.preventDefault();
-        closeTab(activeKey);
-      }
+      const shortcut = appShortcut(event);
+      if (shortcut === "search-hosts") focusSearch();
+      else if (shortcut === "new-local") openLocal();
+      else if (shortcut === "close-tab" && activeKey) closeTab(activeKey);
+      else return;
+      event.preventDefault();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [activeKey, closeTab, focusSearch]);
+  }, [activeKey, closeTab, focusSearch, openLocal]);
 
   const activeTab = tabs.find((tab) => tab.key === activeKey);
-  const activeHost = activeTab && snapshot.hosts.find((host) => host.id === activeTab.hostId);
 
   return (
     <TooltipProvider delayDuration={400}>
@@ -88,11 +101,14 @@ export function App() {
               activeKey={activeKey}
               onSelect={setActiveKey}
               onClose={closeTab}
-              onNew={focusSearch}
+              onNew={openLocal}
             />
           )}
           {loadError && (
-            <p role="alert" className="m-4 flex items-start gap-2 rounded-sm bg-danger-soft px-3 py-2 text-callout text-danger">
+            <p
+              role="alert"
+              className="m-4 flex items-start gap-2 rounded-sm bg-danger-soft px-3 py-2 text-callout text-danger"
+            >
               <CircleAlert className="mt-0.5 size-4 shrink-0" strokeWidth={1.5} />
               <span>
                 {t.loadFailed}: {loadError}
@@ -100,7 +116,16 @@ export function App() {
             </p>
           )}
           <div className="min-h-0 flex-1">
-            {activeHost ? <SessionView key={activeHost.id} host={activeHost} /> : <EmptyWorkspace />}
+            {tabs.map((tab) => (
+              <TerminalView
+                key={tab.key}
+                tabKey={tab.key}
+                hostId={tab.hostId}
+                active={tab.key === activeKey}
+                onStatus={updateStatus}
+              />
+            ))}
+            {!activeTab && <EmptyWorkspace onOpenLocal={openLocal} />}
           </div>
         </main>
       </div>
