@@ -204,7 +204,7 @@ fn apply(
     Ok(())
 }
 
-fn save_config(config: &AppConfig) -> Result<(), String> {
+pub(crate) fn save_config(config: &AppConfig) -> Result<(), String> {
     let store = ConfigStore::default_path().map_err(|error| error.to_string())?;
     store.save(config).map_err(|error| error.to_string())
 }
@@ -297,7 +297,7 @@ fn display_command(target: &ConnectionTarget) -> String {
     }
 }
 
-fn load_config() -> Result<AppConfig, String> {
+pub(crate) fn load_config() -> Result<AppConfig, String> {
     let store = ConfigStore::default_path().map_err(|error| error.to_string())?;
     store.load().map_err(|error| error.to_string())
 }

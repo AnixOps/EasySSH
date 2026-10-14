@@ -235,3 +235,39 @@ export function onAskpass(handler: (prompt: AskpassPrompt) => void): () => void 
 export function replyAskpass(id: number, answer: string | null): void {
   if (isTauri) void invoke("askpass_reply", { id, answer }).catch(console.error);
 }
+
+export interface Snippet {
+  id: string;
+  name: string;
+  content: string;
+}
+
+export async function loadSnippets(): Promise<Snippet[]> {
+  if (!isTauri) return previewSnippets.map((snippet) => ({ ...snippet }));
+  return invoke<Snippet[]>("snippets_list");
+}
+
+export async function saveSnippet(id: string | null, name: string, content: string): Promise<string> {
+  if (!isTauri) {
+    const existing = previewSnippets.find((snippet) => snippet.id === id);
+    if (existing) Object.assign(existing, { name, content });
+    else previewSnippets.push({ id: `snippet-${previewSnippets.length + 1}`, name, content });
+    return id ?? `snippet-${previewSnippets.length}`;
+  }
+  return invoke<string>("snippet_save", { id, name, content });
+}
+
+export async function deleteSnippet(id: string): Promise<void> {
+  if (!isTauri) {
+    previewSnippets.splice(previewSnippets.findIndex((snippet) => snippet.id === id), 1);
+    return;
+  }
+  await invoke("snippet_delete", { id });
+}
+
+const previewSnippets: Snippet[] = [
+  { id: "snippet-1", name: "磁盘用量", content: "df -h" },
+  { id: "snippet-2", name: "Docker 容器", content: 'docker ps --format "table {{.Names}}\t{{.Status}}"' },
+  { id: "snippet-3", name: "最近的系统日志", content: "journalctl -n 100 --no-pager" },
+  { id: "snippet-4", name: "重启 nginx", content: "sudo systemctl restart nginx && systemctl status nginx --no-pager" },
+];

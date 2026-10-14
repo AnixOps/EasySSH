@@ -5,6 +5,7 @@ mod askpass;
 mod files;
 mod hosts;
 mod sessions;
+mod snippets;
 
 fn main() {
     // OpenSSH starts this executable to ask for a password; see askpass.rs.
@@ -23,6 +24,9 @@ fn main() {
             hosts::host_save,
             hosts::host_delete,
             hosts::host_set_favorite,
+            snippets::snippets_list,
+            snippets::snippet_save,
+            snippets::snippet_delete,
             sessions::session_open,
             sessions::session_write,
             sessions::session_resize,
