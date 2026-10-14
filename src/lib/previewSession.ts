@@ -1,4 +1,5 @@
 import type { SessionEvent, SessionHandle } from "./backend";
+import { previewSnapshot } from "./preview";
 
 const ESC = "\x1b";
 const CRLF = "\r\n";
@@ -10,7 +11,7 @@ export function previewSession(
   hostId: string | null,
   onEvent: (event: SessionEvent) => void,
 ): SessionHandle {
-  const host = hostId?.replace("ssh-config:", "") ?? "local";
+  const host = previewSnapshot().hosts.find((entry) => entry.id === hostId)?.name ?? "local";
   const user = hostId ? "deploy" : "you";
   const prompt = `${color("1;32", `${user}@${host}`)}:${color("1;34", "~")}$ `;
   let line = "";
