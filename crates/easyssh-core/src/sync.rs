@@ -185,7 +185,9 @@ impl SyncFile {
         let file: Self = serde_json::from_slice(bytes)?;
         if file.version != 1 {
             let version = file.version;
-            return Err(SyncError::GitFailed(format!("unsupported file version {version}")));
+            return Err(SyncError::GitFailed(format!(
+                "unsupported file version {version}"
+            )));
         }
         Ok(file)
     }
@@ -460,7 +462,9 @@ mod tests {
             username: None,
             port: 22,
         };
-        source.connections.extend([renamed, Connection::alias("New", "new"), bad]);
+        source
+            .connections
+            .extend([renamed, Connection::alias("New", "new"), bad]);
         let json = SyncFile::from_config(&source).canonical_json().unwrap();
         let file = SyncFile::parse(&json).unwrap();
 
