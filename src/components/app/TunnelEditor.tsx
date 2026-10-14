@@ -7,7 +7,6 @@ import { Segmented } from "@/components/ui/segmented";
 import { saveTunnel, type Host, type Tunnel, type TunnelKind } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { describeTunnel } from "@/lib/tunnels";
-import { cn } from "@/lib/utils";
 
 export function TunnelEditor({
   tunnel,
