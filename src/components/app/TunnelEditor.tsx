@@ -1,5 +1,6 @@
 import { CircleAlert } from "lucide-react";
 import { useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { saveTunnel, type Host, type Tunnel, type TunnelKind } from "@/lib/backend";
@@ -53,7 +54,9 @@ export function TunnelEditor({
     { value: "dynamic", label: t.tunnelDynamic, hint: t.tunnelDynamicHint },
   ];
 
-  return (
+  // Rendered into <body>: the frosted sidebar's backdrop-filter would
+  // otherwise become the containing block of this fixed overlay.
+  return createPortal(
     <div className="fixed inset-0 z-modal flex items-center justify-center bg-(--shadow-color) p-6 backdrop-blur-sm">
       <form
         role="dialog"
@@ -131,9 +134,11 @@ export function TunnelEditor({
           </div>
         )}
 
-        <p className="rounded-sm bg-fill-1 px-3 py-2 font-mono text-caption font-normal text-label-2">
-          {describeTunnel(input)}
-        </p>
+        {input.bindPort > 0 && (
+          <p className="rounded-sm bg-fill-1 px-3 py-2 font-mono text-caption font-normal text-label-2">
+            {describeTunnel(input)}
+          </p>
+        )}
 
         {error && (
           <p role="alert" className="flex items-start gap-2 rounded-sm bg-danger-soft px-3 py-2 text-callout text-danger">
@@ -153,7 +158,8 @@ export function TunnelEditor({
           </Button>
         </div>
       </form>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
