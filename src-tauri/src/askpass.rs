@@ -89,7 +89,10 @@ pub fn env_for(app: &AppHandle, host: &str) -> Result<Vec<(String, String)>, Str
     let helper = std::env::current_exe().map_err(io_error)?;
     let context = askpass.next.fetch_add(1, Ordering::Relaxed).to_string();
     let mut env = vec![
-        ("SSH_ASKPASS".to_owned(), helper.to_string_lossy().into_owned()),
+        (
+            "SSH_ASKPASS".to_owned(),
+            helper.to_string_lossy().into_owned(),
+        ),
         ("SSH_ASKPASS_REQUIRE".to_owned(), "force".to_owned()),
         (ENV_ENDPOINT.to_owned(), endpoint),
         (ENV_CONTEXT.to_owned(), context),
@@ -128,7 +131,9 @@ impl Askpass {
 }
 
 fn serve(app: &AppHandle, stream: &TcpStream, token: &str) -> Option<()> {
-    stream.set_read_timeout(Some(Duration::from_secs(10))).ok()?;
+    stream
+        .set_read_timeout(Some(Duration::from_secs(10)))
+        .ok()?;
     let mut line = String::new();
     BufReader::new(stream).read_line(&mut line).ok()?;
     let request: Request = serde_json::from_str(&line).ok()?;
