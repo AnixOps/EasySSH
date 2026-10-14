@@ -1,21 +1,5 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: Documentation
-    url: https://github.com/AnixOps/EasySSH/tree/main/docs
-    about: Check our documentation for guides, API references, and troubleshooting tips
-
-  - name: Discussions
-    url: https://github.com/AnixOps/EasySSH/discussions
-    about: Ask questions, share ideas, and connect with the community
-
-  - name: Security Policy
-    url: https://github.com/AnixOps/EasySSH/security/policy
-    about: Report security vulnerabilities responsibly through our security policy
-
-  - name: Feature Roadmap
-    url: https://github.com/AnixOps/EasySSH/projects
-    about: View our public roadmap and planned features
-
-  - name: Contributing Guide
-    url: https://github.com/AnixOps/EasySSH/blob/main/CONTRIBUTING.md
-    about: Learn how to contribute to EasySSH
+  - name: 使用指南 / User guide
+    url: https://github.com/AnixOps/EasySSH/blob/main/docs/guide.zh-CN.md
+    about: 安装、功能和快捷键说明。Installation, features and shortcuts.

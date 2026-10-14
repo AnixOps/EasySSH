@@ -1,149 +1,47 @@
-name: Bug Report
-description: Report a bug to help us improve EasySSH
-title: "[Bug]: "
-labels: ["bug", "needs-triage"]
-assignees: []
+name: 问题反馈 / Bug report
+description: 某个功能不正常，或用起来不顺手。Something does not work or feels wrong.
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
-        Please fill in as much detail as possible to help us diagnose and fix the issue.
-
-  - type: dropdown
-    id: edition
-    attributes:
-      label: EasySSH Edition
-      description: Which edition of EasySSH are you using?
-      options:
-        - Lite
-        - Standard
-        - Pro
-      default: 0
-    validations:
-      required: true
-
-  - type: dropdown
-    id: platform
-    attributes:
-      label: Platform
-      description: Which operating system are you running?
-      options:
-        - Windows
-        - macOS
-        - Linux
-      default: 0
-    validations:
-      required: true
-
-  - type: input
-    id: version
-    attributes:
-      label: Version
-      description: |
-        What version of EasySSH are you running?
-        You can find this in the app under **Help > About** or run `easyssh --version`
-      placeholder: "e.g., v0.3.0-beta.1"
-    validations:
-      required: true
-
+        请不要贴出密码、私钥、令牌或完整的服务器地址。
+        Do not paste passwords, private keys, tokens or full server addresses.
   - type: textarea
-    id: description
+    id: what
     attributes:
-      label: Bug Description
-      description: A clear and concise description of what the bug is.
-      placeholder: "Describe what happened and what you expected to happen..."
+      label: 发生了什么 / What happened
+      description: 以及你原本期望的结果。And what you expected instead.
     validations:
       required: true
-
   - type: textarea
     id: steps
     attributes:
-      label: Steps to Reproduce
-      description: |
-        Detailed steps to reproduce the behavior.
-        The more precise your steps, the faster we can fix it.
+      label: 复现步骤 / Steps to reproduce
       placeholder: |
-        1. Go to '...'
-        2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
+        1. 打开主机 …
+        2. 点击 …
+  - type: input
+    id: version
+    attributes:
+      label: 应用版本 / App version
+      description: 设置 → 关于。Settings → About.
+      placeholder: "1.0.1"
     validations:
       required: true
-
-  - type: textarea
-    id: expected
+  - type: input
+    id: os
     attributes:
-      label: Expected Behavior
-      description: A clear and concise description of what you expected to happen.
-      placeholder: "I expected that..."
+      label: 系统 / Operating system
+      placeholder: "Windows 11 23H2 / macOS 15.1 / Ubuntu 24.04"
     validations:
       required: true
-
+  - type: input
+    id: ssh
+    attributes:
+      label: ssh -V
+      placeholder: "OpenSSH_for_Windows_9.5p1, LibreSSL 3.8.2"
   - type: textarea
-    id: screenshots
+    id: extra
     attributes:
-      label: Screenshots
-      description: |
-        If applicable, add screenshots to help explain your problem.
-        You can drag and drop images directly into this field.
-      placeholder: "Drag and drop screenshots here..."
-
-    validations:
-      required: false
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant Logs
-      description: |
-        Please paste any relevant log output.
-
-        **Where to find logs:**
-        - Windows: `%APPDATA%\easyssh\logs\`
-        - macOS: `~/Library/Application Support/easyssh/logs/`
-        - Linux: `~/.local/share/easyssh/logs/`
-
-        **Note:** Do not paste sensitive information like passwords or SSH keys!
-      placeholder: |
-        [2026-04-03 10:30:45] ERROR: Connection failed...
-        [2026-04-03 10:30:46] INFO: Retrying...
-      render: shell
-    validations:
-      required: false
-
-  - type: textarea
-    id: environment
-    attributes:
-      label: Environment Details
-      description: Additional environment information that might be relevant
-      placeholder: |
-        - OS Version: Windows 11 Pro Education 10.0.26200
-        - Display Scaling: 125%
-        - Terminal: Windows Terminal / iTerm2 / GNOME Terminal
-        - Remote SSH Server: OpenSSH_8.9p1 Ubuntu
-    validations:
-      required: false
-
-  - type: checkboxes
-    id: pre-submission
-    attributes:
-      label: Pre-submission Checklist
-      description: Please confirm the following before submitting
-      options:
-        - label: I have searched the existing issues to make sure this bug has not already been reported
-          required: true
-        - label: I have provided all the required information above
-          required: true
-        - label: I have removed any sensitive information (passwords, SSH keys, etc.) from logs and screenshots
-          required: true
-        - label: I am willing to provide additional information if needed
-          required: false
-
-  - type: checkboxes
-    id: contribution
-    attributes:
-      label: Contribution
-      options:
-        - label: I am willing to submit a pull request to fix this issue
-          required: false
+      label: 截图或报错 / Screenshots or error text
