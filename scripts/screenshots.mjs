@@ -19,6 +19,7 @@ const scenes = [
   { name: "host-editor", query: "", click: "编辑主机" },
   { name: "forwards", query: "", nav: "端口转发" },
   { name: "tunnel-editor", query: "", nav: "端口转发", click: "新建隧道" },
+  { name: "palette", query: "", open: ["prod-web-01"], keys: "Control+Shift+K", typeText: "prod" },
   { name: "snippets", query: "", open: ["prod-web-01"], nav: "命令片段", run: "磁盘用量" },
   { name: "new-host", query: "hosts=empty", click: "新建主机" },
   { name: "first-run", query: "hosts=empty" },
@@ -68,6 +69,10 @@ for (const colorScheme of ["light", "dark"]) {
     if (scene.search) await page.getByRole("textbox").first().fill(scene.search);
     if (scene.nav) await page.getByRole("button", { name: scene.nav }).click();
     if (scene.run) await page.getByRole("button", { name: new RegExp(scene.run) }).first().click();
+    if (scene.keys) {
+      await page.keyboard.press(scene.keys);
+      await page.keyboard.type(scene.typeText ?? "");
+    }
     if (scene.click) await page.getByRole("button", { name: scene.click, exact: true }).first().click();
     await page.mouse.move(0, 0);
     await page.waitForTimeout(500);

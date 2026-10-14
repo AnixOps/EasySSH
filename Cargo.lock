@@ -43,8 +43,9 @@ dependencies = [
 
 [[package]]
 name = "anixops-ssh"
-version = "0.7.0"
+version = "0.8.0"
 dependencies = [
+ "chrono",
  "dirs 5.0.1",
  "easyssh-core",
  "portable-pty",
@@ -55,6 +56,7 @@ dependencies = [
  "tauri-plugin-clipboard-manager",
  "tauri-plugin-dialog",
  "tauri-plugin-opener",
+ "uuid",
 ]
 
 [[package]]
@@ -942,7 +944,7 @@ checksum = "d0881ea181b1df73ff77ffaaf9c7544ecc11e82fba9b5f27b262a3c73a332555"
 
 [[package]]
 name = "easyssh-core"
-version = "0.7.0"
+version = "0.8.0"
 dependencies = [
  "anyhow",
  "chrono",

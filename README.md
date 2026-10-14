@@ -8,8 +8,8 @@ private keys. Every session runs your own `ssh`, so `~/.ssh/config`,
 `ProxyJump`, `known_hosts`, the system SSH agent and the 1Password SSH agent
 all work as they already do.
 
-> Status: v0.7. Terminals in tabs and an SFTP file pane beside them;
-> snippets and port forwarding arrive in v0.8. See [ROADMAP.md](ROADMAP.md).
+> Status: v0.8. Terminals, SFTP, snippets, port forwarding, a host editor
+> and a command palette; v1.0 is polish. See [ROADMAP.md](ROADMAP.md).
 
 ## Stack
 
