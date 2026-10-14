@@ -68,12 +68,15 @@ export function TerminalView({
     terminal.loadAddon(fit);
     terminal.loadAddon(search);
     terminal.open(container);
-    try {
-      const webgl = new WebglAddon();
-      webgl.onContextLoss(() => webgl.dispose());
-      terminal.loadAddon(webgl);
-    } catch {
-      // The DOM renderer is the fallback when WebGL is unavailable.
+    // Headless test browsers have no usable WebGL, so automation uses the DOM renderer.
+    if (!navigator.webdriver) {
+      try {
+        const webgl = new WebglAddon();
+        webgl.onContextLoss(() => webgl.dispose());
+        terminal.loadAddon(webgl);
+      } catch {
+        // The DOM renderer is the fallback when WebGL is unavailable.
+      }
     }
     fit.fit();
     terminalRef.current = terminal;
