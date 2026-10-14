@@ -1,0 +1,132 @@
+@import "tailwindcss";
+@import "./design/tokens.css";
+@import "./design/theme.css";
+
+/* shadcn/ui names mapped onto AnixOps tokens (guidelines/platforms.md).
+   `bg-accent` is shadcn's hover fill here; the AnixOps accent is
+   `text-(--accent)` for text and `bg-accent-fill` for filled controls. */
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--label-1);
+  --color-card: var(--bg-elevated);
+  --color-card-foreground: var(--label-1);
+  --color-popover: var(--bg-elevated);
+  --color-popover-foreground: var(--label-1);
+  --color-primary: var(--accent-fill);
+  --color-primary-foreground: var(--on-accent);
+  --color-secondary: var(--fill-1);
+  --color-secondary-foreground: var(--label-1);
+  --color-muted: var(--fill-1);
+  --color-muted-foreground: var(--label-2);
+  --color-accent: var(--fill-2);
+  --color-accent-foreground: var(--label-1);
+  --color-destructive: var(--danger-fill);
+  --color-border: var(--separator);
+  --color-input: var(--separator-strong);
+  --color-ring: var(--accent);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--label-1);
+    font-family: var(--font-sans);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-line);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* A desktop app: chrome is not selectable, inputs and code are. */
+    user-select: none;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  input,
+  textarea,
+  code,
+  .selectable {
+    user-select: text;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: var(--separator);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  button {
+    cursor: default;
+  }
+}
+
+/* Frosted bars and sidebars with an opaque fallback (guidelines/layout.md). */
+@utility material-sidebar {
+  background: var(--bg-grouped);
+  @supports (backdrop-filter: blur(1px)) {
+    background: var(--material-sidebar);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+@utility material-bar {
+  background: var(--bg);
+  @supports (backdrop-filter: blur(1px)) {
+    background: var(--material);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .material-sidebar {
+    background: var(--bg-grouped);
+    backdrop-filter: none;
+  }
+  .material-bar {
+    background: var(--bg);
+    backdrop-filter: none;
+  }
+}
+
+/* Page change: fade in + 8px rise (guidelines/motion.md). */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-page-in {
+  animation: page-in var(--dur-page) var(--ease-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes page-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  *,
+  ::before,
+  ::after {
+    transition-duration: 100ms !important;
+  }
+}

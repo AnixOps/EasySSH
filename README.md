@@ -1,30 +1,45 @@
-# EasySSH
+# AnixOps SSH
 
-EasySSH is a modern cross-platform session manager for system OpenSSH and the
-system SSH Agent, including the 1Password SSH Agent. It opens sessions in the
-platform terminal instead of embedding a terminal emulator.
+A clean, Termius-style SSH client for the system OpenSSH. Hosts on the left,
+sessions in tabs, files beside the terminal, nothing you do not need.
 
-It launches `ssh` for terminals and `scp` for file transfers. EasySSH does not
-implement an SSH protocol, keep passwords, import private keys, invoke the
-1Password CLI, or access credential vaults.
+AnixOps SSH never implements the SSH protocol and never stores passwords or
+private keys. Every session runs your own `ssh`, so `~/.ssh/config`,
+`ProxyJump`, `known_hosts`, the system SSH agent and the 1Password SSH agent
+all work as they already do.
 
-## Build
+> Status: v0.5 in progress. The app shell and host list are in place; the
+> embedded terminal arrives in v0.6. See [ROADMAP.md](ROADMAP.md).
 
-```powershell
-cargo fmt --check
-cargo clippy --workspace -- -D warnings
-cargo test --workspace
-cargo run -p easyssh-desktop
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Shell | [Tauri 2](https://tauri.app) |
+| UI | React, Tailwind CSS v4, shadcn/ui, [AnixOps Design](https://github.com/AnixOps/AnixOps-design) tokens |
+| Terminal (v0.6) | xterm.js on a PTY running the system `ssh` |
+| Core | `crates/easyssh-core`: OpenSSH invocation, `~/.ssh/config` discovery, non-sensitive config storage |
+
+## Development
+
+```bash
+npm install
+npm run dev          # UI only, in a browser, with preview data
+npm run tauri dev    # the desktop app (needs Rust and the Tauri prerequisites)
 ```
 
-Configure OpenSSH and your SSH Agent before opening EasySSH. On Windows the
-app opens Windows Terminal when available, with PowerShell as the system
-terminal fallback. Prefer an
-OpenSSH config alias such as `production`; EasySSH will run `ssh production`.
+CI builds and tests every push on Windows, macOS and Linux, captures UI
+screenshots in light and dark, and uploads installers as workflow artifacts.
 
-## Security Boundary
+## Security boundary
 
-- Connection metadata is stored in a local JSON file in the OS configuration directory.
-- Child processes inherit the existing `PATH`, `HOME`, `USERPROFILE`, and `SSH_AUTH_SOCK` environment.
-- The SSH Agent status page performs only `ssh -V`, `scp -V`, `ssh-add -l`, and optional `ssh -G` diagnostics.
-- Agent fingerprints are transient UI output and are never written to configuration or logs.
+- Connection metadata is stored in a local JSON file in the OS configuration
+  directory. Fields that look like secrets are rejected on load and save.
+- Child processes inherit `PATH`, `HOME`, `USERPROFILE` and `SSH_AUTH_SOCK`.
+- The frontend receives display data only; launching a session goes back
+  through `easyssh-core`, which validates every argument.
+
+## License
+
+MIT. The AnixOps mark, wordmark and icons are covered by the AnixOps brand
+license in the design repository.

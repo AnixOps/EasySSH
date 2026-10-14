@@ -159,11 +159,9 @@ fn expand_path_token(token: &str) -> PathBuf {
             return home.join(rest);
         }
     }
-    for (name, replacement) in [("%USERPROFILE%", std::env::var("USERPROFILE").ok())] {
-        if let Some(replacement) = replacement {
-            value = value.replace(name, &replacement);
-            value = value.replace(&name.to_ascii_lowercase(), &replacement);
-        }
+    if let Ok(profile) = std::env::var("USERPROFILE") {
+        value = value.replace("%USERPROFILE%", &profile);
+        value = value.replace("%userprofile%", &profile);
     }
     PathBuf::from(value)
 }
