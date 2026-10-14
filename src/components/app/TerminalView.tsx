@@ -174,7 +174,7 @@ export function TerminalView({
   };
 
   return (
-    <div className="relative h-full bg-bg" hidden={!active}>
+    <div className="relative h-full min-w-0 flex-1 bg-bg">
       <div ref={containerRef} className="absolute inset-0 py-2 pl-3" />
 
       {findOpen && (

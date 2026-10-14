@@ -181,10 +181,14 @@ fn resolve(config: &AppConfig, host_id: &str) -> Result<Connection, String> {
         .ok_or_else(|| format!("unknown host: {host_id}"))
 }
 
+/// Resolves a host id from the frontend into its saved or derived connection.
+pub fn connection(host_id: &str) -> Result<Connection, String> {
+    resolve(&load_config()?, host_id)
+}
+
 /// Resolves a host id from the frontend into a validated `ssh` invocation.
 pub fn invocation(host_id: &str) -> Result<(Connection, SshInvocation), String> {
-    let config = load_config()?;
-    let connection = resolve(&config, host_id)?;
+    let connection = connection(host_id)?;
     let invocation =
         SshInvocation::for_connection(&OpenSsh, &connection).map_err(|error| error.to_string())?;
     Ok((connection, invocation))

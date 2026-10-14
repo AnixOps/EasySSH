@@ -1,4 +1,4 @@
-import { LoaderCircle, Plus, SquareTerminal, Unplug, X } from "lucide-react";
+import { FolderOpen, LoaderCircle, Plus, SquareTerminal, Unplug, X } from "lucide-react";
 import type { SessionStatus } from "@/components/app/TerminalView";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "@/components/ui/tooltip";
@@ -13,6 +13,9 @@ export interface Tab {
   title: string;
   color: string | null;
   status: SessionStatus;
+  filesOpen: boolean;
+  /** Set once the pane has been opened; it then stays mounted so transfers survive closing it. */
+  filesMounted: boolean;
 }
 
 export function TabBar({
@@ -21,13 +24,16 @@ export function TabBar({
   onSelect,
   onClose,
   onNew,
+  onToggleFiles,
 }: {
   tabs: Tab[];
   activeKey: string | null;
   onSelect: (key: string) => void;
   onClose: (key: string) => void;
   onNew: () => void;
+  onToggleFiles: () => void;
 }) {
+  const activeTab = tabs.find((tab) => tab.key === activeKey);
   return (
     <div className="material-bar flex h-11 shrink-0 items-center gap-1 border-b px-2">
       <div role="tablist" className="flex min-w-0 items-center gap-1 overflow-x-auto">
@@ -76,6 +82,20 @@ export function TabBar({
           <Plus />
         </Button>
       </Tooltip>
+      {activeTab?.hostId && (
+        <Tooltip label={`${t.toggleFiles} (${shortcutLabel("e")})`}>
+          <Button
+            variant="ghost"
+            size="sm"
+            aria-pressed={activeTab.filesOpen}
+            onClick={onToggleFiles}
+            className={cn("ml-auto", activeTab.filesOpen && "bg-accent-soft text-(--accent) hover:bg-accent-soft hover:text-(--accent)")}
+          >
+            <FolderOpen />
+            {t.files}
+          </Button>
+        </Tooltip>
+      )}
     </div>
   );
 }

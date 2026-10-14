@@ -1,5 +1,6 @@
 import { CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { FilesPane } from "@/components/app/FilesPane";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
 import { ComingSoonPanel, EmptyWorkspace } from "@/components/app/Placeholders";
@@ -28,7 +29,10 @@ export function App() {
 
   const addTab = useCallback((hostId: string | null, title: string, color: string | null) => {
     const key = `tab-${nextTab++}`;
-    setTabs((current) => [...current, { key, hostId, title, color, status: { state: "connecting" } }]);
+    setTabs((current) => [
+      ...current,
+      { key, hostId, title, color, status: { state: "connecting" }, filesOpen: false, filesMounted: false },
+    ]);
     setActiveKey(key);
   }, []);
 
@@ -59,6 +63,15 @@ export function App() {
     setTabs((current) => current.map((tab) => (tab.key === key ? { ...tab, status } : tab)));
   }, []);
 
+  const setFilesOpen = useCallback((key: string, filesOpen: boolean) => {
+    setTabs((current) => current.map((tab) => (tab.key === key && tab.hostId ? { ...tab, filesOpen, filesMounted: true } : tab)));
+  }, []);
+
+  const toggleFiles = useCallback(() => {
+    const tab = tabs.find((candidate) => candidate.key === activeKey);
+    if (tab) setFilesOpen(tab.key, !tab.filesOpen);
+  }, [tabs, activeKey, setFilesOpen]);
+
   const focusSearch = useCallback(() => {
     setNav("hosts");
     window.requestAnimationFrame(() => searchRef.current?.focus());
@@ -70,12 +83,13 @@ export function App() {
       if (shortcut === "search-hosts") focusSearch();
       else if (shortcut === "new-local") openLocal();
       else if (shortcut === "close-tab" && activeKey) closeTab(activeKey);
+      else if (shortcut === "toggle-files") toggleFiles();
       else return;
       event.preventDefault();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [activeKey, closeTab, focusSearch, openLocal]);
+  }, [activeKey, closeTab, focusSearch, openLocal, toggleFiles]);
 
   const activeTab = tabs.find((tab) => tab.key === activeKey);
 
@@ -102,6 +116,7 @@ export function App() {
               onSelect={setActiveKey}
               onClose={closeTab}
               onNew={openLocal}
+              onToggleFiles={toggleFiles}
             />
           )}
           {loadError && (
@@ -117,13 +132,22 @@ export function App() {
           )}
           <div className="min-h-0 flex-1">
             {tabs.map((tab) => (
-              <TerminalView
-                key={tab.key}
-                tabKey={tab.key}
-                hostId={tab.hostId}
-                active={tab.key === activeKey}
-                onStatus={updateStatus}
-              />
+              <div key={tab.key} className="flex h-full" hidden={tab.key !== activeKey}>
+                <TerminalView
+                  tabKey={tab.key}
+                  hostId={tab.hostId}
+                  active={tab.key === activeKey}
+                  onStatus={updateStatus}
+                />
+                {tab.hostId && tab.filesMounted && (
+                  <FilesPane
+                    hostId={tab.hostId}
+                    visible={tab.filesOpen}
+                    active={tab.key === activeKey && tab.filesOpen}
+                    onClose={() => setFilesOpen(tab.key, false)}
+                  />
+                )}
+              </div>
             ))}
             {!activeTab && <EmptyWorkspace onOpenLocal={openLocal} />}
           </div>
