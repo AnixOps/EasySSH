@@ -4,7 +4,7 @@ import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import { revealItemInDir } from "@tauri-apps/plugin-opener";
 import { previewCancel, previewFiles, previewTransfer } from "./previewFiles";
-import { previewSnapshot } from "./preview";
+import { previewDeleteHost, previewSaveHost, previewSetFavorite, previewSnapshot } from "./preview";
 import { previewSession } from "./previewSession";
 
 export type HostSource = "saved" | "ssh_config";
@@ -19,6 +19,30 @@ export interface Host {
   favorite: boolean;
   color: string | null;
   source: HostSource;
+  fields: HostFields;
+}
+
+/** Connection settings as the host editor shows and saves them. */
+export interface HostFields {
+  /** Set for a ~/.ssh/config alias; the endpoint fields are then unused. */
+  alias: string | null;
+  hostname: string;
+  username: string | null;
+  port: number;
+  proxyJump: string | null;
+  notes: string;
+}
+
+export interface HostInput {
+  /** A saved host's id, a ~/.ssh/config host's id (saved as new), or null. */
+  id: string | null;
+  name: string;
+  group: string | null;
+  tags: string[];
+  favorite: boolean;
+  /** A chart colour token name such as "chart-3", or null. */
+  color: string | null;
+  fields: HostFields;
 }
 
 export interface Group {
@@ -47,6 +71,28 @@ export const isTauri = "__TAURI_INTERNALS__" in window;
 export async function loadHosts(): Promise<HostsSnapshot> {
   if (!isTauri) return previewSnapshot();
   return invoke<HostsSnapshot>("load_hosts");
+}
+
+export async function saveHost(input: HostInput): Promise<string> {
+  if (!isTauri) return previewSaveHost(input);
+  return invoke<string>("host_save", { input });
+}
+
+export async function deleteHost(id: string): Promise<void> {
+  if (!isTauri) return previewDeleteHost(id);
+  await invoke("host_delete", { id });
+}
+
+export async function setFavorite(id: string, favorite: boolean): Promise<void> {
+  if (!isTauri) return previewSetFavorite(id, favorite);
+  await invoke("host_set_favorite", { id, favorite });
+}
+
+/** Host colours are stored as chart token names so they follow the theme;
+ *  older configurations may hold a literal colour. */
+export function hostColor(color: string | null): string | undefined {
+  if (!color) return undefined;
+  return color.startsWith("#") ? color : `var(--${color})`;
 }
 
 export async function openExternal(hostId: string): Promise<void> {
