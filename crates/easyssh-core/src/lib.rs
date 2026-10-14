@@ -7,12 +7,14 @@
 pub mod config;
 pub mod domain;
 pub mod openssh;
+pub mod process;
 pub mod remote;
 pub mod security;
 pub mod sftp;
 pub mod ssh_config;
 pub mod sync;
 pub mod transfer;
+pub mod tunnel;
 pub mod workspace;
 
 pub use config::{ConfigStore, MigrationReport};
@@ -33,6 +35,7 @@ pub use sync::{GitSync, SyncError, SyncFile, SyncStatus};
 pub use transfer::{
     cancel, ScpInvocation, SftpListingInvocation, Transfer, TransferDirection, TransferStatus,
 };
+pub use tunnel::{Tunnel, TunnelKind};
 pub use workspace::{
     inspect_text, remote_state_changed, EditSession, LineEnding, LocalFileInfo,
     WorkspaceTempManager,
