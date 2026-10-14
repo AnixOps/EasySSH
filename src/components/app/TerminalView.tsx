@@ -4,12 +4,14 @@ import { WebglAddon } from "@xterm/addon-webgl";
 import { Terminal } from "@xterm/xterm";
 import "@xterm/xterm/css/xterm.css";
 import { ChevronDown, ChevronUp, RotateCw, SquareArrowOutUpRight, Unplug, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tooltip } from "@/components/ui/tooltip";
 import { copyText, openExternal, openSession, pasteText, type SessionHandle } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { duration, ease, enter, leave } from "@/lib/motion";
 import { onSettings, settings } from "@/lib/settings";
 import { appShortcut } from "@/lib/shortcuts";
 import { registerTerminal } from "@/lib/terminals";
@@ -195,8 +197,14 @@ export function TerminalView({
     <div className="relative h-full min-w-0 flex-1 bg-bg">
       <div ref={containerRef} className="absolute inset-0 py-2 pl-3" />
 
+      <AnimatePresence>
       {findOpen && (
-        <div className="material-bar absolute top-3 right-4 z-dropdown flex items-center gap-1 rounded-sm p-1 shadow-2 ring-1 ring-separator">
+        <motion.div
+          initial={{ opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: duration.toggle, ease: ease.emphasized } }}
+          exit={{ opacity: 0, y: -6, transition: leave }}
+          className="material-bar absolute top-3 right-4 z-dropdown flex items-center gap-1 rounded-sm p-1 shadow-2 ring-1 ring-separator"
+        >
           <Input
             ref={findInputRef}
             value={query}
@@ -218,14 +226,19 @@ export function TerminalView({
           <IconButton label={t.closeFind} onClick={closeFind}>
             <X />
           </IconButton>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
 
+      <AnimatePresence>
       {status.state === "exited" && (
-        <div className="absolute inset-x-0 bottom-6 flex justify-center px-4">
-          <div
+        <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center px-4">
+          <motion.div
             role="status"
-            className="flex max-w-xl animate-page-in flex-wrap items-center gap-3 rounded-md bg-bg-elevated px-4 py-3 shadow-3"
+            initial={{ opacity: 0, y: 12, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1, transition: enter }}
+            exit={{ opacity: 0, y: 8, transition: leave }}
+            className="pointer-events-auto flex max-w-xl flex-wrap items-center gap-3 rounded-md bg-bg-elevated px-4 py-3 shadow-3"
           >
             <Unplug className="size-5 shrink-0 text-label-2" strokeWidth={1.5} />
             <div className="min-w-0 flex-1">
@@ -246,9 +259,10 @@ export function TerminalView({
                 {t.openExternal}
               </Button>
             )}
-          </div>
+          </motion.div>
         </div>
       )}
+      </AnimatePresence>
     </div>
   );
 }

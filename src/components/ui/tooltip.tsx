@@ -19,7 +19,7 @@ export function Tooltip({
         <TooltipPrimitive.Content
           side={side}
           sideOffset={6}
-          className="z-tooltip rounded-xs bg-bg-elevated px-2 py-1 text-caption text-label-1 shadow-2 ring-1 ring-separator data-[state=delayed-open]:animate-page-in"
+          className="tooltip-motion z-tooltip origin-(--radix-tooltip-content-transform-origin) rounded-xs bg-bg-elevated px-2 py-1 text-caption text-label-1 shadow-2 ring-1 ring-separator"
         >
           {label}
         </TooltipPrimitive.Content>

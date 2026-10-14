@@ -1,10 +1,12 @@
 import { ClipboardPaste, CornerDownLeft, Pencil, Plus, Radio, SquareCode, Trash2 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tooltip } from "@/components/ui/tooltip";
 import { deleteSnippet, loadSnippets, saveSnippet, type Snippet } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { appear, reflow } from "@/lib/motion";
 import { connectedTerminals, terminalFor } from "@/lib/terminals";
 import { cn } from "@/lib/utils";
 
@@ -90,9 +92,10 @@ export function SnippetsPanel({ activeKey }: { activeKey: string | null }) {
       {error && <p className="mx-3 mb-2 rounded-sm bg-danger-soft px-3 py-2 text-caption font-normal text-danger">{error}</p>}
 
       <div className="min-h-0 flex-1 space-y-1 overflow-y-auto px-2 pb-3">
-        {draft && <DraftEditor draft={draft} onChange={setDraft} onSave={() => void save()} onCancel={() => setDraft(null)} />}
+        <AnimatePresence initial={false}>
+        {draft && <DraftEditor key="draft" draft={draft} onChange={setDraft} onSave={() => void save()} onCancel={() => setDraft(null)} />}
         {snippets.length === 0 && !draft && (
-          <div className="px-3 pt-10 text-center">
+          <div key="empty" className="px-3 pt-10 text-center">
             <SquareCode className="mx-auto mb-3 size-12 text-label-3" strokeWidth={1.5} />
             <p className="text-callout font-semibold text-label-1">{t.noSnippets}</p>
             <p className="mt-1 text-caption font-normal text-label-2">{t.noSnippetsHint}</p>
@@ -100,7 +103,13 @@ export function SnippetsPanel({ activeKey }: { activeKey: string | null }) {
         )}
         {visible.map((snippet) =>
           draft?.id === snippet.id ? null : (
-            <div key={snippet.id} className="group relative rounded-sm px-2 py-2 hover:bg-fill-1">
+            <motion.div
+              key={snippet.id}
+              layout="position"
+              transition={reflow}
+              {...appear}
+              className="group relative rounded-sm px-2 py-2 hover:bg-fill-1"
+            >
               <button
                 type="button"
                 onClick={() => send(snippet, true)}
@@ -134,9 +143,10 @@ export function SnippetsPanel({ activeKey }: { activeKey: string | null }) {
                   </SmallButton>
                 </span>
               )}
-            </div>
+            </motion.div>
           ),
         )}
+        </AnimatePresence>
       </div>
 
       <div className="border-t px-3 py-2.5">
@@ -175,7 +185,9 @@ function DraftEditor({
   onCancel: () => void;
 }) {
   return (
-    <form
+    <motion.form
+      key="snippet-draft"
+      {...appear}
       className="space-y-2 rounded-sm bg-bg-elevated p-2 shadow-1 ring-1 ring-separator"
       onSubmit={(event) => {
         event.preventDefault();
@@ -211,7 +223,7 @@ function DraftEditor({
           {t.save}
         </Button>
       </div>
-    </form>
+    </motion.form>
   );
 }
 

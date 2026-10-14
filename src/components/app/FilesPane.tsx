@@ -18,6 +18,7 @@ import {
   Upload,
   X,
 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,7 @@ import {
   type TransferEvent,
 } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { appear, duration, ease, reflow } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface TransferItem {
@@ -390,12 +392,14 @@ export function FilesPane({
             )}
           </div>
           <ul className="space-y-1">
+            <AnimatePresence initial={false}>
             {transfers.map((item) => (
               <TransferRow key={item.id} item={item} onCancel={() => {
                 void cancelTransfer(item.id);
                 updateTransfer(item.id, { state: "cancelled" });
               }} />
             ))}
+            </AnimatePresence>
           </ul>
         </section>
       )}
@@ -417,7 +421,18 @@ function PaneFrame({
   children: ReactNode;
 }) {
   return (
-    <aside ref={paneRef} hidden={!visible} aria-label={t.files} className="material-sidebar flex w-[400px] shrink-0 animate-page-in flex-col border-l">
+    <motion.aside
+      ref={paneRef}
+      aria-label={t.files}
+      aria-hidden={!visible}
+      className="material-sidebar flex w-[400px] shrink-0 flex-col border-l"
+      initial={{ opacity: 0, x: 24 }}
+      animate={
+        visible
+          ? { opacity: 1, x: 0, display: "flex", transition: { duration: duration.overlay, ease: ease.emphasized } }
+          : { opacity: 0, x: 24, transitionEnd: { display: "none" }, transition: { duration: 0.18, ease: ease.exit } }
+      }
+    >
       <div className="flex h-11 shrink-0 items-center gap-0.5 border-b pr-2 pl-4">
         <h2 className="mr-auto text-callout font-semibold">{t.files}</h2>
         {actions}
@@ -426,7 +441,7 @@ function PaneFrame({
         </IconButton>
       </div>
       {children}
-    </aside>
+    </motion.aside>
   );
 }
 
@@ -568,7 +583,7 @@ function TransferRow({ item, onCancel }: { item: TransferItem; onCancel: () => v
   const progress = item.total ? Math.min(1, item.bytes / item.total) : null;
   const Direction = item.upload ? ArrowUp : ArrowDown;
   return (
-    <li className="rounded-xs px-2 py-1.5">
+    <motion.li layout="position" transition={reflow} {...appear} className="rounded-xs px-2 py-1.5">
       <div className="flex items-center gap-2 text-callout">
         <Direction className="size-4 shrink-0 text-label-2" strokeWidth={1.5} aria-label={item.upload ? t.upload : t.download} />
         <span className="min-w-0 flex-1 truncate">{item.name}</span>
@@ -595,7 +610,7 @@ function TransferRow({ item, onCancel }: { item: TransferItem; onCancel: () => v
       {item.state === "failed" && item.message && (
         <p className="selectable mt-1 text-caption font-normal break-all text-danger">{item.message}</p>
       )}
-    </li>
+    </motion.li>
   );
 }
 

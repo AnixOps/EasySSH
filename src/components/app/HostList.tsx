@@ -1,10 +1,12 @@
 import { ChevronRight, Pencil, Plus, Search, Server, Star } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useMemo, useState, type Ref } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tooltip } from "@/components/ui/tooltip";
 import { hostColor, isTauri, type Group, type Host } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { duration, ease, reflow, slide } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface Section {
@@ -114,7 +116,7 @@ export function HostList({
           ) : (
             <ul className="mt-1 space-y-0.5">
               {matches.map((host) => (
-                <HostRow key={host.id} host={host} selected={host.id === selectedId} onOpen={onOpen} onEdit={onEdit} onToggleFavorite={onToggleFavorite} />
+                <HostRow key={host.id} host={host} group="search" selected={host.id === selectedId} onOpen={onOpen} onEdit={onEdit} onToggleFavorite={onToggleFavorite} />
               ))}
             </ul>
           )
@@ -122,7 +124,7 @@ export function HostList({
           sections.map((section) => {
             const isCollapsed = collapsed.has(section.id);
             return (
-              <section key={section.id} className="mt-2">
+              <motion.section key={section.id} layout="position" transition={reflow} className="mt-2">
                 <button
                   type="button"
                   onClick={() => toggle(section.id)}
@@ -139,21 +141,29 @@ export function HostList({
                   <span className="truncate">{section.title}</span>
                   <span className="ml-auto font-normal text-label-3">{section.hosts.length}</span>
                 </button>
+                <AnimatePresence initial={false}>
                 {!isCollapsed && (
-                  <ul className="space-y-0.5">
+                  <motion.ul
+                    className="space-y-0.5"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0, transition: { duration: duration.toggle, ease: ease.standard } }}
+                    exit={{ opacity: 0, y: -4, transition: { duration: duration.micro, ease: ease.exit } }}
+                  >
                     {section.hosts.map((host) => (
                       <HostRow
                         key={host.id}
                         host={host}
+                        group={section.id}
                         selected={host.id === selectedId}
                         onOpen={onOpen}
                         onEdit={onEdit}
                         onToggleFavorite={onToggleFavorite}
                       />
                     ))}
-                  </ul>
+                  </motion.ul>
                 )}
-              </section>
+                </AnimatePresence>
+              </motion.section>
             );
           })
         )}
@@ -168,12 +178,15 @@ export function HostList({
 
 function HostRow({
   host,
+  group,
   selected,
   onOpen,
   onEdit,
   onToggleFavorite,
 }: {
   host: Host;
+  /** Selection slides within a section; favorites repeat hosts elsewhere. */
+  group: string;
   selected: boolean;
   onOpen: (host: Host) => void;
   onEdit: (host: Host) => void;
@@ -187,12 +200,15 @@ function HostRow({
         onClick={() => onOpen(host)}
         aria-current={selected ? "true" : undefined}
         className={cn(
-          "flex w-full items-center gap-3 rounded-sm py-1.5 pr-16 pl-2 text-left transition-colors duration-micro ease-standard",
-          selected ? "bg-accent-soft" : "hover:bg-fill-1",
+          "relative flex w-full items-center gap-3 rounded-sm py-1.5 pr-16 pl-2 text-left transition-colors duration-micro ease-standard",
+          !selected && "hover:bg-fill-1",
         )}
       >
+        {selected && (
+          <motion.span layoutId={`host-selected-${group}`} transition={slide} className="absolute inset-0 rounded-sm bg-accent-soft" />
+        )}
         <HostTile host={host} selected={selected} />
-        <span className="min-w-0 flex-1">
+        <span className="relative min-w-0 flex-1">
           <span className="block truncate text-callout font-medium text-label-1">{host.name}</span>
           <span className="block truncate font-mono text-caption font-normal text-label-2">{host.target}</span>
         </span>
@@ -233,7 +249,7 @@ export function HostTile({ host, selected = false, large = false }: { host: Host
   return (
     <span
       className={cn(
-        "relative flex shrink-0 items-center justify-center rounded-sm",
+        "relative flex shrink-0 items-center justify-center rounded-sm transition-colors duration-toggle ease-standard",
         large ? "size-12" : "size-8",
         selected ? "bg-bg-elevated text-(--accent) shadow-1" : "bg-fill-2 text-label-2",
       )}

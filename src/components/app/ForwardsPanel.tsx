@@ -1,4 +1,5 @@
 import { ArrowLeftRight, CircleAlert, LoaderCircle, Pencil, Plus, Trash2 } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 import { TunnelEditor } from "@/components/app/TunnelEditor";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
   type Tunnel,
 } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { appear, reflow } from "@/lib/motion";
 import { describeTunnel } from "@/lib/tunnels";
 import { cn } from "@/lib/utils";
 
@@ -73,10 +75,17 @@ export function ForwardsPanel({ hosts }: { hosts: Host[] }) {
             <p className="mt-1 text-caption font-normal text-label-2">{t.noTunnelsHint}</p>
           </div>
         )}
+        <AnimatePresence initial={false}>
         {tunnels.map((tunnel) => {
           const on = tunnel.status.state === "running" || tunnel.status.state === "starting";
           return (
-            <div key={tunnel.id} className="group rounded-sm px-3 py-2.5 hover:bg-fill-1">
+            <motion.div
+              key={tunnel.id}
+              layout="position"
+              transition={reflow}
+              {...appear}
+              className="group rounded-sm px-3 py-2.5 hover:bg-fill-1"
+            >
               <div className="flex items-start gap-3">
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-callout font-medium text-label-1">{tunnel.name}</p>
@@ -113,12 +122,14 @@ export function ForwardsPanel({ hosts }: { hosts: Host[] }) {
                   </span>
                 )}
               </div>
-            </div>
+            </motion.div>
           );
         })}
+        </AnimatePresence>
       </div>
 
-      {editing !== undefined && (
+      <AnimatePresence>
+        {editing !== undefined && (
         <TunnelEditor
           tunnel={editing}
           hosts={hosts}
@@ -128,7 +139,8 @@ export function ForwardsPanel({ hosts }: { hosts: Host[] }) {
             reload();
           }}
         />
-      )}
+        )}
+      </AnimatePresence>
     </aside>
   );
 }
@@ -148,7 +160,7 @@ function Switch({ on, label, onClick }: { on: boolean; label: string; onClick: (
     >
       <span
         className={cn(
-          "absolute top-0.5 left-0.5 size-5 rounded-full bg-(--on-accent) shadow-1 transition-transform duration-toggle ease-standard",
+          "absolute top-0.5 left-0.5 size-5 rounded-full bg-(--on-accent) shadow-1 transition-transform duration-toggle ease-emphasized",
           on && "translate-x-4",
         )}
       />

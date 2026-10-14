@@ -1,8 +1,10 @@
 import { FolderOpen, LoaderCircle, Plus, SquareTerminal, Unplug, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import type { SessionStatus } from "@/components/app/TerminalView";
 import { Button } from "@/components/ui/button";
 import { Tooltip } from "@/components/ui/tooltip";
 import { t } from "@/lib/i18n";
+import { duration, ease, reflow, slide } from "@/lib/motion";
 import { shortcutLabel } from "@/lib/shortcuts";
 import { hostColor } from "@/lib/backend";
 import { cn } from "@/lib/utils";
@@ -38,25 +40,36 @@ export function TabBar({
   return (
     <div className="material-bar flex h-11 shrink-0 items-center gap-1 border-b px-2">
       <div role="tablist" className="flex min-w-0 items-center gap-1 overflow-x-auto">
+        <AnimatePresence initial={false}>
         {tabs.map((tab) => {
           const active = tab.key === activeKey;
           return (
-            <div
+            <motion.div
               key={tab.key}
+              layout="position"
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1, transition: { duration: duration.toggle, ease: ease.emphasized } }}
+              exit={{ opacity: 0, scale: 0.92, transition: { duration: duration.micro, ease: ease.exit } }}
+              transition={reflow}
               className={cn(
-                "group flex h-8 max-w-52 shrink-0 items-center rounded-sm transition-colors duration-micro ease-standard",
-                active
-                  ? "bg-bg-elevated text-label-1 shadow-1 ring-1 ring-separator"
-                  : "text-label-2 hover:bg-fill-1",
+                "group relative flex h-8 max-w-52 shrink-0 origin-left items-center rounded-sm transition-colors duration-micro ease-standard",
+                active ? "text-label-1" : "text-label-2 hover:bg-fill-1",
               )}
             >
+              {active && (
+                <motion.span
+                  layoutId="tab-active"
+                  transition={slide}
+                  className="absolute inset-0 rounded-sm bg-bg-elevated shadow-1 ring-1 ring-separator"
+                />
+              )}
               <button
                 type="button"
                 role="tab"
                 aria-selected={active}
                 onClick={() => onSelect(tab.key)}
                 onAuxClick={(event) => event.button === 1 && onClose(tab.key)}
-                className="flex h-full min-w-0 items-center gap-2 pl-3 text-callout"
+                className="relative flex h-full min-w-0 items-center gap-2 pl-3 text-callout"
               >
                 <TabIcon tab={tab} />
                 <span className="truncate">{tab.title}</span>
@@ -67,16 +80,17 @@ export function TabBar({
                   aria-label={t.closeTab}
                   onClick={() => onClose(tab.key)}
                   className={cn(
-                    "mx-1 flex size-5 items-center justify-center rounded-xs text-label-3 hover:bg-fill-2 hover:text-label-1",
+                    "relative mx-1 flex size-5 items-center justify-center rounded-xs text-label-3 transition-opacity duration-micro hover:bg-fill-2 hover:text-label-1",
                     !active && "opacity-0 group-hover:opacity-100 focus-visible:opacity-100",
                   )}
                 >
                   <X className="size-3.5" strokeWidth={1.5} />
                 </button>
               </Tooltip>
-            </div>
+            </motion.div>
           );
         })}
+        </AnimatePresence>
       </div>
       <Tooltip label={`${t.newTab} (${shortcutLabel("t")})`}>
         <Button variant="ghost" size="icon-sm" aria-label={t.newTab} onClick={onNew}>
