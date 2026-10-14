@@ -6,6 +6,8 @@ import { defineConfig } from "vite";
 // Tauri expects a fixed dev port and serves the built files from ../dist.
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // Relative asset paths work in Tauri and under the GitHub Pages sub-path.
+  base: "./",
   resolve: {
     alias: { "@": fileURLToPath(new URL("./src", import.meta.url)) },
   },
