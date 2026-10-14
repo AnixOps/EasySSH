@@ -183,7 +183,7 @@ export function CommandPalette({
             className="h-14 min-w-0 flex-1 bg-transparent text-body text-label-1 outline-none placeholder:text-label-3"
           />
         </div>
-        <div ref={listRef} id="palette-list" role="listbox" className="min-h-0 flex-1 overflow-y-auto p-2">
+        <div ref={listRef} id="palette-list" role="listbox" className="min-h-0 overflow-y-auto p-2">
           {visible.length === 0 && <p className="px-3 py-6 text-center text-callout text-label-2">{t.paletteEmpty}</p>}
           {visible.map((item, position) => {
             const showSection = !normalized && (position === 0 || visible[position - 1].section !== item.section);
