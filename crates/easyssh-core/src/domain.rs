@@ -1,4 +1,5 @@
 use crate::transfer::Transfer;
+use crate::tunnel::Tunnel;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
@@ -11,6 +12,8 @@ pub struct AppConfig {
     pub groups: Vec<Group>,
     pub recent_connection_ids: Vec<String>,
     pub snippets: Vec<CommandSnippet>,
+    #[serde(default)]
+    pub tunnels: Vec<Tunnel>,
     #[serde(default)]
     pub sessions: Vec<SessionRecord>,
     #[serde(default)]

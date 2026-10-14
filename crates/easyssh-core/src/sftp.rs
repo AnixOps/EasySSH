@@ -12,6 +12,7 @@
 
 use crate::domain::{Connection, ConnectionTarget};
 use crate::openssh::{OpenSsh, OpenSshError};
+use crate::process::hide_window;
 use crate::security::{validate_alias, validate_connection};
 use serde::Serialize;
 use std::io::{BufRead, BufReader, Read, Write};
@@ -175,7 +176,7 @@ impl SftpSession {
         connection: &Connection,
         env: &[(String, String)],
     ) -> Result<Self, OpenSshError> {
-        let mut child = Command::new(openssh.sftp_path()?)
+        let mut child = hide_window(&mut Command::new(openssh.sftp_path()?))
             .args(sftp_args(connection, false)?)
             .envs(env.iter().cloned())
             .stdin(Stdio::piped())
@@ -326,7 +327,7 @@ pub fn spawn_transfer(
     } else {
         format!("get -r {} {}\n", quote(remote)?, quote(local)?)
     };
-    let mut child = Command::new(openssh.sftp_path()?)
+    let mut child = hide_window(&mut Command::new(openssh.sftp_path()?))
         .args(sftp_args(connection, true)?)
         .envs(env.iter().cloned())
         .stdin(Stdio::piped())

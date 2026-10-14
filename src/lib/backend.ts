@@ -271,3 +271,118 @@ const previewSnippets: Snippet[] = [
   { id: "snippet-3", name: "最近的系统日志", content: "journalctl -n 100 --no-pager" },
   { id: "snippet-4", name: "重启 nginx", content: "sudo systemctl restart nginx && systemctl status nginx --no-pager" },
 ];
+
+export type TunnelKind = "local" | "remote" | "dynamic";
+
+export type TunnelStatus =
+  | { state: "stopped" }
+  | { state: "starting" }
+  | { state: "running" }
+  | { state: "failed"; message: string };
+
+export interface Tunnel {
+  id: string;
+  name: string;
+  hostId: string;
+  kind: TunnelKind;
+  bindAddress: string | null;
+  bindPort: number;
+  targetHost: string | null;
+  targetPort: number | null;
+  status: TunnelStatus;
+}
+
+export type TunnelInput = Omit<Tunnel, "id" | "status"> & { id: string | null };
+
+export async function loadTunnels(): Promise<Tunnel[]> {
+  if (!isTauri) return previewTunnels.map((tunnel) => ({ ...tunnel }));
+  return invoke<Tunnel[]>("tunnels_list");
+}
+
+export async function saveTunnel(input: TunnelInput): Promise<string> {
+  if (!isTauri) {
+    const existing = previewTunnels.find((tunnel) => tunnel.id === input.id);
+    if (existing) Object.assign(existing, input);
+    else previewTunnels.push({ ...input, id: `tunnel-${previewTunnels.length + 1}`, status: { state: "stopped" } });
+    return input.id ?? `tunnel-${previewTunnels.length}`;
+  }
+  return invoke<string>("tunnel_save", { input });
+}
+
+export async function deleteTunnel(id: string): Promise<void> {
+  if (!isTauri) {
+    previewTunnels.splice(previewTunnels.findIndex((tunnel) => tunnel.id === id), 1);
+    return;
+  }
+  await invoke("tunnel_delete", { id });
+}
+
+const previewListeners = new Set<(id: string, status: TunnelStatus) => void>();
+
+function previewStatus(id: string, status: TunnelStatus) {
+  const tunnel = previewTunnels.find((candidate) => candidate.id === id);
+  if (tunnel) tunnel.status = status;
+  for (const listener of previewListeners) listener(id, status);
+}
+
+export async function startTunnel(id: string): Promise<void> {
+  if (!isTauri) {
+    previewStatus(id, { state: "starting" });
+    window.setTimeout(() => previewStatus(id, { state: "running" }), 400);
+    return;
+  }
+  await invoke("tunnel_start", { id });
+}
+
+export async function stopTunnel(id: string): Promise<void> {
+  if (!isTauri) return previewStatus(id, { state: "stopped" });
+  await invoke("tunnel_stop", { id });
+}
+
+/** Subscribes to tunnel status changes; returns the unsubscribe function. */
+export function onTunnelStatus(handler: (id: string, status: TunnelStatus) => void): () => void {
+  if (!isTauri) {
+    previewListeners.add(handler);
+    return () => previewListeners.delete(handler);
+  }
+  const stop = listen<{ id: string; status: TunnelStatus }>("tunnel-status", (event) =>
+    handler(event.payload.id, event.payload.status),
+  );
+  return () => void stop.then((unlisten) => unlisten());
+}
+
+const previewTunnels: Tunnel[] = [
+  {
+    id: "tunnel-1",
+    name: "生产数据库",
+    hostId: "3",
+    kind: "local",
+    bindAddress: null,
+    bindPort: 15432,
+    targetHost: "127.0.0.1",
+    targetPort: 5432,
+    status: { state: "running" },
+  },
+  {
+    id: "tunnel-2",
+    name: "内网 SOCKS 代理",
+    hostId: "ssh-config:bastion",
+    kind: "dynamic",
+    bindAddress: null,
+    bindPort: 1080,
+    targetHost: null,
+    targetPort: null,
+    status: { state: "stopped" },
+  },
+  {
+    id: "tunnel-3",
+    name: "Grafana",
+    hostId: "1",
+    kind: "local",
+    bindAddress: null,
+    bindPort: 3000,
+    targetHost: "grafana.internal",
+    targetPort: 3000,
+    status: { state: "failed", message: "bind [127.0.0.1]:3000: Address already in use" },
+  },
+];
