@@ -1,5 +1,11 @@
 import type { HostsSnapshot } from "./backend";
 
+/** Mirrors `display_command` in src-tauri/src/hosts.rs. */
+function previewCommand(target: string): string {
+  const [destination, port] = target.split(":");
+  return port ? `ssh -p ${port} ${destination}` : `ssh ${destination}`;
+}
+
 /** Fixed sample data for browser previews and CI screenshots.
  *  `?hosts=empty` shows the first-run state. */
 export function previewSnapshot(): HostsSnapshot {
@@ -16,7 +22,7 @@ export function previewSnapshot(): HostsSnapshot {
     id,
     name,
     target,
-    command: `ssh ${target}`,
+    command: previewCommand(target),
     groupId,
     tags: extra.tags ?? [],
     favorite: extra.favorite ?? false,

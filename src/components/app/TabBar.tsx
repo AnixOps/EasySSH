@@ -34,7 +34,7 @@ export function TabBar({
               key={tab.key}
               className={cn(
                 "group flex h-8 max-w-52 shrink-0 items-center rounded-sm transition-colors duration-micro ease-standard",
-                active ? "bg-bg-elevated text-label-1 shadow-1" : "text-label-2 hover:bg-fill-1",
+                active ? "bg-bg-elevated text-label-1 shadow-1 ring-1 ring-separator" : "text-label-2 hover:bg-fill-1",
               )}
             >
               <button
