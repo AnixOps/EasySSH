@@ -7,6 +7,7 @@ mod askpass;
 mod files;
 mod hosts;
 mod sessions;
+mod settings;
 mod snippets;
 mod tunnels;
 
@@ -36,6 +37,9 @@ fn main() {
             tunnels::tunnel_delete,
             tunnels::tunnel_start,
             tunnels::tunnel_stop,
+            settings::settings_get,
+            settings::settings_save,
+            settings::ssh_status,
             sessions::session_open,
             sessions::session_write,
             sessions::session_resize,

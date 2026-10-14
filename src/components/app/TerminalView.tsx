@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Tooltip } from "@/components/ui/tooltip";
 import { copyText, openExternal, openSession, pasteText, type SessionHandle } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { onSettings, settings } from "@/lib/settings";
 import { appShortcut } from "@/lib/shortcuts";
 import { registerTerminal } from "@/lib/terminals";
 import { terminalFont, terminalTheme } from "@/lib/terminalTheme";
@@ -56,10 +57,10 @@ export function TerminalView({
 
     const terminal = new Terminal({
       fontFamily: terminalFont(),
-      fontSize: 13,
+      fontSize: settings().terminalFontSize,
       lineHeight: 1.2,
       cursorBlink: true,
-      scrollback: 10000,
+      scrollback: settings().terminalScrollback,
       allowProposedApi: true,
       macOptionIsMeta: true,
       theme: terminalTheme(),
@@ -149,11 +150,18 @@ export function TerminalView({
     const scheme = window.matchMedia("(prefers-color-scheme: dark)");
     const updateTheme = () => (terminal.options.theme = terminalTheme());
     scheme.addEventListener("change", updateTheme);
+    const stopSettings = onSettings((next) => {
+      terminal.options.fontSize = next.terminalFontSize;
+      terminal.options.scrollback = next.terminalScrollback;
+      updateTheme();
+      if (container.clientWidth > 0) fit.fit();
+    });
 
     return () => {
       disposed = true;
       unregister();
       scheme.removeEventListener("change", updateTheme);
+      stopSettings();
       observer.disconnect();
       sessionRef.current?.close();
       sessionRef.current = null;

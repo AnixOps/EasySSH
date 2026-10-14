@@ -20,6 +20,8 @@ const scenes = [
   { name: "forwards", query: "", nav: "端口转发" },
   { name: "tunnel-editor", query: "", nav: "端口转发", click: "新建隧道" },
   { name: "palette", query: "", open: ["prod-web-01"], keys: "Control+Shift+K", typeText: "prod" },
+  { name: "settings", query: "", nav: "设置" },
+  { name: "no-ssh", query: "ssh=missing" },
   { name: "snippets", query: "", open: ["prod-web-01"], nav: "命令片段", run: "磁盘用量" },
   { name: "new-host", query: "hosts=empty", click: "新建主机" },
   { name: "first-run", query: "hosts=empty" },

@@ -386,3 +386,30 @@ const previewTunnels: Tunnel[] = [
     status: { state: "failed", message: "bind [127.0.0.1]:3000: Address already in use" },
   },
 ];
+
+export interface SshStatus {
+  sshVersion: string | null;
+  sftpFound: boolean;
+  agent: "ready" | "empty" | "unavailable";
+  agentKeys: string[];
+  agentError: string | null;
+  sshConfigHosts: number;
+}
+
+/** Checks OpenSSH and the SSH agent. `?ssh=missing` previews a bare machine. */
+export async function sshStatus(): Promise<SshStatus> {
+  if (!isTauri) {
+    if (new URLSearchParams(window.location.search).get("ssh") === "missing") {
+      return { sshVersion: null, sftpFound: false, agent: "unavailable", agentKeys: [], agentError: null, sshConfigHosts: 0 };
+    }
+    return {
+      sshVersion: "OpenSSH_9.5p1, LibreSSL 3.3.6",
+      sftpFound: true,
+      agent: "ready",
+      agentKeys: ["256 SHA256:3fA9k2Lq0yQkZf1mJb7Vx2c8Tn5Rw4Hs6Pd0Ue1Gi9o you@laptop (ED25519)"],
+      agentError: null,
+      sshConfigHosts: 1,
+    };
+  }
+  return invoke<SshStatus>("ssh_status");
+}
