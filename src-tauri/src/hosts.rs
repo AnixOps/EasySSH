@@ -187,8 +187,8 @@ fn resolve(config: &AppConfig, host_id: &str) -> Result<Connection, String> {
 pub fn open_external(host_id: String) -> Result<(), String> {
     let config = load_config()?;
     let connection = resolve(&config, &host_id)?;
-    let invocation = SshInvocation::for_connection(&OpenSsh, &connection)
-        .map_err(|error| error.to_string())?;
+    let invocation =
+        SshInvocation::for_connection(&OpenSsh, &connection).map_err(|error| error.to_string())?;
     ExternalTerminal::launch(&connection.name, &invocation).map_err(|error| error.to_string())
 }
 
@@ -207,19 +207,27 @@ mod tests {
     #[test]
     fn endpoint_display_omits_default_port() {
         assert_eq!(display_target(&endpoint(Some("root"), 22)), "root@10.0.0.5");
-        assert_eq!(display_command(&endpoint(Some("root"), 22)), "ssh root@10.0.0.5");
+        assert_eq!(
+            display_command(&endpoint(Some("root"), 22)),
+            "ssh root@10.0.0.5"
+        );
     }
 
     #[test]
     fn endpoint_display_keeps_custom_port() {
         assert_eq!(display_target(&endpoint(None, 2222)), "10.0.0.5:2222");
-        assert_eq!(display_command(&endpoint(None, 2222)), "ssh -p 2222 10.0.0.5");
+        assert_eq!(
+            display_command(&endpoint(None, 2222)),
+            "ssh -p 2222 10.0.0.5"
+        );
     }
 
     #[test]
     fn ssh_config_aliases_already_saved_are_not_duplicated() {
         let mut config = AppConfig::new();
-        config.connections.push(Connection::alias("Production", "prod"));
+        config
+            .connections
+            .push(Connection::alias("Production", "prod"));
         let aliases = vec!["prod".to_owned(), "pi".to_owned()];
         let hosts = snapshot(&config, &aliases);
         assert_eq!(hosts.len(), 2);

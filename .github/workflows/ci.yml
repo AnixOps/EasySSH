@@ -73,14 +73,21 @@ jobs:
       - name: Install frontend
         run: mkdir -p logs && npm install > logs/npm-install.log 2>&1
       - name: Build frontend
+        id: frontend
         run: npm run build 2>&1 | tee logs/frontend-build.log
+      # The checks below all run once the frontend is built, so one CI round
+      # reports every failure instead of stopping at the first.
       - name: rustfmt
+        if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
         run: cargo fmt --all --check 2>&1 | tee logs/fmt.log
       - name: clippy
+        if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
         run: cargo clippy --workspace --all-targets -- -D warnings 2>&1 | tee logs/clippy.log
       - name: test
+        if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
         run: cargo test --workspace 2>&1 | tee logs/test.log
       - name: Bundle
+        if: ${{ !cancelled() && steps.frontend.outcome == 'success' }}
         run: npx tauri build 2>&1 | tee logs/bundle.log
       - if: always()
         uses: actions/upload-artifact@v4
