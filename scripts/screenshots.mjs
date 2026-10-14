@@ -15,6 +15,7 @@ const scenes = [
   { name: "local", query: "", local: true, type: ["ls"] },
   { name: "files", query: "", open: ["prod-web-01"], type: ["ls"], files: true },
   { name: "search", query: "", search: "prod" },
+  { name: "askpass", query: "askpass=1" },
   { name: "first-run", query: "hosts=empty" },
   { name: "terminal-en", query: "lang=en", open: ["prod-web-01", "home-nas"] },
 ];

@@ -1,5 +1,6 @@
 import { CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { AskpassDialog } from "@/components/app/AskpassDialog";
 import { FilesPane } from "@/components/app/FilesPane";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
@@ -153,6 +154,7 @@ export function App() {
           </div>
         </main>
       </div>
+      <AskpassDialog />
     </TooltipProvider>
   );
 }

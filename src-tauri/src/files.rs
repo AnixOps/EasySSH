@@ -1,7 +1,7 @@
 //! File pane commands: browsing through a long-lived `sftp` per pane, and
 //! transfers in their own `sftp` processes so each can be cancelled.
 
-use crate::hosts;
+use crate::{askpass, hosts};
 use easyssh_core::sftp::{self, RemoteFile, SftpSession};
 use easyssh_core::{OpenSsh, OpenSshError};
 use serde::Serialize;
@@ -12,7 +12,7 @@ use std::process::Child;
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
-use tauri::{ipc::Channel, State};
+use tauri::{ipc::Channel, AppHandle, State};
 
 struct RunningTransfer {
     child: Mutex<Child>,
@@ -72,10 +72,15 @@ pub struct OpenedFiles {
 }
 
 #[tauri::command]
-pub async fn sftp_open(files: State<'_, Files>, host_id: String) -> Result<OpenedFiles, String> {
+pub async fn sftp_open(
+    app: AppHandle,
+    files: State<'_, Files>,
+    host_id: String,
+) -> Result<OpenedFiles, String> {
     let connection = hosts::connection(&host_id)?;
+    let env = askpass::env_for(&app, &connection.name)?;
     let session = blocking(move || {
-        SftpSession::connect(&OpenSsh, &connection).map_err(|error| error.to_string())
+        SftpSession::connect(&OpenSsh, &connection, &env).map_err(|error| error.to_string())
     })
     .await?;
     let id = next_id();
@@ -149,6 +154,7 @@ pub struct StartedTransfer {
 /// remote path `remote` into the user's Downloads folder.
 #[tauri::command]
 pub fn transfer_start(
+    app: AppHandle,
     files: State<'_, Files>,
     host_id: String,
     upload: bool,
@@ -172,7 +178,8 @@ pub fn transfer_start(
             .ok_or("the remote path has no file name")?;
         (unique_download_path(&safe_file_name(name))?, remote)
     };
-    let mut child = sftp::spawn_transfer(&OpenSsh, &connection, upload, &local, &remote)
+    let env = askpass::env_for(&app, &connection.name)?;
+    let mut child = sftp::spawn_transfer(&OpenSsh, &connection, upload, &local, &remote, &env)
         .map_err(|error| error.to_string())?;
     let stderr = child.stderr.take();
     let errors = std::thread::spawn(move || {

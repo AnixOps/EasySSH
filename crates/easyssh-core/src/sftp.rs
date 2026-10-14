@@ -6,8 +6,9 @@
 //! send otherwise) and its output is everything before the marker's echo.
 //! Transfers run in their own `sftp -b -` process so they can be cancelled.
 //!
-//! `BatchMode=yes` means only key and agent authentication work here; the
-//! file pane never sees or relays passwords.
+//! These processes have no terminal, so OpenSSH asks for passwords and
+//! host-key confirmations through `SSH_ASKPASS`; callers pass that
+//! environment in. Answers go straight to OpenSSH and are never stored.
 
 use crate::domain::{Connection, ConnectionTarget};
 use crate::openssh::{OpenSsh, OpenSshError};
@@ -21,6 +22,8 @@ use std::time::Duration;
 
 const MARKER: &str = "lpwd";
 const REPLY_TIMEOUT: Duration = Duration::from_secs(30);
+/// Long enough to type a password into the prompt.
+const LOGIN_TIMEOUT: Duration = Duration::from_secs(300);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -45,7 +48,7 @@ pub struct RemoteFile {
 /// Arguments shared by browsing and transfer processes.
 pub fn sftp_args(connection: &Connection, batch: bool) -> Result<Vec<String>, OpenSshError> {
     validate_connection(connection)?;
-    let mut args: Vec<String> = vec!["-q".into(), "-o".into(), "BatchMode=yes".into()];
+    let mut args: Vec<String> = vec!["-q".into()];
     if batch {
         args.extend(["-b".into(), "-".into()]);
     }
@@ -167,9 +170,14 @@ pub struct SftpSession {
 impl SftpSession {
     /// Starts `sftp` and waits until it answers, so an authentication
     /// failure is reported here rather than on the first listing.
-    pub fn connect(openssh: &OpenSsh, connection: &Connection) -> Result<Self, OpenSshError> {
+    pub fn connect(
+        openssh: &OpenSsh,
+        connection: &Connection,
+        env: &[(String, String)],
+    ) -> Result<Self, OpenSshError> {
         let mut child = Command::new(openssh.sftp_path()?)
             .args(sftp_args(connection, false)?)
+            .envs(env.iter().cloned())
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .stderr(Stdio::piped())
@@ -188,7 +196,7 @@ impl SftpSession {
             lines,
             home: String::new(),
         };
-        let output = session.run("pwd")?;
+        let output = session.run_for("pwd", LOGIN_TIMEOUT)?;
         session.home = parse_pwd(&output)
             .ok_or_else(|| OpenSshError::Failed("sftp did not report a directory".into()))?;
         Ok(session)
@@ -220,8 +228,11 @@ impl SftpSession {
     /// Runs one command and returns its standard output. Anything the
     /// command writes to standard error is treated as a failure.
     fn run(&mut self, command: &str) -> Result<String, OpenSshError> {
-        writeln!(self.stdin, "{command}\n{MARKER}")
-            .map_err(|_| self.ended())?;
+        self.run_for(command, REPLY_TIMEOUT)
+    }
+
+    fn run_for(&mut self, command: &str, timeout: Duration) -> Result<String, OpenSshError> {
+        writeln!(self.stdin, "{command}\n{MARKER}").map_err(|_| self.ended())?;
         self.stdin.flush().map_err(|_| self.ended())?;
         let echo = format!("sftp> {command}");
         let marker = format!("sftp> {MARKER}");
@@ -229,7 +240,7 @@ impl SftpSession {
         let mut errors = String::new();
         let mut started = false;
         loop {
-            match self.lines.recv_timeout(REPLY_TIMEOUT) {
+            match self.lines.recv_timeout(timeout) {
                 Ok(Line::Out(line)) if !started => started = line == echo,
                 Ok(Line::Out(line)) if line == marker => break,
                 Ok(Line::Out(line)) => {
@@ -305,6 +316,7 @@ pub fn spawn_transfer(
     upload: bool,
     local: &Path,
     remote: &str,
+    env: &[(String, String)],
 ) -> Result<Child, OpenSshError> {
     let local = local
         .to_str()
@@ -316,6 +328,7 @@ pub fn spawn_transfer(
     };
     let mut child = Command::new(openssh.sftp_path()?)
         .args(sftp_args(connection, true)?)
+        .envs(env.iter().cloned())
         .stdin(Stdio::piped())
         .stdout(Stdio::null())
         .stderr(Stdio::piped())
@@ -392,9 +405,6 @@ lrwxrwxrwx    1 deploy   deploy         11 Sep  2 11:05 current -> releases/42
             ..Connection::alias("x", "unused")
         };
         let args = sftp_args(&connection, true).unwrap();
-        assert_eq!(
-            args,
-            ["-q", "-o", "BatchMode=yes", "-b", "-", "-P", "2222", "ops@[2001:db8::1]"]
-        );
+        assert_eq!(args, ["-q", "-b", "-", "-P", "2222", "ops@[2001:db8::1]"]);
     }
 }

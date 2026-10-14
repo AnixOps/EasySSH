@@ -1,4 +1,5 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
+import { listen } from "@tauri-apps/api/event";
 import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
 import { open as openDialog } from "@tauri-apps/plugin-dialog";
 import { revealItemInDir } from "@tauri-apps/plugin-opener";
@@ -160,4 +161,31 @@ export async function pickUploads(): Promise<string[]> {
 
 export async function revealLocal(path: string): Promise<void> {
   if (isTauri) await revealItemInDir(path);
+}
+
+export interface AskpassPrompt {
+  id: number;
+  host: string;
+  prompt: string;
+  /** A yes/no question, such as accepting a new host key. */
+  confirm: boolean;
+}
+
+/** Subscribes to OpenSSH prompts; returns the unsubscribe function. */
+export function onAskpass(handler: (prompt: AskpassPrompt) => void): () => void {
+  if (!isTauri) {
+    if (new URLSearchParams(window.location.search).get("askpass") === "1") {
+      window.setTimeout(
+        () => handler({ id: 1, host: "prod-db", prompt: "postgres@10.0.2.20's password: ", confirm: false }),
+        300,
+      );
+    }
+    return () => {};
+  }
+  const stop = listen<AskpassPrompt>("askpass", (event) => handler(event.payload));
+  return () => void stop.then((unlisten) => unlisten());
+}
+
+export function replyAskpass(id: number, answer: string | null): void {
+  if (isTauri) void invoke("askpass_reply", { id, answer }).catch(console.error);
 }

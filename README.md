@@ -8,8 +8,8 @@ private keys. Every session runs your own `ssh`, so `~/.ssh/config`,
 `ProxyJump`, `known_hosts`, the system SSH agent and the 1Password SSH agent
 all work as they already do.
 
-> Status: v0.6. Sessions run in embedded terminal tabs; the SFTP pane
-> arrives in v0.7. See [ROADMAP.md](ROADMAP.md).
+> Status: v0.7. Terminals in tabs and an SFTP file pane beside them;
+> snippets and port forwarding arrive in v0.8. See [ROADMAP.md](ROADMAP.md).
 
 ## Stack
 
@@ -36,6 +36,11 @@ screenshots in light and dark, and uploads installers as workflow artifacts.
 - Connection metadata is stored in a local JSON file in the OS configuration
   directory. Fields that look like secrets are rejected on load and save.
 - Child processes inherit `PATH`, `HOME`, `USERPROFILE` and `SSH_AUTH_SOCK`.
+- Terminals relay keystrokes, so OpenSSH asks for passwords in the terminal
+  itself. The file pane's `sftp` processes have no terminal; their password,
+  passphrase and host-key prompts arrive through `SSH_ASKPASS` (this app in
+  helper mode, over a token-guarded loopback socket) as a dialog. Answers go
+  straight to OpenSSH and are never stored.
 - The frontend receives display data only; launching a session goes back
   through `easyssh-core`, which validates every argument.
 
