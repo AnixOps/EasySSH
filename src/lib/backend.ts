@@ -1,6 +1,7 @@
 import { Channel, invoke } from "@tauri-apps/api/core";
 import { readText, writeText } from "@tauri-apps/plugin-clipboard-manager";
-import { previewSession, previewSnapshot } from "./preview";
+import { previewSnapshot } from "./preview";
+import { previewSession } from "./previewSession";
 
 export type HostSource = "saved" | "ssh_config";
 
