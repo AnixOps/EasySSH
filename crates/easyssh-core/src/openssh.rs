@@ -244,7 +244,10 @@ fn launch_powershell(invocation: &SshInvocation) -> Result<(), OpenSshError> {
 }
 
 fn version(path: &PathBuf) -> Option<String> {
-    let output = hide_window(&mut Command::new(path)).arg("-V").output().ok()?;
+    let output = hide_window(&mut Command::new(path))
+        .arg("-V")
+        .output()
+        .ok()?;
     Some(
         String::from_utf8_lossy(if output.stderr.is_empty() {
             &output.stdout
