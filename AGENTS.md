@@ -21,6 +21,16 @@ Results (logs, screenshots, lockfiles) are force-pushed to the branch
 `ci-results/<branch>`; read them with
 `git fetch origin ci-results/<branch>` and `git show FETCH_HEAD:<path>`.
 
+## Branches and releases
+
+- Work on a feature branch, open a PR with `gh pr create`, squash-merge once
+  CI is green, and delete the branch (`gh pr merge --squash --delete-branch`).
+  Deleting a branch also deletes its `ci-results/<branch>` (cleanup.yml).
+- To release, bump the version in `Cargo.toml` (workspace), `package.json`
+  and `src-tauri/tauri.conf.json`, merge that to `main`, then tag `main` with
+  `vX.Y.Z` and push the tag. release.yml checks the versions match, builds on
+  all three platforms and publishes a GitHub Release with the installers.
+
 ## UI rules
 
 - Use only AnixOps Design tokens (`src/design/`, vendored, do not edit) and

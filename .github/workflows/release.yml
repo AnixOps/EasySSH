@@ -1,0 +1,74 @@
+name: Release
+
+# Push a tag such as v0.5.0 to publish installers for every platform.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+env:
+  TAG: ${{ github.ref_name }}
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  prepare:
+    name: Check version and create draft
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Tag must match the app version
+        run: |
+          version="${TAG#v}"
+          for file in package.json src-tauri/tauri.conf.json; do
+            actual=$(jq -r .version "$file")
+            [ "$actual" = "$version" ] || { echo "::error file=$file::version $actual does not match tag $TAG"; exit 1; }
+          done
+          grep -q "^version = \"$version\"" Cargo.toml || { echo "::error file=Cargo.toml::workspace version does not match tag $TAG"; exit 1; }
+      - name: Create draft release
+        run: |
+          gh release create "$TAG" --draft --verify-tag --title "AnixOps SSH ${TAG#v}" --generate-notes \
+            --notes "安装包未签名：Windows 首次运行时在 SmartScreen 中选择“仍要运行”；macOS 首次打开请右键选择“打开”。"
+
+  build:
+    name: Build (${{ matrix.os }})
+    needs: prepare
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-22.04]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v5
+      - name: Linux system libraries for Tauri
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev patchelf libxdo-dev
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: npm ci
+      - run: npx tauri build
+      - name: Upload installers to the draft release
+        run: |
+          mkdir upload
+          for file in target/release/bundle/{nsis/*.exe,dmg/*.dmg,deb/*.deb,appimage/*.AppImage}; do
+            [ -f "$file" ] && cp "$file" "upload/$(basename "$file" | tr ' ' '-')"
+          done
+          ls -la upload
+          gh release upload "$TAG" upload/* --clobber
+
+  publish:
+    name: Publish release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh release edit "$TAG" --repo "$GITHUB_REPOSITORY" --draft=false --latest
