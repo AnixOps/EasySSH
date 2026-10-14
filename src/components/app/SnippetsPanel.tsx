@@ -108,7 +108,7 @@ export function SnippetsPanel({ activeKey }: { activeKey: string | null }) {
                 aria-label={`${t.runSnippet}: ${snippet.name}`}
               >
                 <span className="block truncate text-callout font-medium text-label-1">{snippet.name}</span>
-                <code className="mt-0.5 line-clamp-2 font-mono text-caption font-normal break-all text-label-2">
+                <code className="mt-0.5 line-clamp-2 font-mono text-caption font-normal break-words text-label-2">
                   {snippet.content}
                 </code>
               </button>

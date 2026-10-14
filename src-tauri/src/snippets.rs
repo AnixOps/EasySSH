@@ -18,7 +18,11 @@ pub fn snippet_save(id: Option<String>, name: String, content: String) -> Result
     let snippet = validated(id, &name, &content)?;
     let mut config = load_config()?;
     let id = snippet.id.clone();
-    match config.snippets.iter_mut().find(|existing| existing.id == id) {
+    match config
+        .snippets
+        .iter_mut()
+        .find(|existing| existing.id == id)
+    {
         Some(existing) => *existing = snippet,
         None => config.snippets.push(snippet),
     }
@@ -37,7 +41,9 @@ fn validated(id: Option<String>, name: &str, content: &str) -> Result<CommandSni
     let name = name.trim();
     let content = content.trim_end();
     if name.is_empty() || name.chars().count() > MAX_NAME || name.chars().any(char::is_control) {
-        return Err(format!("the name must be 1 to {MAX_NAME} characters on one line"));
+        return Err(format!(
+            "the name must be 1 to {MAX_NAME} characters on one line"
+        ));
     }
     if content.trim().is_empty() || content.len() > MAX_CONTENT || content.contains('\0') {
         return Err("the command must not be empty or longer than 16 KB".to_owned());
