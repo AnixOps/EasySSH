@@ -1,0 +1,5 @@
+
+> anixops-ssh@1.0.1 screenshots
+> node scripts/screenshots.mjs http://localhost:4173 screenshots
+
+Saved 38 screenshots to screenshots

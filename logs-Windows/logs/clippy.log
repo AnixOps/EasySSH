@@ -1,0 +1,4 @@
+[1m[92m    Updating[0m crates.io index
+[1m[92m   Compiling[0m anixops-ssh v1.0.1 (D:\a\EasySSH\EasySSH\src-tauri)
+[1m[92m    Checking[0m easyssh-core v1.0.1 (D:\a\EasySSH\EasySSH\crates\easyssh-core)
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 24.33s

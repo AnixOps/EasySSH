@@ -1,0 +1,68 @@
+[1m[92m   Compiling[0m easyssh-core v1.0.1 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m   Compiling[0m anixops-ssh v1.0.1 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 5.35s
+[1m[92m     Running[0m unittests src/main.rs (target/debug/deps/anixops_ssh-ba2a96fb14a5d654)
+
+running 14 tests
+test files::tests::remote_names_cannot_escape_the_downloads_folder ... ok
+test hosts::tests::endpoint_display_keeps_custom_port ... ok
+test hosts::tests::editor_values_become_a_validated_endpoint ... ok
+test hosts::tests::endpoint_display_omits_default_port ... ok
+test hosts::tests::ssh_config_aliases_already_saved_are_not_duplicated ... ok
+test hosts::tests::ssh_config_ids_resolve_to_alias_connections ... ok
+test hosts::tests::unsafe_editor_values_are_rejected ... ok
+test sessions::tests::passes_ascii_through ... ok
+test sessions::tests::keeps_split_characters_until_complete ... ok
+test settings::tests::tells_an_empty_agent_from_a_missing_one ... ok
+test snippets::tests::trims_and_keeps_multiline_commands ... ok
+test sessions::tests::replaces_invalid_bytes ... ok
+test snippets::tests::rejects_empty_or_multiline_names ... ok
+test tunnels::tests::probes_loopback_for_wildcard_binds ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m unittests src/lib.rs (target/debug/deps/easyssh_core-9af60ed335f94643)
+
+running 33 tests
+test config::tests::old_schema_is_migrated_without_sensitive_fields ... ok
+test config::tests::schema_five_migrates_legacy_workspace_to_hosts ... ok
+test domain::tests::experimental_features_default_to_off ... ok
+test config::tests::legacy_migration_keeps_only_connection_metadata ... ok
+test config::tests::sidebar_preferences_are_non_sensitive_metadata ... ok
+test openssh::tests::alias_invocation_contains_no_shell ... ok
+test openssh::tests::verbose_invocation_only_adds_debug_flag_on_request ... ok
+test remote::tests::directory_listing_uses_find_argument_boundaries ... ok
+test config::tests::saved_schema_has_no_sensitive_property_names ... ok
+test remote::tests::encoded_paths_never_escape_single_quoted_payload ... ok
+test remote::tests::parses_nul_structured_entry_without_ls_output ... ok
+test remote::tests::remote_paths_allow_shell_sensitive_and_leading_dash_names ... ok
+test sftp::tests::endpoint_arguments_use_uppercase_port_and_bracket_ipv6 ... ok
+test sftp::tests::ignores_noise_lines ... ok
+test remote::tests::parses_newline_names_and_link_targets_from_nul_records ... ok
+test security::tests::rejects_argument_injection ... ok
+test sftp::tests::joins_remote_paths ... ok
+test sftp::tests::parses_pwd_reply ... ok
+test sftp::tests::quotes_paths_as_single_arguments ... ok
+test ssh_config::tests::path_tokens_expand_home_and_userprofile ... ok
+test sftp::tests::parses_long_listing ... ok
+test ssh_config::tests::discovers_nested_includes_and_skips_patterns ... ok
+test ssh_config::tests::quoted_include_paths_are_scanned ... ok
+test sync::tests::rejects_http_urls_with_embedded_credentials ... ok
+test ssh_config::tests::unreadable_includes_are_warnings_not_failures ... ok
+test sync::tests::whitelist_excludes_sensitive_and_local_execution_fields ... ok
+test sync::tests::merge_adds_updates_and_skips_invalid_hosts ... ok
+test tunnel::tests::arguments_end_with_the_destination ... ok
+test tunnel::tests::rejects_unsafe_or_missing_parts ... ok
+test transfer::tests::scp_uses_uppercase_port_and_argument_separator ... ok
+test workspace::tests::compares_remote_state_without_content_logging ... ok
+test tunnel::tests::builds_forward_specs ... ok
+test workspace::tests::detects_bom_line_endings_and_binary_content ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
