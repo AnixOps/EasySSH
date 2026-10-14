@@ -11,6 +11,7 @@ import { Tooltip } from "@/components/ui/tooltip";
 import { copyText, openExternal, openSession, pasteText, type SessionHandle } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { appShortcut } from "@/lib/shortcuts";
+import { registerTerminal } from "@/lib/terminals";
 import { terminalFont, terminalTheme } from "@/lib/terminalTheme";
 
 export type SessionStatus =
@@ -126,6 +127,14 @@ export function TerminalView({
           if (!disposed) report({ state: "exited", code: null, error: String(reason) });
         });
     };
+    const unregister = registerTerminal(tabKey, {
+      send(text, run) {
+        terminal.paste(text);
+        if (run) sessionRef.current?.write("\r");
+        terminal.focus();
+      },
+      connected: () => sessionRef.current !== null,
+    });
     startRef.current = () => {
       terminal.write("\r\n");
       start();
@@ -143,6 +152,7 @@ export function TerminalView({
 
     return () => {
       disposed = true;
+      unregister();
       scheme.removeEventListener("change", updateTheme);
       observer.disconnect();
       sessionRef.current?.close();
@@ -150,7 +160,7 @@ export function TerminalView({
       terminal.dispose();
       terminalRef.current = null;
     };
-  }, [hostId, report]);
+  }, [hostId, report, tabKey]);
 
   useEffect(() => {
     if (!active) return;

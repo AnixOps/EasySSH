@@ -6,6 +6,7 @@ import { HostEditor } from "@/components/app/HostEditor";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
 import { ComingSoonPanel, EmptyWorkspace } from "@/components/app/Placeholders";
+import { SnippetsPanel } from "@/components/app/SnippetsPanel";
 import { TabBar, type Tab } from "@/components/app/TabBar";
 import { TerminalView, type SessionStatus } from "@/components/app/TerminalView";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -125,6 +126,8 @@ export function App() {
             onToggleFavorite={toggleFavorite}
             searchRef={searchRef}
           />
+        ) : nav === "snippets" ? (
+          <SnippetsPanel activeKey={activeKey} />
         ) : (
           <ComingSoonPanel nav={nav} />
         )}

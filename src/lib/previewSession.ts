@@ -44,6 +44,14 @@ export function previewSession(
     if (command === "ls") {
       const entries = [color("1;34", "app"), color("1;34", "logs"), "deploy.sh", color("32", "start.sh"), "README.md"];
       emit(entries.join("  ") + CRLF);
+    } else if (command === "df -h") {
+      const rows = [
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "/dev/vda1        78G   29G   46G  39% /",
+        "tmpfs           3.9G     0  3.9G   0% /dev/shm",
+        "/dev/vdb1       200G  141G   60G  71% /data",
+      ];
+      emit(rows.join(CRLF) + CRLF);
     } else if (command) {
       emit(`${command.split(" ")[0]}: command not found${CRLF}`);
     }
