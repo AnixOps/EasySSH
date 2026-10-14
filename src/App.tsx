@@ -1,6 +1,7 @@
 import { CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AskpassDialog } from "@/components/app/AskpassDialog";
+import { CommandPalette } from "@/components/app/CommandPalette";
 import { FilesPane } from "@/components/app/FilesPane";
 import { ForwardsPanel } from "@/components/app/ForwardsPanel";
 import { HostEditor } from "@/components/app/HostEditor";
@@ -25,6 +26,7 @@ export function App() {
   const [activeKey, setActiveKey] = useState<string | null>(null);
   // undefined: closed; null: a new host.
   const [editing, setEditing] = useState<Host | null | undefined>(undefined);
+  const [paletteOpen, setPaletteOpen] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const reload = useCallback(() => {
@@ -100,7 +102,7 @@ export function App() {
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       const shortcut = appShortcut(event);
-      if (shortcut === "search-hosts") focusSearch();
+      if (shortcut === "search-hosts") setPaletteOpen(true);
       else if (shortcut === "new-local") openLocal();
       else if (shortcut === "close-tab" && activeKey) closeTab(activeKey);
       else if (shortcut === "toggle-files") toggleFiles();
@@ -188,6 +190,19 @@ export function App() {
             setEditing(undefined);
             reload();
           }}
+        />
+      )}
+      {paletteOpen && (
+        <CommandPalette
+          hosts={snapshot.hosts}
+          activeKey={activeKey}
+          activeHostTab={Boolean(activeTab?.hostId)}
+          onClose={() => setPaletteOpen(false)}
+          onOpenHost={openHost}
+          onOpenLocal={openLocal}
+          onNewHost={() => setEditing(null)}
+          onToggleFiles={toggleFiles}
+          onNav={setNav}
         />
       )}
       <AskpassDialog />
