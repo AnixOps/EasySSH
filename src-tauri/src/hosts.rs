@@ -1,11 +1,12 @@
 //! Host list commands. The frontend only ever sees display data; launching a
 //! session goes back through `easyssh-core`, which validates every argument.
 
+use easyssh_core::security::{validate_alias, validate_connection};
 use easyssh_core::{
     scan_default_ssh_config, AppConfig, ConfigStore, Connection, ConnectionTarget,
-    ExternalTerminal, OpenSsh, SshInvocation,
+    ExternalTerminal, Group, OpenSsh, SshInvocation,
 };
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 
 /// Hosts discovered in `~/.ssh/config` have no saved record, so their id is
@@ -33,6 +34,21 @@ pub struct HostView {
     pub favorite: bool,
     pub color: Option<String>,
     pub source: HostSource,
+    /// The editable values, for the host editor.
+    pub fields: HostFields,
+}
+
+/// Connection settings as the host editor shows and returns them.
+#[derive(Debug, Clone, Default, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "camelCase")]
+pub struct HostFields {
+    /// Set for a `~/.ssh/config` alias; the endpoint fields are then unused.
+    pub alias: Option<String>,
+    pub hostname: String,
+    pub username: Option<String>,
+    pub port: u16,
+    pub proxy_jump: Option<String>,
+    pub notes: String,
 }
 
 #[derive(Debug, Serialize)]
@@ -63,6 +79,7 @@ impl HostView {
             favorite: connection.favorite,
             color: connection.color.clone(),
             source: HostSource::Saved,
+            fields: fields_of(connection),
         }
     }
 
@@ -80,8 +97,162 @@ impl HostView {
             favorite: false,
             color: None,
             source: HostSource::SshConfig,
+            fields: HostFields {
+                alias: Some(alias.to_owned()),
+                port: 22,
+                ..HostFields::default()
+            },
         }
     }
+}
+
+fn fields_of(connection: &Connection) -> HostFields {
+    let mut fields = HostFields {
+        proxy_jump: connection.proxy_jump.clone(),
+        notes: connection.notes.clone(),
+        port: 22,
+        ..HostFields::default()
+    };
+    match &connection.target {
+        ConnectionTarget::Alias { alias } => fields.alias = Some(alias.clone()),
+        ConnectionTarget::Endpoint {
+            hostname,
+            username,
+            port,
+        } => {
+            fields.hostname = hostname.clone();
+            fields.username = username.clone();
+            fields.port = *port;
+        }
+    }
+    fields
+}
+
+/// What the host editor submits. `id` is a saved host's id, a
+/// `~/.ssh/config` host's derived id (saved as a new host), or `None`.
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HostInput {
+    pub id: Option<String>,
+    pub name: String,
+    pub group: Option<String>,
+    pub tags: Vec<String>,
+    pub favorite: bool,
+    pub color: Option<String>,
+    pub fields: HostFields,
+}
+
+fn trimmed(value: Option<&str>) -> Option<String> {
+    value
+        .map(str::trim)
+        .filter(|value| !value.is_empty())
+        .map(str::to_owned)
+}
+
+/// Finds a group by name, ignoring case, or creates it.
+fn group_for(config: &mut AppConfig, name: Option<&str>) -> Option<String> {
+    let name = trimmed(name)?;
+    if let Some(group) = config
+        .groups
+        .iter()
+        .find(|group| group.name.eq_ignore_ascii_case(&name))
+    {
+        return Some(group.id.clone());
+    }
+    let id = format!("group-{}", chrono::Utc::now().timestamp_millis());
+    config.groups.push(Group {
+        id: id.clone(),
+        name,
+        color: None,
+        parent_id: None,
+    });
+    Some(id)
+}
+
+/// Applies the editor's values to `connection` and validates the result.
+fn apply(
+    connection: &mut Connection,
+    input: &HostInput,
+    group_id: Option<String>,
+) -> Result<(), String> {
+    let fields = &input.fields;
+    connection.name = input.name.trim().to_owned();
+    connection.target = match trimmed(fields.alias.as_deref()) {
+        Some(alias) => ConnectionTarget::Alias { alias },
+        None => ConnectionTarget::Endpoint {
+            hostname: fields.hostname.trim().to_owned(),
+            username: trimmed(fields.username.as_deref()),
+            port: fields.port,
+        },
+    };
+    connection.group_id = group_id;
+    let mut tags: Vec<String> = Vec::new();
+    for tag in input.tags.iter().map(|tag| tag.trim()) {
+        if !tag.is_empty() && !tags.iter().any(|existing| existing == tag) {
+            tags.push(tag.to_owned());
+        }
+    }
+    connection.tags = tags;
+    connection.favorite = input.favorite;
+    connection.color = trimmed(input.color.as_deref());
+    connection.proxy_jump = trimmed(fields.proxy_jump.as_deref());
+    connection.notes = fields.notes.trim().to_owned();
+    validate_connection(connection).map_err(|error| error.to_string())?;
+    if let Some(jump) = &connection.proxy_jump {
+        validate_alias(jump).map_err(|error| error.to_string())?;
+    }
+    Ok(())
+}
+
+fn save_config(config: &AppConfig) -> Result<(), String> {
+    let store = ConfigStore::default_path().map_err(|error| error.to_string())?;
+    store.save(config).map_err(|error| error.to_string())
+}
+
+/// Creates or updates a host and returns its id.
+#[tauri::command]
+pub fn host_save(input: HostInput) -> Result<String, String> {
+    let mut config = load_config()?;
+    let index = input.id.as_deref().and_then(|id| {
+        config
+            .connections
+            .iter()
+            .position(|connection| connection.id == id)
+    });
+    let mut connection = match index {
+        Some(index) => config.connections[index].clone(),
+        None => Connection::alias(input.name.trim(), "new"),
+    };
+    let group_id = group_for(&mut config, input.group.as_deref());
+    apply(&mut connection, &input, group_id)?;
+    connection.updated_at = chrono::Utc::now();
+    let id = connection.id.clone();
+    match index {
+        Some(index) => config.connections[index] = connection,
+        None => config.connections.push(connection),
+    }
+    save_config(&config)?;
+    Ok(id)
+}
+
+#[tauri::command]
+pub fn host_delete(id: String) -> Result<(), String> {
+    let mut config = load_config()?;
+    config.connections.retain(|connection| connection.id != id);
+    config.recent_connection_ids.retain(|recent| *recent != id);
+    save_config(&config)
+}
+
+#[tauri::command]
+pub fn host_set_favorite(id: String, favorite: bool) -> Result<(), String> {
+    let mut config = load_config()?;
+    let connection = config
+        .connections
+        .iter_mut()
+        .find(|connection| connection.id == id)
+        .ok_or("only saved hosts can be favorites")?;
+    connection.favorite = favorite;
+    save_config(&config)
 }
 
 fn display_target(target: &ConnectionTarget) -> String {
@@ -255,5 +426,53 @@ mod tests {
             }
         );
         assert!(resolve(&AppConfig::new(), "missing").is_err());
+    }
+
+    fn input(name: &str, fields: HostFields) -> HostInput {
+        HostInput {
+            id: None,
+            name: name.to_owned(),
+            group: Some(" Production ".to_owned()),
+            tags: vec!["web".to_owned(), " web ".to_owned(), String::new()],
+            favorite: true,
+            color: Some("chart-3".to_owned()),
+            fields,
+        }
+    }
+
+    #[test]
+    fn editor_values_become_a_validated_endpoint() {
+        let mut config = AppConfig::new();
+        let fields = HostFields {
+            hostname: " 10.0.0.5 ".to_owned(),
+            username: Some(String::new()),
+            port: 2222,
+            ..HostFields::default()
+        };
+        let input = input("web-01", fields);
+        let group_id = group_for(&mut config, input.group.as_deref());
+        let mut connection = Connection::alias("x", "x");
+        apply(&mut connection, &input, group_id.clone()).unwrap();
+        assert_eq!(connection.target, endpoint(None, 2222));
+        assert_eq!(connection.tags, ["web"]);
+        assert_eq!(config.groups[0].name, "Production");
+        assert_eq!(group_for(&mut config, Some("production")), group_id);
+    }
+
+    #[test]
+    fn unsafe_editor_values_are_rejected() {
+        let mut connection = Connection::alias("x", "x");
+        let fields = HostFields {
+            hostname: "host; rm -rf /".to_owned(),
+            port: 22,
+            ..HostFields::default()
+        };
+        assert!(apply(&mut connection, &input("bad", fields), None).is_err());
+        let fields = HostFields {
+            alias: Some("prod".to_owned()),
+            proxy_jump: Some("-oProxyCommand=evil".to_owned()),
+            ..HostFields::default()
+        };
+        assert!(apply(&mut connection, &input("bad", fields), None).is_err());
     }
 }

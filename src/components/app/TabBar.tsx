@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Tooltip } from "@/components/ui/tooltip";
 import { t } from "@/lib/i18n";
 import { shortcutLabel } from "@/lib/shortcuts";
+import { hostColor } from "@/lib/backend";
 import { cn } from "@/lib/utils";
 
 export interface Tab {
@@ -123,7 +124,7 @@ function TabIcon({ tab }: { tab: Tab }) {
       role="img"
       aria-label={t.connected}
       className="size-2 shrink-0 rounded-full"
-      style={{ backgroundColor: tab.color ?? "var(--accent)" }}
+      style={{ backgroundColor: hostColor(tab.color) ?? "var(--accent)" }}
     />
   );
 }

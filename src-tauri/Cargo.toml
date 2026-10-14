@@ -10,6 +10,7 @@ description = "Cross-platform session manager for the system OpenSSH"
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
+chrono.workspace = true
 dirs.workspace = true
 easyssh-core = { path = "../crates/easyssh-core" }
 portable-pty = "0.9"

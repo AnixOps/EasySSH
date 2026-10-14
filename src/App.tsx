@@ -2,13 +2,14 @@ import { CircleAlert } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AskpassDialog } from "@/components/app/AskpassDialog";
 import { FilesPane } from "@/components/app/FilesPane";
+import { HostEditor } from "@/components/app/HostEditor";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
 import { ComingSoonPanel, EmptyWorkspace } from "@/components/app/Placeholders";
 import { TabBar, type Tab } from "@/components/app/TabBar";
 import { TerminalView, type SessionStatus } from "@/components/app/TerminalView";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { loadHosts, type Host, type HostsSnapshot } from "@/lib/backend";
+import { loadHosts, setFavorite, type Host, type HostsSnapshot } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { appShortcut } from "@/lib/shortcuts";
 
@@ -20,13 +21,29 @@ export function App() {
   const [loadError, setLoadError] = useState<string | null>(null);
   const [tabs, setTabs] = useState<Tab[]>([]);
   const [activeKey, setActiveKey] = useState<string | null>(null);
+  // undefined: closed; null: a new host.
+  const [editing, setEditing] = useState<Host | null | undefined>(undefined);
   const searchRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  const reload = useCallback(() => {
     loadHosts()
-      .then(setSnapshot)
+      .then((next) => {
+        setSnapshot(next);
+        setLoadError(null);
+      })
       .catch((reason) => setLoadError(String(reason)));
   }, []);
+
+  useEffect(reload, [reload]);
+
+  const toggleFavorite = useCallback(
+    (host: Host) => {
+      setFavorite(host.id, !host.favorite)
+        .then(reload)
+        .catch((reason) => setLoadError(String(reason)));
+    },
+    [reload],
+  );
 
   const addTab = useCallback((hostId: string | null, title: string, color: string | null) => {
     const key = `tab-${nextTab++}`;
@@ -104,6 +121,8 @@ export function App() {
             groups={snapshot.groups}
             selectedId={activeTab?.hostId ?? null}
             onOpen={openHost}
+            onEdit={setEditing}
+            onToggleFavorite={toggleFavorite}
             searchRef={searchRef}
           />
         ) : (
@@ -154,6 +173,17 @@ export function App() {
           </div>
         </main>
       </div>
+      {editing !== undefined && (
+        <HostEditor
+          host={editing}
+          groups={snapshot.groups}
+          onCancel={() => setEditing(undefined)}
+          onDone={() => {
+            setEditing(undefined);
+            reload();
+          }}
+        />
+      )}
       <AskpassDialog />
     </TooltipProvider>
   );

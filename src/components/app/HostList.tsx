@@ -1,7 +1,9 @@
-import { ChevronRight, Search, Server, Star } from "lucide-react";
+import { ChevronRight, Pencil, Plus, Search, Server, Star } from "lucide-react";
 import { useMemo, useState, type Ref } from "react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { isTauri, type Group, type Host } from "@/lib/backend";
+import { Tooltip } from "@/components/ui/tooltip";
+import { hostColor, isTauri, type Group, type Host } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -34,12 +36,17 @@ export function HostList({
   groups,
   selectedId,
   onOpen,
+  onEdit,
+  onToggleFavorite,
   searchRef,
 }: {
   hosts: Host[];
   groups: Group[];
   selectedId: string | null;
   onOpen: (host: Host) => void;
+  /** null creates a new host. */
+  onEdit: (host: Host | null) => void;
+  onToggleFavorite: (host: Host) => void;
   searchRef: Ref<HTMLInputElement>;
 }) {
   const [query, setQuery] = useState("");
@@ -68,19 +75,26 @@ export function HostList({
 
   return (
     <aside className="material-sidebar flex w-72 shrink-0 flex-col border-r">
-      <div className="relative px-3 pt-3 pb-2">
-        <Search
-          className="pointer-events-none absolute top-1/2 left-6 mt-0.5 size-4 -translate-y-1/2 text-label-3"
-          strokeWidth={1.5}
-        />
-        <Input
-          ref={searchRef}
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder={t.searchHosts}
-          aria-label={t.searchHosts}
-          className="pl-9"
-        />
+      <div className="flex items-center gap-1.5 px-3 pt-3 pb-2">
+        <div className="relative min-w-0 flex-1">
+          <Search
+            className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-label-3"
+            strokeWidth={1.5}
+          />
+          <Input
+            ref={searchRef}
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={t.searchHosts}
+            aria-label={t.searchHosts}
+            className="pl-9"
+          />
+        </div>
+        <Tooltip label={t.newHost}>
+          <Button variant="secondary" size="icon" aria-label={t.newHost} onClick={() => onEdit(null)}>
+            <Plus />
+          </Button>
+        </Tooltip>
       </div>
 
       <div className="flex-1 overflow-y-auto px-2 pb-3">
@@ -89,6 +103,10 @@ export function HostList({
             <Server className="mx-auto mb-3 size-12 text-label-3" strokeWidth={1.5} />
             <p className="text-callout font-semibold text-label-1">{t.noHosts}</p>
             <p className="mt-1 text-caption font-normal text-label-2">{t.noHostsHint}</p>
+            <Button variant="primary" size="sm" className="mt-4" onClick={() => onEdit(null)}>
+              <Plus />
+              {t.newHost}
+            </Button>
           </div>
         ) : normalized ? (
           matches.length === 0 ? (
@@ -96,7 +114,7 @@ export function HostList({
           ) : (
             <ul className="mt-1 space-y-0.5">
               {matches.map((host) => (
-                <HostRow key={host.id} host={host} selected={host.id === selectedId} onOpen={onOpen} />
+                <HostRow key={host.id} host={host} selected={host.id === selectedId} onOpen={onOpen} onEdit={onEdit} onToggleFavorite={onToggleFavorite} />
               ))}
             </ul>
           )
@@ -129,6 +147,8 @@ export function HostList({
                         host={host}
                         selected={host.id === selectedId}
                         onOpen={onOpen}
+                        onEdit={onEdit}
+                        onToggleFavorite={onToggleFavorite}
                       />
                     ))}
                   </ul>
@@ -150,33 +170,61 @@ function HostRow({
   host,
   selected,
   onOpen,
+  onEdit,
+  onToggleFavorite,
 }: {
   host: Host;
   selected: boolean;
   onOpen: (host: Host) => void;
+  onEdit: (host: Host) => void;
+  onToggleFavorite: (host: Host) => void;
 }) {
+  const saved = host.source === "saved";
   return (
-    <li>
+    <li className="group relative">
       <button
         type="button"
         onClick={() => onOpen(host)}
         aria-current={selected ? "true" : undefined}
         className={cn(
-          "group flex w-full items-center gap-3 rounded-sm px-2 py-1.5 text-left transition-colors duration-micro ease-standard",
+          "flex w-full items-center gap-3 rounded-sm py-1.5 pr-16 pl-2 text-left transition-colors duration-micro ease-standard",
           selected ? "bg-accent-soft" : "hover:bg-fill-1",
         )}
       >
         <HostTile host={host} selected={selected} />
         <span className="min-w-0 flex-1">
           <span className="block truncate text-callout font-medium text-label-1">{host.name}</span>
-          <span className="block truncate font-mono text-caption font-normal text-label-2">
-            {host.target}
-          </span>
+          <span className="block truncate font-mono text-caption font-normal text-label-2">{host.target}</span>
         </span>
-        {host.favorite && (
-          <Star className="size-3.5 shrink-0 fill-current text-label-3" strokeWidth={1.5} aria-hidden />
-        )}
       </button>
+      <span className="absolute top-1/2 right-1.5 flex -translate-y-1/2 items-center">
+        <Tooltip label={saved ? t.editHost : t.saveToHosts}>
+          <button
+            type="button"
+            aria-label={saved ? t.editHost : t.saveToHosts}
+            onClick={() => onEdit(host)}
+            className="flex size-7 items-center justify-center rounded-xs text-label-3 opacity-0 group-hover:opacity-100 hover:bg-fill-2 hover:text-label-1 focus-visible:opacity-100"
+          >
+            <Pencil className="size-3.5" strokeWidth={1.5} />
+          </button>
+        </Tooltip>
+        {saved && (
+          <Tooltip label={host.favorite ? t.removeFavorite : t.addFavorite}>
+            <button
+              type="button"
+              aria-label={host.favorite ? t.removeFavorite : t.addFavorite}
+              aria-pressed={host.favorite}
+              onClick={() => onToggleFavorite(host)}
+              className={cn(
+                "flex size-7 items-center justify-center rounded-xs hover:bg-fill-2 focus-visible:opacity-100",
+                host.favorite ? "text-label-3" : "text-label-3 opacity-0 group-hover:opacity-100",
+              )}
+            >
+              <Star className={cn("size-3.5", host.favorite && "fill-current")} strokeWidth={1.5} />
+            </button>
+          </Tooltip>
+        )}
+      </span>
     </li>
   );
 }
@@ -195,7 +243,7 @@ export function HostTile({ host, selected = false, large = false }: { host: Host
         <span
           aria-hidden
           className="absolute -right-0.5 -bottom-0.5 size-2.5 rounded-full ring-2 ring-(--bg-grouped)"
-          style={{ backgroundColor: host.color }}
+          style={{ backgroundColor: hostColor(host.color) }}
         />
       )}
     </span>

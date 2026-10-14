@@ -20,6 +20,9 @@ fn main() {
         .invoke_handler(tauri::generate_handler![
             hosts::load_hosts,
             hosts::open_external,
+            hosts::host_save,
+            hosts::host_delete,
+            hosts::host_set_favorite,
             sessions::session_open,
             sessions::session_write,
             sessions::session_resize,
