@@ -1,4 +1,5 @@
 import { CircleAlert } from "lucide-react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AskpassDialog } from "@/components/app/AskpassDialog";
 import { CommandPalette } from "@/components/app/CommandPalette";
@@ -15,6 +16,7 @@ import { TerminalView, type SessionStatus } from "@/components/app/TerminalView"
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { loadHosts, setFavorite, sshStatus, type Host, type HostsSnapshot, type SshStatus } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { duration, ease } from "@/lib/motion";
 import { loadSettings } from "@/lib/settings";
 import { appShortcut } from "@/lib/shortcuts";
 
@@ -129,9 +131,17 @@ export function App() {
   const activeTab = tabs.find((tab) => tab.key === activeKey);
 
   return (
+    <MotionConfig reducedMotion="user">
     <TooltipProvider delayDuration={400}>
       <div className="flex h-full">
         <IconRail active={nav} onChange={setNav} />
+        {/* Switching sections cross-fades the second column. */}
+        <motion.div
+          key={nav}
+          className="flex shrink-0"
+          initial={{ opacity: 0, x: -6 }}
+          animate={{ opacity: 1, x: 0, transition: { duration: duration.toggle, ease: ease.standard } }}
+        >
         {nav === "hosts" ? (
           <HostList
             hosts={snapshot.hosts}
@@ -149,6 +159,7 @@ export function App() {
         ) : (
           <SettingsPanel status={status} onRecheck={checkSsh} onDataChanged={reload} />
         )}
+        </motion.div>
         <main className="flex min-w-0 flex-1 flex-col bg-bg">
           {tabs.length > 0 && (
             <TabBar
@@ -194,6 +205,7 @@ export function App() {
           </div>
         </main>
       </div>
+      <AnimatePresence>
       {editing !== undefined && (
         <HostEditor
           host={editing}
@@ -205,6 +217,8 @@ export function App() {
           }}
         />
       )}
+      </AnimatePresence>
+      <AnimatePresence>
       {paletteOpen && (
         <CommandPalette
           hosts={snapshot.hosts}
@@ -218,7 +232,9 @@ export function App() {
           onNav={setNav}
         />
       )}
+      </AnimatePresence>
       <AskpassDialog />
     </TooltipProvider>
+    </MotionConfig>
   );
 }

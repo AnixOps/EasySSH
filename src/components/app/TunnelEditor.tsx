@@ -1,12 +1,12 @@
 import { CircleAlert } from "lucide-react";
 import { useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Overlay } from "@/components/ui/overlay";
+import { Segmented } from "@/components/ui/segmented";
 import { saveTunnel, type Host, type Tunnel, type TunnelKind } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { describeTunnel } from "@/lib/tunnels";
-import { cn } from "@/lib/utils";
 
 export function TunnelEditor({
   tunnel,
@@ -54,21 +54,13 @@ export function TunnelEditor({
     { value: "dynamic", label: t.tunnelDynamic, hint: t.tunnelDynamicHint },
   ];
 
-  // Rendered into <body>: the frosted sidebar's backdrop-filter would
-  // otherwise become the containing block of this fixed overlay.
-  return createPortal(
-    <div className="fixed inset-0 z-modal flex items-center justify-center bg-(--shadow-color) p-6 backdrop-blur-sm">
-      <form
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="tunnel-editor-title"
-        onSubmit={(event) => {
-          event.preventDefault();
-          void submit();
-        }}
-        onKeyDown={(event) => event.key === "Escape" && onCancel()}
-        className="w-full max-w-md animate-page-in space-y-5 rounded-lg bg-bg-elevated p-6 shadow-3"
-      >
+  return (
+    <Overlay
+      labelledBy="tunnel-editor-title"
+      onDismiss={onCancel}
+      onSubmit={() => void submit()}
+      className="max-w-md space-y-5 p-6"
+    >
         <h2 id="tunnel-editor-title" className="text-title-3">
           {tunnel ? t.editTunnel : t.newTunnel}
         </h2>
@@ -92,23 +84,7 @@ export function TunnelEditor({
         </Field>
 
         <Field label={t.tunnelType} group>
-          <div role="radiogroup" className="inline-flex rounded-pill bg-fill-1 p-0.5">
-            {kinds.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                role="radio"
-                aria-checked={kind === option.value}
-                onClick={() => setKind(option.value)}
-                className={cn(
-                  "h-7 rounded-pill px-3 text-callout transition-colors duration-toggle ease-standard",
-                  kind === option.value ? "bg-bg-elevated text-label-1 shadow-1" : "text-label-2 hover:text-label-1",
-                )}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
+          <Segmented value={kind} onChange={setKind} label={t.tunnelType} options={kinds} />
           <p className="mt-1.5 text-caption font-normal text-label-3">
             {kinds.find((option) => option.value === kind)?.hint}
           </p>
@@ -157,9 +133,7 @@ export function TunnelEditor({
             {t.save}
           </Button>
         </div>
-      </form>
-    </div>,
-    document.body,
+    </Overlay>
   );
 }
 

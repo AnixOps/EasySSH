@@ -2,6 +2,8 @@ import { CircleAlert, Star, Trash2 } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Overlay } from "@/components/ui/overlay";
+import { Segmented } from "@/components/ui/segmented";
 import { deleteHost, hostColor, saveHost, type Group, type Host, type HostFields } from "@/lib/backend";
 import { t } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -77,18 +79,12 @@ export function HostEditor({
   const title = !host ? t.newHost : saved ? t.editHost : t.saveToHosts;
 
   return (
-    <div className="fixed inset-0 z-modal flex items-center justify-center bg-(--shadow-color) p-6 backdrop-blur-sm">
-      <form
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="host-editor-title"
-        onSubmit={(event) => {
-          event.preventDefault();
-          void submit();
-        }}
-        onKeyDown={(event) => event.key === "Escape" && onCancel()}
-        className="flex max-h-full w-full max-w-lg animate-page-in flex-col rounded-lg bg-bg-elevated shadow-3"
-      >
+    <Overlay
+      labelledBy="host-editor-title"
+      onDismiss={onCancel}
+      onSubmit={() => void submit()}
+      className="flex max-h-full max-w-lg flex-col"
+    >
         <h2 id="host-editor-title" className="px-6 pt-6 text-title-3">
           {title}
         </h2>
@@ -99,26 +95,15 @@ export function HostEditor({
           </Field>
 
           <Field label={t.connectBy} group>
-            <div role="radiogroup" className="inline-flex rounded-pill bg-fill-1 p-0.5">
-              {[
+            <Segmented
+              value={byAlias}
+              onChange={setByAlias}
+              label={t.connectBy}
+              options={[
                 { value: false, label: t.byAddress },
                 { value: true, label: t.byAlias },
-              ].map((option) => (
-                <button
-                  key={option.label}
-                  type="button"
-                  role="radio"
-                  aria-checked={byAlias === option.value}
-                  onClick={() => setByAlias(option.value)}
-                  className={cn(
-                    "h-7 rounded-pill px-3 text-callout transition-colors duration-toggle ease-standard",
-                    byAlias === option.value ? "bg-bg-elevated text-label-1 shadow-1" : "text-label-2 hover:text-label-1",
-                  )}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+              ]}
+            />
           </Field>
 
           {byAlias ? (
@@ -252,8 +237,7 @@ export function HostEditor({
             {t.save}
           </Button>
         </div>
-      </form>
-    </div>
+    </Overlay>
   );
 }
 

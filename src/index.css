@@ -130,3 +130,38 @@
     transition-duration: 100ms !important;
   }
 }
+
+/* Tooltips scale in from their trigger and fade out (Radix keeps them
+   mounted until the closing animation ends). */
+@keyframes tooltip-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+@keyframes tooltip-out {
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+.tooltip-motion[data-state="delayed-open"],
+.tooltip-motion[data-state="instant-open"] {
+  animation: tooltip-in var(--dur-micro) var(--ease-emphasized);
+}
+.tooltip-motion[data-state="closed"] {
+  animation: tooltip-out 80ms var(--ease-exit) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes tooltip-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes tooltip-out {
+    to {
+      opacity: 0;
+    }
+  }
+}

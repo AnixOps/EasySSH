@@ -3,6 +3,7 @@ import { BackupSync } from "@/components/app/BackupSync";
 import { CircleAlert, CircleCheck, Minus, Plus, RotateCw } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
+import { Segmented } from "@/components/ui/segmented";
 import { Tooltip } from "@/components/ui/tooltip";
 import { isTauri, type SshStatus } from "@/lib/backend";
 import { t } from "@/lib/i18n";
@@ -50,25 +51,13 @@ export function SettingsPanel({
 
         <Group title={t.appearance}>
           <Row label={t.theme}>
-            <div role="radiogroup" aria-label={t.theme} className="inline-flex rounded-pill bg-fill-1 p-0.5">
-              {themes.map((option) => (
-                <button
-                  key={option.value}
-                  type="button"
-                  role="radio"
-                  aria-checked={current.theme === option.value}
-                  onClick={() => update({ theme: option.value })}
-                  className={cn(
-                    "h-6 rounded-pill px-2 text-caption transition-colors duration-toggle ease-standard",
-                    current.theme === option.value
-                      ? "bg-bg-elevated text-label-1 shadow-1"
-                      : "font-normal text-label-2 hover:text-label-1",
-                  )}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
+            <Segmented
+              size="sm"
+              value={current.theme}
+              onChange={(theme) => update({ theme })}
+              label={t.theme}
+              options={themes}
+            />
           </Row>
           <Row label={t.language}>
             <select

@@ -10,8 +10,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import type { NavKey } from "@/components/app/IconRail";
+import { Overlay } from "@/components/ui/overlay";
 import {
   loadSnippets,
   loadTunnels,
@@ -149,17 +149,13 @@ export function CommandPalette({
     item.run();
   };
 
-  return createPortal(
-    <div
-      className="fixed inset-0 z-modal flex justify-center bg-(--shadow-color) px-6 pt-[12vh] backdrop-blur-sm"
-      onMouseDown={(event) => event.target === event.currentTarget && onClose()}
+  return (
+    <Overlay
+      label={t.palette}
+      placement="top"
+      onDismiss={onClose}
+      className="flex max-h-[70vh] max-w-xl flex-col overflow-hidden"
     >
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label={t.palette}
-        className="flex max-h-[70vh] w-full max-w-xl animate-page-in flex-col overflow-hidden rounded-lg bg-bg-elevated shadow-3"
-      >
         <div className="flex items-center gap-3 border-b px-4">
           <Search className="size-5 shrink-0 text-label-3" strokeWidth={1.5} />
           <input
@@ -219,8 +215,6 @@ export function CommandPalette({
             );
           })}
         </div>
-      </div>
-    </div>,
-    document.body,
+    </Overlay>
   );
 }
