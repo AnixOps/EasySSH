@@ -14,6 +14,9 @@ pub struct AppConfig {
     pub snippets: Vec<CommandSnippet>,
     #[serde(default)]
     pub tunnels: Vec<Tunnel>,
+    /// Defaults for every terminal tab.
+    #[serde(default)]
+    pub terminal: TerminalPreferences,
     #[serde(default)]
     pub sessions: Vec<SessionRecord>,
     #[serde(default)]

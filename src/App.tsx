@@ -7,13 +7,15 @@ import { ForwardsPanel } from "@/components/app/ForwardsPanel";
 import { HostEditor } from "@/components/app/HostEditor";
 import { HostList } from "@/components/app/HostList";
 import { IconRail, type NavKey } from "@/components/app/IconRail";
-import { ComingSoonPanel, EmptyWorkspace } from "@/components/app/Placeholders";
+import { EmptyWorkspace } from "@/components/app/Placeholders";
+import { SettingsPanel } from "@/components/app/SettingsPanel";
 import { SnippetsPanel } from "@/components/app/SnippetsPanel";
 import { TabBar, type Tab } from "@/components/app/TabBar";
 import { TerminalView, type SessionStatus } from "@/components/app/TerminalView";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { loadHosts, setFavorite, type Host, type HostsSnapshot } from "@/lib/backend";
+import { loadHosts, setFavorite, sshStatus, type Host, type HostsSnapshot, type SshStatus } from "@/lib/backend";
 import { t } from "@/lib/i18n";
+import { loadSettings } from "@/lib/settings";
 import { appShortcut } from "@/lib/shortcuts";
 
 let nextTab = 1;
@@ -27,6 +29,17 @@ export function App() {
   // undefined: closed; null: a new host.
   const [editing, setEditing] = useState<Host | null | undefined>(undefined);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [status, setStatus] = useState<SshStatus | null>(null);
+
+  const checkSsh = useCallback(() => {
+    setStatus(null);
+    sshStatus().then(setStatus).catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    loadSettings().catch((reason) => setLoadError(String(reason)));
+    checkSsh();
+  }, [checkSsh]);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const reload = useCallback(() => {
@@ -134,7 +147,7 @@ export function App() {
         ) : nav === "forwards" ? (
           <ForwardsPanel hosts={snapshot.hosts} />
         ) : (
-          <ComingSoonPanel nav={nav} />
+          <SettingsPanel status={status} onRecheck={checkSsh} />
         )}
         <main className="flex min-w-0 flex-1 flex-col bg-bg">
           {tabs.length > 0 && (
@@ -177,7 +190,7 @@ export function App() {
                 )}
               </div>
             ))}
-            {!activeTab && <EmptyWorkspace onOpenLocal={openLocal} />}
+            {!activeTab && <EmptyWorkspace onOpenLocal={openLocal} status={status} />}
           </div>
         </main>
       </div>

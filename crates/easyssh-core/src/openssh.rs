@@ -1,4 +1,5 @@
 use crate::domain::{Connection, ConnectionTarget};
+use crate::process::hide_window;
 use crate::security::{validate_alias, validate_connection, validate_host, ValidationError};
 use std::env;
 #[cfg(windows)]
@@ -153,7 +154,7 @@ impl OpenSsh {
         let ssh_version = ssh_path.as_ref().and_then(version);
         let scp_version = scp_path.as_ref().and_then(version);
         let agent_socket_configured = env::var_os("SSH_AUTH_SOCK").is_some();
-        let agent_keys = Command::new("ssh-add")
+        let agent_keys = hide_window(&mut Command::new("ssh-add"))
             .arg("-l")
             .output()
             .ok()
@@ -163,7 +164,12 @@ impl OpenSsh {
             .and_then(|host| {
                 ssh_path
                     .as_ref()
-                    .and_then(|path| Command::new(path).args(["-G", host]).output().ok())
+                    .and_then(|path| {
+                        hide_window(&mut Command::new(path))
+                            .args(["-G", host])
+                            .output()
+                            .ok()
+                    })
                     .map(|out| String::from_utf8_lossy(&out.stdout).into_owned())
             });
         AgentDiagnostics {
@@ -238,7 +244,10 @@ fn launch_powershell(invocation: &SshInvocation) -> Result<(), OpenSshError> {
 }
 
 fn version(path: &PathBuf) -> Option<String> {
-    let output = Command::new(path).arg("-V").output().ok()?;
+    let output = hide_window(&mut Command::new(path))
+        .arg("-V")
+        .output()
+        .ok()?;
     Some(
         String::from_utf8_lossy(if output.stderr.is_empty() {
             &output.stdout
