@@ -13,7 +13,9 @@ const scenes = [
   { name: "exited", query: "", open: ["prod-db"], type: ["exit"] },
   { name: "find", query: "", open: ["prod-web-01"], find: "Ubuntu" },
   { name: "local", query: "", local: true, type: ["ls"] },
+  { name: "files", query: "", open: ["prod-web-01"], type: ["ls"], files: true },
   { name: "search", query: "", search: "prod" },
+  { name: "askpass", query: "askpass=1" },
   { name: "first-run", query: "hosts=empty" },
   { name: "terminal-en", query: "lang=en", open: ["prod-web-01", "home-nas"] },
 ];
@@ -50,6 +52,13 @@ for (const colorScheme of ["light", "dark"]) {
       await page.keyboard.press("Control+Shift+F");
       await page.keyboard.type(scene.find);
       await page.keyboard.press("Enter");
+    }
+    if (scene.files) {
+      await page.getByRole("button", { name: "文件", exact: true }).click();
+      await page.getByText("deploy.sh").waitFor();
+      await page.getByText("backup-2026-10-13.tar.gz").dblclick();
+      await page.getByRole("button", { name: "上传", exact: true }).click();
+      await page.waitForTimeout(1200);
     }
     if (scene.search) await page.getByRole("textbox").first().fill(scene.search);
     if (scene.nav) await page.getByRole("button", { name: scene.nav }).click();

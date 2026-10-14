@@ -4,12 +4,20 @@
 
 export const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
 
-export type AppShortcut = "search-hosts" | "new-local" | "close-tab" | "find" | "copy" | "paste";
+export type AppShortcut =
+  | "search-hosts"
+  | "new-local"
+  | "close-tab"
+  | "toggle-files"
+  | "find"
+  | "copy"
+  | "paste";
 
 const keys: Record<string, AppShortcut> = {
   k: "search-hosts",
   t: "new-local",
   w: "close-tab",
+  e: "toggle-files",
   f: "find",
   c: "copy",
   v: "paste",

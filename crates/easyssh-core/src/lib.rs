@@ -9,6 +9,7 @@ pub mod domain;
 pub mod openssh;
 pub mod remote;
 pub mod security;
+pub mod sftp;
 pub mod ssh_config;
 pub mod sync;
 pub mod transfer;
@@ -26,6 +27,7 @@ pub use remote::{
     RemoteFileService, RemoteFileState, RemotePlatformAdapter, RemotePlatformKind,
     UnsupportedRemoteAdapter, WindowsRemoteAdapter,
 };
+pub use sftp::{RemoteFile, RemoteFileKind, SftpSession};
 pub use ssh_config::{scan_default_ssh_config, scan_ssh_config, SshConfigDiscovery};
 pub use sync::{GitSync, SyncError, SyncFile, SyncStatus};
 pub use transfer::{
