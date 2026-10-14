@@ -10,7 +10,10 @@ description = "Cross-platform session manager for the system OpenSSH"
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
+dirs.workspace = true
 easyssh-core = { path = "../crates/easyssh-core" }
+portable-pty = "0.9"
 serde.workspace = true
 serde_json.workspace = true
 tauri = { version = "2", features = [] }
+tauri-plugin-clipboard-manager = "2"

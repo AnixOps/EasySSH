@@ -8,8 +8,8 @@ private keys. Every session runs your own `ssh`, so `~/.ssh/config`,
 `ProxyJump`, `known_hosts`, the system SSH agent and the 1Password SSH agent
 all work as they already do.
 
-> Status: v0.5 in progress. The app shell and host list are in place; the
-> embedded terminal arrives in v0.6. See [ROADMAP.md](ROADMAP.md).
+> Status: v0.6. Sessions run in embedded terminal tabs; the SFTP pane
+> arrives in v0.7. See [ROADMAP.md](ROADMAP.md).
 
 ## Stack
 
@@ -17,7 +17,7 @@ all work as they already do.
 |---|---|
 | Shell | [Tauri 2](https://tauri.app) |
 | UI | React, Tailwind CSS v4, shadcn/ui, [AnixOps Design](https://github.com/AnixOps/AnixOps-design) tokens |
-| Terminal (v0.6) | xterm.js on a PTY running the system `ssh` |
+| Terminal | xterm.js on a PTY (portable-pty) running the system `ssh` |
 | Core | `crates/easyssh-core`: OpenSSH invocation, `~/.ssh/config` discovery, non-sensitive config storage |
 
 ## Development

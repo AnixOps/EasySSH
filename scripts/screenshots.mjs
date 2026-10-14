@@ -9,11 +9,13 @@ await mkdir(outDir, { recursive: true });
 
 const scenes = [
   { name: "home", query: "" },
-  { name: "tabs", query: "", open: ["prod-web-01", "prod-db", "staging-api"] },
+  { name: "terminal", query: "", open: ["prod-db", "staging-api", "prod-web-01"], type: ["ls"] },
+  { name: "exited", query: "", open: ["prod-db"], type: ["exit"] },
+  { name: "find", query: "", open: ["prod-web-01"], find: "Ubuntu" },
+  { name: "local", query: "", local: true, type: ["ls"] },
   { name: "search", query: "", search: "prod" },
   { name: "first-run", query: "hosts=empty" },
-  { name: "forwards", query: "", nav: "端口转发" },
-  { name: "tabs-en", query: "lang=en", open: ["prod-web-01", "home-nas"] },
+  { name: "terminal-en", query: "lang=en", open: ["prod-web-01", "home-nas"] },
 ];
 
 const browser = await chromium.launch();
@@ -35,11 +37,24 @@ for (const colorScheme of ["light", "dark"]) {
     await page.waitForLoadState("networkidle");
     for (const host of scene.open ?? []) {
       await page.getByRole("button", { name: new RegExp(host) }).first().click();
+      await page.waitForTimeout(300);
     }
-    if (scene.search) await page.getByRole("textbox").fill(scene.search);
+    if (scene.local) await page.getByRole("button", { name: "打开本地终端" }).click();
+    if (scene.open || scene.local) await page.locator(".xterm-screen").last().waitFor();
+    await page.waitForTimeout(300);
+    for (const command of scene.type ?? []) {
+      await page.keyboard.type(command);
+      await page.keyboard.press("Enter");
+    }
+    if (scene.find) {
+      await page.keyboard.press("Control+Shift+F");
+      await page.keyboard.type(scene.find);
+      await page.keyboard.press("Enter");
+    }
+    if (scene.search) await page.getByRole("textbox").first().fill(scene.search);
     if (scene.nav) await page.getByRole("button", { name: scene.nav }).click();
     await page.mouse.move(0, 0);
-    await page.waitForTimeout(400);
+    await page.waitForTimeout(500);
     await page.screenshot({ path: join(outDir, `${scene.name}-${colorScheme}.png`) });
     await page.close();
   }
