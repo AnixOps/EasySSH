@@ -180,7 +180,12 @@ pub fn tunnel_delete(app: AppHandle, id: String) -> Result<(), String> {
 #[tauri::command]
 pub fn tunnel_start(app: AppHandle, id: String) -> Result<(), String> {
     let tunnels = app.state::<Tunnels>();
-    if tunnels.running.lock().map_err(lock_error)?.contains_key(&id) {
+    if tunnels
+        .running
+        .lock()
+        .map_err(lock_error)?
+        .contains_key(&id)
+    {
         return Ok(());
     }
     let tunnel = load_config()?
@@ -319,10 +324,7 @@ mod tests {
             target_host: None,
             target_port: None,
         };
-        assert_eq!(
-            probe_address(&tunnel),
-            Some(([127, 0, 0, 1], 1080).into())
-        );
+        assert_eq!(probe_address(&tunnel), Some(([127, 0, 0, 1], 1080).into()));
         tunnel.kind = TunnelKind::Remote;
         assert_eq!(probe_address(&tunnel), None);
     }
