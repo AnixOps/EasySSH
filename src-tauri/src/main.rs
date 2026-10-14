@@ -4,6 +4,7 @@
 use tauri::Manager;
 
 mod askpass;
+mod backup;
 mod files;
 mod hosts;
 mod sessions;
@@ -40,6 +41,12 @@ fn main() {
             settings::settings_get,
             settings::settings_save,
             settings::ssh_status,
+            backup::config_export,
+            backup::config_import,
+            backup::sync_get,
+            backup::sync_setup,
+            backup::sync_push,
+            backup::sync_pull,
             sessions::session_open,
             sessions::session_write,
             sessions::session_resize,

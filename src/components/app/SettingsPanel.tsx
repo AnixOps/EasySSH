@@ -1,4 +1,5 @@
 import { getVersion } from "@tauri-apps/api/app";
+import { BackupSync } from "@/components/app/BackupSync";
 import { CircleAlert, CircleCheck, Minus, Plus, RotateCw } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,15 @@ import { cn } from "@/lib/utils";
 
 const SCROLLBACK = [1000, 5000, 10000, 50000, 100000];
 
-export function SettingsPanel({ status, onRecheck }: { status: SshStatus | null; onRecheck: () => void }) {
+export function SettingsPanel({
+  status,
+  onRecheck,
+  onDataChanged,
+}: {
+  status: SshStatus | null;
+  onRecheck: () => void;
+  onDataChanged: () => void;
+}) {
   const [current, setCurrent] = useState<Settings>(settings());
   const [error, setError] = useState<string | null>(null);
   const [version, setVersion] = useState("");
@@ -151,6 +160,10 @@ export function SettingsPanel({ status, onRecheck }: { status: SshStatus | null;
               ))}
             </div>
           )}
+        </Group>
+
+        <Group title={t.backupSync}>
+          <BackupSync onChanged={onDataChanged} />
         </Group>
 
         <Group title={t.about}>

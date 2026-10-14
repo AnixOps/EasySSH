@@ -147,7 +147,7 @@ export function App() {
         ) : nav === "forwards" ? (
           <ForwardsPanel hosts={snapshot.hosts} />
         ) : (
-          <SettingsPanel status={status} onRecheck={checkSsh} />
+          <SettingsPanel status={status} onRecheck={checkSsh} onDataChanged={reload} />
         )}
         <main className="flex min-w-0 flex-1 flex-col bg-bg">
           {tabs.length > 0 && (
