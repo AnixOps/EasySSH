@@ -199,6 +199,8 @@ impl ExternalTerminal {
         }
         #[cfg(target_os = "linux")]
         {
+            // x-terminal-emulator has no portable title flag.
+            let _ = name;
             let terminal = find_on_path("x-terminal-emulator")
                 .ok_or(OpenSshError::NotFound("x-terminal-emulator"))?;
             Command::new(terminal)
