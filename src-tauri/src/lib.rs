@@ -44,6 +44,8 @@ mod tunnels;
 #[cfg(desktop)]
 mod update;
 #[cfg(desktop)]
+mod update_install;
+#[cfg(desktop)]
 mod vault;
 #[cfg(desktop)]
 mod webview_chrome;
@@ -133,6 +135,8 @@ fn desktop_run() {
             update::update_set_auto,
             update::update_check,
             update::update_open,
+            update::update_install,
+            update::update_cancel,
             backup::config_export,
             backup::config_import,
             backup::sync_get,
@@ -214,7 +218,7 @@ fn desktop_run() {
             daemon::start(app.handle());
             edit::clean_all(app.handle());
             telemetry::start_background();
-            update::start_background();
+            update::start_background(app.handle().clone());
             Ok(())
         })
         .build(tauri::generate_context!())

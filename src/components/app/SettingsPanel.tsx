@@ -7,8 +7,10 @@ import { SyncSettings } from "@/components/app/SyncSettings";
 import { VaultSettings } from "@/components/app/VaultSettings";
 import {
   CircleAlert,
+  CircleArrowUp,
   CircleCheck,
   Download,
+  ExternalLink,
   Eye,
   EyeOff,
   Folder,
@@ -41,13 +43,15 @@ import {
   telemetryDeletePending,
   telemetryPending,
   telemetryStatus,
+  updateCancel,
   updateCheck,
+  updateInstall,
   updateOpen,
   updateSetAuto,
-  updateStatus,
   type SshStatus,
 } from "@/lib/backend";
-import { NO_UPDATES, updateState, type UpdateStatus } from "@/lib/update";
+import { isCancel, megabytes, percent, updateState, type InstallSupport, type UpdateStatus } from "@/lib/update";
+import { setUpdateStatus, useUpdateStatus } from "@/lib/updateStore";
 import { completionPrefs, onCompletionPrefs, updateCompletionPrefs } from "@/lib/completion/prefs";
 import { onTransferPrefs, transferPrefs, updateTransferPrefs } from "@/lib/terminalTransferPrefs";
 import { t } from "@/lib/i18n";
@@ -707,38 +711,35 @@ function Stepper({
   );
 }
 
-/** Check and notify: the backend verifies the signed feed; "Download" opens
- *  the release in the browser. Nothing is installed from here. */
+/** The backend verifies the signed feed; "Update and restart" downloads the
+ *  installer, verifies it the same way, installs it and starts the new
+ *  version. Installations it cannot update (a .deb) get the release page. */
 function UpdatesSection({ version }: { version: string }) {
-  const [status, setStatus] = useState<UpdateStatus>(NO_UPDATES);
-  const [loaded, setLoaded] = useState(false);
+  const status = useUpdateStatus();
   const [checking, setChecking] = useState(false);
   const [failure, setFailure] = useState<string | null>(null);
-
-  useEffect(() => {
-    updateStatus()
-      .then(setStatus)
-      .catch(console.error)
-      .finally(() => setLoaded(true));
-  }, []);
 
   const checkNow = () => {
     setChecking(true);
     setFailure(null);
     updateCheck()
-      .then(setStatus)
+      .then(setUpdateStatus)
       .catch((reason) => setFailure(String(reason)))
       .finally(() => setChecking(false));
   };
 
   const toggle = () => {
-    updateSetAuto(!status.autoCheck).then(setStatus).catch((reason) => setFailure(String(reason)));
+    if (!status) return;
+    updateSetAuto(!status.autoCheck)
+      .then(setUpdateStatus)
+      .catch((reason) => setFailure(String(reason)));
   };
 
-  if (!loaded) return null;
+  if (!status) return null;
   const state = updateState(status);
   const checkedAt = status.lastChecked ? new Date(status.lastChecked * 1000).toLocaleString() : t.never;
   const found = status.update;
+  const busy = status.progress.phase !== null;
 
   return (
     <>
@@ -751,7 +752,7 @@ function UpdatesSection({ version }: { version: string }) {
         }
       >
         {state !== "unavailable" && (
-          <Button variant="secondary" size="sm" onClick={checkNow} disabled={checking}>
+          <Button variant="secondary" size="sm" onClick={checkNow} disabled={checking || busy}>
             <RotateCw />
             {checking ? t.updatesChecking : t.updatesCheckNow}
           </Button>
@@ -765,25 +766,107 @@ function UpdatesSection({ version }: { version: string }) {
         </SettingsRow>
       )}
       {failure && (
-        <p className="px-4 py-2 text-callout text-danger">
+        <p className="selectable px-4 py-2 text-callout text-danger">
           {t.updatesFailed}: {failure}
         </p>
       )}
-      {found && (
-        <div className="space-y-2 px-4 py-3">
-          <div className="flex items-center gap-3">
-            <p className="min-w-0 flex-1 truncate text-body text-label-1">
-              {t.updatesAvailable} · {found.version}
+      {found && <FoundUpdate status={status} version={found.version} notes={found.notes} />}
+    </>
+  );
+}
+
+/** A newer release: install it, watch it install, or (where the app cannot
+ *  replace itself) why not and where to get it. */
+function FoundUpdate({ status, version, notes }: { status: UpdateStatus; version: string; notes: string }) {
+  const [failure, setFailure] = useState<string | null>(null);
+  const { phase } = status.progress;
+  const auto = status.install === "auto";
+
+  const install = () => {
+    setFailure(null);
+    updateInstall().catch((reason) => {
+      if (!isCancel(reason)) setFailure(String(reason));
+    });
+  };
+  const open = () => updateOpen().catch((reason) => setFailure(String(reason)));
+
+  const blocked: Record<Exclude<InstallSupport, "auto">, string> = {
+    package: t.updatesInstallPackage,
+    moveToApplications: t.updatesInstallMove,
+    noPermission: t.updatesInstallNoPermission,
+    none: t.updatesInstallNone,
+  };
+  const phaseText =
+    phase === "downloading"
+      ? `${t.updatesDownloading} ${percent(status.progress)}%`
+      : phase === "verifying"
+        ? t.updatesVerifying
+        : phase === "installing"
+          ? t.updatesInstalling
+          : t.updatesRestarting;
+
+  return (
+    <div className="space-y-2 px-4 py-3" data-settings-row>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+        <div className="min-w-0 grow basis-40">
+          <p className="flex items-center gap-2 text-body text-label-1">
+            <CircleArrowUp className="size-4 shrink-0 text-(--accent)" strokeWidth={1.5} aria-hidden />
+            <span className="min-w-0 truncate">
+              {t.updatesAvailable} · {version}
+            </span>
+          </p>
+          {phase && (
+            <p className="flex flex-wrap gap-x-2 text-callout text-label-2 tabular-nums" aria-live="polite">
+              <span className="whitespace-nowrap">{phaseText}</span>
+              {phase === "downloading" && <span className="whitespace-nowrap">{megabytes(status.progress)}</span>}
             </p>
-            <Button variant="primary" size="sm" onClick={() => updateOpen().catch((reason) => setFailure(String(reason)))}>
-              <Download />
-              {t.download}
-            </Button>
-          </div>
-          {found.notes && <p className="selectable whitespace-pre-wrap text-callout text-label-2">{found.notes}</p>}
+          )}
+        </div>
+        <div className="ml-auto flex max-w-full items-center">
+          {phase === null ? (
+            auto ? (
+              <Button variant="primary" size="sm" onClick={install}>
+                <Download />
+                {t.updatesInstall}
+              </Button>
+            ) : (
+              <Button variant="secondary" size="sm" onClick={open}>
+                <ExternalLink />
+                {t.updatesOpenRelease}
+              </Button>
+            )
+          ) : (
+            (phase === "downloading" || phase === "verifying") && (
+              <Button variant="secondary" size="sm" onClick={() => void updateCancel()}>
+                {t.cancel}
+              </Button>
+            )
+          )}
+        </div>
+      </div>
+      {phase && (
+        <div
+          className="h-1 overflow-hidden rounded-pill bg-fill-2"
+          role="progressbar"
+          aria-label={t.updatesDownloading}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={phase === "downloading" ? percent(status.progress) : 100}
+        >
+          <div
+            className="h-full origin-left rounded-pill bg-accent-fill transition-transform duration-micro ease-standard"
+            style={{ transform: `scaleX(${phase === "downloading" ? percent(status.progress) / 100 : 1})` }}
+          />
         </div>
       )}
-    </>
+      {phase === null && (
+        <p className="text-callout text-label-2">
+          {auto ? (status.closesSessions ? t.updatesInstallHintCloses : t.updatesInstallHint) : blocked[status.install as Exclude<InstallSupport, "auto">]}
+        </p>
+      )}
+      {failure && <p className="selectable text-callout text-danger">{failure}</p>}
+      {notes && <p className="selectable whitespace-pre-wrap text-callout text-label-2">{notes}</p>}
+    </div>
   );
 }
 

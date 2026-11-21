@@ -1,16 +1,19 @@
-//! Update check: the app's side. The work (feed, signatures, fetching) is in
+//! Updates: the app's side. The work (feed, signatures, fetching) is in
 //! `easyssh-update`; this file keeps the small local state, runs the daily
-//! background check and answers the Updates row of the settings. It notifies
-//! only: "Download" opens the release asset in the browser.
+//! background check and answers the Updates rows of the settings. "Update and
+//! restart" is in `update_install.rs`; where an installation cannot be
+//! updated from the app (a `.deb`), the release page opens in the browser.
 //!
 //! The state is a local file, not a setting: settings may be synced between
 //! devices, the last accepted feed sequence must not be.
 
+use crate::update_install::{self, Progress, Support};
 use easyssh_update::{build_from_version, Checked, Update, Verifier};
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
 use std::time::{SystemTime, UNIX_EPOCH};
+use tauri::Emitter;
 use tauri_plugin_opener::OpenerExt;
 
 const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -48,7 +51,7 @@ impl State {
     }
 }
 
-#[derive(Serialize)]
+#[derive(Serialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct UpdateStatus {
     /// The build can check: a desktop platform with a feed and a key
@@ -60,6 +63,13 @@ pub struct UpdateStatus {
     last_checked: Option<i64>,
     /// Only a build newer than this one.
     update: Option<Update>,
+    /// Whether "Update and restart" works for this installation, or why not.
+    install: Support,
+    /// Installing closes the running terminal sessions (Windows: the
+    /// installer stops every AnixOps SSH process).
+    closes_sessions: bool,
+    /// The install under way, if any.
+    progress: Progress,
 }
 
 fn state_path() -> PathBuf {
@@ -104,6 +114,9 @@ fn current_build() -> Option<i64> {
 
 fn status_of(state: &State, available: bool, current_build: Option<i64>) -> UpdateStatus {
     UpdateStatus {
+        install: update_install::support(),
+        closes_sessions: cfg!(windows),
+        progress: update_install::progress(),
         available,
         auto_check: state.auto(),
         current: VERSION.to_owned(),
@@ -142,7 +155,9 @@ fn run_check(verifier: &Verifier) -> Result<State, String> {
 
 /// Runs the daily check on a background thread when it is due. Never waits
 /// for the network and never reports a failure: the user can check by hand.
-pub fn start_background() {
+/// A finished check is announced (`update-status`) so the page can show it.
+pub fn start_background(app: tauri::AppHandle) {
+    update_install::clean_old_downloads();
     let Some(verifier) = verifier() else { return };
     if !load(&state_path()).due(now()) {
         return;
@@ -150,7 +165,9 @@ pub fn start_background() {
     let _ = std::thread::Builder::new()
         .name("update-check".into())
         .spawn(move || {
-            let _ = run_check(&verifier);
+            if run_check(&verifier).is_ok() {
+                let _ = app.emit("update-status", update_status());
+            }
         });
 }
 
@@ -179,18 +196,38 @@ pub async fn update_check() -> Result<UpdateStatus, String> {
     Ok(status_of(&state, true, current_build()))
 }
 
-/// Opens the verified item's URL in the browser. The page names no URL: only
-/// the one that passed verification can be opened.
+/// Opens the release page of the verified update in the browser, for an
+/// installation the app cannot update itself. The page names no URL.
 #[tauri::command]
 pub fn update_open(app: tauri::AppHandle) -> Result<(), String> {
     let status = update_status();
     let update = status.update.ok_or("no update to open")?;
-    if !easyssh_update::feed::is_https(&update.url) {
-        return Err("the update address is not HTTPS".to_owned());
-    }
     app.opener()
-        .open_url(update.url, None::<&str>)
+        .open_url(release_page(&update.version), None::<&str>)
         .map_err(|e| e.to_string())
+}
+
+/// The release page of `version` (every package of it, `.deb` included).
+fn release_page(version: &str) -> String {
+    let safe: String = version
+        .chars()
+        .filter(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '-' | '+'))
+        .collect();
+    format!("https://github.com/AnixOps/EasySSH/releases/tag/v{safe}")
+}
+
+/// "Update and restart": downloads, verifies, installs and restarts. Returns
+/// only when it failed or was cancelled; progress comes as `update-progress`.
+#[tauri::command]
+pub async fn update_install(app: tauri::AppHandle) -> Result<(), String> {
+    let verifier = verifier().ok_or("this build does not check for updates")?;
+    let update = update_status().update.ok_or("no update to install")?;
+    update_install::install(app, verifier, update).await
+}
+
+#[tauri::command]
+pub fn update_cancel() {
+    update_install::cancel();
 }
 
 #[cfg(test)]
@@ -204,7 +241,22 @@ mod tests {
             url: "https://github.com/AnixOps/EasySSH/releases/tag/v2.2.0".into(),
             notes: String::new(),
             published_at: None,
+            length: 3,
+            sha256: String::new(),
+            signature: String::new(),
         }
+    }
+
+    #[test]
+    fn the_release_page_names_only_the_version() {
+        assert_eq!(
+            release_page("2.3.3"),
+            "https://github.com/AnixOps/EasySSH/releases/tag/v2.3.3"
+        );
+        assert_eq!(
+            release_page("2.3.3/../../x?y"),
+            "https://github.com/AnixOps/EasySSH/releases/tag/v2.3.3....xy"
+        );
     }
 
     #[test]

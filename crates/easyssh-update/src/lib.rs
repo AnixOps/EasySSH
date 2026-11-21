@@ -1,9 +1,12 @@
-//! Update check for AnixOps SSH: check and notify, never install.
+//! Updates for AnixOps SSH: check, download and verify.
 //!
 //! The program fetches the signed `anixops-appcast-v1` feed of its platform
 //! from the GitHub release ([`feed_url`]), verifies it against the public
 //! keys compiled in from `EASYSSH_UPDATE_PUBLIC_KEYS` ([`feed`]) and says
-//! whether a newer build exists. The user opens the release in the browser.
+//! whether a newer build exists. When the user asks, the app downloads the
+//! installer ([`fetch::download`]) and opens it only after its size, digest
+//! and signature verify against the same keys ([`Verifier::verify_archive`]);
+//! installing is the app's part (`src-tauri/src/update.rs`).
 //! No key compiled in means everything here is inert ([`configured`]).
 //!
 //! The format is the one every AnixOps program reads; its source is
@@ -13,7 +16,7 @@ pub mod feed;
 pub mod fetch;
 
 pub use feed::{build_from_version, Error, Feed, Item, Verifier};
-pub use fetch::{Fetch, Http};
+pub use fetch::{download, DownloadError, Fetch, Http};
 
 use serde::Serialize;
 
@@ -70,10 +73,48 @@ pub fn configured() -> bool {
 pub struct Update {
     pub version: String,
     pub build: i64,
-    /// The release asset; opened in the browser, never downloaded here.
+    /// The release asset: the installer.
     pub url: String,
     pub notes: String,
     pub published_at: Option<String>,
+    /// The signed size, digest and signature of the installer. Empty in state
+    /// saved by a build that only notified: the installer then is not
+    /// verifiable until the next check.
+    #[serde(default)]
+    pub length: i64,
+    #[serde(default)]
+    pub sha256: String,
+    #[serde(default)]
+    pub signature: String,
+}
+
+impl Update {
+    /// The signed item again, for [`Verifier::verify_archive`].
+    pub fn item(&self) -> Item {
+        Item {
+            version: self.version.clone(),
+            build: self.build,
+            minimum_system_version: "0".to_owned(),
+            url: self.url.clone(),
+            length: self.length,
+            sha256: self.sha256.clone(),
+            signature: self.signature.clone(),
+            notes: String::new(),
+            published_at: None,
+        }
+    }
+
+    /// The installer's file name, from the URL: what it is saved as.
+    pub fn file_name(&self) -> Option<&str> {
+        let path = self.url.split(['?', '#']).next()?;
+        let name = path.rsplit('/').next()?;
+        let safe = !name.is_empty()
+            && !name.starts_with('.')
+            && name
+                .bytes()
+                .all(|b| b.is_ascii_alphanumeric() || matches!(b, b'.' | b'_' | b'-' | b'+'));
+        safe.then_some(name)
+    }
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -103,6 +144,9 @@ pub fn check(
         url: item.url.clone(),
         notes: item.notes.clone(),
         published_at: item.published_at.map(|t| t.to_rfc3339()),
+        length: item.length,
+        sha256: item.sha256.clone(),
+        signature: item.signature.clone(),
     });
     Ok(Checked {
         sequence: feed.sequence,
@@ -187,5 +231,61 @@ mod tests {
         assert!(check(&Fake(Ok(b"{}".to_vec())), &v, "u", 1, "0", 0).is_err());
         let other = feed(&key(2), PRODUCT, 1, vec![item(&key(2), 5, b"x")]);
         assert!(check(&Fake(Ok(other)), &v, "u", 1, "0", 0).is_err());
+    }
+
+    #[test]
+    fn the_reported_update_verifies_its_installer() {
+        let k = key(1);
+        let v = verifier(PRODUCT, &public(&k)).unwrap();
+        let data = feed(&k, PRODUCT, 9, vec![item(&k, 2_002_000, b"new")]);
+        let update = check(&Fake(Ok(data)), &v, "u", 2_001_000, "0", 3)
+            .unwrap()
+            .update
+            .unwrap();
+        assert!(v.verify_archive(&b"new"[..], &update.item()).is_ok());
+        assert!(v.verify_archive(&b"evil"[..], &update.item()).is_err());
+        // State saved by a build that only notified carries no signature.
+        let old: Update = serde_json::from_str(
+            r#"{"version":"2.2.0","build":2002000,"url":"https://github.com/x","notes":"","publishedAt":null}"#,
+        )
+        .unwrap();
+        assert!(v.verify_archive(&b"new"[..], &old.item()).is_err());
+    }
+
+    #[test]
+    fn installer_file_names_come_from_the_url_and_stay_in_their_folder() {
+        let named = |url: &str| {
+            Update {
+                version: "1".into(),
+                build: 1,
+                url: url.into(),
+                notes: String::new(),
+                published_at: None,
+                length: 1,
+                sha256: String::new(),
+                signature: String::new(),
+            }
+            .file_name()
+            .map(str::to_owned)
+        };
+        assert_eq!(
+            named(
+                "https://github.com/A/B/releases/download/v2.3.3/AnixOps-SSH_2.3.3_x64-setup.exe"
+            )
+            .as_deref(),
+            Some("AnixOps-SSH_2.3.3_x64-setup.exe")
+        );
+        assert_eq!(
+            named("https://github.com/a/x.dmg?raw=1").as_deref(),
+            Some("x.dmg")
+        );
+        for bad in [
+            "https://github.com/a/",
+            "https://github.com/a/..",
+            "https://github.com/a/.x",
+            "https://github.com/a/b%2F..%2Fc",
+        ] {
+            assert_eq!(named(bad), None, "{bad}");
+        }
     }
 }

@@ -20,7 +20,14 @@ import {
   previewSnapshot,
 } from "./preview";
 import { previewMonitorSample, previewMonitorSignal } from "./previewMonitor";
-import { previewUpdateCheck, previewUpdateSetAuto, previewUpdateStatus } from "./previewUpdate";
+import {
+  onPreviewUpdateProgress,
+  previewUpdateCancel,
+  previewUpdateCheck,
+  previewUpdateInstall,
+  previewUpdateSetAuto,
+  previewUpdateStatus,
+} from "./previewUpdate";
 import { previewSession } from "./previewSession";
 import type { ExitReason } from "./terminalSession";
 import {
@@ -39,7 +46,7 @@ import type {
   ImportFormat,
 } from "./proto.gen";
 import { UNAVAILABLE, type PendingReports, type TelemetryStatus } from "./telemetry";
-import type { UpdateStatus } from "./update";
+import type { UpdateProgress, UpdateStatus } from "./update";
 
 export type HostSource = "saved" | "ssh_config";
 
@@ -1224,7 +1231,7 @@ export async function telemetryDeletePending(): Promise<number> {
   return invoke<number>("telemetry_delete_pending");
 }
 
-/* Update check (check and notify only); see update.ts and crates/easyssh-update. */
+/* Updates; see update.ts, crates/easyssh-update and src-tauri/src/update*.rs. */
 
 export async function updateStatus(): Promise<UpdateStatus> {
   if (!isTauri) return previewUpdateStatus();
@@ -1242,10 +1249,36 @@ export async function updateCheck(): Promise<UpdateStatus> {
   return invoke<UpdateStatus>("update_check");
 }
 
-/** Opens the verified release in the browser; the backend names the URL. */
+/** Opens the release page in the browser (installations the app cannot
+ *  update, such as a .deb); the backend names the URL. */
 export async function updateOpen(): Promise<void> {
   if (!isTauri) return;
   await invoke("update_open");
+}
+
+/** Downloads, verifies, installs and restarts. Resolves only when the app
+ *  did not restart; rejects with "cancelled" after `updateCancel`. */
+export async function updateInstall(): Promise<void> {
+  if (!isTauri) return previewUpdateInstall();
+  await invoke("update_install");
+}
+
+export async function updateCancel(): Promise<void> {
+  if (!isTauri) return previewUpdateCancel();
+  await invoke("update_cancel");
+}
+
+/** Install progress, and a background check that found something. */
+export function onUpdateEvents(
+  onProgress: (progress: UpdateProgress) => void,
+  onStatus: (status: UpdateStatus) => void,
+): () => void {
+  if (!isTauri) return onPreviewUpdateProgress(onProgress);
+  const stops = [
+    listen<UpdateProgress>("update-progress", (event) => onProgress(event.payload)),
+    listen<UpdateStatus>("update-status", (event) => onStatus(event.payload)),
+  ];
+  return () => stops.forEach((stop) => void stop.then((unlisten) => unlisten()));
 }
 
 /** The Rust side scrubs `message` and `stack` and decides whether to keep them. */

@@ -49,7 +49,7 @@ current 1.x app.
 | **Import from services** | "Import hosts" → "Import from a service" reads the host list of a service you run: AnixOps Control (the approved nodes of the panel, through an admin API token with scope `read`) or JumpServer (the assets of an organization, through a signed access key request; the hosts can connect through JumpServer's KoKo SSH gateway, where you pick the asset in KoKo's menu and answer its password and MFA prompts as usual). The token or key secret is sealed in the vault and only ever sent in a request header, https is required (http only for localhost), and the preview shows what is new and what exists before anything is written. Syncing again updates the hosts it imported (matched by the panel and node id, so a changed address does not duplicate) and lists hosts the panel no longer has without deleting them. See [easyssh-services](crates/easyssh-services/README.md). |
 | **Backup** | Export and import hosts, or back them up to a Git repository. Never includes passwords or keys. |
 | **Ask AI** | Off by default. Bring your own key for Anthropic, an OpenAI-compatible endpoint or local Ollama; the key lives in the vault and requests are made by the app's Rust side, so the key never reaches the web view. A side panel per terminal lets you tick what to share (last command and output, selection, last lines), shows secrets it removed and the exact request, and sends nothing until you press Send. Suggested commands can be inserted on the input line, never run. |
-| **Update check** | Desktop builds that carry the project's update key check once a day (Settings → Updates, can be turned off) whether a newer release exists and tell you; "Download" opens it in the browser. The release feed is signed (Ed25519, `anixops-appcast-v1` of [anix-kit](https://github.com/AnixOps/anix-kit)) and checked against a key compiled into the app; nothing is installed for you. Without that key the app never checks. See [Privacy](#privacy). |
+| **Updates** | Desktop builds that carry the project's update key check once a day (Settings → Updates, can be turned off) whether a newer release exists; a dot on Settings says so. "Update and restart" downloads the installer, verifies its size, SHA-256 and signature, installs it and starts the new version: on Windows the installer runs in passive mode and reopens the app (running terminals disconnect), on macOS the app replaces itself and reopens, and on Linux the AppImage replaces itself; open sessions are kept on macOS and Linux. A `.deb` installation is updated with the package manager; the app opens the release page. The release feed and every installer are signed (Ed25519, `anixops-appcast-v1` of [anix-kit](https://github.com/AnixOps/anix-kit)) and checked against a key compiled into the app; a file that does not verify is deleted, never opened. Without that key the app never checks. See [Privacy](#privacy). |
 | **Session logs** | Optional per host, with a default in Settings. Terminal output is written encrypted (XChaCha20-Poly1305, a key derived per log from the vault device key) to `logs/<host>/<time>.esl` in the data directory. View a log read-only with search, export it as plain text after confirming, delete it, or let retention (30 days by default) clean up. Needs an unlocked vault. |
 | **Design** | [AnixOps Design](https://github.com/AnixOps/AnixOps-design): light, dark or system theme; Chinese and English. |
 
@@ -283,8 +283,11 @@ HTTP and TLS metadata that any request has (your IP address, which GitHub sees)
 and a `User-Agent` of `easyssh-update/<version>`. The answer is verified against
 the key built into the app, and the last accepted feed number and the time of
 the last check are kept in a local file (`<local data dir>/EasySSH/update.json`).
-Nothing is downloaded or installed: "Download" opens the release in your
-browser. The phone apps never check; the stores update them.
+Nothing is downloaded until you press "Update and restart"; that downloads the
+installer named by the verified feed from the same GitHub hosts, with the same
+plain request, into `<local data dir>/EasySSH/updates` (next to the AppImage on
+Linux), and opens it only after it verifies. The phone apps never check; the
+stores update them.
 
 ## Development
 

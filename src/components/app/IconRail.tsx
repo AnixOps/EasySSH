@@ -3,6 +3,7 @@ import mark from "@/assets/mark.svg";
 import { Tooltip } from "@/components/ui/tooltip";
 import { t } from "@/lib/i18n";
 import { shortcutHint, type ShortcutId } from "@/lib/shortcutTable";
+import { useUpdateStatus } from "@/lib/updateStore";
 import { cn } from "@/lib/utils";
 
 export type NavKey = "hosts" | "forwards" | "snippets" | "team" | "settings";
@@ -29,6 +30,8 @@ export function IconRail({
   /** Hides the rail and the sidebar, leaving the tabs and the terminal. */
   onFocusMode?: () => void;
 }) {
+  const updates = useUpdateStatus();
+  const updateFound = Boolean(updates?.update);
   return (
     <nav
       aria-label="AnixOps SSH"
@@ -55,6 +58,7 @@ export function IconRail({
         item={{ key: "settings", label: t.navSettings, icon: Settings }}
         active={active === "settings"}
         open={!sidebarHidden}
+        badge={updateFound ? t.updatesBadge : undefined}
         onChange={onChange}
       />
     </nav>
@@ -94,16 +98,20 @@ function RailButton({
   item,
   active,
   open,
+  badge,
   onChange,
 }: {
   item: { key: NavKey; label: string; icon: LucideIcon };
   active: boolean;
   open: boolean;
+  /** A dot on the icon, and these words in the tooltip and description. */
+  badge?: string;
   onChange: (key: NavKey) => void;
 }) {
   const Icon = item.icon;
   const hint = shortcutHint(item.key === "settings" ? "settings" : (`go-${item.key}` as ShortcutId));
-  const label = hint ? `${item.label} (${hint})` : item.label;
+  const name = badge ? `${item.label} · ${badge}` : item.label;
+  const label = hint ? `${name} (${hint})` : name;
   // The open section's button folds the sidebar away; its tooltip says so.
   const toggle = shortcutHint("toggle-sidebar");
   return (
@@ -111,11 +119,12 @@ function RailButton({
       <button
         type="button"
         aria-label={item.label}
+        aria-description={badge}
         aria-current={active ? "page" : undefined}
         aria-expanded={active ? open : undefined}
         onClick={() => onChange(item.key)}
         className={cn(
-          "flex size-10 items-center justify-center rounded-sm transition-colors duration-micro ease-standard",
+          "relative flex size-10 items-center justify-center rounded-sm transition-colors duration-micro ease-standard",
           active && open
             ? "bg-accent-soft text-(--accent)"
             : active
@@ -124,6 +133,9 @@ function RailButton({
         )}
       >
         <Icon className="size-5" strokeWidth={1.5} />
+        {badge && (
+          <span aria-hidden className="absolute top-2 right-2 size-2 rounded-pill bg-accent-fill ring-2 ring-bg" />
+        )}
       </button>
     </Tooltip>
   );

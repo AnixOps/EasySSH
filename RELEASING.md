@@ -60,8 +60,13 @@ Install the build from the CI run or release, then:
 
 ## Update feed
 
-Desktop builds tell the user when a newer release exists (Settings → Updates);
-they never install anything. The check reads one signed file per platform,
+Desktop builds tell the user when a newer release exists (Settings → Updates)
+and install it when the user presses "Update and restart"
+(`src-tauri/src/update_install.rs`): the installer named by the feed is
+downloaded, its size, SHA-256 and signature verified, and then the Windows NSIS
+installer runs with `/P /R /UPDATE` (passive, restarts the app), the macOS
+`.app` from the `.dmg` replaces the running bundle, or the new AppImage replaces
+`$APPIMAGE`; `.deb` installs get the release page. The check reads one signed file per platform,
 `anixops-ssh-<windows|macos|linux>.appcast.json`, in the `anixops-appcast-v1`
 format every AnixOps program uses ([anix-kit](https://github.com/AnixOps/anix-kit),
 package `update`). `release.yml` builds and signs the three files after the
@@ -97,8 +102,13 @@ Behaviour to know:
   higher than its own. `sequence` is the unix time of the workflow run, and the
   app refuses a feed with a lower sequence than one it accepted (replay).
 - One item per platform, its installer (`*-setup.exe`, `*.dmg`, `*.AppImage`),
-  signed with the archive signature so a later in-app installer can verify it
-  (size, SHA-256 and signature) before opening it. Feeds carry no architecture:
+  signed with the archive signature, which the in-app installer verifies (size,
+  SHA-256 and signature) before opening it. The asset names matter: the
+  installer must stay `*-setup.exe` (NSIS, which knows `/P /R /UPDATE`), a
+  `.dmg` holding one `.app`, and an `.AppImage`.
+- Testing an update end to end: `EASYSSH_UPDATE_LIVE_KEY=<public key> cargo test
+  -p easyssh-update --test live_release -- --ignored` fetches the latest Linux
+  feed and installer and verifies both. Feeds carry no architecture:
   if a second architecture of a platform is ever shipped, it needs its own
   product name.
 - Rotating the key: add the new public key to the variable next to the old one,
