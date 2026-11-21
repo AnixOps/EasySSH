@@ -1,0 +1,537 @@
+[
+  {
+    "area": "连接",
+    "name": "connect",
+    "mainstream": "打开主机即得到远端 shell 提示符",
+    "ok": true,
+    "note": "TERM=xterm-256color COLORTERM= LANG=C.UTF-8",
+    "seconds": 2.091
+  },
+  {
+    "area": "显示",
+    "name": "cjk-emoji-width",
+    "mainstream": "中文、emoji 各占两格，后面的字符和光标对齐（wcwidth / Unicode 11+）",
+    "ok": true,
+    "note": "中/文/😀 各占 2 格，竖线与下一行第 9 列对齐",
+    "seconds": 1.448
+  },
+  {
+    "area": "显示",
+    "name": "truecolor",
+    "mainstream": "24 位真彩色（38;2;r;g;b）按原色显示",
+    "ok": true,
+    "note": "前景色 #ff6400 按 RGB 保存",
+    "seconds": 1.586
+  },
+  {
+    "area": "显示",
+    "name": "ansi-black-contrast",
+    "mainstream": "ANSI 黑色是深色，htop 表头、tmux 状态栏这类“彩色底黑字”清楚可读",
+    "ok": true,
+    "note": "黑色 #1c1c1e，彩色底上最低对比度 8.3:1，最低对比度保护 4.5",
+    "seconds": 1.781
+  },
+  {
+    "area": "窗口",
+    "name": "sidebar-toggle",
+    "mainstream": "侧栏可收起，让终端占满窗口（Termius、MobaXterm、VS Code）",
+    "ok": true,
+    "note": "76 列 → 117 列，再次点击展开",
+    "seconds": 1.567
+  },
+  {
+    "area": "窗口",
+    "name": "focus-mode",
+    "mainstream": "突出终端：侧栏底部有收起按钮，终端里 Ctrl+Shift+S 收起/展开；专注模式（F11，macOS ⌃⌘Z）只留标签和终端，重开后记住",
+    "ok": true,
+    "note": "76 列 → 收起侧栏 117 列 → 专注模式 126 列；快捷键和“退出专注模式”按钮可用，重开后记住",
+    "seconds": 3.743
+  },
+  {
+    "area": "复制粘贴",
+    "name": "copy-shortcut",
+    "mainstream": "选中后 Ctrl+Shift+C（macOS ⌘C）复制",
+    "ok": true,
+    "note": "双击选中整词，快捷键复制",
+    "seconds": 1.31
+  },
+  {
+    "area": "复制粘贴",
+    "name": "ctrl-c-copies-selection",
+    "mainstream": "Windows Terminal：有选中时 Ctrl+C 复制（并清除选中），无选中时发送 ^C",
+    "ok": true,
+    "note": "有选中复制，无选中中断",
+    "seconds": 1.698
+  },
+  {
+    "area": "复制粘贴",
+    "name": "ctrl-v-pastes",
+    "mainstream": "Windows Terminal：Ctrl+V 粘贴；Ctrl+Shift+V 也粘贴",
+    "ok": true,
+    "note": "两种快捷键都把剪贴板内容送进远端",
+    "seconds": 1.317
+  },
+  {
+    "area": "复制粘贴",
+    "name": "multiline-paste",
+    "mainstream": "多行粘贴：shell 开了括号粘贴（bash 5.1+）时直接粘贴不执行；否则先确认",
+    "ok": true,
+    "note": "bash 括号粘贴：两行一起放进命令行，按回车才执行",
+    "seconds": 1.059
+  },
+  {
+    "area": "复制粘贴",
+    "name": "osc52",
+    "mainstream": "远端程序（tmux、vim、nvim）用 OSC 52 写本机剪贴板",
+    "ok": true,
+    "note": "剪贴板得到 from-osc52",
+    "seconds": 1.674
+  },
+  {
+    "area": "复制粘贴",
+    "name": "right-click-menu",
+    "mainstream": "右键：应用自己的菜单（复制/粘贴/清屏…），不是浏览器默认菜单",
+    "ok": true,
+    "note": "菜单项：复制、粘贴、全选、在终端中查找、清屏",
+    "seconds": 1.163
+  },
+  {
+    "area": "选择",
+    "name": "triple-click-line",
+    "mainstream": "三击选中整行",
+    "ok": true,
+    "note": "整行选中",
+    "seconds": 1.321
+  },
+  {
+    "area": "选择",
+    "name": "shift-click-extend",
+    "mainstream": "Shift+单击扩展选区",
+    "ok": true,
+    "note": "选区扩展到点击处",
+    "seconds": 1.275
+  },
+  {
+    "area": "选择",
+    "name": "select-in-mouse-app",
+    "mainstream": "程序开了鼠标（tmux/htop）时，Shift+拖动（macOS ⌥+拖动）仍可选文字",
+    "ok": true,
+    "note": "Shift+拖动选中 \"mouse-mod\"",
+    "seconds": 1.479
+  },
+  {
+    "area": "滚动",
+    "name": "wheel-scrollback",
+    "mainstream": "滚轮翻看历史输出",
+    "ok": true,
+    "note": "向上滚动 167 行",
+    "seconds": 1.676
+  },
+  {
+    "area": "滚动",
+    "name": "shift-pageup",
+    "mainstream": "Shift+PageUp / Shift+PageDown 按页翻历史",
+    "ok": true,
+    "note": "翻上一页（37 行）",
+    "seconds": 1.469
+  },
+  {
+    "area": "滚动",
+    "name": "wheel-in-less",
+    "mainstream": "less/man（备用屏、未开鼠标）中滚轮翻页而不是翻命令历史",
+    "ok": true,
+    "note": "滚动后首行为 51",
+    "seconds": 1.75
+  },
+  {
+    "area": "搜索",
+    "name": "find",
+    "mainstream": "Ctrl+Shift+F（⌘F）在输出中查找，显示匹配数，回车跳下一个",
+    "ok": true,
+    "note": "匹配计数 2/4",
+    "seconds": 1.979
+  },
+  {
+    "area": "链接",
+    "name": "url-click",
+    "mainstream": "普通 URL：Ctrl+单击（⌘+单击）用系统浏览器打开",
+    "ok": true,
+    "note": "打开 https://example.com/plain-link",
+    "seconds": 1.999
+  },
+  {
+    "area": "链接",
+    "name": "osc8-hyperlink",
+    "mainstream": "OSC 8 超链接（ls --hyperlink、gcc、systemd）：Ctrl+单击打开，不弹浏览器确认框",
+    "ok": true,
+    "note": "打开 https://example.com/osc8",
+    "seconds": 2.077
+  },
+  {
+    "area": "标题与提醒",
+    "name": "title",
+    "mainstream": "远端用 OSC 0/2 设置标题，标签上能看到",
+    "ok": true,
+    "note": "标签显示主机名，远端标题在悬停提示里（同 Termius；Windows Terminal 直接显示标题）",
+    "seconds": 1.908
+  },
+  {
+    "area": "输入",
+    "name": "ime-insert",
+    "mainstream": "输入法上屏的中文直接进入远端",
+    "ok": true,
+    "note": "组字后上屏的“你好世界”被远端回显",
+    "seconds": 1.408
+  },
+  {
+    "area": "输入",
+    "name": "keys",
+    "mainstream": "方向键、Home/End、Ctrl+←/→ 按词移动、Alt+. 取上一个参数",
+    "ok": true,
+    "note": "编辑结果正确",
+    "seconds": 1.302
+  },
+  {
+    "area": "全屏程序",
+    "name": "vim",
+    "mainstream": "vim：备用屏、颜色、退出后恢复原屏幕",
+    "ok": true,
+    "note": "进出 vim 正常，原屏幕恢复",
+    "seconds": 1.649
+  },
+  {
+    "area": "全屏程序",
+    "name": "tmux",
+    "mainstream": "tmux：状态栏、Ctrl+B % 分屏、窗口大小随终端变化",
+    "ok": true,
+    "note": "状态栏显示，分出两个窗格",
+    "seconds": 2.252
+  },
+  {
+    "area": "全屏程序",
+    "name": "htop",
+    "mainstream": "htop/btop：全屏 TUI 正确绘制（鼠标点击见另一线程）",
+    "ok": true,
+    "note": "htop 正常绘制",
+    "seconds": 1.981
+  },
+  {
+    "area": "窗口",
+    "name": "resize",
+    "mainstream": "窗口变化后远端 stty size 跟着变",
+    "ok": true,
+    "note": "stty size = 27 67",
+    "seconds": 2.185
+  },
+  {
+    "area": "字体",
+    "name": "zoom",
+    "mainstream": "Ctrl+=/Ctrl+-/Ctrl+0（⌘+/⌘-/⌘0）放大、缩小、复位字号",
+    "ok": true,
+    "note": "字号 13 → 14 → 12 → 13",
+    "seconds": 1.664
+  },
+  {
+    "area": "字体",
+    "name": "ctrl-wheel-zoom",
+    "mainstream": "Ctrl+滚轮缩放字号（Windows Terminal、WezTerm）",
+    "ok": true,
+    "note": "字号 13 → 14",
+    "seconds": 1.052
+  },
+  {
+    "area": "字体",
+    "name": "ligatures",
+    "mainstream": "连字：Fira Code、Cascadia Code 等字体把 => != 显示成连字（Windows Terminal、WezTerm、iTerm2）",
+    "ok": true,
+    "note": "DOM 渲染，font-variant-ligatures: common-ligatures contextual",
+    "seconds": 1.682
+  },
+  {
+    "area": "标签与分屏",
+    "name": "split",
+    "mainstream": "Ctrl+Shift+D 分屏后新窗格也连上同一主机",
+    "ok": true,
+    "note": "两个窗格各有一个会话",
+    "seconds": 1.274
+  },
+  {
+    "area": "标签与分屏",
+    "name": "tab-switch",
+    "mainstream": "Ctrl+Tab / Ctrl+Shift+Tab 切换标签",
+    "ok": true,
+    "note": "staging-api ⇄ prod-web-01",
+    "seconds": 2.451
+  },
+  {
+    "area": "标签与分屏",
+    "name": "duplicate-tab",
+    "mainstream": "标签右键“复制标签”再开一个同主机会话（Windows Terminal、Termius、MobaXterm）",
+    "ok": true,
+    "note": "两个标签，各自一个会话",
+    "seconds": 1.198
+  },
+  {
+    "area": "标签与分屏",
+    "name": "open-host-new-tab",
+    "mainstream": "同一主机再开一个标签（主机右键“在新标签中打开”）",
+    "ok": true,
+    "note": "同一主机两个标签",
+    "seconds": 1.28
+  },
+  {
+    "area": "标签与分屏",
+    "name": "tab-drag",
+    "mainstream": "拖动标签调整顺序",
+    "ok": true,
+    "note": "prod-web-01 | staging-api → staging-api | prod-web-01",
+    "seconds": 1.621
+  },
+  {
+    "area": "标签与分屏",
+    "name": "tab-rename",
+    "mainstream": "给标签改名：双击标签名或右键“重命名标签”（Windows Terminal、iTerm2、MobaXterm）",
+    "ok": true,
+    "note": "右键或双击改名，回车确认，Esc 取消",
+    "seconds": 1.375
+  },
+  {
+    "area": "会话",
+    "name": "exit-reconnect",
+    "mainstream": "会话结束后显示原因，按回车重新连接",
+    "ok": true,
+    "note": "回车后重新连上，屏幕干净",
+    "seconds": 2.124
+  },
+  {
+    "area": "性能",
+    "name": "bulk-output",
+    "mainstream": "大量输出（20 万行）不卡死，几秒内结束",
+    "ok": false,
+    "note": "timed out waiting for /done-q7ynoj/ on screen:",
+    "detail": "Error: timed out waiting for /done-q7ynoj/ on screen:\n37919\n37920\n37921\n37922\n37923\n37924\n37925\n37926\n37927\n37928\n37929\n37930\nsession 2ce1f444d78444218408492a56885637: bridge sent 254574 chars, page got 254574, last sent \"7922\\r\\n37923\\r\\n37924\\r\\n37925\\r\\n37926\\r\\n37927\\r\\n37928\\r\\n37929\\r\\n37930\"\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async runAndWait (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:404:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1051:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 41.122
+  },
+  {
+    "area": "文件",
+    "name": "sftp-browse",
+    "mainstream": "打开文件面板列出远端目录：文件夹在前，显示大小、时间、权限（Termius、FinalShell、MobaXterm）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1083:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.36
+  },
+  {
+    "area": "文件",
+    "name": "sftp-navigate",
+    "mainstream": "双击文件夹进入，“上级目录”和 Backspace 返回（FinalShell、MobaXterm、WinSCP）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1099:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.396
+  },
+  {
+    "area": "文件",
+    "name": "sftp-upload",
+    "mainstream": "上传本地文件到当前目录，完成后列表里出现，内容一致",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1114:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.311
+  },
+  {
+    "area": "文件",
+    "name": "sftp-download",
+    "mainstream": "下载文件到本地“下载”文件夹，传输列表显示进度和完成",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1133:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.387
+  },
+  {
+    "area": "文件",
+    "name": "sftp-mkdir-rename-delete",
+    "mainstream": "新建文件夹、F2 重命名、Delete 删除（带确认），远端随之改变",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1147:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.357
+  },
+  {
+    "area": "文件",
+    "name": "sftp-chmod",
+    "mainstream": "属性里改权限（八进制或勾选），远端 ls -l 随之改变",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1170:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.361
+  },
+  {
+    "area": "文件",
+    "name": "sftp-multi-select",
+    "mainstream": "Ctrl+点击多选、Shift+点击连选，批量下载",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1185:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.381
+  },
+  {
+    "area": "文件",
+    "name": "sftp-path",
+    "mainstream": "路径栏输入 ~、绝对路径、文件路径都能打开（FinalShell、WinSCP）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1199:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.39
+  },
+  {
+    "area": "文件",
+    "name": "sftp-follow-osc7",
+    "mainstream": "终端报告当前目录（OSC 7，fish、Fedora/Ubuntu 的 VTE 配置会发）时，文件面板可以跟随（Windows Terminal、WezTerm、iTerm2 都读 OSC 7）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1215:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.403
+  },
+  {
+    "area": "文件",
+    "name": "sftp-follow-integration",
+    "mainstream": "没开 Shell 集成时点“跟随终端目录”，可以直接为这台主机开启；重连后跟随（FinalShell 默认就跟随）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1230:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.362
+  },
+  {
+    "area": "文件",
+    "name": "sftp-many-tabs",
+    "mainstream": "同一台服务器开 12 个标签后，文件面板和下载照常可用（OpenSSH 每个连接最多 10 个会话；Termius、FinalShell 不受影响）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1254:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.339
+  },
+  {
+    "area": "文件",
+    "name": "sftp-double-click",
+    "mainstream": "双击文件用编辑器打开，保存后传回（FinalShell、MobaXterm、WinSCP；设置里可改成下载）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1272:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.344
+  },
+  {
+    "area": "文件",
+    "name": "sftp-double-click-binary",
+    "mainstream": "双击二进制文件（压缩包、程序、图片）直接下载，不用编辑器打开，免得卡住",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1283:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.35
+  },
+  {
+    "area": "文件",
+    "name": "sftp-cancel",
+    "mainstream": "大文件传输可以取消，状态显示已取消",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1298:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.372
+  },
+  {
+    "area": "文件",
+    "name": "sftp-context-menu",
+    "mainstream": "在文件上右键弹出菜单：下载、重命名、属性、删除、复制路径（FinalShell、MobaXterm）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1311:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.402
+  },
+  {
+    "area": "文件",
+    "name": "sftp-sort",
+    "mainstream": "点列头按名称、大小、修改时间排序（FinalShell、MobaXterm、WinSCP）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1325:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.403
+  },
+  {
+    "area": "文件",
+    "name": "sftp-hidden",
+    "mainstream": "可以隐藏或显示以 . 开头的文件（Termius、MobaXterm、WinSCP）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1336:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.347
+  },
+  {
+    "area": "连接管理",
+    "name": "quick-connect",
+    "mainstream": "在主机搜索框输入 user@host:port 回车直接连接（Termius、MobaXterm、Tabby 的快速连接）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1358:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 15.366
+  },
+  {
+    "area": "连接管理",
+    "name": "search-enter",
+    "mainstream": "搜索主机后回车连接第一个结果（Termius、Royal TSX）",
+    "ok": true,
+    "note": "回车打开 staging-api",
+    "seconds": 0.718
+  },
+  {
+    "area": "连接管理",
+    "name": "duplicate-host",
+    "mainstream": "主机右键“复制主机”，得到设置相同的新主机（Termius、MobaXterm、FinalShell）",
+    "ok": true,
+    "note": "新主机“prod-web-02 副本”，地址相同",
+    "seconds": 4.985
+  },
+  {
+    "area": "端口转发",
+    "name": "forward-local",
+    "mainstream": "本地转发（-L）：打开后本机端口直通服务器那边的目标，关掉后端口释放",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async serverSshPort (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1433:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1464:19)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.315
+  },
+  {
+    "area": "端口转发",
+    "name": "forward-socks",
+    "mainstream": "动态转发（-D，SOCKS5）：浏览器或工具经它访问服务器那边",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async serverSshPort (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1433:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1478:19)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.348
+  },
+  {
+    "area": "端口转发",
+    "name": "forward-remote",
+    "mainstream": "远程转发（-R）：服务器上的端口直通本机的服务",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1491:5)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.36
+  },
+  {
+    "area": "设置",
+    "name": "settings-search",
+    "mainstream": "设置可以搜索，只留下匹配的项（Windows Terminal、VS Code、Termius）",
+    "ok": true,
+    "note": "搜“连字”只剩连字；搜“终端”显示终端组 18 项；搜不到时提示",
+    "seconds": 0.573
+  },
+  {
+    "area": "设置",
+    "name": "settings-live",
+    "mainstream": "改字号立刻作用到已打开的终端，不用重连（Windows Terminal、iTerm2）",
+    "ok": false,
+    "note": "timed out waiting for /keyuser@/ on screen:",
+    "detail": "Error: timed out waiting for /keyuser@/ on screen:\n\nbuffers: normal; failed deliveries: 0\n    at waitScreen (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:374:9)\n    at async openHost (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:344:3)\n    at async Object.fn (file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1522:3)\n    at async file:///home/runner/work/EasySSH/EasySSH/scripts/terminal-e2e.mjs:1543:18",
+    "seconds": 35.367
+  }
+]

@@ -1,0 +1,374 @@
+bastion-1  | Server listening on 0.0.0.0 port 22.
+bastion-1  | Server listening on :: port 22.
+bastion-1  | kex_exchange_identification: Connection closed by remote host
+bastion-1  | Connection closed by 172.18.0.1 port 56324
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57620 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 57620:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57620
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57626 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57636 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 57636:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57636
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57640 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 57640:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57640
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57648 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57654 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 57654:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57654
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 57662 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 57662:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57662
+bastion-1  | Received disconnect from 172.18.0.1 port 57648:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 57648
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 54822 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 54830 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 54830:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 54830
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 54838 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 54838:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 54838
+bastion-1  | Received disconnect from 172.18.0.1 port 54822:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 54822
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 54844 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 54844:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 54844
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 54852 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted password for pwuser from 172.18.0.1 port 54854 ssh2
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 59444 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35020 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Received disconnect from 172.18.0.1 port 35020:11: disconnected by user
+bastion-1  | Disconnected from user keyuser 172.18.0.1 port 35020
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35024 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Connection closed by 172.18.0.1 port 35032 [preauth]
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35046 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | connect_to target port 2: failed.
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35054 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35056 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35062 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 35064 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+bastion-1  | Accepted publickey for keyuser from 172.18.0.1 port 36698 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Server listening on 0.0.0.0 port 22.
+target-1   | Server listening on :: port 22.
+target-1   | kex_exchange_identification: Connection closed by remote host
+target-1   | Connection closed by 172.18.0.1 port 39182
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 46120 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 46120:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 46120
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 46136 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49624 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.2 port 49624:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 49624
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49638 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 46150 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 46150:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 46150
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 46166 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 46166:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 46166
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 46168 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 46168:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 46168
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49640 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49656 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.2 port 49656:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 49656
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49670 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49682 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.2 port 49682:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 49682
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 49690 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.2 port 49690:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 49690
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 35182 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 35190 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.2 port 35190:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 35190
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 35198 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.2 port 35198:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.2 port 35198
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44134 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44146 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44148 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44152 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44160 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44166 ssh2
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 44182 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44196 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44200 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44210 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44212 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44224 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44228 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44234 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 44234:11: bye
+target-1   | Disconnected from user pwuser 172.18.0.1 port 44234
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44246 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44248 ssh2
+target-1   | connect_to 127.0.0.1 port 1: failed.
+target-1   | connect_to 127.0.0.1 port 1: failed.
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 35208 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 35212 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44262 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44276 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44290 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44302 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 44314 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 44314 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 44314 ssh2
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 44314 [preauth]
+target-1   | Accepted password for pwuser from 172.18.0.1 port 43974 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 43984 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 43998 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44014 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44028 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44042 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 44042:11: bye
+target-1   | Disconnected from user pwuser 172.18.0.1 port 44042
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44050 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44058 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44068 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44084 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 44084:11: bye
+target-1   | Disconnected from user pwuser 172.18.0.1 port 44084
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 44090 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 57442 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 57442:11: disconnected by user
+target-1   | Disconnected from user pwuser 172.18.0.1 port 57442
+target-1   | Accepted password for pwuser from 172.18.0.1 port 57450 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 57450:11: disconnected by user
+target-1   | Disconnected from user pwuser 172.18.0.1 port 57450
+target-1   | Failed password for pwuser from 172.18.0.1 port 57466 ssh2
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 57466 [preauth]
+target-1   | Accepted password for pwuser from 172.18.0.1 port 57478 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 57478:11: disconnected by user
+target-1   | Disconnected from user pwuser 172.18.0.1 port 57478
+target-1   | Accepted password for pwuser from 172.18.0.1 port 57482 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 57482:11: disconnected by user
+target-1   | Disconnected from user pwuser 172.18.0.1 port 57482
+target-1   | Accepted password for pwuser from 172.18.0.1 port 57490 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 57498 ssh2
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 57498 [preauth]
+target-1   | Failed password for pwuser from 172.18.0.1 port 57504 ssh2
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 57504 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 57514 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 57514:11: bye
+target-1   | Disconnected from user keyuser 172.18.0.1 port 57514
+target-1   | Connection closed by 172.18.0.1 port 57526 [preauth]
+target-1   | Connection closed by 172.18.0.1 port 57538 [preauth]
+target-1   | Connection closed by 172.18.0.1 port 57546 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 57550 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 39594 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 57552 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52782 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 52798 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 53750 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52808 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52810 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 52810:11: bye
+target-1   | Disconnected from user keyuser 172.18.0.1 port 52810
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52814 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52816 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 52816:11: bye
+target-1   | Disconnected from user keyuser 172.18.0.1 port 52816
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52826 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52836 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52850 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52860 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | no more sessions
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52868 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52880 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52894 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Connection closed by 172.18.0.1 port 52910 [preauth]
+target-1   | Connection closed by 172.18.0.1 port 52918 [preauth]
+target-1   | Connection closed by 172.18.0.1 port 52926 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52932 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52942 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52948 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52958 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52966 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Connection closed by 172.18.0.1 port 52968 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52970 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52976 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 53758 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 53760 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 53770 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52980 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52982 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52986 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 52998 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 53008 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 53014 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Connection closed by authenticating user keyuser 172.18.0.1 port 53026 [preauth]
+target-1   | Connection closed by authenticating user keyuser 172.18.0.1 port 53030 [preauth]
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 53036 [preauth]
+target-1   | Accepted password for pwuser from 172.18.0.1 port 53038 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 53048 ssh2
+target-1   | Connection closed by 172.18.0.1 port 53064 [preauth]
+target-1   | Accepted password for pwuser from 172.18.0.1 port 53080 ssh2
+target-1   | Accepted password for pwuser from 172.18.0.1 port 53088 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 53090 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 53090 ssh2
+target-1   | Failed password for pwuser from 172.18.0.1 port 53090 ssh2
+target-1   | Connection closed by authenticating user pwuser 172.18.0.1 port 53090 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.2 port 58310 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48440 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48448 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Connection closed by authenticating user keyuser 172.18.0.1 port 48458 [preauth]
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48460 ssh2: ECDSA-SK SHA256:BGp0EQJw1AVTwLiyTARmsnV2Z2samIbAS/ui3u+ZONY
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48472 ssh2: ED25519-SK SHA256:yi7q/uifBcR7U+tmFkmQ5RT+z9jHHsCVlAoeGbhDrac
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48484 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48488 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48492 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48496 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48508 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48518 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48528 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48530 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48538 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48540 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48552 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48556 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48560 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | connect_to 127.0.0.1 port 1: failed.
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48576 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48582 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48592 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48598 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48614 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48616 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48628 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 48628:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 48628
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48642 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 48652 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38756 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38756:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38756
+target-1   | Received disconnect from 172.18.0.1 port 48652:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 48652
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38758 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38758:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38758
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38766 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38766:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38766
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38782 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38782:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38782
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38794 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38794:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38794
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38808 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38818 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38818:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38818
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38830 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38830:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38830
+target-1   | Received disconnect from 172.18.0.1 port 38808:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38808
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38836 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38836:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38836
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38844 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38844:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38844
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38858 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38858:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38858
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38860 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38874 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38874:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38874
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38884 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 38884:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38884
+target-1   | Received disconnect from 172.18.0.1 port 38860:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38860
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38886 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 38886:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38886
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38902 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for fishuser from 172.18.0.1 port 38906 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 38906:11: disconnected by user
+target-1   | Disconnected from user fishuser 172.18.0.1 port 38906
+target-1   | Accepted publickey for fishuser from 172.18.0.1 port 38922 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38924 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 38924:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 38924
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 38940 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for zshuser from 172.18.0.1 port 51132 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 51132:11: disconnected by user
+target-1   | Disconnected from user zshuser 172.18.0.1 port 51132
+target-1   | Accepted publickey for zshuser from 172.18.0.1 port 51146 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51150 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 51150:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 51150
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51164 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51174 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51178 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51190 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51196 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | Received disconnect from 172.18.0.1 port 51196:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 51196
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51212 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51216 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51230 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Received disconnect from 172.18.0.1 port 51230:11: disconnected by user
+target-1   | Disconnected from user keyuser 172.18.0.1 port 51230
+target-1   | Accepted publickey for keyuser from 172.18.0.1 port 51240 ssh2: ED25519 SHA256:R+RbnCMRieun+VdGE1wcQSzJ+dCoih1jX8MBneYKpsc
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 51242 ssh2
+target-1   | Received disconnect from 172.18.0.1 port 51242:11: disconnected by user
+target-1   | Disconnected from user pwuser 172.18.0.1 port 51242
+target-1   | syslogin_perform_logout: logout() returned an error
+target-1   | Accepted password for pwuser from 172.18.0.1 port 51252 ssh2
+target-1   | syslogin_perform_logout: logout() returned an error

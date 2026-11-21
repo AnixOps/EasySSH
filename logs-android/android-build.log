@@ -1,0 +1,938 @@
+        Info Using installed NDK: /usr/local/lib/android/sdk/ndk/27.3.13750724
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `npm run build`
+
+> anixops-ssh@2.3.2 build
+> tsc --noEmit && vite build
+
+[36mvite v6.4.4 [32mbuilding for production...[36m[39m
+transforming...
+Found 1 warning while optimizing generated CSS:
+
+[2m│   }[22m
+[2m│   .\[all\:vars\] {[22m
+[2m│[22m     all: vars;
+[2m┆[22m         [33m[2m^--[22m Unexpected token Ident("vars")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .\[db\:vars\] {[22m
+
+[32m✓[39m 2341 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                         [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-g1bNQkiU.css          [39m[1m[2m   55.20 kB[22m[1m[22m[2m │ gzip:  12.14 kB[22m
+[2mdist/[22m[2massets/[22m[36mcd-BJl3zNiE.js              [39m[1m[2m    0.39 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-CsJeypyI.js           [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[2mdist/[22m[2massets/[22m[36mmkdir-BHoibBxc.js           [39m[1m[2m    0.55 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[2mdist/[22m[2massets/[22m[36mcrontab-BxPDRpz7.js         [39m[1m[2m    0.58 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[2mdist/[22m[2massets/[22m[36mhead-DAVRSLqk.js            [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[2massets/[22m[36mcat-MFbJfng5.js             [39m[1m[2m    0.72 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[2mdist/[22m[2massets/[22m[36mrm-D7mSQvU9.js              [39m[1m[2m    0.82 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mmv-DI0yMvuQ.js              [39m[1m[2m    0.84 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mchown-BfKJRcV7.js           [39m[1m[2m    0.85 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[2mdist/[22m[2massets/[22m[36mless-griBu9vP.js            [39m[1m[2m    0.88 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[2massets/[22m[36mtail-DcbIPi2A.js            [39m[1m[2m    0.95 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mfree-TOYh2b-A.js            [39m[1m[2m    0.96 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mtop-Bx6QlbF1.js             [39m[1m[2m    1.05 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mhtop-C7gxRIAi.js            [39m[1m[2m    1.07 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[2massets/[22m[36mchmod-C6SYttxo.js           [39m[1m[2m    1.08 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mnginx-DEnpw3uI.js           [39m[1m[2m    1.14 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mkill-iY5IOZ2K.js            [39m[1m[2m    1.18 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mping-C04McCIu.js            [39m[1m[2m    1.25 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mdf-DN5ZI0NW.js              [39m[1m[2m    1.29 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2mdist/[22m[2massets/[22m[36mls-Cx1xIWun.js              [39m[1m[2m    1.31 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mnano-3Cs1-XEZ.js            [39m[1m[2m    1.32 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mcp-BFEuKV8X.js              [39m[1m[2m    1.42 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2mdist/[22m[2massets/[22m[36mdu-C6sr7Ca9.js              [39m[1m[2m    1.46 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+[2mdist/[22m[2massets/[22m[36mps-ILSFEM9X.js              [39m[1m[2m    1.49 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mscp-BLaiiudf.js             [39m[1m[2m    1.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mss-DAMDwgxd.js              [39m[1m[2m    1.61 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[2massets/[22m[36mvim-oozNDzz0.js             [39m[1m[2m    1.65 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[2massets/[22m[36mpython-Lb8w99in.js          [39m[1m[2m    1.67 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[2mdist/[22m[2massets/[22m[36mnode-Bbt0G4AX.js            [39m[1m[2m    1.78 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2mdist/[22m[2massets/[22m[36msudo-DVfb-rzR.js            [39m[1m[2m    1.87 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[2mdist/[22m[2massets/[22m[36mmake-XiIN7zdf.js            [39m[1m[2m    2.18 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[2mdist/[22m[2massets/[22m[36mapt-CCI9EP8C.js             [39m[1m[2m    2.24 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[2massets/[22m[36mtar-BMm3XsWX.js             [39m[1m[2m    2.27 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[2massets/[22m[36mfind-Q8y026i-.js            [39m[1m[2m    2.41 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mjournalctl-DhhLu9y7.js      [39m[1m[2m    2.44 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[2mdist/[22m[2massets/[22m[36mdnf-1E_trpPr.js             [39m[1m[2m    2.49 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mufw-DTY252Ib.js             [39m[1m[2m    2.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mssh-B2s8cEWz.js             [39m[1m[2m    2.68 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[2mdist/[22m[2massets/[22m[36mrsync-C41M1Ocx.js           [39m[1m[2m    2.69 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+[2mdist/[22m[2massets/[22m[36mgrep-BUnjd0l2.js            [39m[1m[2m    2.82 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2mdist/[22m[2massets/[22m[36mwget-DcY0ZXHs.js            [39m[1m[2m    2.89 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mcurl-P2zEsiig.js            [39m[1m[2m    3.71 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mip-CA2IE3QM.js              [39m[1m[2m    4.23 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mpip-DjMr-dwu.js             [39m[1m[2m    5.08 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[2mdist/[22m[2massets/[22m[36msystemctl-Cp34BCHw.js       [39m[1m[2m    5.12 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mnpm-cjWe8RVS.js             [39m[1m[2m    5.57 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-compose-C75a3ONX.js  [39m[1m[2m    8.16 kB[22m[1m[22m[2m │ gzip:   1.79 kB[22m
+[2mdist/[22m[2massets/[22m[36mtmux-WjUcT0MB.js            [39m[1m[2m   10.87 kB[22m[1m[22m[2m │ gzip:   2.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mkubectl-C5KN9ISC.js         [39m[1m[2m   19.78 kB[22m[1m[22m[2m │ gzip:   3.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mgit-B9ACcBib.js             [39m[1m[2m   22.10 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-C-k9D2mK.js          [39m[1m[2m   32.41 kB[22m[1m[22m[2m │ gzip:   4.14 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-DfSMeVdQ.js           [39m[1m[33m1,567.67 kB[39m[22m[2m │ gzip: 464.84 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 4.30s[39m
+[1m[92m Downloading[0m crates ...
+[1m[92m  Downloaded[0m alloc-stdlib v0.3.0
+[1m[92m  Downloaded[0m alloc-no-stdlib v3.0.0
+[1m[92m  Downloaded[0m cairo-sys-rs v0.18.2
+[1m[92m  Downloaded[0m cssparser-macros v0.7.1
+[1m[92m  Downloaded[0m async-broadcast v0.7.2
+[1m[92m  Downloaded[0m borrow-or-share v0.2.4
+[1m[92m  Downloaded[0m downcast-rs v1.2.1
+[1m[92m  Downloaded[0m gdkx11-sys v0.18.2
+[1m[92m  Downloaded[0m schemars_derive v0.8.22
+[1m[92m  Downloaded[0m serde-untagged v0.1.9
+[1m[92m  Downloaded[0m field-offset v0.3.6
+[1m[92m  Downloaded[0m secret-service v5.2.0
+[1m[92m  Downloaded[0m glib-macros v0.18.5
+[1m[92m  Downloaded[0m selectors v0.38.0
+[1m[92m  Downloaded[0m dirs-sys v0.5.0
+[1m[92m  Downloaded[0m foldhash v0.1.5
+[1m[92m  Downloaded[0m arboard v3.6.1
+[1m[92m  Downloaded[0m enumflags2 v0.7.12
+[1m[92m  Downloaded[0m async-recursion v1.2.0
+[1m[92m  Downloaded[0m dlv-list v0.5.2
+[1m[92m  Downloaded[0m fixedbitset v0.5.7
+[1m[92m  Downloaded[0m serde_derive_internals v0.29.1
+[1m[92m  Downloaded[0m bit-vec v0.8.0
+[1m[92m  Downloaded[0m cargo_metadata v0.19.2
+[1m[92m  Downloaded[0m defmt v1.1.1
+[1m[92m  Downloaded[0m fastrand v2.5.0
+[1m[92m  Downloaded[0m event-listener v5.4.2
+[1m[92m  Downloaded[0m cookie v0.18.2
+[1m[92m  Downloaded[0m atk v0.18.2
+[1m[92m  Downloaded[0m async-io v2.6.0
+[1m[92m  Downloaded[0m email_address v0.2.10
+[1m[92m  Downloaded[0m bytemuck v1.25.2
+[1m[92m  Downloaded[0m gdk-sys v0.18.2
+[1m[92m  Downloaded[0m gdkwayland-sys v0.18.2
+[1m[92m  Downloaded[0m gio-sys v0.18.1
+[1m[92m  Downloaded[0m bitflags v1.3.2
+[1m[92m  Downloaded[0m cfb v0.14.0
+[1m[92m  Downloaded[0m derive_more v2.1.1
+[1m[92m  Downloaded[0m async-executor v1.14.0
+[1m[92m  Downloaded[0m darling_core v0.24.1
+[1m[92m  Downloaded[0m gdk v0.18.2
+[1m[92m  Downloaded[0m crossbeam-channel v0.5.17
+[1m[92m  Downloaded[0m fraction v0.17.0
+[1m[92m  Downloaded[0m glib-sys v0.18.1
+[1m[92m  Downloaded[0m fax v0.2.7
+[1m[92m  Downloaded[0m aho-corasick v1.1.5
+[1m[92m  Downloaded[0m concurrent-queue v2.5.0
+[1m[92m  Downloaded[0m fontdb v0.23.0
+[1m[92m  Downloaded[0m gdk-pixbuf v0.18.5
+[1m[92m  Downloaded[0m async-lock v3.4.2
+[1m[92m  Downloaded[0m gtk-sys v0.18.2
+[1m[92m  Downloaded[0m memoffset v0.9.1
+[1m[92m  Downloaded[0m string_cache v0.9.0
+[1m[92m  Downloaded[0m brotli-decompressor v6.0.1
+[1m[92m  Downloaded[0m jiff-core v0.1.1
+[1m[92m  Downloaded[0m const-random-macro v0.1.16
+[1m[92m  Downloaded[0m cssparser v0.37.0
+[1m[92m  Downloaded[0m image v0.25.10
+[1m[92m  Downloaded[0m bit-set v0.8.0
+[1m[92m  Downloaded[0m darling v0.24.1
+[1m[92m  Downloaded[0m dtoa-short v0.3.5
+[1m[92m  Downloaded[0m phf_generator v0.13.1
+[1m[92m  Downloaded[0m serde_with v3.24.0
+[1m[92m  Downloaded[0m tree_magic_mini v3.2.2
+[1m[92m  Downloaded[0m dyn-clone v1.0.20
+[1m[92m  Downloaded[0m filedescriptor v0.8.3
+[1m[92m  Downloaded[0m proc-macro-crate v3.5.0
+[1m[92m  Downloaded[0m tiny-keccak v2.0.2
+[1m[92m  Downloaded[0m cargo_toml v1.0.1
+[1m[92m  Downloaded[0m erased-serde v0.4.10
+[1m[92m  Downloaded[0m serde_spanned v0.6.9
+[1m[92m  Downloaded[0m siphasher v1.0.4
+[1m[92m  Downloaded[0m tauri-runtime v2.12.1
+[1m[92m  Downloaded[0m system-deps v6.2.2
+[1m[92m  Downloaded[0m web_atoms v0.2.6
+[1m[92m  Downloaded[0m crunchy v0.2.4
+[1m[92m  Downloaded[0m ctor v1.0.13
+[1m[92m  Downloaded[0m referencing v0.61.2
+[1m[92m  Downloaded[0m soup3 v0.5.0
+[1m[92m  Downloaded[0m tauri-codegen v2.7.2
+[1m[92m  Downloaded[0m serialize-to-javascript v0.1.2
+[1m[92m  Downloaded[0m cairo-rs v0.18.5
+[1m[92m  Downloaded[0m const-random v0.1.18
+[1m[92m  Downloaded[0m derive_more-impl v2.1.1
+[1m[92m  Downloaded[0m event-listener-strategy v0.5.4
+[1m[92m  Downloaded[0m gdk-pixbuf-sys v0.18.0
+[1m[92m  Downloaded[0m typeid v1.0.3
+[1m[92m  Downloaded[0m version-compare v0.2.1
+[1m[92m  Downloaded[0m defmt-parser v1.0.0
+[1m[92m  Downloaded[0m uuid-simd v0.8.0
+[1m[92m  Downloaded[0m thiserror-impl v1.0.69
+[1m[92m  Downloaded[0m core_maths v0.1.1
+[1m[92m  Downloaded[0m enumflags2_derive v0.7.12
+[1m[92m  Downloaded[0m serde_repr v0.1.21
+[1m[92m  Downloaded[0m serde_spanned v1.1.2
+[1m[92m  Downloaded[0m serialize-to-javascript-impl v0.1.2
+[1m[92m  Downloaded[0m async-process v2.5.0
+[1m[92m  Downloaded[0m bytecount v0.6.9
+[1m[92m  Downloaded[0m dlopen2_derive v0.4.3
+[1m[92m  Downloaded[0m dpi v0.1.2
+[1m[92m  Downloaded[0m hashbrown v0.15.5
+[1m[92m  Downloaded[0m bs58 v0.5.1
+[1m[92m  Downloaded[0m cesu8 v1.1.0
+[1m[92m  Downloaded[0m dlopen2 v0.8.2
+[1m[92m  Downloaded[0m wayland-sys v0.31.11
+[1m[92m  Downloaded[0m precomputed-hash v0.1.1
+[1m[92m  Downloaded[0m byteorder-lite v0.1.0
+[1m[92m  Downloaded[0m cfg_aliases v0.1.1
+[1m[92m  Downloaded[0m toml_datetime v1.1.2+spec-1.1.0
+[1m[92m  Downloaded[0m zcheapstr v1.1.0
+[1m[92m  Downloaded[0m strsim v0.11.1
+[1m[92m  Downloaded[0m zvariant_derive v5.15.0
+[1m[92m  Downloaded[0m os_pipe v1.2.3
+[1m[92m  Downloaded[0m cargo-platform v0.1.9
+[1m[92m  Downloaded[0m embed-resource v3.0.12
+[1m[92m  Downloaded[0m tao-macros v0.1.4
+[1m[92m  Downloaded[0m toml_datetime v0.6.3
+[1m[92m  Downloaded[0m toml_parser v1.1.5+spec-1.1.0
+[1m[92m  Downloaded[0m zbus_names v4.3.4
+[1m[92m  Downloaded[0m unescaper v0.1.10
+[1m[92m  Downloaded[0m urlpattern v0.6.0
+[1m[92m  Downloaded[0m vsimd v0.8.0
+[1m[92m  Downloaded[0m endi v1.1.1
+[1m[92m  Downloaded[0m dirs v7.0.0
+[1m[92m  Downloaded[0m string_cache_codegen v0.6.1
+[1m[92m  Downloaded[0m webpki-roots v0.26.11
+[1m[92m  Downloaded[0m shell-words v1.1.1
+[1m[92m  Downloaded[0m cfg-expr v0.15.8
+[1m[92m  Downloaded[0m fs4 v0.12.0
+[1m[92m  Downloaded[0m darling_macro v0.24.1
+[1m[92m  Downloaded[0m gdkx11 v0.18.2
+[1m[92m  Downloaded[0m webkit2gtk-sys v2.0.2
+[1m[92m  Downloaded[0m libappindicator-sys v0.9.0
+[1m[92m  Downloaded[0m serial2 v0.2.38
+[1m[92m  Downloaded[0m servo_arc v0.4.3
+[1m[92m  Downloaded[0m web-time v1.1.0
+[1m[92m  Downloaded[0m tendril v0.5.1
+[1m[92m  Downloaded[0m toml_writer v1.1.3+spec-1.1.0
+[1m[92m  Downloaded[0m async-channel v2.5.0
+[1m[92m  Downloaded[0m blocking v1.7.0
+[1m[92m  Downloaded[0m dtoa v1.0.11
+[1m[92m  Downloaded[0m gethostname v1.1.0
+[1m[92m  Downloaded[0m tauri-winres v0.3.6
+[1m[92m  Downloaded[0m wayland-protocols-wlr v0.3.12
+[1m[92m  Downloaded[0m zune-core v0.5.3
+[1m[92m  Downloaded[0m atk-sys v0.18.2
+[1m[92m  Downloaded[0m slotmap v1.1.1
+[1m[92m  Downloaded[0m tauri-plugin-single-instance v2.5.5
+[1m[92m  Downloaded[0m async-signal v0.2.14
+[1m[92m  Downloaded[0m async-task v4.7.1
+[1m[92m  Downloaded[0m camino v1.2.6
+[1m[92m  Downloaded[0m defmt-macros v1.1.1
+[1m[92m  Downloaded[0m jsonschema-regex v0.61.2
+[1m[92m  Downloaded[0m polling v3.11.0
+[1m[92m  Downloaded[0m fnv v1.0.7
+[1m[92m  Downloaded[0m heck v0.4.1
+[1m[92m  Downloaded[0m tauri-plugin v2.7.1
+[1m[92m  Downloaded[0m zvariant_utils v4.2.0
+[1m[92m  Downloaded[0m fdeflate v0.3.7
+[1m[92m  Downloaded[0m fontconfig-parser v0.5.8
+[1m[92m  Downloaded[0m javascriptcore-rs v1.1.2
+[1m[92m  Downloaded[0m keyring v4.2.0
+[1m[92m  Downloaded[0m ordered-stream v0.2.0
+[1m[92m  Downloaded[0m parking_lot v0.12.5
+[1m[92m  Downloaded[0m thiserror v1.0.69
+[1m[92m  Downloaded[0m futures-lite v2.6.1
+[1m[92m  Downloaded[0m fluent-uri v0.4.1
+[1m[92m  Downloaded[0m soup3-sys v0.5.0
+[1m[92m  Downloaded[0m target-lexicon v0.12.16
+[1m[92m  Downloaded[0m jsonptr v0.7.1
+[1m[92m  Downloaded[0m num_enum_derive v0.7.6
+[1m[92m  Downloaded[0m wayland-scanner v0.31.11
+[1m[92m  Downloaded[0m wl-clipboard-rs v0.9.4
+[1m[92m  Downloaded[0m micromap v0.3.0
+[1m[92m  Downloaded[0m dom_query v0.28.0
+[1m[92m  Downloaded[0m hashbrown v0.12.3
+[1m[92m  Downloaded[0m tauri-plugin-opener v2.7.1
+[1m[92m  Downloaded[0m unicode-general-category v1.1.0
+[1m[92m  Downloaded[0m zbus-secret-service-keyring-store v1.0.1
+[1m[92m  Downloaded[0m ident_case v1.0.1
+[1m[92m  Downloaded[0m mime v0.3.17
+[1m[92m  Downloaded[0m dbus v0.9.12
+[1m[92m  Downloaded[0m is-docker v0.2.0
+[1m[92m  Downloaded[0m serde_with_macros v3.24.0
+[1m[92m  Downloaded[0m gio v0.18.4
+[1m[92m  Downloaded[0m zbus_macros v5.19.0
+[1m[92m  Downloaded[0m libloading v0.7.4
+[1m[92m  Downloaded[0m toml v1.1.8+spec-1.1.0
+[1m[92m  Downloaded[0m weezl v0.1.12
+[1m[92m  Downloaded[0m proc-macro-error v1.0.4
+[1m[92m  Downloaded[0m png v0.18.1
+[1m[92m  Downloaded[0m tauri-plugin-dialog v2.8.2
+[1m[92m  Downloaded[0m tauri-runtime-wry v2.12.1
+[1m[92m  Downloaded[0m tauri-build v2.7.2
+[1m[92m  Downloaded[0m tauri-macros v2.7.2
+[1m[92m  Downloaded[0m tauri-plugin-clipboard-manager v2.4.2
+[1m[92m  Downloaded[0m tray-icon v0.25.1
+[1m[92m  Downloaded[0m gobject-sys v0.18.0
+[1m[92m  Downloaded[0m wayland-backend v0.3.17
+[1m[92m  Downloaded[0m tauri-plugin-deep-link v2.6.3
+[1m[92m  Downloaded[0m toml_edit v0.19.15
+[1m[92m  Downloaded[0m toml_edit v0.25.17+spec-1.1.0
+[1m[92m  Downloaded[0m quick-xml v0.41.0
+[1m[92m  Downloaded[0m toml v0.8.2
+[1m[92m  Downloaded[0m wayland-client v0.31.15
+[1m[92m  Downloaded[0m webkit2gtk v2.0.2
+[1m[92m  Downloaded[0m x11 v2.21.0
+[1m[92m  Downloaded[0m x11-dl v2.21.0
+[1m[92m  Downloaded[0m phf_shared v0.13.1
+[1m[92m  Downloaded[0m portable-pty v0.9.0
+[1m[92m  Downloaded[0m html5ever v0.39.0
+[1m[92m  Downloaded[0m num_enum v0.7.6
+[1m[92m  Downloaded[0m phf v0.13.1
+[1m[92m  Downloaded[0m glib v0.18.5
+[1m[92m  Downloaded[0m toml_edit v0.20.2
+[1m[92m  Downloaded[0m proc-macro-crate v2.0.2
+[1m[92m  Downloaded[0m tauri-plugin-fs v2.7.0
+[1m[92m  Downloaded[0m tiff v0.11.3
+[1m[92m  Downloaded[0m fancy-regex v0.20.2
+[1m[92m  Downloaded[0m keyring-core v1.0.1
+[1m[92m  Downloaded[0m serialport v4.10.1
+[1m[92m  Downloaded[0m pango v0.18.3
+[1m[92m  Downloaded[0m ureq v2.12.1
+[1m[92m  Downloaded[0m zvariant v5.15.0
+[1m[92m  Downloaded[0m zune-jpeg v0.5.15
+[1m[92m  Downloaded[0m rustix v1.1.5
+[1m[92m  Downloaded[0m roxmltree v0.20.0
+[1m[92m  Downloaded[0m indexmap v1.9.3
+[1m[92m  Downloaded[0m proc-macro-crate v1.3.1
+[1m[92m  Downloaded[0m rfd v0.16.0
+[1m[92m  Downloaded[0m ndk-context v0.1.1
+[1m[92m  Downloaded[0m wayland-protocols v0.32.13
+[1m[92m  Downloaded[0m jni-sys v0.3.1
+[1m[92m  Downloaded[0m markup5ever v0.39.0
+[1m[92m  Downloaded[0m winnow v0.5.40
+[1m[92m  Downloaded[0m outref v0.5.2
+[1m[92m  Downloaded[0m zbus v5.19.0
+[1m[92m  Downloaded[0m tauri-utils v2.10.1
+[1m[92m  Downloaded[0m gtk3-macros v0.18.2
+[1m[92m  Downloaded[0m parking v2.2.1
+[1m[92m  Downloaded[0m winnow v1.0.4
+[1m[92m  Downloaded[0m webpki-roots v1.0.12
+[1m[92m  Downloaded[0m javascriptcore-rs-sys v1.1.1
+[1m[92m  Downloaded[0m open v5.4.4
+[1m[92m  Downloaded[0m phf_macros v0.13.1
+[1m[92m  Downloaded[0m wry v0.57.0
+[1m[92m  Downloaded[0m moxcms v0.8.1
+[1m[92m  Downloaded[0m ttf-parser v0.25.1
+[1m[92m  Downloaded[0m muda v0.20.0
+[1m[92m  Downloaded[0m x11rb v0.13.2
+[1m[92m  Downloaded[0m num-cmp v0.1.0
+[1m[92m  Downloaded[0m syn v1.0.109
+[1m[92m  Downloaded[0m libm v0.2.16
+[1m[92m  Downloaded[0m libappindicator v0.9.0
+[1m[92m  Downloaded[0m nix v0.26.4
+[1m[92m  Downloaded[0m nix v0.28.0
+[1m[92m  Downloaded[0m tao v0.37.1
+[1m[92m  Downloaded[0m tauri v2.12.3
+[1m[92m  Downloaded[0m is-wsl v0.4.0
+[1m[92m  Downloaded[0m ref-cast v1.0.27
+[1m[92m  Downloaded[0m ndk-sys v0.6.0+11769913
+[1m[92m  Downloaded[0m jni v0.21.1
+[1m[92m  Downloaded[0m regex-syntax v0.8.11
+[1m[92m  Downloaded[0m rustix v0.38.44
+[1m[92m  Downloaded[0m x11rb-protocol v0.13.2
+[1m[92m  Downloaded[0m regex v1.13.1
+[1m[92m  Downloaded[0m jsonschema-value v0.61.2
+[1m[92m  Downloaded[0m nom v8.0.0
+[1m[92m  Downloaded[0m plist v1.10.1
+[1m[92m  Downloaded[0m regex-automata v0.4.18
+[1m[92m  Downloaded[0m rust-ini v0.21.3
+[1m[92m  Downloaded[0m brotli v9.0.0
+[1m[92m  Downloaded[0m pxfm v0.1.30
+[1m[92m  Downloaded[0m libdbus-sys v0.2.7
+[1m[92m  Downloaded[0m piper v0.2.5
+[1m[92m  Downloaded[0m new_debug_unreachable v1.0.6
+[1m[92m  Downloaded[0m ref-cast-impl v1.0.27
+[1m[92m  Downloaded[0m gtk v0.18.2
+[1m[92m  Downloaded[0m proc-macro-error-attr v1.0.4
+[1m[92m  Downloaded[0m quick-error v2.0.1
+[1m[92m  Downloaded[0m schemars v0.9.0
+[1m[92m  Downloaded[0m phf_codegen v0.13.1
+[1m[92m  Downloaded[0m json-patch v4.2.0
+[1m[92m  Downloaded[0m raw-window-handle v0.6.2
+[1m[92m  Downloaded[0m infer v0.22.0
+[1m[92m  Downloaded[0m ordered-multimap v0.7.3
+[1m[92m  Downloaded[0m pango-sys v0.18.0
+[1m[92m  Downloaded[0m glob v0.3.4
+[1m[92m  Downloaded[0m schemars v0.8.22
+[1m[92m  Downloaded[0m ico v0.5.0
+[1m[92m  Downloaded[0m memmap2 v0.9.12
+[1m[92m  Downloaded[0m miniz_oxide v0.8.9
+[1m[92m  Downloaded[0m keyboard-types v0.8.3
+[1m[92m  Downloaded[0m png v0.17.16
+[1m[92m  Downloaded[0m schemars v1.2.3
+[1m[92m  Downloaded[0m ndk v0.9.0
+[1m[92m  Downloaded[0m jsonschema v0.61.2
+[1m[92m  Downloaded[0m quick-xml v0.42.0
+[1m[92m  Downloaded[0m petgraph v0.8.3
+[1m[92m  Downloaded[0m jiff v0.2.38
+[1m[92m  Downloaded[0m linux-raw-sys v0.4.15
+[1m[92m  Downloaded[0m linux-raw-sys v0.12.1
+[1m[92m   Compiling[0m proc-macro2 v1.0.107
+[1m[92m   Compiling[0m serde_core v1.0.229
+[1m[92m   Compiling[0m serde v1.0.229
+[1m[92m   Compiling[0m libc v0.2.190
+[1m[92m   Compiling[0m cfg-if v1.0.5
+[1m[92m   Compiling[0m subtle v2.6.1
+[1m[92m   Compiling[0m typenum v1.20.1
+[1m[92m   Compiling[0m quote v1.0.47
+[1m[92m   Compiling[0m syn v3.0.9
+[1m[92m   Compiling[0m syn v2.0.119
+[1m[92m   Compiling[0m rand_core v0.10.1
+[1m[92m   Compiling[0m getrandom v0.4.3
+[1m[92m   Compiling[0m cmov v0.5.4
+[1m[92m   Compiling[0m ctutils v0.4.8
+[1m[92m   Compiling[0m siphasher v1.0.4
+[1m[92m   Compiling[0m phf_shared v0.13.1
+[1m[92m   Compiling[0m memchr v2.8.3
+[1m[92m   Compiling[0m semver v1.0.28
+[1m[92m   Compiling[0m const-oid v0.10.3
+[1m[92m   Compiling[0m fastrand v2.5.0
+[1m[92m   Compiling[0m log v0.4.34
+[1m[92m   Compiling[0m phf_generator v0.13.1
+[1m[92m   Compiling[0m rustc_version v0.4.1
+[1m[92m   Compiling[0m smallvec v1.16.3
+[1m[92m   Compiling[0m phf_codegen v0.13.1
+[1m[92m   Compiling[0m cpufeatures v0.3.1
+[1m[92m   Compiling[0m stable_deref_trait v1.2.1
+[1m[92m   Compiling[0m cpubits v0.1.1
+[1m[92m   Compiling[0m num-traits v0.2.19
+[1m[92m   Compiling[0m base64ct v1.8.3
+[1m[92m   Compiling[0m itoa v1.0.18
+[1m[92m   Compiling[0m synstructure v0.14.0
+[1m[92m   Compiling[0m string_cache_codegen v0.6.1
+[1m[92m   Compiling[0m winnow v1.0.4
+[1m[92m   Compiling[0m web_atoms v0.2.6
+[1m[92m   Compiling[0m pem-rfc7468 v1.0.0
+[1m[92m   Compiling[0m zeroize_derive v1.5.0
+[1m[92m   Compiling[0m serde_derive v1.0.229
+[1m[92m   Compiling[0m zerofrom-derive v0.1.8
+[1m[92m   Compiling[0m yoke-derive v0.8.4
+[1m[92m   Compiling[0m displaydoc v0.2.7
+[1m[92m   Compiling[0m zerovec-derive v0.11.6
+[1m[92m   Compiling[0m thiserror-impl v2.0.21
+[1m[92m   Compiling[0m phf_macros v0.13.1
+[1m[92m   Compiling[0m zerofrom v0.1.8
+[1m[92m   Compiling[0m yoke v0.8.3
+[1m[92m   Compiling[0m zerovec v0.11.8
+[1m[92m   Compiling[0m toml_parser v1.1.5+spec-1.1.0
+[1m[92m   Compiling[0m toml_datetime v1.1.2+spec-1.1.0
+[1m[92m   Compiling[0m bitflags v2.13.2
+[1m[92m   Compiling[0m typeid v1.0.3
+[1m[92m   Compiling[0m generic-array v0.14.7
+[1m[92m   Compiling[0m num-conv v0.2.2
+[1m[92m   Compiling[0m time-core v0.1.9
+[1m[92m   Compiling[0m equivalent v1.0.3
+[1m[92m   Compiling[0m hashbrown v0.17.1
+[1m[92m   Compiling[0m pin-project-lite v0.2.17
+[1m[92m   Compiling[0m tinystr v0.8.4
+[1m[92m   Compiling[0m indexmap v2.14.2
+[1m[92m   Compiling[0m zeroize v1.9.1
+[1m[92m   Compiling[0m bytes v1.12.1
+[1m[92m   Compiling[0m hybrid-array v0.4.15
+[1m[92m   Compiling[0m writeable v0.6.4
+[1m[92m   Compiling[0m strsim v0.11.1
+[1m[92m   Compiling[0m ident_case v1.0.1
+[1m[92m   Compiling[0m once_cell v1.21.4
+[1m[92m   Compiling[0m litemap v0.8.3
+[1m[92m   Compiling[0m erased-serde v0.4.10
+[1m[92m   Compiling[0m icu_locale_core v2.3.0
+[1m[92m   Compiling[0m crypto-common v0.2.2
+[1m[92m   Compiling[0m block-buffer v0.12.1
+[1m[92m   Compiling[0m block-padding v0.4.2
+[1m[92m   Compiling[0m inout v0.2.6
+[1m[92m   Compiling[0m darling_core v0.24.1
+[1m[92m   Compiling[0m der v0.8.3
+[1m[92m   Compiling[0m digest v0.11.3
+[1m[92m   Compiling[0m cipher v0.5.2
+[1m[92m   Compiling[0m universal-hash v0.6.1
+[1m[92m   Compiling[0m hmac v0.13.0
+[1m[92m   Compiling[0m polyval v0.7.3
+[1m[92m   Compiling[0m aead v0.6.1
+[1m[92m   Compiling[0m potential_utf v0.1.6
+[1m[92m   Compiling[0m zerotrie v0.2.5
+[1m[92m   Compiling[0m cssparser-macros v0.7.1
+[1m[92m   Compiling[0m derive_more-impl v2.1.1
+[1m[92m   Compiling[0m selectors v0.38.0
+[1m[92m   Compiling[0m mio v1.2.4
+[1m[92m   Compiling[0m futures-core v0.3.34
+[1m[92m   Compiling[0m utf8_iter v1.0.4
+[1m[92m   Compiling[0m icu_collections v2.3.0
+[1m[92m   Compiling[0m icu_provider v2.3.1
+[1m[92m   Compiling[0m ghash v0.6.0
+[1m[92m   Compiling[0m aes v0.9.4
+[1m[92m   Compiling[0m ctr v0.10.1
+[1m[92m   Compiling[0m pbkdf2 v0.13.0
+[1m[92m   Compiling[0m sha2 v0.11.1
+[1m[92m   Compiling[0m parking_lot_core v0.9.12
+[1m[92m   Compiling[0m thiserror v2.0.21
+[1m[92m   Compiling[0m icu_properties_data v2.3.0
+[1m[92m   Compiling[0m icu_normalizer_data v2.3.0
+[1m[92m   Compiling[0m scopeguard v1.2.0
+[1m[92m   Compiling[0m new_debug_unreachable v1.0.6
+[1m[92m   Compiling[0m aes-gcm v0.11.1
+[1m[92m   Compiling[0m lock_api v0.4.14
+[1m[92m   Compiling[0m salsa20 v0.11.0
+[1m[92m   Compiling[0m spki v0.8.1
+[1m[92m   Compiling[0m phf v0.13.1
+[1m[92m   Compiling[0m zmij v1.0.23
+[1m[92m   Compiling[0m errno v0.3.14
+[1m[92m   Compiling[0m precomputed-hash v0.1.1
+[1m[92m   Compiling[0m serde_json v1.0.154
+[1m[92m   Compiling[0m darling_macro v0.24.1
+[1m[92m   Compiling[0m signal-hook-registry v1.4.8
+[1m[92m   Compiling[0m darling v0.24.1
+[1m[92m   Compiling[0m serde_with_macros v3.24.0
+[1m[92m   Compiling[0m scrypt v0.12.0
+[1m[92m   Compiling[0m parking_lot v0.12.5
+[1m[92m   Compiling[0m icu_properties v2.3.0
+[1m[92m   Compiling[0m icu_normalizer v2.3.0
+[1m[92m   Compiling[0m cbc v0.2.1
+[1m[92m   Compiling[0m crypto-common v0.1.7
+[1m[92m   Compiling[0m block-buffer v0.10.4
+[1m[92m   Compiling[0m tokio-macros v2.7.2
+[1m[92m   Compiling[0m socket2 v0.6.5
+[1m[92m   Compiling[0m futures-sink v0.3.34
+[1m[92m   Compiling[0m futures-channel v0.3.34
+[1m[92m   Compiling[0m idna_adapter v1.2.2
+[1m[92m   Compiling[0m tokio v1.53.3
+[1m[92m   Compiling[0m digest v0.10.7
+[1m[92m   Compiling[0m pkcs5 v0.8.1
+[1m[92m   Compiling[0m string_cache v0.9.0
+[1m[92m   Compiling[0m futures-macro v0.3.34
+[1m[92m   Compiling[0m jni-sys-macros v0.4.1
+[1m[92m   Compiling[0m serde_spanned v1.1.2
+[1m[92m   Compiling[0m futures-task v0.3.34
+[1m[92m   Compiling[0m toml_writer v1.1.3+spec-1.1.0
+[1m[92m   Compiling[0m percent-encoding v2.3.2
+[1m[92m   Compiling[0m dtoa v1.0.11
+[1m[92m   Compiling[0m slab v0.4.12
+[1m[92m   Compiling[0m futures-io v0.3.34
+[1m[92m   Compiling[0m futures-util v0.3.34
+[1m[92m   Compiling[0m dtoa-short v0.3.5
+[1m[92m   Compiling[0m form_urlencoded v1.2.2
+[1m[92m   Compiling[0m toml v1.1.8+spec-1.1.0
+[1m[92m   Compiling[0m jni-sys v0.4.1
+[1m[92m   Compiling[0m uuid v1.28.0
+[1m[92m   Compiling[0m pkcs8 v0.11.0
+[1m[92m   Compiling[0m idna v1.1.0
+[1m[92m   Compiling[0m tendril v0.5.1
+[1m[92m   Compiling[0m http v1.5.0
+[1m[92m   Compiling[0m aho-corasick v1.1.5
+[1m[92m   Compiling[0m indexmap v1.9.3
+[1m[92m   Compiling[0m getrandom v0.2.17
+[1m[92m   Compiling[0m regex-syntax v0.8.11
+[1m[92m   Compiling[0m alloc-no-stdlib v3.0.0
+[1m[92m   Compiling[0m camino v1.2.6
+[1m[92m   Compiling[0m zerocopy v0.8.63
+[1m[92m   Compiling[0m alloc-stdlib v0.3.0
+[1m[92m   Compiling[0m markup5ever v0.39.0
+[1m[92m   Compiling[0m url v2.5.8
+[1m[92m   Compiling[0m aws-lc-sys v0.47.0
+[1m[92m   Compiling[0m regex-automata v0.4.18
+[1m[92m   Compiling[0m cssparser v0.37.0
+[1m[92m   Compiling[0m derive_more v2.1.1
+[1m[92m   Compiling[0m crypto-bigint v0.7.11
+[1m[92m   Compiling[0m serde_derive_internals v0.29.1
+[1m[92m   Compiling[0m servo_arc v0.4.3
+[1m[92m   Compiling[0m powerfmt v0.2.1
+[1m[92m   Compiling[0m rustc-hash v2.1.3
+[1m[92m   Compiling[0m web-time v1.1.0
+[1m[92m   Compiling[0m deranged v0.5.9
+[1m[92m   Compiling[0m hashbrown v0.12.3
+[1m[92m   Compiling[0m bit-vec v0.8.0
+[1m[92m   Compiling[0m fnv v1.0.7
+[1m[92m   Compiling[0m schemars v0.8.22
+[1m[92m   Compiling[0m cfb v0.14.0
+[1m[92m   Compiling[0m bit-set v0.8.0
+[1m[92m   Compiling[0m time v0.3.55
+[1m[92m   Compiling[0m regex v1.13.1
+[1m[92m   Compiling[0m schemars_derive v0.8.22
+[1m[92m   Compiling[0m html5ever v0.39.0
+[1m[92m   Compiling[0m brotli-decompressor v6.0.1
+[1m[92m   Compiling[0m jsonptr v0.7.1
+[1m[92m   Compiling[0m signature v3.0.0
+[1m[92m   Compiling[0m cargo-platform v0.1.9
+[1m[92m   Compiling[0m quick-xml v0.42.0
+[1m[92m   Compiling[0m anyhow v1.0.104
+[1m[92m   Compiling[0m cpufeatures v0.2.17
+[1m[92m   Compiling[0m foldhash v0.2.0
+[1m[92m   Compiling[0m base64 v0.23.1
+[1m[92m   Compiling[0m dyn-clone v1.0.20
+[1m[92m   Compiling[0m untrusted v0.9.0
+[1m[92m   Compiling[0m plist v1.10.1
+[1m[92m   Compiling[0m dom_query v0.28.0
+[1m[92m   Compiling[0m json-patch v4.2.0
+[1m[92m   Compiling[0m cargo_metadata v0.19.2
+[1m[92m   Compiling[0m brotli v9.0.0
+[1m[92m   Compiling[0m serde-untagged v0.1.9
+[1m[92m   Compiling[0m urlpattern v0.6.0
+[1m[92m   Compiling[0m infer v0.22.0
+[1m[92m   Compiling[0m rand_core v0.6.4
+[1m[92m   Compiling[0m serde_with v3.24.0
+[1m[92m   Compiling[0m hkdf v0.13.0
+[1m[92m   Compiling[0m combine v4.6.8
+[1m[92m   Compiling[0m glob v0.3.4
+[1m[92m   Compiling[0m ctor v1.0.13
+[1m[92m   Compiling[0m tauri-utils v2.10.1
+[1m[92m   Compiling[0m sha1_smol v1.0.1
+[1m[92m   Compiling[0m sha2 v0.10.9
+[1m[92m   Compiling[0m http-body v1.1.0
+[1m[92m   Compiling[0m chacha20 v0.10.2
+[1m[92m   Compiling[0m rustls-pki-types v1.16.0
+[1m[92m   Compiling[0m curve25519-dalek v5.0.0
+[1m[92m   Compiling[0m same-file v1.0.6
+[1m[92m   Compiling[0m httparse v1.10.1
+[1m[92m   Compiling[0m walkdir v2.5.0
+[1m[92m   Compiling[0m tracing-core v0.1.36
+[1m[92m   Compiling[0m tracing-attributes v0.1.31
+[1m[92m   Compiling[0m jni-macros v0.22.4
+[1m[92m   Compiling[0m ff v0.14.0
+[1m[92m   Compiling[0m const-oid v0.9.6
+[1m[92m   Compiling[0m try-lock v0.2.5
+[1m[92m   Compiling[0m ryu v1.0.23
+[1m[92m   Compiling[0m tower-service v0.3.3
+[1m[92m   Compiling[0m option-ext v0.2.0
+[1m[92m   Compiling[0m tracing v0.1.44
+[1m[92m   Compiling[0m crossbeam-utils v0.8.23
+[1m[92m   Compiling[0m want v0.3.2
+[1m[92m   Compiling[0m der v0.7.10
+[1m[92m   Compiling[0m ahash v0.8.12
+[1m[92m   Compiling[0m crc32fast v1.5.2
+[1m[92m   Compiling[0m poly1305 v0.9.1
+[1m[92m   Compiling[0m jni v0.22.4
+[1m[92m   Compiling[0m phc v0.6.1
+[1m[92m   Compiling[0m simdutf8 v0.1.5
+[1m[92m   Compiling[0m jni-sys v0.3.1
+[1m[92m   Compiling[0m atomic-waker v1.1.2
+[1m[92m   Compiling[0m simd-adler32 v0.3.10
+[1m[92m   Compiling[0m dirs-sys v0.5.0
+[1m[92m   Compiling[0m hyper v1.12.0
+[1m[92m   Compiling[0m simd_cesu8 v1.2.0
+[1m[92m   Compiling[0m password-hash v0.6.1
+[1m[92m   Compiling[0m group v0.14.0
+[1m[92m   Compiling[0m ed25519 v3.0.0
+[1m[92m   Compiling[0m tokio-util v0.7.20
+[1m[92m   Compiling[0m embed-resource v3.0.12
+[1m[92m   Compiling[0m sync_wrapper v1.0.2
+[1m[92m   Compiling[0m blake2 v0.11.0
+[1m[92m   Compiling[0m android_system_properties v0.1.6
+[1m[92m   Compiling[0m tower-layer v0.3.3
+[1m[92m   Compiling[0m heck v0.5.0
+[1m[92m   Compiling[0m ipnet v2.12.2
+[1m[92m   Compiling[0m base64 v0.22.1
+[1m[92m   Compiling[0m thiserror v1.0.69
+[1m[92m   Compiling[0m base16ct v0.2.0
+[1m[92m   Compiling[0m adler2 v2.0.1
+[1m[92m   Compiling[0m base16ct v1.0.0
+[1m[92m   Compiling[0m miniz_oxide v0.9.1
+[1m[92m   Compiling[0m sec1 v0.8.1
+[1m[92m   Compiling[0m serdect v0.2.0
+[1m[92m   Compiling[0m hyper-util v0.1.21
+[1m[92m   Compiling[0m inotify-sys v0.1.8
+[1m[92m   Compiling[0m tower v0.5.3
+[1m[92m   Compiling[0m iana-time-zone v0.1.65
+[1m[92m   Compiling[0m argon2 v0.6.0
+[1m[92m   Compiling[0m tauri-winres v0.3.6
+[1m[92m   Compiling[0m ed25519-dalek v3.0.0
+[1m[92m   Compiling[0m hashbrown v0.14.5
+[1m[92m   Compiling[0m dirs v7.0.0
+[1m[92m   Compiling[0m spki v0.7.3
+[1m[92m   Compiling[0m ff v0.13.1
+[1m[92m   Compiling[0m ppv-lite86 v0.2.21
+[1m[92m   Compiling[0m cargo_toml v1.0.1
+[1m[92m   Compiling[0m toml_edit v0.25.17+spec-1.1.0
+[1m[92m   Compiling[0m time-macros v0.2.32
+[1m[92m   Compiling[0m thiserror-impl v1.0.69
+[1m[92m   Compiling[0m curve25519-dalek v4.1.3
+[1m[92m   Compiling[0m rustls-platform-verifier-android v0.2.0
+[1m[92m   Compiling[0m proc-macro-crate v3.5.0
+[1m[92m   Compiling[0m tauri-build v2.7.2
+[1m[92m   Compiling[0m rand_chacha v0.3.1
+[1m[92m   Compiling[0m group v0.13.0
+[1m[92m   Compiling[0m pkcs8 v0.10.2
+[1m[92m   Compiling[0m aws-lc-rs v1.19.0
+[1m[92m   Compiling[0m rustls v0.23.46
+[1m[92m   Compiling[0m chrono v0.4.45
+[1m[92m   Compiling[0m tower-http v0.6.11
+[1m[92m   Compiling[0m sec1 v0.7.3
+[1m[92m   Compiling[0m flate2 v1.1.10
+[1m[92m   Compiling[0m elliptic-curve v0.14.3
+[1m[92m   Compiling[0m rustls-webpki v0.103.17
+[1m[92m   Compiling[0m serde_urlencoded v0.7.1
+[1m[92m   Compiling[0m primefield v0.14.0
+[1m[92m   Compiling[0m http-body-util v0.1.5
+[1m[92m   Compiling[0m crypto-bigint v0.5.5
+[1m[92m   Compiling[0m hmac v0.12.1
+[1m[92m   Compiling[0m elliptic-curve v0.13.8
+[1m[92m   Compiling[0m wnaf v0.14.1
+[1m[92m   Compiling[0m inotify v0.11.5
+[1m[92m   Compiling[0m rand v0.8.8
+[1m[92m   Compiling[0m tokio-rustls v0.26.6
+[1m[92m   Compiling[0m hyper-rustls v0.27.10
+[1m[92m   Compiling[0m rustls-platform-verifier v0.7.1
+[1m[92m   Compiling[0m num_enum_derive v0.7.6
+[1m[92m   Compiling[0m reqwest v0.13.5
+[1m[92m   Compiling[0m miniz_oxide v0.8.9
+[1m[92m   Compiling[0m fdeflate v0.3.7
+[1m[92m   Compiling[0m dirs-sys v0.4.1
+[1m[92m   Compiling[0m rfc6979 v0.6.0
+[1m[92m   Compiling[0m notify-types v2.3.1
+[1m[92m   Compiling[0m derive-where v1.7.0
+[1m[92m   Compiling[0m cookie v0.18.2
+[1m[92m   Compiling[0m cesu8 v1.1.0
+[1m[92m   Compiling[0m bumpalo v3.20.3
+[1m[92m   Compiling[0m raw-window-handle v0.6.2
+[1m[92m   Compiling[0m zopfli v0.8.4
+[1m[92m   Compiling[0m zip v2.6.1
+[1m[92m   Compiling[0m jni v0.21.1
+[1m[92m   Compiling[0m voprf v0.5.0
+[1m[92m   Compiling[0m notify v8.2.2
+[1m[92m   Compiling[0m ecdsa v0.17.0
+[1m[92m   Compiling[0m dirs v5.0.1
+[1m[92m   Compiling[0m num_enum v0.7.6
+[1m[92m   Compiling[0m primeorder v0.14.0
+[1m[92m   Compiling[0m libsqlite3-sys v0.30.1
+[1m[92m   Compiling[0m hkdf v0.12.4
+[1m[92m   Compiling[0m tauri v2.12.3
+[1m[92m   Compiling[0m ndk-sys v0.6.0+11769913
+[1m[92m   Compiling[0m tauri-plugin v2.7.1
+[1m[92m   Compiling[0m chacha20poly1305 v0.11.0
+[1m[92m   Compiling[0m x25519-dalek v3.0.0
+[1m[92m   Compiling[0m dpi v0.1.2
+[1m[92m   Compiling[0m csv-core v0.1.13
+[1m[92m   Compiling[0m bitflags v1.3.2
+[1m[92m   Compiling[0m unsafe-libyaml-norway v0.2.15
+[1m[92m   Compiling[0m png v0.17.16
+[1m[92m   Compiling[0m serde_norway v0.9.42
+[1m[92m   Compiling[0m csv v1.4.0
+[1m[92m   Compiling[0m ndk v0.9.0
+[1m[92m   Compiling[0m easyssh-crypto v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-crypto)
+[1m[92m   Compiling[0m opaque-ke v4.0.1
+[1m[92m   Compiling[0m easyssh-core v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m   Compiling[0m hashlink v0.9.1
+[1m[92m   Compiling[0m crossbeam-channel v0.5.17
+[1m[92m   Compiling[0m ssh-encoding v0.3.0
+[1m[92m   Compiling[0m tao-macros v0.1.4
+[1m[92m   Compiling[0m keccak v0.2.2
+[1m[92m   Compiling[0m quick-xml v0.37.5
+[1m[92m   Compiling[0m dunce v1.0.5
+[1m[92m   Compiling[0m byteorder v1.5.0
+[1m[92m   Compiling[0m wry v0.57.0
+[1m[92m   Compiling[0m sponge-cursor v0.1.0
+[1m[92m   Compiling[0m fallible-iterator v0.3.0
+[1m[92m   Compiling[0m fallible-streaming-iterator v0.1.9
+[1m[92m   Compiling[0m tauri-runtime v2.12.1
+[1m[92m   Compiling[0m rusqlite v0.32.1
+[1m[92m   Compiling[0m ico v0.5.0
+[1m[92m   Compiling[0m easyssh-import v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-import)
+[1m[92m   Compiling[0m blowfish v0.10.0
+[1m[92m   Compiling[0m easyssh-sync v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sync)
+[1m[92m   Compiling[0m nix v0.31.4
+[1m[92m   Compiling[0m png v0.18.1
+[1m[92m   Compiling[0m crypto-primes v0.7.2
+[1m[92m   Compiling[0m pkcs1 v0.8.0
+[1m[92m   Compiling[0m getrandom v0.3.4
+[1m[92m   Compiling[0m ndk-context v0.1.1
+[1m[92m   Compiling[0m libm v0.2.16
+[1m[92m   Compiling[0m tauri-runtime-wry v2.12.1
+[1m[92m   Compiling[0m tao v0.37.1
+[1m[92m   Compiling[0m rsa v0.10.0
+[1m[92m   Compiling[0m ring v0.17.14
+[1m[92m   Compiling[0m easyssh-store v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-store)
+[1m[92m   Compiling[0m tauri-codegen v2.7.2
+[1m[92m   Compiling[0m bcrypt-pbkdf v0.11.0
+[1m[92m   Compiling[0m sha3 v0.12.0
+[1m[92m   Compiling[0m shake v0.1.0
+[1m[92m   Compiling[0m ssh-cipher v0.3.0
+[1m[92m   Compiling[0m p521 v0.14.0
+[1m[92m   Compiling[0m p384 v0.14.0
+[1m[92m   Compiling[0m p256 v0.14.0
+[1m[92m   Compiling[0m rand v0.10.4
+[1m[92m   Compiling[0m futures-executor v0.3.34
+[1m[92m   Compiling[0m sha1 v0.11.0
+[1m[92m   Compiling[0m kem v0.3.0
+[1m[92m   Compiling[0m module-lattice v0.2.4
+[1m[92m   Compiling[0m serialize-to-javascript-impl v0.1.2
+[1m[92m   Compiling[0m num-integer v0.1.47
+[1m[92m   Compiling[0m hex v0.4.3
+[1m[92m   Compiling[0m enum_dispatch v0.3.13
+[1m[92m   Compiling[0m num-bigint v0.5.1
+[1m[92m   Compiling[0m serialize-to-javascript v0.1.2
+[1m[92m   Compiling[0m ml-kem v0.3.4
+[1m[92m   Compiling[0m futures v0.3.34
+[1m[92m   Compiling[0m tauri-macros v2.7.2
+[1m[92m   Compiling[0m ssh-key v0.7.0-rc.12
+[1m[92m   Compiling[0m russh-cryptovec v0.62.0
+[1m[92m   Compiling[0m easyssh-vault v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-vault)
+[1m[92m   Compiling[0m tauri-plugin-clipboard-manager v2.4.2
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (/home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key)
+[1m[92m   Compiling[0m dashmap v6.2.1
+[1m[92m   Compiling[0m generic-array v1.4.5
+[1m[92m   Compiling[0m russh-util v0.52.0
+[1m[92m   Compiling[0m serde_repr v0.1.21
+[1m[92m   Compiling[0m delegate v0.13.5
+[1m[92m   Compiling[0m slotmap v1.1.1
+[1m[92m   Compiling[0m serde_bytes v0.11.19
+[1m[92m   Compiling[0m mime v0.3.17
+[1m[92m   Compiling[0m hex-literal v1.1.0
+[1m[92m   Compiling[0m md5 v0.8.1
+[1m[92m   Compiling[0m data-encoding v2.11.1
+[1m[92m   Compiling[0m russh-sftp v3.0.1
+[1m[92m   Compiling[0m russh v0.65.2
+[1m[92m   Compiling[0m core_maths v0.1.1
+[1m[92m   Compiling[0m sha1 v0.10.7
+[1m[92m   Compiling[0m async-trait v0.1.92
+[1m[92m   Compiling[0m ttf-parser v0.25.1
+[1m[92m   Compiling[0m easyssh-mobile-keys v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-mobile-keys)
+[1m[92m   Compiling[0m anixops-ssh v2.3.2 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m   Compiling[0m memmap2 v0.9.12
+[1m[92m   Compiling[0m tinyvec v1.13.3
+[1m[92m   Compiling[0m fontdb v0.23.0
+[1m[92m   Compiling[0m easyssh-ssh v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-ssh)
+[1m[92m   Compiling[0m easyssh-engine v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-engine)
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 1m 18s
+        Info symlinking lib "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" in jniLibs dir "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libandroid.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libdl.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "liblog.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libm.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libc.so"
+        Info symlink at "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a/libanixops_ssh_lib.so" points to "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so"
+Fetching distribution.
+Downloading https://services.gradle.org/distributions/gradle-9.6.1-bin.zip
+.............10%.............20%..............30%.............40%..............50%.............60%.............70%..............80%.............90%..............100%
+WARNING: The option setting 'android.proguard.failOnMissingFiles=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: API 'applicationVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling applicationVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'testVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling testVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'unitTestVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling unitTestVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/build.gradle.kts:33:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+WARNING: API 'libraryVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling libraryVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+        Info connection; remote_addr=127.0.0.1:47282 conn_id=0
+
+> anixops-ssh@2.3.2 tauri
+> tauri android android-studio-script --target aarch64
+
+[1m[32m        Info[0m Using installed NDK: /usr/local/lib/android/sdk/ndk/27.3.13750724
+[1m[92m   Compiling[0m tauri v2.12.3
+[1m[92m   Compiling[0m wry v0.57.0
+[1m[92m   Compiling[0m tauri-plugin-clipboard-manager v2.4.2
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (/home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key)
+[1m[92m   Compiling[0m anixops-ssh v2.3.2 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m   Compiling[0m tauri-runtime-wry v2.12.1
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 18.33s
+[1m[32m        Info[0m symlinking lib "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" in jniLibs dir "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libandroid.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libdl.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "liblog.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libm.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libc.so"
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/AppPlugin.kt:35:37 'fun onBackPressed(): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:125:5 'fun onDestroy(): Unit' is deprecated. use onDestroy(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:130:5 'fun onRestart(): Unit' is deprecated. use onRestart(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:135:5 'fun onPause(): Unit' is deprecated. use onPause(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:140:5 'fun onResume(): Unit' is deprecated. use onResume(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:145:5 'fun onStop(): Unit' is deprecated. use onStop(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/PluginHandle.kt:159:22 Java type mismatch: inferred type is 'Class<in CapturedType(*)!>?', but 'Class<*>' was expected.
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+Add android.sync.suppressAgpWarnings=JAVA_COMPILE_DEPRECATED_SOURCE_TARGET to the gradle.properties file to suppress this warning.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/src/main/java/ClipboardPlugin.kt:62:7 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/src/main/java/ClipboardPlugin.kt:98:9 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/java/com/anixops/ssh/generated/RustWebView.kt:26:18 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/java/com/anixops/ssh/generated/WryActivity.kt:66:46 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+Add android.sync.suppressAgpWarnings=JAVA_COMPILE_DEPRECATED_SOURCE_TARGET to the gradle.properties file to suppress this warning.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+[Incubating] Problems report is available at: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/build/reports/problems/problems-report.html
+Configuration cache entry stored.
+    Finished 1 APK at:
+        /home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk
+

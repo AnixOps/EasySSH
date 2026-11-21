@@ -1,0 +1,48 @@
+[1m[92m    Updating[0m crates.io index
+[1m[92m    Checking[0m easyssh-crypto v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-crypto)
+[1m[92m    Checking[0m easyssh-core v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m   Compiling[0m easyssh-telemetry v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-telemetry)
+[1m[92m    Checking[0m easyssh-ssh v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-ssh)
+[1m[92m    Checking[0m easyssh-sync v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sync)
+[1m[92m    Checking[0m easyssh-import v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-import)
+[1m[92m    Checking[0m easyssh-proto v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-proto)
+[1m[92m    Checking[0m easyssh-sessionlog v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sessionlog)
+[1m[92m    Checking[0m easyssh-store v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-store)
+[1m[92m    Checking[0m easyssh-e2e v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-e2e)
+[1m[92m    Checking[0m easyssh-server v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-server)
+[1m[92m   Compiling[0m easyssh-update v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-update)
+[1m[92m   Compiling[0m anixops-ssh v2.3.2 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m    Checking[0m easyssh-vault v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-vault)
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (/home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key)
+[1m[92m    Checking[0m easyssh-engine v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-engine)
+[1m[92m    Checking[0m easyssh-unlock v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-unlock)
+[1m[92m    Checking[0m easyssh-services v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-services)
+[1m[92m    Checking[0m easyssh-ai v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-ai)
+[1m[92m    Checking[0m easyssh-mobile-keys v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-mobile-keys)
+[1m[92m    Checking[0m easysshd v2.3.2 (/home/runner/work/EasySSH/EasySSH/crates/easysshd)
+[1m[33mwarning[0m[1m: unused dependency `anyhow`[0m
+  [1m[94m--> [0mcrates/easyssh-core/Cargo.toml:10:1
+   [1m[94m|[0m
+[1m[94m10[0m [1m[94m|[0m anyhow.workspace = true
+   [1m[94m|[0m [1m[33m^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `anyhow`
+[1m[33mwarning[0m: `easyssh-core` (manifest) generated 1 warning
+[1m[33mwarning[0m[1m: unused dependency `easyssh-mobile-keys`[0m
+  [1m[94m--> [0msrc-tauri/plugins/device-key/Cargo.toml:15:1
+   [1m[94m|[0m
+[1m[94m15[0m [1m[94m|[0m easyssh-mobile-keys = { path = "../../../crates/easyssh-mobile-keys" }
+   [1m[94m|[0m [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `easyssh-mobile-keys`
+[1m[33mwarning[0m[1m: unused dependency `tauri`[0m
+  [1m[94m--> [0msrc-tauri/plugins/device-key/Cargo.toml:17:1
+   [1m[94m|[0m
+[1m[94m17[0m [1m[94m|[0m tauri = { version = "2.12", default-features = false }
+   [1m[94m|[0m [1m[33m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[94m|[0m
+[1m[96mhelp[0m: consider removing the dependency on `tauri`
+[1m[33mwarning[0m: `tauri-plugin-device-key` (manifest) generated 2 warnings
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 21.18s

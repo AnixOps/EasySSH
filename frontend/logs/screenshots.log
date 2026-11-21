@@ -1,0 +1,9 @@
+
+> anixops-ssh@2.3.2 screenshots
+> node scripts/screenshots.mjs http://localhost:4173 screenshots
+
+sync-setup/light: locator.click: Timeout 30000ms exceeded. Call log:   - waiting for getByRole('button', { name: '开始设置', exact: true }).first()
+sync-setup/dark: locator.click: Timeout 30000ms exceeded. Call log:   - waiting for getByRole('button', { name: '开始设置', exact: true }).first()
+sync-setup/min: locator.click: Timeout 30000ms exceeded. Call log:   - waiting for getByRole('button', { name: '开始设置', exact: true }).first()
+sync-setup/min-en: locator.click: Timeout 30000ms exceeded. Call log:   - waiting for getByRole('button', { name: /^(?:Set up)$/ }).first()
+Saved 250 screenshots to screenshots

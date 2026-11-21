@@ -1,0 +1,174 @@
+Installing dependencies...
+Switching to root user to install dependencies...
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Hit:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu jammy InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Hit:4 http://azure.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Hit:5 http://azure.archive.ubuntu.com/ubuntu jammy-security InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+fonts-liberation is already the newest version (1:1.07.4-11).
+fonts-liberation set to manually installed.
+libatk-bridge2.0-0 is already the newest version (2.38.0-3).
+libatk-bridge2.0-0 set to manually installed.
+libatk1.0-0 is already the newest version (2.36.0-3build1).
+libatk1.0-0 set to manually installed.
+libatspi2.0-0 is already the newest version (2.44.0-3).
+libatspi2.0-0 set to manually installed.
+libfontconfig1 is already the newest version (2.13.1-4.2ubuntu5).
+libfontconfig1 set to manually installed.
+libxcb1 is already the newest version (1.14-3ubuntu3).
+libxcb1 set to manually installed.
+libxcomposite1 is already the newest version (1:0.4.5-1build2).
+libxcomposite1 set to manually installed.
+libxdamage1 is already the newest version (1:1.1.5-2build2).
+libxdamage1 set to manually installed.
+libxext6 is already the newest version (2:1.3.4-1build1).
+libxext6 set to manually installed.
+libxfixes3 is already the newest version (1:6.0.0-1).
+libxfixes3 set to manually installed.
+libxkbcommon0 is already the newest version (1.4.0-1).
+libxkbcommon0 set to manually installed.
+libxrandr2 is already the newest version (2:1.5.2-1build1).
+libxrandr2 set to manually installed.
+fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.22.04.1).
+libasound2 is already the newest version (1.2.6.1-1ubuntu1.2).
+libasound2 set to manually installed.
+libcairo2 is already the newest version (1.16.0-5ubuntu2.1).
+libcairo2 set to manually installed.
+libcups2 is already the newest version (2.4.1op1-1ubuntu4.21).
+libcups2 set to manually installed.
+libdbus-1-3 is already the newest version (1.12.20-2ubuntu4.1).
+libdbus-1-3 set to manually installed.
+libdrm2 is already the newest version (2.4.113-2~ubuntu0.22.04.1).
+libdrm2 set to manually installed.
+libfreetype6 is already the newest version (2.11.1+dfsg-1ubuntu0.4).
+libfreetype6 set to manually installed.
+libgbm1 is already the newest version (23.2.1-1ubuntu3.1~22.04.4).
+libgbm1 set to manually installed.
+libglib2.0-0 is already the newest version (2.72.4-0ubuntu2.11).
+libglib2.0-0 set to manually installed.
+libnspr4 is already the newest version (2:4.35-0ubuntu0.22.04.1).
+libnss3 is already the newest version (2:3.98-0ubuntu0.22.04.5).
+libpango-1.0-0 is already the newest version (1.50.6+ds-2ubuntu1).
+libpango-1.0-0 set to manually installed.
+libwayland-client0 is already the newest version (1.20.0-1ubuntu0.1).
+libwayland-client0 set to manually installed.
+libx11-6 is already the newest version (2:1.7.5-1ubuntu0.4).
+libx11-6 set to manually installed.
+xvfb is already the newest version (2:21.1.4-2ubuntu1.7~22.04.16).
+The following additional packages will be installed:
+  xfonts-encodings xfonts-utils
+Recommended packages:
+  fonts-ipafont-mincho fonts-tlwg-loma
+The following NEW packages will be installed:
+  fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+  fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+  xfonts-utils
+0 upgraded, 9 newly installed, 0 to remove and 62 not upgraded.
+Need to get 18.4 MB of archives.
+After this operation, 56.8 MB of additional disk space will be used.
+Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Get:2 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 fonts-freefont-ttf all 20120503-10build1 [2388 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+Get:5 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 fonts-unifont all 1:14.0.01-1 [3551 kB]
+Get:6 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+Get:7 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+Get:8 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 xfonts-utils amd64 1:7.7+6build2 [94.6 kB]
+Get:9 http://azure.archive.ubuntu.com/ubuntu jammy/universe amd64 xfonts-cyrillic all 1:1.0.5 [386 kB]
+Get:10 http://azure.archive.ubuntu.com/ubuntu jammy/main amd64 xfonts-scalable all 1:1.0.3-1.2ubuntu1 [306 kB]
+Fetched 18.4 MB in 0s (56.7 MB/s)
+Selecting previously unselected package fonts-ipafont-gothic.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 265254 files and directories currently installed.)
+Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+Selecting previously unselected package fonts-freefont-ttf.
+Preparing to unpack .../1-fonts-freefont-ttf_20120503-10build1_all.deb ...
+Unpacking fonts-freefont-ttf (20120503-10build1) ...
+Selecting previously unselected package fonts-tlwg-loma-otf.
+Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+Selecting previously unselected package fonts-unifont.
+Preparing to unpack .../3-fonts-unifont_1%3a14.0.01-1_all.deb ...
+Unpacking fonts-unifont (1:14.0.01-1) ...
+Selecting previously unselected package fonts-wqy-zenhei.
+Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+Selecting previously unselected package xfonts-encodings.
+Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+Selecting previously unselected package xfonts-utils.
+Preparing to unpack .../6-xfonts-utils_1%3a7.7+6build2_amd64.deb ...
+Unpacking xfonts-utils (1:7.7+6build2) ...
+Selecting previously unselected package xfonts-cyrillic.
+Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5_all.deb ...
+Unpacking xfonts-cyrillic (1:1.0.5) ...
+Selecting previously unselected package xfonts-scalable.
+Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.2ubuntu1_all.deb ...
+Unpacking xfonts-scalable (1:1.0.3-1.2ubuntu1) ...
+Setting up fonts-wqy-zenhei (0.9.45-8) ...
+Setting up fonts-freefont-ttf (20120503-10build1) ...
+Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+Setting up fonts-unifont (1:14.0.01-1) ...
+Setting up xfonts-utils (1:7.7+6build2) ...
+Setting up xfonts-cyrillic (1:1.0.5) ...
+Setting up xfonts-scalable (1:1.0.3-1.2ubuntu1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for fontconfig (2.13.1-4.2ubuntu5) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+|                                                                                |   0% of 191.1 MiB
+|■■■■■■■■                                                                        |  10% of 191.1 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+|                                                                                |   0% of 2.2 MiB
+|■■■■■■■■                                                                        |  10% of 2.2 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+|                                                                                |   0% of 120 MiB
+|■■■■■■■■                                                                        |  10% of 120 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248

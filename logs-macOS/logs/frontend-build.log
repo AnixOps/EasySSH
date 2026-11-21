@@ -1,0 +1,79 @@
+
+> anixops-ssh@2.3.2 build
+> tsc --noEmit && vite build
+
+[36mvite v6.4.4 [32mbuilding for production...[36m[39m
+transforming...
+Found 1 warning while optimizing generated CSS:
+
+[2m│   }[22m
+[2m│   .\[all\:vars\] {[22m
+[2m│[22m     all: vars;
+[2m┆[22m         [33m[2m^--[22m Unexpected token Ident("vars")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .\[db\:vars\] {[22m
+
+[32m✓[39m 2341 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                         [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-g1bNQkiU.css          [39m[1m[2m   55.20 kB[22m[1m[22m[2m │ gzip:  12.14 kB[22m
+[2mdist/[22m[2massets/[22m[36mcd-BJl3zNiE.js              [39m[1m[2m    0.39 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-CsJeypyI.js           [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[2mdist/[22m[2massets/[22m[36mmkdir-BHoibBxc.js           [39m[1m[2m    0.55 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[2mdist/[22m[2massets/[22m[36mcrontab-BxPDRpz7.js         [39m[1m[2m    0.58 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[2mdist/[22m[2massets/[22m[36mhead-DAVRSLqk.js            [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[2massets/[22m[36mcat-MFbJfng5.js             [39m[1m[2m    0.72 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[2mdist/[22m[2massets/[22m[36mrm-D7mSQvU9.js              [39m[1m[2m    0.82 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mmv-DI0yMvuQ.js              [39m[1m[2m    0.84 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mchown-BfKJRcV7.js           [39m[1m[2m    0.85 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[2mdist/[22m[2massets/[22m[36mless-griBu9vP.js            [39m[1m[2m    0.88 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[2massets/[22m[36mtail-DcbIPi2A.js            [39m[1m[2m    0.95 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mfree-TOYh2b-A.js            [39m[1m[2m    0.96 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mtop-Bx6QlbF1.js             [39m[1m[2m    1.05 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mhtop-C7gxRIAi.js            [39m[1m[2m    1.07 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[2massets/[22m[36mchmod-C6SYttxo.js           [39m[1m[2m    1.08 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mnginx-DEnpw3uI.js           [39m[1m[2m    1.14 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mkill-iY5IOZ2K.js            [39m[1m[2m    1.18 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mping-C04McCIu.js            [39m[1m[2m    1.25 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mdf-DN5ZI0NW.js              [39m[1m[2m    1.29 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2mdist/[22m[2massets/[22m[36mls-Cx1xIWun.js              [39m[1m[2m    1.31 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mnano-3Cs1-XEZ.js            [39m[1m[2m    1.32 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mcp-BFEuKV8X.js              [39m[1m[2m    1.42 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2mdist/[22m[2massets/[22m[36mdu-C6sr7Ca9.js              [39m[1m[2m    1.46 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+[2mdist/[22m[2massets/[22m[36mps-ILSFEM9X.js              [39m[1m[2m    1.49 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mscp-BLaiiudf.js             [39m[1m[2m    1.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mss-DAMDwgxd.js              [39m[1m[2m    1.61 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[2massets/[22m[36mvim-oozNDzz0.js             [39m[1m[2m    1.65 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[2massets/[22m[36mpython-Lb8w99in.js          [39m[1m[2m    1.67 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[2mdist/[22m[2massets/[22m[36mnode-Bbt0G4AX.js            [39m[1m[2m    1.78 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2mdist/[22m[2massets/[22m[36msudo-DVfb-rzR.js            [39m[1m[2m    1.87 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[2mdist/[22m[2massets/[22m[36mmake-XiIN7zdf.js            [39m[1m[2m    2.18 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[2mdist/[22m[2massets/[22m[36mapt-CCI9EP8C.js             [39m[1m[2m    2.24 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[2massets/[22m[36mtar-BMm3XsWX.js             [39m[1m[2m    2.27 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[2massets/[22m[36mfind-Q8y026i-.js            [39m[1m[2m    2.41 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mjournalctl-DhhLu9y7.js      [39m[1m[2m    2.44 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[2mdist/[22m[2massets/[22m[36mdnf-1E_trpPr.js             [39m[1m[2m    2.49 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mufw-DTY252Ib.js             [39m[1m[2m    2.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mssh-B2s8cEWz.js             [39m[1m[2m    2.68 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[2mdist/[22m[2massets/[22m[36mrsync-C41M1Ocx.js           [39m[1m[2m    2.69 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+[2mdist/[22m[2massets/[22m[36mgrep-BUnjd0l2.js            [39m[1m[2m    2.82 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2mdist/[22m[2massets/[22m[36mwget-DcY0ZXHs.js            [39m[1m[2m    2.89 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mcurl-P2zEsiig.js            [39m[1m[2m    3.71 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mip-CA2IE3QM.js              [39m[1m[2m    4.23 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mpip-DjMr-dwu.js             [39m[1m[2m    5.08 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[2mdist/[22m[2massets/[22m[36msystemctl-Cp34BCHw.js       [39m[1m[2m    5.12 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mnpm-cjWe8RVS.js             [39m[1m[2m    5.57 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-compose-C75a3ONX.js  [39m[1m[2m    8.16 kB[22m[1m[22m[2m │ gzip:   1.79 kB[22m
+[2mdist/[22m[2massets/[22m[36mtmux-WjUcT0MB.js            [39m[1m[2m   10.87 kB[22m[1m[22m[2m │ gzip:   2.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mkubectl-C5KN9ISC.js         [39m[1m[2m   19.78 kB[22m[1m[22m[2m │ gzip:   3.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mgit-B9ACcBib.js             [39m[1m[2m   22.10 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-C-k9D2mK.js          [39m[1m[2m   32.41 kB[22m[1m[22m[2m │ gzip:   4.14 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-DfSMeVdQ.js           [39m[1m[33m1,567.67 kB[39m[22m[2m │ gzip: 464.84 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 6.18s[39m
