@@ -1,0 +1,5 @@
+
+> anixops-ssh@2.4.0 check:specs
+> node scripts/check-specs.mjs
+
+50 completion specs are valid (54 command names).

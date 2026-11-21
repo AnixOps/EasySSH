@@ -1,0 +1,16 @@
+[1m[92m    Updating[0m crates.io index
+[1m[92m   Compiling[0m easyssh-crypto v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-crypto)
+[1m[92m   Compiling[0m easyssh-core v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m   Compiling[0m easyssh-ssh v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-ssh)
+[1m[92m   Compiling[0m easyssh-telemetry v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-telemetry)
+[1m[92m   Compiling[0m easyssh-sync v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sync)
+[1m[92m   Compiling[0m easyssh-sessionlog v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sessionlog)
+[1m[92m   Compiling[0m easyssh-proto v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-proto)
+[1m[92m   Compiling[0m easyssh-import v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-import)
+[1m[92m   Compiling[0m easyssh-store v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-store)
+[1m[92m   Compiling[0m easyssh-e2e v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-e2e)
+[1m[92m   Compiling[0m easyssh-vault v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-vault)
+[1m[92m   Compiling[0m easyssh-unlock v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-unlock)
+[1m[92m   Compiling[0m easyssh-engine v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-engine)
+[1m[92m   Compiling[0m easysshd v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easysshd)
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 14.19s

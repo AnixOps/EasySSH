@@ -1,0 +1,53 @@
+
+> anixops-ssh@2.4.0 test:mobile
+> node scripts/mobile-e2e.mjs http://localhost:4173
+
+ok    Pixel 7: the key bar sends Esc, Tab, arrows, Home and F-keys
+ok    iPhone 14: the key bar sends Esc, Tab, arrows, Home and F-keys
+ok    Pixel 7: the monitor card opens from the terminal, fills in and closes
+ok    iPhone 14: the monitor card opens from the terminal, fills in and closes
+ok    Pixel 7: Ctrl arms for one key, locks on a double tap and Alt prefixes ESC
+ok    iPhone 14: Ctrl arms for one key, locks on a double tap and Alt prefixes ESC
+ok    Pixel 7: an arrow repeats while held and stops on release
+ok    iPhone 14: an arrow repeats while held and stops on release
+ok    Pixel 7: the second row swipes sideways to F12, and snippet keys can be added
+ok    iPhone 14: the second row swipes sideways to F12, and snippet keys can be added
+ok    Pixel 7: predictive text composes a word and the shell sees it once
+ok    iPhone 14: predictive text composes a word and the shell sees it once
+ok    Pixel 7: pinyin shows in a chip and only the hanzi are sent
+ok    iPhone 14: pinyin shows in a chip and only the hanzi are sent
+ok    Pixel 7: backspace on an empty field still deletes, and the field keeps its sentinel
+ok    iPhone 14: backspace on an empty field still deletes, and the field keeps its sentinel
+ok    Pixel 7: typing real keys is not doubled by the composition layer
+ok    iPhone 14: typing real keys is not doubled by the composition layer
+ok    Pixel 7: tap focuses the terminal and shows the keyboard again after it was dismissed
+ok    iPhone 14: tap focuses the terminal and shows the keyboard again after it was dismissed
+ok    Pixel 7: long-press selects a word, handles extend it, Copy puts it on the clipboard and Paste types it
+ok    iPhone 14: long-press selects a word, handles extend it, Copy puts it on the clipboard and Paste types it
+ok    Pixel 7: dragging the start handle past the end swaps the handles
+ok    iPhone 14: dragging the start handle past the end swaps the handles
+ok    Pixel 7: one finger scrolls the scrollback and two fingers scroll faster
+ok    iPhone 14: one finger scrolls the scrollback and two fingers scroll faster
+ok    Pixel 7: pinch changes the font size and it is remembered
+ok    iPhone 14: pinch changes the font size and it is remembered
+ok    Pixel 7: without tmux the session closes in the background and asks before opening a new shell
+ok    iPhone 14: without tmux the session closes in the background and asks before opening a new shell
+ok    Pixel 7: with tmux the session reconnects by itself and says so
+ok    iPhone 14: with tmux the session reconnects by itself and says so
+ok    Pixel 7: a short trip to the background keeps the session untouched
+ok    iPhone 14: a short trip to the background keeps the session untouched
+ok    Pixel 7: the key bar sits above the keyboard and the layout follows rotation
+ok    iPhone 14: the key bar sits above the keyboard and the layout follows rotation
+ok    Pixel 7: every control has a name and every touch target is at least 44 px
+ok    iPhone 14: every control has a name and every touch target is at least 44 px
+ok    Pixel 7: settings: font size, IME mode and the explanation of the background policy
+ok    iPhone 14: settings: font size, IME mode and the explanation of the background policy
+ok    Pixel 7: the bar editor reorders, moves and restores keys
+ok    iPhone 14: the bar editor reorders, moves and restores keys
+ok    Pixel 7: forwards: a remote forward and a SOCKS proxy are made with the type picker
+ok    iPhone 14: forwards: a remote forward and a SOCKS proxy are made with the type picker
+ok    Pixel 7: forwards: a failed forward shows why, and a SOCKS proxy edits without a target
+ok    iPhone 14: forwards: a failed forward shows why, and a SOCKS proxy edits without a target
+ok    iPad Pro 11: a tablet shows list and terminal together and a hardware keyboard drives the shortcuts
+
+All mobile checks passed.

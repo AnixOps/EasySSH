@@ -1,0 +1,227 @@
+        Info Using installed NDK: /usr/local/lib/android/sdk/ndk/27.3.13750724
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `npm run build`
+
+> anixops-ssh@2.4.0 build
+> tsc --noEmit && vite build
+
+[36mvite v6.4.4 [32mbuilding for production...[36m[39m
+transforming...
+Found 1 warning while optimizing generated CSS:
+
+[2m│   }[22m
+[2m│   .\[all\:vars\] {[22m
+[2m│[22m     all: vars;
+[2m┆[22m         [33m[2m^--[22m Unexpected token Ident("vars")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .\[db\:vars\] {[22m
+
+[32m✓[39m 2349 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                         [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-PWTTOX0j.css          [39m[1m[2m   55.31 kB[22m[1m[22m[2m │ gzip:  12.17 kB[22m
+[2mdist/[22m[2massets/[22m[36mcd-BJl3zNiE.js              [39m[1m[2m    0.39 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-DAayNFV4.js           [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[2mdist/[22m[2massets/[22m[36mmkdir-BHoibBxc.js           [39m[1m[2m    0.55 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[2mdist/[22m[2massets/[22m[36mcrontab-BxPDRpz7.js         [39m[1m[2m    0.58 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[2mdist/[22m[2massets/[22m[36mhead-DAVRSLqk.js            [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[2massets/[22m[36mcat-MFbJfng5.js             [39m[1m[2m    0.72 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[2mdist/[22m[2massets/[22m[36mrm-D7mSQvU9.js              [39m[1m[2m    0.82 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mmv-DI0yMvuQ.js              [39m[1m[2m    0.84 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mchown-BfKJRcV7.js           [39m[1m[2m    0.85 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[2mdist/[22m[2massets/[22m[36mless-griBu9vP.js            [39m[1m[2m    0.88 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[2massets/[22m[36mtail-DcbIPi2A.js            [39m[1m[2m    0.95 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mfree-TOYh2b-A.js            [39m[1m[2m    0.96 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[2massets/[22m[36mtop-Bx6QlbF1.js             [39m[1m[2m    1.05 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mhtop-C7gxRIAi.js            [39m[1m[2m    1.07 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[2massets/[22m[36mchmod-C6SYttxo.js           [39m[1m[2m    1.08 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mnginx-DEnpw3uI.js           [39m[1m[2m    1.14 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[2massets/[22m[36mkill-iY5IOZ2K.js            [39m[1m[2m    1.18 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mping-C04McCIu.js            [39m[1m[2m    1.25 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[2massets/[22m[36mdf-DN5ZI0NW.js              [39m[1m[2m    1.29 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2mdist/[22m[2massets/[22m[36mls-Cx1xIWun.js              [39m[1m[2m    1.31 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mnano-3Cs1-XEZ.js            [39m[1m[2m    1.32 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mcp-BFEuKV8X.js              [39m[1m[2m    1.42 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2mdist/[22m[2massets/[22m[36mdu-C6sr7Ca9.js              [39m[1m[2m    1.46 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+[2mdist/[22m[2massets/[22m[36mps-ILSFEM9X.js              [39m[1m[2m    1.49 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[2massets/[22m[36mscp-BLaiiudf.js             [39m[1m[2m    1.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mss-DAMDwgxd.js              [39m[1m[2m    1.61 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[2massets/[22m[36mvim-oozNDzz0.js             [39m[1m[2m    1.65 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[2massets/[22m[36mpython-Lb8w99in.js          [39m[1m[2m    1.67 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[2mdist/[22m[2massets/[22m[36mnode-Bbt0G4AX.js            [39m[1m[2m    1.78 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2mdist/[22m[2massets/[22m[36msudo-DVfb-rzR.js            [39m[1m[2m    1.87 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[2mdist/[22m[2massets/[22m[36mmake-XiIN7zdf.js            [39m[1m[2m    2.18 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[2mdist/[22m[2massets/[22m[36mapt-CCI9EP8C.js             [39m[1m[2m    2.24 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[2massets/[22m[36mtar-BMm3XsWX.js             [39m[1m[2m    2.27 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[2massets/[22m[36mfind-Q8y026i-.js            [39m[1m[2m    2.41 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mjournalctl-DhhLu9y7.js      [39m[1m[2m    2.44 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[2mdist/[22m[2massets/[22m[36mdnf-1E_trpPr.js             [39m[1m[2m    2.49 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[2massets/[22m[36mufw-DTY252Ib.js             [39m[1m[2m    2.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[2massets/[22m[36mssh-B2s8cEWz.js             [39m[1m[2m    2.68 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[2mdist/[22m[2massets/[22m[36mrsync-C41M1Ocx.js           [39m[1m[2m    2.69 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+[2mdist/[22m[2massets/[22m[36mgrep-BUnjd0l2.js            [39m[1m[2m    2.82 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2mdist/[22m[2massets/[22m[36mwget-DcY0ZXHs.js            [39m[1m[2m    2.89 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mcurl-P2zEsiig.js            [39m[1m[2m    3.71 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mip-CA2IE3QM.js              [39m[1m[2m    4.23 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[2massets/[22m[36mpip-DjMr-dwu.js             [39m[1m[2m    5.08 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[2mdist/[22m[2massets/[22m[36msystemctl-Cp34BCHw.js       [39m[1m[2m    5.12 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[2massets/[22m[36mnpm-cjWe8RVS.js             [39m[1m[2m    5.57 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-compose-C75a3ONX.js  [39m[1m[2m    8.16 kB[22m[1m[22m[2m │ gzip:   1.79 kB[22m
+[2mdist/[22m[2massets/[22m[36mtmux-WjUcT0MB.js            [39m[1m[2m   10.87 kB[22m[1m[22m[2m │ gzip:   2.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mkubectl-C5KN9ISC.js         [39m[1m[2m   19.78 kB[22m[1m[22m[2m │ gzip:   3.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mgit-B9ACcBib.js             [39m[1m[2m   22.10 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+[2mdist/[22m[2massets/[22m[36mdocker-C-k9D2mK.js          [39m[1m[2m   32.41 kB[22m[1m[22m[2m │ gzip:   4.14 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-pUbjLc9g.js           [39m[1m[33m1,586.01 kB[39m[22m[2m │ gzip: 471.03 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 5.34s[39m
+[1m[92m   Compiling[0m easyssh-crypto v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-crypto)
+[1m[92m   Compiling[0m tauri v2.12.3
+[1m[92m   Compiling[0m easyssh-core v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m   Compiling[0m wry v0.57.0
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (/home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key)
+[1m[92m   Compiling[0m easyssh-sync v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-sync)
+[1m[92m   Compiling[0m tauri-plugin-clipboard-manager v2.4.2
+[1m[92m   Compiling[0m tauri-runtime-wry v2.12.1
+[1m[92m   Compiling[0m easyssh-import v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-import)
+[1m[92m   Compiling[0m easyssh-store v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-store)
+[1m[92m   Compiling[0m easyssh-ssh v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-ssh)
+[1m[92m   Compiling[0m anixops-ssh v2.4.0 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m   Compiling[0m easyssh-vault v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-vault)
+[1m[92m   Compiling[0m easyssh-mobile-keys v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-mobile-keys)
+[1m[92m   Compiling[0m easyssh-engine v2.4.0 (/home/runner/work/EasySSH/EasySSH/crates/easyssh-engine)
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 19.71s
+        Info symlinking lib "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" in jniLibs dir "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libandroid.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libdl.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "liblog.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libm.so"
+        Info "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libc.so"
+        Info symlink at "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a/libanixops_ssh_lib.so" points to "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so"
+Fetching distribution.
+Downloading https://services.gradle.org/distributions/gradle-9.6.1-bin.zip
+.............10%.............20%..............30%.............40%..............50%.............60%.............70%..............80%.............90%..............100%
+WARNING: The option setting 'android.proguard.failOnMissingFiles=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+Add android.sync.suppressAgpWarnings=UNSUPPORTED_PROJECT_OPTION_USE to the gradle.properties file to suppress this warning.
+WARNING: API 'applicationVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling applicationVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'testVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling testVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+WARNING: API 'unitTestVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling unitTestVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/build.gradle.kts:33:1: 'fun Project.android(configure: Action<BaseAppModuleExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.ApplicationExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+WARNING: API 'libraryVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling libraryVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+Add android.sync.suppressAgpWarnings=DEPRECATED_DSL to the gradle.properties file to suppress this warning.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key/android/build.gradle.kts:8:1: 'fun Project.android(configure: Action<LibraryExtension>): Unit' is deprecated. Replaced by com.android.build.api.dsl.LibraryExtension.
+This class is not used for the public extensions in AGP when android.newDsl=true, which is the default in AGP 9.0, and will be removed in AGP 10.0.
+
+> anixops-ssh@2.4.0 tauri
+> tauri android android-studio-script --target aarch64
+
+        Info connection; remote_addr=127.0.0.1:44566 conn_id=0
+[1m[32m        Info[0m Using installed NDK: /usr/local/lib/android/sdk/ndk/27.3.13750724
+[1m[92m   Compiling[0m tauri v2.12.3
+[1m[92m   Compiling[0m wry v0.57.0
+[1m[92m   Compiling[0m tauri-plugin-clipboard-manager v2.4.2
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (/home/runner/work/EasySSH/EasySSH/src-tauri/plugins/device-key)
+[1m[92m   Compiling[0m anixops-ssh v2.4.0 (/home/runner/work/EasySSH/EasySSH/src-tauri)
+[1m[92m   Compiling[0m tauri-runtime-wry v2.12.1
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 24.51s
+[1m[32m        Info[0m symlinking lib "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" in jniLibs dir "/home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/jniLibs/arm64-v8a"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libandroid.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libdl.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "liblog.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libm.so"
+[1m[32m        Info[0m "/home/runner/work/EasySSH/EasySSH/target/aarch64-linux-android/debug/libanixops_ssh_lib.so" requires shared lib "libc.so"
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/AppPlugin.kt:35:37 'fun onBackPressed(): Unit' is deprecated. Deprecated in Java.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:125:5 'fun onDestroy(): Unit' is deprecated. use onDestroy(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:130:5 'fun onRestart(): Unit' is deprecated. use onRestart(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:135:5 'fun onPause(): Unit' is deprecated. use onPause(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:140:5 'fun onResume(): Unit' is deprecated. use onResume(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/Plugin.kt:145:5 'fun onStop(): Unit' is deprecated. use onStop(activity: AppCompatActivity) instead.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-2.12.3/mobile/android/src/main/java/app/tauri/plugin/PluginHandle.kt:159:22 Java type mismatch: inferred type is 'Class<in CapturedType(*)!>?', but 'Class<*>' was expected.
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+Add android.sync.suppressAgpWarnings=JAVA_COMPILE_DEPRECATED_SOURCE_TARGET to the gradle.properties file to suppress this warning.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/src/main/java/ClipboardPlugin.kt:62:7 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/runner/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-plugin-clipboard-manager-2.4.2/android/src/main/java/ClipboardPlugin.kt:98:9 'when' is exhaustive so 'else' is redundant here.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/java/com/anixops/ssh/generated/RustWebView.kt:26:18 'var databaseEnabled: Boolean' is deprecated. Deprecated in Java.
+w: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/src/main/java/com/anixops/ssh/generated/WryActivity.kt:66:46 'fun onBackPressed(): Unit' is deprecated. This method has been deprecated in favor of using the
+      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.
+      The OnBackPressedDispatcher controls how back button events are dispatched
+      to one or more {@link OnBackPressedCallback} objects.
+Java compiler version 21 has deprecated support for compiling with source/target version 8.
+Try one of the following options:
+    1. [Recommended] Use Java toolchain with a lower language version
+    2. Set a higher source/target version
+    3. Use a lower version of the JDK running the build (if you're not using Java toolchain)
+For more details on how to configure these settings, see https://developer.android.com/build/jdks.
+To suppress this warning, set android.javaCompile.suppressSourceTargetDeprecationWarning=true in gradle.properties.
+Add android.sync.suppressAgpWarnings=JAVA_COMPILE_DEPRECATED_SOURCE_TARGET to the gradle.properties file to suppress this warning.
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+
+[Incubating] Problems report is available at: file:///home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/build/reports/problems/problems-report.html
+Configuration cache entry stored.
+    Finished 1 APK at:
+        /home/runner/work/EasySSH/EasySSH/src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk
+

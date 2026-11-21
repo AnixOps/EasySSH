@@ -1,0 +1,19 @@
+[1m[92m    Checking[0m easyssh-crypto v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-crypto)
+[1m[92m    Checking[0m easyssh-core v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-core)
+[1m[92m    Checking[0m easyssh-ssh v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-ssh)
+[1m[92m    Checking[0m easyssh-sync v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-sync)
+[1m[92m    Checking[0m easyssh-import v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-import)
+[1m[92m    Checking[0m easyssh-store v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-store)
+[1m[92m    Checking[0m easyssh-vault v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-vault)
+[1m[92m    Checking[0m easyssh-mobile-keys v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-mobile-keys)
+[1m[92m    Checking[0m easyssh-engine v2.4.0 (/Users/runner/work/EasySSH/EasySSH/crates/easyssh-engine)
+[1m[33mwarning[0m[1m: unused dependency `anyhow`[0m
+  [1m[94m--> [0mcrates/easyssh-core/Cargo.toml:10:1
+   [1m[94m|[0m
+[1m[94m10[0m [1m[94m|[0m anyhow.workspace = true
+   [1m[94m|[0m [1m[33m^^^^^^[0m
+   [1m[94m|[0m
+   [1m[94m= [0m[1mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `anyhow`
+[1m[33mwarning[0m: `easyssh-core` (manifest) generated 1 warning
+[1m[92m    Finished[0m `dev` profile [unoptimized + debuginfo] target(s) in 4.39s

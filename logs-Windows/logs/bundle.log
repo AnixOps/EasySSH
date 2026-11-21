@@ -1,0 +1,112 @@
+        Info Looking up installed tauri packages to check mismatched versions...
+     Running beforeBuildCommand `npm run build`
+
+> anixops-ssh@2.4.0 build
+> tsc --noEmit && vite build
+
+[36mvite v6.4.4 [32mbuilding for production...[36m[39m
+transforming...
+Found 1 warning while optimizing generated CSS:
+
+[2m│   }[22m
+[2m│   .\[all\:vars\] {[22m
+[2m│[22m     all: vars;
+[2m┆[22m         [33m[2m^--[22m Unexpected token Ident("vars")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .\[db\:vars\] {[22m
+
+[32m✓[39m 2349 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                         [39m[1m[2m    0.54 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[2mdist/[22m[35massets/index-PWTTOX0j.css          [39m[1m[2m   55.31 kB[22m[1m[22m[2m │ gzip:  12.17 kB[22m
+[2mdist/[22m[36massets/cd-BJl3zNiE.js              [39m[1m[2m    0.39 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[2mdist/[22m[36massets/index-DAayNFV4.js           [39m[1m[2m    0.52 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[2mdist/[22m[36massets/mkdir-BHoibBxc.js           [39m[1m[2m    0.55 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[2mdist/[22m[36massets/crontab-BxPDRpz7.js         [39m[1m[2m    0.58 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[2mdist/[22m[36massets/head-DAVRSLqk.js            [39m[1m[2m    0.60 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[36massets/cat-MFbJfng5.js             [39m[1m[2m    0.72 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[2mdist/[22m[36massets/rm-D7mSQvU9.js              [39m[1m[2m    0.82 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/mv-DI0yMvuQ.js              [39m[1m[2m    0.84 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/chown-BfKJRcV7.js           [39m[1m[2m    0.85 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[2mdist/[22m[36massets/less-griBu9vP.js            [39m[1m[2m    0.88 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[36massets/tail-DcbIPi2A.js            [39m[1m[2m    0.95 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[36massets/free-TOYh2b-A.js            [39m[1m[2m    0.96 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/top-Bx6QlbF1.js             [39m[1m[2m    1.05 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[36massets/htop-C7gxRIAi.js            [39m[1m[2m    1.07 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[36massets/chmod-C6SYttxo.js           [39m[1m[2m    1.08 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[2mdist/[22m[36massets/nginx-DEnpw3uI.js           [39m[1m[2m    1.14 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[2mdist/[22m[36massets/kill-iY5IOZ2K.js            [39m[1m[2m    1.18 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[36massets/ping-C04McCIu.js            [39m[1m[2m    1.25 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[2mdist/[22m[36massets/df-DN5ZI0NW.js              [39m[1m[2m    1.29 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[2mdist/[22m[36massets/ls-Cx1xIWun.js              [39m[1m[2m    1.31 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[36massets/nano-3Cs1-XEZ.js            [39m[1m[2m    1.32 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[36massets/cp-BFEuKV8X.js              [39m[1m[2m    1.42 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2mdist/[22m[36massets/du-C6sr7Ca9.js              [39m[1m[2m    1.46 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+[2mdist/[22m[36massets/ps-ILSFEM9X.js              [39m[1m[2m    1.49 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[2mdist/[22m[36massets/scp-BLaiiudf.js             [39m[1m[2m    1.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[36massets/ss-DAMDwgxd.js              [39m[1m[2m    1.61 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[36massets/vim-oozNDzz0.js             [39m[1m[2m    1.65 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[36massets/python-Lb8w99in.js          [39m[1m[2m    1.67 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[2mdist/[22m[36massets/node-Bbt0G4AX.js            [39m[1m[2m    1.78 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[2mdist/[22m[36massets/sudo-DVfb-rzR.js            [39m[1m[2m    1.87 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[2mdist/[22m[36massets/make-XiIN7zdf.js            [39m[1m[2m    2.18 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[2mdist/[22m[36massets/apt-CCI9EP8C.js             [39m[1m[2m    2.24 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[36massets/tar-BMm3XsWX.js             [39m[1m[2m    2.27 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[36massets/find-Q8y026i-.js            [39m[1m[2m    2.41 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[36massets/journalctl-DhhLu9y7.js      [39m[1m[2m    2.44 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[2mdist/[22m[36massets/dnf-1E_trpPr.js             [39m[1m[2m    2.49 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[2mdist/[22m[36massets/ufw-DTY252Ib.js             [39m[1m[2m    2.59 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[36massets/ssh-B2s8cEWz.js             [39m[1m[2m    2.68 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[2mdist/[22m[36massets/rsync-C41M1Ocx.js           [39m[1m[2m    2.69 kB[22m[1m[22m[2m │ gzip:   1.03 kB[22m
+[2mdist/[22m[36massets/grep-BUnjd0l2.js            [39m[1m[2m    2.82 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2mdist/[22m[36massets/wget-DcY0ZXHs.js            [39m[1m[2m    2.89 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[36massets/curl-P2zEsiig.js            [39m[1m[2m    3.71 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[36massets/ip-CA2IE3QM.js              [39m[1m[2m    4.23 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+[2mdist/[22m[36massets/pip-DjMr-dwu.js             [39m[1m[2m    5.08 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[2mdist/[22m[36massets/systemctl-Cp34BCHw.js       [39m[1m[2m    5.12 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[2mdist/[22m[36massets/npm-cjWe8RVS.js             [39m[1m[2m    5.57 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[2mdist/[22m[36massets/docker-compose-C75a3ONX.js  [39m[1m[2m    8.16 kB[22m[1m[22m[2m │ gzip:   1.79 kB[22m
+[2mdist/[22m[36massets/tmux-WjUcT0MB.js            [39m[1m[2m   10.87 kB[22m[1m[22m[2m │ gzip:   2.23 kB[22m
+[2mdist/[22m[36massets/kubectl-C5KN9ISC.js         [39m[1m[2m   19.78 kB[22m[1m[22m[2m │ gzip:   3.23 kB[22m
+[2mdist/[22m[36massets/git-B9ACcBib.js             [39m[1m[2m   22.10 kB[22m[1m[22m[2m │ gzip:   4.49 kB[22m
+[2mdist/[22m[36massets/docker-C-k9D2mK.js          [39m[1m[2m   32.41 kB[22m[1m[22m[2m │ gzip:   4.14 kB[22m
+[2mdist/[22m[36massets/index-pUbjLc9g.js           [39m[1m[33m1,586.01 kB[39m[22m[2m │ gzip: 471.03 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 6.91s[39m
+[1m[92m   Compiling[0m easyssh-crypto v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-crypto)
+[1m[92m   Compiling[0m easyssh-core v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-core)
+[1m[92m   Compiling[0m easyssh-telemetry v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-telemetry)
+[1m[92m   Compiling[0m easyssh-ssh v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-ssh)
+[1m[92m   Compiling[0m easyssh-update v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-update)
+[1m[92m   Compiling[0m easyssh-proto v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-proto)
+[1m[92m   Compiling[0m easyssh-import v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-import)
+[1m[92m   Compiling[0m easyssh-sync v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-sync)
+[1m[92m   Compiling[0m easyssh-store v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-store)
+[1m[92m   Compiling[0m easyssh-vault v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-vault)
+[1m[92m   Compiling[0m easyssh-sessionlog v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-sessionlog)
+[1m[92m   Compiling[0m easyssh-unlock v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-unlock)
+[1m[92m   Compiling[0m easyssh-engine v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-engine)
+[1m[92m   Compiling[0m anixops-ssh v2.4.0 (D:\a\EasySSH\EasySSH\src-tauri)
+[1m[92m   Compiling[0m easysshd v2.4.0 (D:\a\EasySSH\EasySSH\crates\easysshd)
+[1m[92m   Compiling[0m easyssh-ai v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-ai)
+[1m[92m   Compiling[0m easyssh-services v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-services)
+[1m[92m    Finished[0m `release` profile [optimized] target(s) in 6m 04s
+       Built application at: D:\a\EasySSH\EasySSH\target\release\anixops-ssh.exe
+        Info Patching D:\a\EasySSH\EasySSH\target\release\anixops-ssh.exe with bundle type information: nsis
+        Info Verifying NSIS package
+ Downloading https://github.com/tauri-apps/binary-releases/releases/download/nsis-3.11/nsis-3.11.zip
+        Info validating hash
+        Info extracting NSIS
+ Downloading https://github.com/tauri-apps/nsis-tauri-utils/releases/download/nsis_tauri_utils-v0.5.3/nsis_tauri_utils.dll
+        Info validating hash
+        Info Target: x64
+     Running makensis to produce D:\a\EasySSH\EasySSH\target\release\bundle\nsis\AnixOps SSH_2.4.0_x64-setup.exe
+    Finished 1 bundle at:
+        D:\a\EasySSH\EasySSH\target\release\bundle\nsis\AnixOps SSH_2.4.0_x64-setup.exe (10.51 MiB)
+

@@ -1,0 +1,525 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 618B done
+#1 DONE 0.0s
+
+#2 [auth] library/rust:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim
+#3 DONE 0.2s
+
+#4 [internal] load metadata for docker.io/library/rust:1-bookworm
+#4 DONE 1.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 91B done
+#5 DONE 0.0s
+
+#6 [stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:734a72b3d6142a71993b4bc580ca01d8ca687f77a2c422d96a961d3376b179bc
+#6 CACHED
+
+#7 [build 1/4] FROM docker.io/library/rust:1-bookworm@sha256:ade39a710ef85f3506cffcfec3e8a24ba090badef1dff2fb798f71d878833fea
+#7 resolve docker.io/library/rust:1-bookworm@sha256:ade39a710ef85f3506cffcfec3e8a24ba090badef1dff2fb798f71d878833fea done
+#7 sha256:338554e9113fa6731ba588cb8f45e85b3e3fe7ada531ee7d7b0bc9291d616727 0B / 23.87MB 0.1s
+#7 sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d 0B / 64.43MB 0.1s
+#7 sha256:ade39a710ef85f3506cffcfec3e8a24ba090badef1dff2fb798f71d878833fea 6.48kB / 6.48kB done
+#7 sha256:338554e9113fa6731ba588cb8f45e85b3e3fe7ada531ee7d7b0bc9291d616727 22.75MB / 23.87MB 0.2s
+#7 sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d 30.41MB / 64.43MB 0.2s
+#7 sha256:198cd28b4ba92b20fe849d5d8b119ace1bd28423d9e82e9c4de5ee1300d453a0 1.94kB / 1.94kB done
+#7 sha256:9a1b4f2e690d8ffe0b1dae1a72750318928a9b5d94ebf7539dbb4f4c765104da 4.55kB / 4.55kB done
+#7 sha256:69245854ad5855991d16224f6abf55855d2d73922785206adea9c5c5988434a0 13.63MB / 48.53MB 0.2s
+#7 sha256:338554e9113fa6731ba588cb8f45e85b3e3fe7ada531ee7d7b0bc9291d616727 23.87MB / 23.87MB 0.3s done
+#7 sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d 64.43MB / 64.43MB 0.4s
+#7 sha256:69245854ad5855991d16224f6abf55855d2d73922785206adea9c5c5988434a0 48.53MB / 48.53MB 0.4s
+#7 ...
+
+#8 [internal] load build context
+#8 transferring context: 17.70MB 0.3s done
+#8 DONE 0.4s
+
+#7 [build 1/4] FROM docker.io/library/rust:1-bookworm@sha256:ade39a710ef85f3506cffcfec3e8a24ba090badef1dff2fb798f71d878833fea
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 0B / 211.83MB 0.8s
+#7 sha256:69245854ad5855991d16224f6abf55855d2d73922785206adea9c5c5988434a0 48.53MB / 48.53MB 0.9s done
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 56.62MB / 211.83MB 1.0s
+#7 sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d 64.43MB / 64.43MB 1.0s done
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 96.47MB / 211.83MB 1.1s
+#7 extracting sha256:69245854ad5855991d16224f6abf55855d2d73922785206adea9c5c5988434a0 0.1s
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 0B / 224.06MB 1.1s
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 168.82MB / 211.83MB 1.3s
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 80.74MB / 224.06MB 1.3s
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 198.18MB / 211.83MB 1.4s
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 122.33MB / 224.06MB 1.4s
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 211.83MB / 211.83MB 1.5s
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 169.87MB / 224.06MB 1.5s
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 217.06MB / 224.06MB 1.6s
+#7 sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 211.83MB / 211.83MB 3.0s done
+#7 extracting sha256:69245854ad5855991d16224f6abf55855d2d73922785206adea9c5c5988434a0 2.0s done
+#7 ...
+
+#9 [stage-1 2/3] RUN useradd --system --create-home --home-dir /data --shell /usr/sbin/nologin easyssh
+#9 DONE 3.4s
+
+#7 [build 1/4] FROM docker.io/library/rust:1-bookworm@sha256:ade39a710ef85f3506cffcfec3e8a24ba090badef1dff2fb798f71d878833fea
+#7 sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 224.06MB / 224.06MB 3.4s done
+#7 extracting sha256:338554e9113fa6731ba588cb8f45e85b3e3fe7ada531ee7d7b0bc9291d616727 0.1s
+#7 extracting sha256:338554e9113fa6731ba588cb8f45e85b3e3fe7ada531ee7d7b0bc9291d616727 0.4s done
+#7 extracting sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d
+#7 extracting sha256:d6c30932f8d3f5798b438cce12cdf6cebb1717b52f51e22ff010b4d86667031d 1.7s done
+#7 extracting sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16
+#7 extracting sha256:9bab93d346cda15207e5a5000093cee7256ec1092fb689ec3d2997faf31b9a16 4.5s done
+#7 extracting sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee
+#7 extracting sha256:1cc1b20d00abaa2e97efa9dcb6849af13f01418e76a37c0718b1233c50144eee 3.2s done
+#7 DONE 22.4s
+
+#10 [build 2/4] WORKDIR /src
+#10 DONE 0.0s
+
+#11 [build 3/4] COPY . .
+#11 DONE 0.2s
+
+#12 [build 4/4] RUN cargo build --release --locked -p easyssh-server
+#12 0.162     Updating crates.io index
+#12 0.933  Downloading crates ...
+#12 0.990   Downloaded aead v0.6.1
+#12 0.993   Downloaded anstream v1.0.0
+#12 0.995   Downloaded anstyle v1.0.14
+#12 0.997   Downloaded ahash v0.8.12
+#12 1.000   Downloaded axum-core v0.5.6
+#12 1.003   Downloaded find-msvc-tools v0.1.14
+#12 1.006   Downloaded hmac v0.13.0
+#12 1.008   Downloaded aho-corasick v1.1.5
+#12 1.015   Downloaded clap v4.6.7
+#12 1.027   Downloaded atomic-waker v1.1.2
+#12 1.029   Downloaded crypto-bigint v0.5.5
+#12 1.038   Downloaded crypto-common v0.2.2
+#12 1.040   Downloaded argon2 v0.6.0
+#12 1.043   Downloaded want v0.3.2
+#12 1.044   Downloaded base16ct v0.2.0
+#12 1.046   Downloaded base64 v0.22.1
+#12 1.050   Downloaded blake2 v0.11.0
+#12 1.053   Downloaded chacha20poly1305 v0.11.0
+#12 1.057   Downloaded cipher v0.5.2
+#12 1.060   Downloaded digest v0.10.7
+#12 1.062   Downloaded is_terminal_polyfill v1.70.2
+#12 1.063   Downloaded curve25519-dalek-derive v0.1.1
+#12 1.063   Downloaded cc v1.8.0
+#12 1.067   Downloaded version_check v0.9.5
+#12 1.068   Downloaded anstyle-query v1.1.5
+#12 1.069   Downloaded cmov v0.5.4
+#12 1.070   Downloaded voprf v0.5.0
+#12 1.073   Downloaded zeroize v1.9.1
+#12 1.074   Downloaded crypto-common v0.1.7
+#12 1.075   Downloaded ed25519-dalek v3.0.0
+#12 1.078   Downloaded lru-slab v0.1.3
+#12 1.079   Downloaded zerofrom-derive v0.1.8
+#12 1.080   Downloaded zeroize_derive v1.5.0
+#12 1.081   Downloaded bitflags v2.13.2
+#12 1.084   Downloaded itoa v1.0.18
+#12 1.085   Downloaded mime v0.3.17
+#12 1.086   Downloaded zerovec-derive v0.11.6
+#12 1.088   Downloaded zmij v1.0.23
+#12 1.089   Downloaded anstyle-parse v1.0.0
+#12 1.091   Downloaded ecdsa v0.16.9
+#12 1.092   Downloaded generic-array v0.14.7
+#12 1.093   Downloaded http-body-util v0.1.5
+#12 1.095   Downloaded jobserver v0.1.35
+#12 1.096   Downloaded lazy_static v1.5.1
+#12 1.098   Downloaded litemap v0.8.3
+#12 1.099   Downloaded matchit v0.8.4
+#12 1.101   Downloaded quinn v0.11.12
+#12 1.104   Downloaded syn v3.0.9
+#12 1.113   Downloaded vcpkg v0.2.15
+#12 1.152   Downloaded zerotrie v0.2.5
+#12 1.155   Downloaded cfg-if v1.0.5
+#12 1.157   Downloaded colorchoice v1.0.5
+#12 1.158   Downloaded libc v0.2.190
+#12 1.194   Downloaded log v0.4.34
+#12 1.196   Downloaded matchers v0.2.0
+#12 1.197   Downloaded memchr v2.8.3
+#12 1.202   Downloaded mio v1.2.4
+#12 1.207   Downloaded zerovec v0.11.8
+#12 1.212   Downloaded nu-ansi-term v0.50.3
+#12 1.213   Downloaded rustc-hash v2.1.3
+#12 1.214   Downloaded zerofrom v0.1.8
+#12 1.215   Downloaded base64ct v1.8.3
+#12 1.217   Downloaded ctutils v0.4.8
+#12 1.219   Downloaded futures-task v0.3.34
+#12 1.220   Downloaded idna_adapter v1.2.2
+#12 1.221   Downloaded password-hash v0.6.1
+#12 1.222   Downloaded percent-encoding v2.3.2
+#12 1.223   Downloaded phc v0.6.1
+#12 1.225   Downloaded pkg-config v0.3.34
+#12 1.227   Downloaded potential_utf v0.1.6
+#12 1.228   Downloaded rand_core v0.6.4
+#12 1.229   Downloaded rand_core v0.10.1
+#12 1.230   Downloaded block-buffer v0.10.4
+#12 1.231   Downloaded cfg_aliases v0.2.2
+#12 1.232   Downloaded cpufeatures v0.3.1
+#12 1.234   Downloaded httpdate v1.0.3
+#12 1.235   Downloaded tower-layer v0.3.3
+#12 1.237   Downloaded try-lock v0.2.5
+#12 1.238   Downloaded block-buffer v0.12.1
+#12 1.239   Downloaded cpufeatures v0.2.17
+#12 1.240   Downloaded dunce v1.0.5
+#12 1.241   Downloaded ed25519 v2.2.3
+#12 1.242   Downloaded errno v0.3.14
+#12 1.243   Downloaded futures-core v0.3.34
+#12 1.244   Downloaded hashlink v0.9.1
+#12 1.246   Downloaded heck v0.5.0
+#12 1.247   Downloaded hmac v0.12.1
+#12 1.248   Downloaded http-body v1.1.0
+#12 1.249   Downloaded inout v0.2.6
+#12 1.250   Downloaded ipnet v2.12.2
+#12 1.252   Downloaded openssl-probe v0.2.2
+#12 1.253   Downloaded serdect v0.2.0
+#12 1.254   Downloaded subtle v2.6.1
+#12 1.257   Downloaded tower-service v0.3.3
+#12 1.257   Downloaded tracing-serde v0.2.0
+#12 1.257   Downloaded universal-hash v0.6.1
+#12 1.257   Downloaded untrusted v0.9.0
+#12 1.258   Downloaded utf8_iter v1.0.4
+#12 1.259   Downloaded clap_derive v4.6.7
+#12 1.261   Downloaded clap_lex v1.1.2
+#12 1.262   Downloaded cmake v0.1.58
+#12 1.263   Downloaded der v0.7.10
+#12 1.267   Downloaded digest v0.11.3
+#12 1.269   Downloaded displaydoc v0.2.7
+#12 1.271   Downloaded ed25519 v3.0.0
+#12 1.272   Downloaded fallible-iterator v0.3.0
+#12 1.273   Downloaded fallible-streaming-iterator v0.1.9
+#12 1.274   Downloaded ff v0.13.1
+#12 1.275   Downloaded form_urlencoded v1.2.2
+#12 1.276   Downloaded getrandom v0.2.17
+#12 1.278   Downloaded group v0.13.0
+#12 1.280   Downloaded hyper-rustls v0.27.10
+#12 1.281   Downloaded tokio-rustls v0.26.6
+#12 1.282   Downloaded tracing-attributes v0.1.31
+#12 1.284   Downloaded tracing-log v0.2.0
+#12 1.285   Downloaded unicode-ident v1.0.27
+#12 1.288   Downloaded chacha20 v0.10.2
+#12 1.290   Downloaded const-oid v0.9.6
+#12 1.291   Downloaded derive-where v1.7.0
+#12 1.294   Downloaded elliptic-curve v0.13.8
+#12 1.297   Downloaded fs_extra v1.3.0
+#12 1.299   Downloaded futures-channel v0.3.34
+#12 1.300   Downloaded httparse v1.10.1
+#12 1.302   Downloaded hybrid-array v0.4.15
+#12 1.304   Downloaded icu_provider v2.3.1
+#12 1.306   Downloaded base64 v0.23.1
+#12 1.310   Downloaded const-oid v0.10.3
+#12 1.312   Downloaded getrandom v0.4.3
+#12 1.315   Downloaded icu_locale_core v2.3.0
+#12 1.320   Downloaded icu_normalizer_data v2.3.0
+#12 1.322   Downloaded serde_path_to_error v0.1.20
+#12 1.323   Downloaded signature v2.2.0
+#12 1.324   Downloaded sync_wrapper v1.0.2
+#12 1.325   Downloaded thread_local v1.1.10
+#12 1.326   Downloaded tracing-core v0.1.36
+#12 1.328   Downloaded yoke-derive v0.8.4
+#12 1.329   Downloaded bytes v1.12.1
+#12 1.332   Downloaded ed25519-dalek v2.2.0
+#12 1.335   Downloaded icu_collections v2.3.0
+#12 1.340   Downloaded icu_properties v2.3.0
+#12 1.342   Downloaded rand_pcg v0.10.2
+#12 1.343   Downloaded rustc_version v0.4.1
+#12 1.344   Downloaded serde_urlencoded v0.7.1
+#12 1.346   Downloaded sha2 v0.11.1
+#12 1.348   Downloaded signal-hook-registry v1.4.8
+#12 1.349   Downloaded smallvec v1.16.3
+#12 1.351   Downloaded socket2 v0.6.5
+#12 1.352   Downloaded spki v0.7.3
+#12 1.354   Downloaded stable_deref_trait v1.2.1
+#12 1.355   Downloaded strsim v0.11.1
+#12 1.356   Downloaded thiserror v2.0.21
+#12 1.361   Downloaded tinystr v0.8.4
+#12 1.362   Downloaded tokio-macros v2.7.2
+#12 1.363   Downloaded tower v0.5.3
+#12 1.371   Downloaded url v2.5.8
+#12 1.373   Downloaded utf8parse v0.2.2
+#12 1.374   Downloaded writeable v0.6.4
+#12 1.376   Downloaded http v1.5.0
+#12 1.379   Downloaded once_cell v1.21.4
+#12 1.381   Downloaded pkcs8 v0.10.2
+#12 1.383   Downloaded quote v1.0.47
+#12 1.386   Downloaded rustls-native-certs v0.8.5
+#12 1.387   Downloaded sec1 v0.7.3
+#12 1.388   Downloaded sha2 v0.10.9
+#12 1.390   Downloaded shlex v2.0.1
+#12 1.391   Downloaded signature v3.0.0
+#12 1.392   Downloaded slab v0.4.12
+#12 1.393   Downloaded synstructure v0.14.0
+#12 1.394   Downloaded thiserror-impl v2.0.21
+#12 1.396   Downloaded typenum v1.20.1
+#12 1.399   Downloaded uuid v1.28.0
+#12 1.401   Downloaded yoke v0.8.3
+#12 1.403   Downloaded hyper-util v0.1.21
+#12 1.408   Downloaded idna v1.1.0
+#12 1.411   Downloaded pin-project-lite v0.2.17
+#12 1.416   Downloaded poly1305 v0.9.1
+#12 1.418   Downloaded quinn-udp v0.5.16
+#12 1.419   Downloaded rustls-pki-types v1.16.0
+#12 1.421   Downloaded ryu v1.0.23
+#12 1.424   Downloaded semver v1.0.28
+#12 1.426   Downloaded serde_derive v1.0.229
+#12 1.428   Downloaded sharded-slab v0.1.7
+#12 1.431   Downloaded tinyvec v1.13.3
+#12 1.434   Downloaded hashbrown v0.14.5
+#12 1.438   Downloaded hkdf v0.13.0
+#12 1.440   Downloaded icu_properties_data v2.3.0
+#12 1.448   Downloaded proc-macro2 v1.0.107
+#12 1.451   Downloaded serde_core v1.0.229
+#12 1.453   Downloaded axum v0.8.9
+#12 1.460   Downloaded clap_builder v4.6.7
+#12 1.466   Downloaded futures-util v0.3.34
+#12 1.475   Downloaded opaque-ke v4.0.1
+#12 1.479   Downloaded rand v0.10.4
+#12 1.483   Downloaded rustls-platform-verifier v0.7.1
+#12 1.486   Downloaded rustls-webpki v0.103.17
+#12 1.489   Downloaded tower-http v0.6.11
+#12 1.496   Downloaded x25519-dalek v3.0.0
+#12 1.498   Downloaded hkdf v0.12.4
+#12 1.500   Downloaded hyper v1.12.0
+#12 1.506   Downloaded rand v0.8.8
+#12 1.509   Downloaded serde v1.0.229
+#12 1.512   Downloaded tracing-subscriber v0.3.23
+#12 1.518   Downloaded serde_json v1.0.154
+#12 1.525   Downloaded reqwest v0.13.5
+#12 1.530   Downloaded aws-lc-rs v1.19.0
+#12 1.538   Downloaded curve25519-dalek v4.1.3
+#12 1.546   Downloaded rusqlite v0.32.1
+#12 1.551   Downloaded curve25519-dalek v5.0.0
+#12 1.559   Downloaded quinn-proto v0.11.19
+#12 1.565   Downloaded syn v2.0.119
+#12 1.574   Downloaded zerocopy v0.8.63
+#12 1.594   Downloaded regex-syntax v0.8.11
+#12 1.600   Downloaded rustls v0.23.46
+#12 1.610   Downloaded tracing v0.1.44
+#12 1.623   Downloaded icu_normalizer v2.3.0
+#12 1.632   Downloaded regex-automata v0.4.18
+#12 1.645   Downloaded tokio v1.53.3
+#12 1.680   Downloaded ring v0.17.14
+#12 1.716   Downloaded libsqlite3-sys v0.30.1
+#12 1.779   Downloaded aws-lc-sys v0.47.0
+#12 2.101    Compiling proc-macro2 v1.0.107
+#12 2.107    Compiling quote v1.0.47
+#12 2.107    Compiling unicode-ident v1.0.27
+#12 2.107    Compiling libc v0.2.190
+#12 2.174    Compiling serde_core v1.0.229
+#12 2.267    Compiling cfg-if v1.0.5
+#12 2.303    Compiling serde v1.0.229
+#12 2.486    Compiling typenum v1.20.1
+#12 3.084    Compiling syn v3.0.9
+#12 3.302    Compiling syn v2.0.119
+#12 3.447    Compiling getrandom v0.4.3
+#12 3.587    Compiling rand_core v0.10.1
+#12 3.703    Compiling subtle v2.6.1
+#12 3.988    Compiling version_check v0.9.5
+#12 4.726    Compiling hybrid-array v0.4.15
+#12 5.208    Compiling once_cell v1.21.4
+#12 5.233    Compiling jobserver v0.1.35
+#12 5.399    Compiling find-msvc-tools v0.1.14
+#12 5.515    Compiling shlex v2.0.1
+#12 5.585    Compiling crypto-common v0.2.2
+#12 5.634    Compiling cc v1.8.0
+#12 6.739    Compiling synstructure v0.14.0
+#12 7.239    Compiling cmov v0.5.4
+#12 7.440    Compiling pkg-config v0.3.34
+#12 7.450    Compiling ctutils v0.4.8
+#12 7.659    Compiling stable_deref_trait v1.2.1
+#12 7.705    Compiling itoa v1.0.18
+#12 7.861    Compiling pin-project-lite v0.2.17
+#12 7.869    Compiling block-buffer v0.12.1
+#12 7.887    Compiling serde_derive v1.0.229
+#12 7.903    Compiling zeroize_derive v1.5.0
+#12 7.917    Compiling zerofrom-derive v0.1.8
+#12 7.987    Compiling yoke-derive v0.8.4
+#12 8.272    Compiling displaydoc v0.2.7
+#12 8.758    Compiling zerovec-derive v0.11.6
+#12 8.840    Compiling generic-array v0.14.7
+#12 8.928    Compiling bytes v1.12.1
+#12 8.940    Compiling zerofrom v0.1.8
+#12 9.020    Compiling yoke v0.8.3
+#12 9.204    Compiling cmake v0.1.58
+#12 9.478    Compiling semver v1.0.28
+#12 9.634    Compiling zerovec v0.11.8
+#12 9.644    Compiling dunce v1.0.5
+#12 9.702    Compiling smallvec v1.16.3
+#12 9.713    Compiling futures-core v0.3.34
+#12 9.802    Compiling fs_extra v1.3.0
+#12 9.928    Compiling rustc_version v0.4.1
+#12 10.05    Compiling aws-lc-sys v0.47.0
+#12 10.13    Compiling tracing-core v0.1.36
+#12 10.28    Compiling log v0.4.34
+#12 10.44    Compiling errno v0.3.14
+#12 10.53    Compiling const-oid v0.10.3
+#12 10.72    Compiling digest v0.11.3
+#12 10.78    Compiling signal-hook-registry v1.4.8
+#12 10.87    Compiling tinystr v0.8.4
+#12 11.03    Compiling http v1.5.0
+#12 11.08    Compiling tracing-attributes v0.1.31
+#12 11.24    Compiling zeroize v1.9.1
+#12 11.96    Compiling tokio-macros v2.7.2
+#12 12.06    Compiling socket2 v0.6.5
+#12 12.36    Compiling mio v1.2.4
+#12 12.38    Compiling getrandom v0.2.17
+#12 12.52    Compiling litemap v0.8.3
+#12 12.62    Compiling writeable v0.6.4
+#12 12.68    Compiling aws-lc-rs v1.19.0
+#12 12.80    Compiling cpufeatures v0.3.1
+#12 12.82    Compiling icu_locale_core v2.3.0
+#12 12.84    Compiling tokio v1.53.3
+#12 12.85    Compiling rand_core v0.6.4
+#12 12.97    Compiling tracing v0.1.44
+#12 13.26    Compiling http-body v1.1.0
+#12 13.36    Compiling potential_utf v0.1.6
+#12 13.46    Compiling zerotrie v0.2.5
+#12 13.78    Compiling utf8_iter v1.0.4
+#12 13.87    Compiling percent-encoding v2.3.2
+#12 14.02    Compiling icu_properties_data v2.3.0
+#12 14.11    Compiling icu_normalizer_data v2.3.0
+#12 14.24    Compiling icu_collections v2.3.0
+#12 14.68    Compiling icu_provider v2.3.1
+#12 14.75    Compiling crypto-common v0.1.7
+#12 14.83    Compiling block-buffer v0.10.4
+#12 14.94    Compiling rustls-pki-types v1.16.0
+#12 15.11    Compiling curve25519-dalek-derive v0.1.1
+#12 15.49    Compiling tower-service v0.3.3
+#12 15.54    Compiling futures-task v0.3.34
+#12 15.55    Compiling slab v0.4.12
+#12 15.64    Compiling httparse v1.10.1
+#12 15.70    Compiling const-oid v0.9.6
+#12 15.86    Compiling der v0.7.10
+#12 15.87    Compiling futures-util v0.3.34
+#12 17.57    Compiling digest v0.10.7
+#12 17.81    Compiling untrusted v0.9.0
+#12 17.83    Compiling rustls v0.23.46
+#12 17.88    Compiling zmij v1.0.23
+#12 17.92    Compiling try-lock v0.2.5
+#12 17.98    Compiling want v0.3.2
+#12 18.04    Compiling icu_properties v2.3.0
+#12 18.08    Compiling icu_normalizer v2.3.0
+#12 19.19    Compiling form_urlencoded v1.2.2
+#12 19.34    Compiling curve25519-dalek v5.0.0
+#12 19.39    Compiling sync_wrapper v1.0.2
+#12 19.45    Compiling inout v0.2.6
+#12 19.46    Compiling base16ct v0.2.0
+#12 19.55    Compiling serde_json v1.0.154
+#12 19.58    Compiling atomic-waker v1.1.2
+#12 19.63    Compiling tower-layer v0.3.3
+#12 19.65    Compiling zerocopy v0.8.63
+#12 19.76    Compiling httpdate v1.0.3
+#12 19.81    Compiling serdect v0.2.0
+#12 19.90    Compiling hyper v1.12.0
+#12 19.96    Compiling idna_adapter v1.2.2
+#12 20.04    Compiling spki v0.7.3
+#12 20.22    Compiling ff v0.13.1
+#12 20.24    Compiling curve25519-dalek v4.1.3
+#12 20.33    Compiling futures-channel v0.3.34
+#12 20.37    Compiling ahash v0.8.12
+#12 20.48    Compiling memchr v2.8.3
+#12 20.53    Compiling base64 v0.23.1
+#12 21.04    Compiling cpufeatures v0.2.17
+#12 21.08    Compiling base64ct v1.8.3
+#12 21.34    Compiling ipnet v2.12.2
+#12 21.34    Compiling phc v0.6.1
+#12 21.82    Compiling hyper-util v0.1.21
+#12 22.38    Compiling group v0.13.0
+#12 22.52    Compiling pkcs8 v0.10.2
+#12 22.96    Compiling idna v1.1.0
+#12 24.13    Compiling sec1 v0.7.3
+#12 24.62    Compiling tower v0.5.3
+#12 25.16    Compiling cipher v0.5.2
+#12 25.41    Compiling http-body-util v0.1.5
+#12 25.48    Compiling crypto-bigint v0.5.5
+#12 25.67    Compiling universal-hash v0.6.1
+#12 25.74    Compiling bitflags v2.13.2
+#12 25.98    Compiling ryu v1.0.23
+#12 26.16    Compiling signature v3.0.0
+#12 26.23    Compiling openssl-probe v0.2.2
+#12 26.37    Compiling thiserror v2.0.21
+#12 26.55    Compiling utf8parse v0.2.2
+#12 26.62    Compiling vcpkg v0.2.15
+#12 27.16    Compiling libsqlite3-sys v0.30.1
+#12 27.17    Compiling anstyle-parse v1.0.0
+#12 27.31    Compiling elliptic-curve v0.13.8
+#12 27.41    Compiling rustls-native-certs v0.8.5
+#12 27.76    Compiling ed25519 v3.0.0
+#12 27.87    Compiling serde_urlencoded v0.7.1
+#12 27.95    Compiling poly1305 v0.9.1
+#12 28.10    Compiling chacha20 v0.10.2
+#12 28.23    Compiling url v2.5.8
+#12 28.37    Compiling password-hash v0.6.1
+#12 28.51    Compiling sha2 v0.10.9
+#12 29.24    Compiling aead v0.6.1
+#12 29.34    Compiling hmac v0.12.1
+#12 29.44    Compiling sha2 v0.11.1
+#12 29.44    Compiling blake2 v0.11.0
+#12 29.72    Compiling hmac v0.13.0
+#12 29.80    Compiling thiserror-impl v2.0.21
+#12 29.85    Compiling derive-where v1.7.0
+#12 30.50    Compiling is_terminal_polyfill v1.70.2
+#12 30.55    Compiling anstyle v1.0.14
+#12 30.73    Compiling anstyle-query v1.1.5
+#12 30.79    Compiling colorchoice v1.0.5
+#12 30.83    Compiling regex-syntax v0.8.11
+#12 30.86    Compiling anstream v1.0.0
+#12 31.04    Compiling voprf v0.5.0
+#12 31.21    Compiling ed25519-dalek v3.0.0
+#12 31.45    Compiling hkdf v0.13.0
+#12 31.53    Compiling argon2 v0.6.0
+#12 32.00    Compiling hkdf v0.12.4
+#12 32.10    Compiling chacha20poly1305 v0.11.0
+#12 32.13    Compiling tower-http v0.6.11
+#12 32.18    Compiling hashbrown v0.14.5
+#12 32.62    Compiling regex-automata v0.4.18
+#12 34.33    Compiling x25519-dalek v3.0.0
+#12 34.41    Compiling rand v0.8.8
+#12 34.92    Compiling lazy_static v1.5.1
+#12 34.98    Compiling heck v0.5.0
+#12 35.13    Compiling clap_lex v1.1.2
+#12 35.35    Compiling strsim v0.11.1
+#12 35.88    Compiling mime v0.3.17
+#12 36.19    Compiling axum-core v0.5.6
+#12 38.01    Compiling clap_builder v4.6.7
+#12 38.06    Compiling clap_derive v4.6.7
+#12 39.63    Compiling sharded-slab v0.1.7
+#12 40.35    Compiling matchers v0.2.0
+#12 40.52    Compiling opaque-ke v4.0.1
+#12 44.26    Compiling easyssh-crypto v2.4.0 (/src/crates/easyssh-crypto)
+#12 45.56    Compiling hashlink v0.9.1
+#12 45.89    Compiling tracing-serde v0.2.0
+#12 46.00    Compiling tracing-log v0.2.0
+#12 46.21    Compiling serde_path_to_error v0.1.20
+#12 46.39    Compiling thread_local v1.1.10
+#12 46.59    Compiling matchit v0.8.4
+#12 46.64    Compiling base64 v0.22.1
+#12 47.01    Compiling fallible-iterator v0.3.0
+#12 47.04    Compiling fallible-streaming-iterator v0.1.9
+#12 47.15    Compiling nu-ansi-term v0.50.3
+#12 47.36    Compiling tracing-subscriber v0.3.23
+#12 47.49    Compiling axum v0.8.9
+#12 51.41    Compiling clap v4.6.7
+#12 51.46    Compiling uuid v1.28.0
+#12 63.74    Compiling rustls-webpki v0.103.17
+#12 67.40    Compiling tokio-rustls v0.26.6
+#12 67.40    Compiling rustls-platform-verifier v0.7.1
+#12 67.66    Compiling hyper-rustls v0.27.10
+#12 67.89    Compiling reqwest v0.13.5
+#12 70.61    Compiling easyssh-sync v2.4.0 (/src/crates/easyssh-sync)
+#12 89.75    Compiling rusqlite v0.32.1
+#12 90.40    Compiling easyssh-server v2.4.0 (/src/crates/easyssh-server)
+#12 113.6     Finished `release` profile [optimized] target(s) in 1m 53s
+#12 DONE 114.0s
+
+#13 [stage-1 3/3] COPY --from=build /src/target/release/easyssh-server /usr/local/bin/easyssh-server
+#13 DONE 0.0s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.6s done
+#14 writing image sha256:505cc27a1c3a3b67d0240326d0cdf76b0d663b3c1a75ad0cf669088655704ea5 done
+#14 naming to docker.io/library/easyssh-server:ci done
+#14 DONE 0.6s
+easyssh-server 2.4.0

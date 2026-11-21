@@ -1,0 +1,1610 @@
+[1m[92m   Compiling[0m easyssh-crypto v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-crypto)
+[1m[92m   Compiling[0m easyssh-core v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-core)
+[1m[92m   Compiling[0m easyssh-telemetry v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-telemetry)
+[1m[92m   Compiling[0m easyssh-ssh v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-ssh)
+[1m[92m   Compiling[0m easyssh-proto v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-proto)
+[1m[92m   Compiling[0m easyssh-sync v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-sync)
+[1m[92m   Compiling[0m easyssh-import v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-import)
+[1m[92m   Compiling[0m easyssh-store v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-store)
+[1m[92m   Compiling[0m easyssh-sessionlog v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-sessionlog)
+[1m[92m   Compiling[0m easyssh-e2e v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-e2e)
+[1m[92m   Compiling[0m easyssh-server v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-server)
+[1m[92m   Compiling[0m easyssh-update v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-update)
+[1m[92m   Compiling[0m anixops-ssh v2.4.0 (D:\a\EasySSH\EasySSH\src-tauri)
+[1m[92m   Compiling[0m easyssh-vault v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-vault)
+[1m[92m   Compiling[0m tauri-plugin-device-key v2.0.0 (D:\a\EasySSH\EasySSH\src-tauri\plugins\device-key)
+[1m[92m   Compiling[0m easyssh-engine v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-engine)
+[1m[92m   Compiling[0m easyssh-unlock v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-unlock)
+[1m[92m   Compiling[0m easyssh-services v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-services)
+[1m[92m   Compiling[0m easyssh-ai v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-ai)
+[1m[92m   Compiling[0m easyssh-mobile-keys v2.4.0 (D:\a\EasySSH\EasySSH\crates\easyssh-mobile-keys)
+[1m[92m   Compiling[0m easysshd v2.4.0 (D:\a\EasySSH\EasySSH\crates\easysshd)
+[1m[93mwarning[0m[1m[97m: unused dependency `anyhow`[0m
+  [1m[96m--> [0mcrates\easyssh-core\Cargo.toml:10:1
+   [1m[96m|[0m
+[1m[96m10[0m [1m[96m|[0m anyhow.workspace = true
+   [1m[96m|[0m [1m[93m^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `anyhow`
+[1m[93mwarning[0m: `easyssh-core` (manifest) generated 1 warning
+[1m[93mwarning[0m[1m[97m: unused dependency `easyssh-core`[0m
+  [1m[96m--> [0mcrates\easyssh-e2e\Cargo.toml:12:1
+   [1m[96m|[0m
+[1m[96m12[0m [1m[96m|[0m easyssh-core = { path = "../easyssh-core" }
+   [1m[96m|[0m [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `easyssh-core`
+[1m[96mhelp[0m: to still use for development builds, move to `dev-dependencies`
+[1m[93mwarning[0m[1m[97m: unused dependency `easyssh-ssh`[0m
+  [1m[96m--> [0mcrates\easyssh-e2e\Cargo.toml:13:1
+   [1m[96m|[0m
+[1m[96m13[0m [1m[96m|[0m easyssh-ssh = { path = "../easyssh-ssh", features = ["software-key"] }
+   [1m[96m|[0m [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+[1m[96mhelp[0m: consider removing the dependency on `easyssh-ssh`
+[1m[93mwarning[0m[1m[97m: unused dependency `tempfile`[0m
+  [1m[96m--> [0mcrates\easyssh-e2e\Cargo.toml:15:1
+   [1m[96m|[0m
+[1m[96m15[0m [1m[96m|[0m tempfile = "3"
+   [1m[96m|[0m [1m[93m^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+[1m[96mhelp[0m: consider removing the dependency on `tempfile`
+[1m[96mhelp[0m: to still use for development builds, move to `dev-dependencies`
+[1m[93mwarning[0m: `easyssh-e2e` (manifest) generated 3 warnings
+[1m[93mwarning[0m[1m[97m: unused dependency `easyssh-mobile-keys`[0m
+  [1m[96m--> [0msrc-tauri\plugins\device-key\Cargo.toml:15:1
+   [1m[96m|[0m
+[1m[96m15[0m [1m[96m|[0m easyssh-mobile-keys = { path = "../../../crates/easyssh-mobile-keys" }
+   [1m[96m|[0m [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+   [1m[96m= [0m[1m[97mnote[0m: `cargo::unused_dependencies` is set to `warn` by default
+[1m[96mhelp[0m: consider removing the dependency on `easyssh-mobile-keys`
+[1m[93mwarning[0m[1m[97m: unused dependency `tauri`[0m
+  [1m[96m--> [0msrc-tauri\plugins\device-key\Cargo.toml:17:1
+   [1m[96m|[0m
+[1m[96m17[0m [1m[96m|[0m tauri = { version = "2.12", default-features = false }
+   [1m[96m|[0m [1m[93m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   [1m[96m|[0m
+[1m[96mhelp[0m: consider removing the dependency on `tauri`
+[1m[93mwarning[0m: `tauri-plugin-device-key` (manifest) generated 2 warnings
+[1m[92m    Finished[0m `test` profile [unoptimized + debuginfo] target(s) in 1m 25s
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\anixops-ssh/bf0d2f9b5fc43c76\out\anixops_ssh_lib-bf0d2f9b5fc43c76.exe)
+
+running 31 tests
+test files::tests::remote_names_cannot_escape_the_downloads_folder ... ok
+test hosts::tests::a_serial_host_goes_through_the_editor_and_back ... ok
+test hosts::tests::a_serial_host_with_unusable_settings_is_rejected ... ok
+test hosts::tests::editor_values_become_a_validated_endpoint ... ok
+test hosts::tests::endpoint_display_keeps_custom_port ... ok
+test files::tests::daemon_entries_look_like_ls_listings ... ok
+test hosts::tests::endpoint_display_omits_default_port ... ok
+test hosts::tests::ssh_config_aliases_already_saved_are_not_duplicated ... ok
+test hosts::tests::ssh_config_ids_resolve_to_alias_connections ... ok
+test hosts::tests::unsafe_editor_values_are_rejected ... ok
+test serial::tests::the_daemons_reply_becomes_picker_entries ... ok
+test settings::tests::tells_an_empty_agent_from_a_missing_one ... ok
+test settings::tests::terminal_behaviour_defaults_when_missing_or_partial ... ok
+test import::tests::ssh_config_is_looked_up_under_the_given_home_only ... ok
+test files::tests::a_cancelled_folder_download_keeps_the_files_that_finished ... ok
+test snippets::tests::rejects_empty_or_multiline_names ... ok
+test snippets::tests::trims_and_keeps_multiline_commands ... ok
+test sync::tests::only_sync_commands_pass ... ok
+test telemetry::tests::a_build_without_endpoints_is_inert ... ok
+test telemetry::tests::each_choice_is_independent ... ok
+test telemetry::tests::nothing_is_on_by_default_or_before_the_question_is_answered ... ok
+test tunnels::tests::probes_loopback_for_wildcard_binds ... ok
+test tunnels::tests::a_running_status_names_its_port ... ok
+test tunnels::tests::saved_addresses_lose_their_brackets ... ok
+test tunnels::tests::statuses_reach_the_ui_in_its_shape ... ok
+test tunnels::tests::tunnels_the_daemon_no_longer_runs_are_stale ... ok
+test update::tests::an_update_already_installed_is_not_shown ... ok
+test update::tests::the_check_is_on_by_default_and_runs_once_a_day ... ok
+test update::tests::the_highest_sequence_is_kept_and_a_failed_check_changes_nothing ... ok
+test update::tests::state_survives_a_restart_and_a_damaged_file_is_the_default ... ok
+test ai::tests::nothing_the_window_receives_can_hold_a_key ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+[1m[92m     Running[0m unittests src\main.rs (target\debug\build\anixops-ssh/1a1bc508847fa43b\out\anixops_ssh-1a1bc508847fa43b.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-ai/796f0bfea0351de4\out\easyssh_ai-796f0bfea0351de4.exe)
+
+running 24 tests
+test prompt::tests::refuses_an_empty_or_huge_question ... ok
+test prompt::tests::a_fence_in_the_output_cannot_close_ours ... ok
+test prompt::tests::question_alone_and_with_context ... ok
+test provider::tests::a_custom_openai_server_may_have_no_key_but_openai_itself_needs_one ... ok
+test provider::tests::anthropic_request_shape ... ok
+test provider::tests::ollama_is_local_and_keyless ... ok
+test provider::tests::openai_compatible_uses_the_custom_base_url_and_bearer ... ok
+test provider::tests::plain_http_is_for_private_hosts_only ... ok
+test provider::tests::reads_anthropic_events ... ok
+test provider::tests::reads_ollama_lines ... ok
+test provider::tests::reads_openai_chunks ... ok
+test prompt::tests::secrets_are_removed_everywhere_and_counted_once_per_kind ... ok
+test scrub::tests::ordinary_terminal_text_is_left_alone ... ok
+test scrub::tests::authorization_headers_and_url_passwords ... ok
+test scrub::tests::private_keys_go_whole ... ok
+test scrub::tests::assignments_and_flags ... ok
+test scrub::tests::scrubbing_twice_changes_nothing ... ok
+test scrub::tests::token_shapes ... ok
+test settings::tests::odd_keys_are_refused ... ok
+test settings::tests::off_by_default_with_the_anthropic_default_model ... ok
+test settings::tests::a_locked_vault_says_so ... ok
+test settings::tests::settings_round_trip_and_validate ... ok
+test settings::tests::the_key_is_sealed_never_plain_and_per_provider ... ok
+test prompt::tests::long_context_keeps_its_end_and_says_so ... ok
+
+test result: ok. 24 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+[1m[92m     Running[0m tests\mock_server.rs (target\debug\build\easyssh-ai/81dc121df139ab97\out\mock_server-81dc121df139ab97.exe)
+
+running 11 tests
+test a_rejected_key_gives_a_clear_message_without_the_key ... ok
+test an_error_event_in_the_stream_is_reported ... ok
+test anthropic_request_and_stream ... ok
+test ollama_request_and_stream_need_no_key ... ok
+test openai_compatible_request_and_stream ... ok
+test other_statuses_have_their_own_words ... ok
+test redirects_are_not_followed ... ok
+test what_is_sent_is_the_scrubbed_prompt ... ok
+test cancel_stops_the_answer ... ok
+test a_silent_server_times_out ... ok
+test a_closed_port_says_it_cannot_connect ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.06s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-core/49c5767bcc4f92ce\out\easyssh_core-49c5767bcc4f92ce.exe)
+
+running 68 tests
+test adhoc::tests::other_ids_are_not_adhoc ... ok
+test adhoc::tests::parses_the_forms_the_ui_builds ... ok
+test adhoc::tests::refuses_unsafe_values ... ok
+test config::tests::saved_schema_has_no_sensitive_property_names ... ok
+test config::tests::old_schema_is_migrated_without_sensitive_fields ... ok
+test config::tests::sidebar_preferences_are_non_sensitive_metadata ... ok
+test domain::tests::experimental_features_default_to_off ... ok
+test config::tests::schema_five_migrates_legacy_workspace_to_hosts ... ok
+test config::tests::legacy_migration_keeps_only_connection_metadata ... ok
+test edit::tests::an_editor_command_splits_into_program_and_arguments ... ok
+test domain::tests::the_built_in_engine_is_the_default_unless_openssh_was_chosen ... ok
+test domain::tests::a_host_without_a_proxy_reads_and_writes_as_before ... ok
+test edit::tests::names_from_the_server_stay_inside_the_folder ... ok
+test edit::tests::one_remote_file_has_one_folder_and_hosts_do_not_collide ... ok
+test openssh::tests::a_host_with_a_proxy_is_never_started_without_it ... ok
+test edit::tests::binary_is_told_by_a_nul_byte_near_the_start ... ok
+test openssh::tests::alias_invocation_contains_no_shell ... ok
+test openssh::tests::control_command_for_an_alias_and_a_rejected_command ... ok
+test openssh::tests::master_args_name_the_socket ... ok
+test openssh::tests::control_command_reuses_the_master_and_never_prompts ... ok
+test openssh::tests::verbose_invocation_only_adds_debug_flag_on_request ... ok
+test openssh::tests::x11_forwarding_adds_x_before_the_destination ... ok
+test remote::tests::directory_listing_uses_find_argument_boundaries ... ok
+test remote::tests::encoded_paths_never_escape_single_quoted_payload ... ok
+test remote::tests::parses_newline_names_and_link_targets_from_nul_records ... ok
+test remote::tests::parses_nul_structured_entry_without_ls_output ... ok
+test remote::tests::remote_paths_allow_shell_sensitive_and_leading_dash_names ... ok
+test security::proxy_tests::a_proxy_needs_a_safe_host_a_port_and_a_plain_user ... ok
+test security::serial_tests::a_default_serial_port_is_valid ... ok
+test security::serial_tests::bad_serial_settings_are_refused ... ok
+test security::serial_tests::serial_hosts_serialise_with_their_kind_and_never_become_ssh ... ok
+test security::tests::gateway_style_user_names_are_accepted_but_not_options ... ok
+test security::tests::rejects_argument_injection ... ok
+test sftp::tests::a_file_is_not_listed_as_a_folder ... ok
+test sftp::tests::batch_transfers_allow_askpass_before_batch_flag ... ok
+test sftp::tests::chmod_uses_octal_and_quotes_the_path ... ok
+test sftp::tests::endpoint_arguments_use_uppercase_port_and_bracket_ipv6 ... ok
+test sftp::tests::ignores_noise_lines ... ok
+test sftp::tests::joins_remote_paths ... ok
+test sftp::tests::lines_that_are_not_utf8_do_not_end_the_stream ... ok
+test sftp::tests::listings_report_owner_and_group ... ok
+test sftp::tests::names_lose_the_folder_newer_sftp_prints ... ok
+test sftp::tests::parses_long_listing ... ok
+test sftp::tests::parses_pwd_reply ... ok
+test sftp::tests::quotes_paths_as_single_arguments ... ok
+test sftp::tests::transfers_keep_permissions_and_times ... ok
+test ssh_config::tests::path_tokens_expand_home_and_userprofile ... ok
+test ssh_config::tests::discovers_nested_includes_and_skips_patterns ... ok
+test ssh_config::tests::quoted_include_paths_are_scanned ... ok
+test ssh_config::tests::unreadable_includes_are_warnings_not_failures ... ok
+test sync::tests::rejects_http_urls_with_embedded_credentials ... ok
+test sync::tests::merge_adds_updates_and_skips_invalid_hosts ... ok
+test sync::tests::whitelist_excludes_sensitive_and_local_execution_fields ... ok
+test transfer::tests::concurrency_is_small_and_bounded ... ok
+test transfer::tests::scp_uses_uppercase_port_and_argument_separator ... ok
+test tunnel::tests::arguments_end_with_the_destination ... ok
+test tunnel::tests::builds_forward_specs ... ok
+test tunnel::tests::forward_arguments_and_config_values_parse ... ok
+test tunnel::tests::ipv6_addresses_are_bracketed_once ... ok
+test tunnel::tests::malformed_forwards_do_not_parse ... ok
+test tunnel::tests::port_zero_listens_on_any_free_port ... ok
+test tunnel::tests::rejects_unsafe_or_missing_parts ... ok
+test tunnel::tests::socket_paths_are_validated ... ok
+test tunnel::tests::unix_sockets_on_either_end ... ok
+test workspace::tests::compares_remote_state_without_content_logging ... ok
+test workspace::tests::detects_bom_line_endings_and_binary_content ... ok
+test edit::tests::dropping_the_watch_stops_the_reports ... ok
+test edit::tests::a_save_is_reported_once_and_a_burst_counts_as_one ... ok
+
+test result: ok. 68 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.12s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-crypto/4b6b5731ef2daf33\out\easyssh_crypto-4b6b5731ef2daf33.exe)
+
+running 65 tests
+test field::tests::not_configured_refuses ... ok
+test field::tests::derived_keys_depend_on_info_salt_and_device_key ... ok
+test field::tests::works_as_trait_object ... ok
+test field::tests::locked_cipher_refuses_until_unlocked ... ok
+test field::tests::round_trip ... ok
+test fingerprint::tests::matching_ignores_spacing ... ok
+test fingerprint::tests::shape_and_stability ... ok
+test fingerprint::tests::either_key_changes_it ... ok
+test kdf::tests::header_rejects_bad_input ... ok
+test kdf::tests::header_round_trip ... ok
+test kdf::tests::invalid_params_rejected_before_work ... ok
+test field::tests::aad_key_tamper_and_truncation ... ok
+test kdf::tests::deterministic_and_separated ... ok
+test keys::tests::generated_pairs_differ_and_are_separate ... ok
+test keys::tests::seal_open_round_trip ... ok
+test keys::tests::weak_recipient_rejected ... ok
+test kdf::tests::passphrase_and_salt_matter ... ok
+test keys::tests::wrapped_blob_is_not_a_record_or_field_blob ... ok
+test keys::tests::wrap_round_trip ... ok
+test keys::tests::wrong_account_key_fails ... ok
+test keys::tests::wrong_recipient_fails ... ok
+test keystore::tests::corrupt_device_key_is_an_error ... ok
+test keystore::tests::device_key_is_created_once ... ok
+test keystore::tests::os_store_round_trip ... ignored, requires a real OS keychain
+test keystore::tests::memory_store_round_trip ... ok
+test protect::tests::default_is_device_only_and_key_is_stable ... ok
+test protect::tests::destroy_removes_everything ... ok
+test protect::tests::stale_raw_key_is_cleaned_up_on_unlock ... ok
+test protect::tests::set_twice_is_refused_change_and_remove_work ... ok
+test protect::tests::tampering_with_the_item_or_header_fails ... ok
+test record::tests::aad_encoding_is_unambiguous ... ok
+test record::tests::every_aad_field_is_bound ... ok
+test protect::tests::wrap_unwrap_and_raw_key_is_gone ... ok
+test record::tests::nonces_are_fresh ... ok
+test record::tests::round_trip_and_layout ... ok
+test record::tests::truncation_fails ... ok
+test record::tests::wrong_key_fails ... ok
+test record::tests::wrong_version_byte ... ok
+test secret::tests::debug_is_redacted ... ok
+test secret::tests::equality ... ok
+test secret::tests::from_slice_checks_length ... ok
+test secret::tests::generate_differs ... ok
+test secret::tests::secret_text_is_redacted ... ok
+test record::tests::every_bit_flip_fails ... ok
+test sign::tests::cert_bytes_round_trip_and_reject_garbage ... ok
+test keys::tests::tampering_and_truncation_fail ... ok
+test sign::tests::cert_from_another_account_fails ... ok
+test sign::tests::device_signing_key_persists_in_store ... ok
+test keys::tests::wrapped_tamper_truncation_version_fail ... ok
+test sign::tests::signed_routing_fields_are_the_whole_envelope ... ok
+test sign::tests::cert_fields_are_signed ... ok
+test sign::tests::uncertified_device_fails ... ok
+test sign::tests::tombstone_signs_and_verifies ... ok
+test version_vector::tests::canonical_is_order_independent_and_round_trips ... ok
+test version_vector::tests::canonical_parse_is_strict ... ok
+test version_vector::tests::digest_changes_with_content ... ok
+test version_vector::tests::increment_and_get ... ok
+test version_vector::tests::merge_is_max_and_dominates ... ok
+test version_vector::tests::ordering ... ok
+test wrap::tests::a_wrong_secret_info_or_slot_fails ... ok
+test wrap::tests::blobs_are_not_repeated ... ok
+test wrap::tests::round_trip ... ok
+test sign::tests::expired_certificates_are_rejected_but_the_last_second_is_valid ... ok
+test sign::tests::valid_envelope_verifies ... ok
+test sign::tests::any_field_change_fails ... ok
+
+test result: ok. 64 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+[1m[92m     Running[0m tests\vectors.rs (target\debug\build\easyssh-crypto/83f4b79e284fef8b\out\vectors-83f4b79e284fef8b.exe)
+
+running 6 tests
+test field_cipher_vectors ... ok
+test record_vectors ... ok
+test account_keys_vectors ... ok
+test sealed_vault_key_vectors ... ok
+test envelope_vectors ... ok
+test kdf_vectors ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.80s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-e2e/66982101761754d5\out\easyssh_e2e-66982101761754d5.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\daemon.rs (target\debug\build\easyssh-e2e/097ee5df11e76ad1\out\daemon-097ee5df11e76ad1.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\exec.rs (target\debug\build\easyssh-e2e/2f0e85d02fe41ec4\out\exec-2f0e85d02fe41ec4.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\jump.rs (target\debug\build\easyssh-e2e/f267e12a9a970ef7\out\jump-f267e12a9a970ef7.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\mobile_engine.rs (target\debug\build\easyssh-e2e/baf29ce3d53934fb\out\mobile_engine-baf29ce3d53934fb.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\mobile_tmux.rs (target\debug\build\easyssh-e2e/4535324d1c7197a2\out\mobile_tmux-4535324d1c7197a2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\password.rs (target\debug\build\easyssh-e2e/c50e05f9ce49b795\out\password-c50e05f9ce49b795.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_daemon.rs (target\debug\build\easyssh-e2e/8de19318c791a73c\out\russh_daemon-8de19318c791a73c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_exec.rs (target\debug\build\easyssh-e2e/b36591aa006e851f\out\russh_exec-b36591aa006e851f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_hostkey.rs (target\debug\build\easyssh-e2e/6567ec6927906a53\out\russh_hostkey-6567ec6927906a53.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_jump.rs (target\debug\build\easyssh-e2e/78d98d7eec03d5a8\out\russh_jump-78d98d7eec03d5a8.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_keys.rs (target\debug\build\easyssh-e2e/d847a509378cd028\out\russh_keys-d847a509378cd028.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_password.rs (target\debug\build\easyssh-e2e/8982c1cbffde4e98\out\russh_password-8982c1cbffde4e98.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_proxy.rs (target\debug\build\easyssh-e2e/173f75f6173a8a3b\out\russh_proxy-173f75f6173a8a3b.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_security_key.rs (target\debug\build\easyssh-e2e/d577fe79c8a3dfac\out\russh_security_key-d577fe79c8a3dfac.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_sftp.rs (target\debug\build\easyssh-e2e/312cdc0a8eba647a\out\russh_sftp-312cdc0a8eba647a.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_terminal.rs (target\debug\build\easyssh-e2e/5e42940c1b4bf33f\out\russh_terminal-5e42940c1b4bf33f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\russh_tunnels.rs (target\debug\build\easyssh-e2e/302d3785c5d7229e\out\russh_tunnels-302d3785c5d7229e.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\session_log.rs (target\debug\build\easyssh-e2e/81c75c5abf450fe0\out\session_log-81c75c5abf450fe0.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\sftp.rs (target\debug\build\easyssh-e2e/8f46afc86ce03c23\out\sftp-8f46afc86ce03c23.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\shell_integration.rs (target\debug\build\easyssh-e2e/5cafeede83cdc16f\out\shell_integration-5cafeede83cdc16f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\sk_files.rs (target\debug\build\easyssh-e2e/7d8b4f1b6b1ac2b9\out\sk_files-7d8b4f1b6b1ac2b9.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\store.rs (target\debug\build\easyssh-e2e/d6e12782663ceeac\out\store-d6e12782663ceeac.exe)
+
+running 1 test
+test hosts_saved_through_the_daemon_survive_a_restart ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+
+[1m[92m     Running[0m tests\terminal.rs (target\debug\build\easyssh-e2e/4eeec222d4e1cc84\out\terminal-4eeec222d4e1cc84.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\tunnels.rs (target\debug\build\easyssh-e2e/baf1beaf64021d5d\out\tunnels-baf1beaf64021d5d.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\vault.rs (target\debug\build\easyssh-e2e/b5fe9369a66cbb0c\out\vault-b5fe9369a66cbb0c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-engine/9d7a16c36e79bd5c\out\easyssh_engine-9d7a16c36e79bd5c.exe)
+
+running 123 tests
+test events::tests::protocol_names_become_ui_event_names ... ok
+test events::tests::a_closure_is_a_sink_and_reports_who_took_the_event ... ok
+test files::tests::failures_name_the_remote_path_and_the_reason ... ok
+test files::tests::joins_remote_paths ... ok
+test files::tests::downloads_take_the_remote_mode_and_time ... ok
+test files::tests::progress_carries_the_total_once_known ... ok
+test files::tests::progress_is_throttled_but_flushed ... ok
+test files::tests::listing_rows_look_like_ls_output ... ok
+test files::tests::remote_names_cannot_escape ... ok
+test files::tests::unfinished_files_have_a_hidden_name_beside_the_real_one ... ok
+test files::tests::a_local_folder_is_sized_by_its_files ... ok
+test hosts::tests::a_comma_list_and_user_at_host_port_hops_keep_order_user_and_port ... ok
+test hosts::tests::a_forward_is_a_loopback_local_forward_through_a_saved_host ... ok
+test hosts::tests::a_jump_chain_is_parsed_like_openssh_writes_it ... ok
+test hosts::tests::a_group_is_found_by_name_ignoring_case_or_created ... ok
+test files::tests::entries_follow_the_protocol_shape ... ok
+test hosts::tests::a_host_keeps_its_outbound_proxy_and_the_target_carries_it ... ok
+test hosts::tests::a_jump_host_can_be_named_by_a_saved_host_and_defaults_to_the_users_name ... ok
+test hosts::tests::a_jump_host_becomes_a_hop_of_the_target ... ok
+test hosts::tests::a_nested_chain_inside_a_comma_list_is_flattened_in_order ... ok
+test hosts::tests::a_saved_host_shows_up_in_the_snapshot_with_the_desktop_shape ... ok
+test hosts::tests::editing_a_host_keeps_what_the_form_does_not_show ... ok
+test hosts::tests::jump_loops_and_overlong_chains_are_refused ... ok
+test hosts::tests::tags_are_trimmed_and_unique_ignoring_case ... ok
+test hosts::tests::nested_jump_hosts_are_resolved_hop_by_hop_with_their_own_users ... ok
+test hosts::tests::opening_a_host_needs_a_user_name ... ok
+test hosts::tests::remote_and_socks_forwards_are_saved_with_the_right_shape ... ok
+test known_hosts::tests::a_key_that_differs_from_the_openssh_file_is_changed ... ok
+test known_hosts::tests::a_changed_key_in_the_old_file_stays_changed_after_the_move ... ok
+test hosts::tests::the_name_defaults_to_the_address_and_unsafe_addresses_are_refused ... ok
+test known_hosts::tests::a_certificate_authority_sends_the_host_to_openssh ... ok
+test known_hosts::tests::a_key_the_user_accepted_with_ssh_replaces_the_changed_record ... ok
+test known_hosts::tests::a_new_key_type_is_asked_about_and_added_beside_the_old_one ... ok
+test known_hosts::tests::a_revocation_in_any_file_wins_over_the_store ... ok
+test known_hosts::tests::a_server_that_goes_back_to_an_old_key_is_restored_not_duplicated ... ok
+test known_hosts::tests::an_unreadable_file_counts_as_empty ... ok
+test known_hosts::tests::hashed_entries_imported_into_the_store_still_match ... ok
+test known_hosts::tests::known_hosts2_and_the_system_file_are_read_too ... ok
+test known_hosts::tests::the_app_file_wins_and_a_changed_key_is_never_added ... ok
+test known_hosts::tests::replacing_in_the_store_drops_the_old_key_and_only_for_that_host ... ok
+test known_hosts::tests::the_openssh_file_is_trusted_and_imported ... ok
+test known_hosts::tests::replacing_one_host_of_a_list_line_keeps_the_others ... ok
+test known_hosts::tests::the_app_file_moves_into_the_store_once ... ok
+test known_hosts::tests::unknown_everywhere_is_unknown_and_new_keys_go_to_the_app_file ... ok
+test known_hosts::tests::without_a_fallback_only_the_app_file_counts ... ok
+test local_files::tests::a_name_in_use_gets_a_number_before_the_extension ... ok
+test local_files::tests::an_upload_is_staged_in_order_and_discarded ... ok
+test local_files::tests::remote_names_cannot_escape_the_downloads_folder ... ok
+test local_files::tests::sweeping_removes_only_old_leftovers ... ok
+test local_files::tests::upload_ids_cannot_point_elsewhere ... ok
+test login::proxy_tests::a_locked_vault_with_a_saved_proxy_password_asks_for_the_unlock ... ok
+test login::proxy_tests::the_saved_proxy_password_goes_with_the_proxy_user ... ok
+test login::proxy_tests::with_saved_login_adds_the_proxy_password_to_the_target ... ok
+test login::tests::a_locked_vault_at_the_prompt_means_ask_the_user ... ok
+test login::tests::a_saved_key_and_passphrase_become_an_in_memory_identity ... ok
+test login::tests::a_saved_key_with_a_locked_vault_asks_for_the_unlock ... ok
+test login::tests::a_saved_password_answers_only_its_own_prompt_and_only_once ... ok
+test login::tests::every_way_of_opening_a_host_gets_the_same_login ... ok
+test login::tests::nothing_saved_is_an_empty_login ... ok
+test monitor::tests::detail_adds_the_process_sections ... ok
+test monitor::tests::only_known_signals_are_sent ... ok
+test known_hosts::tests::the_openssh_file_is_a_read_only_fallback_behind_the_store ... ok
+test prompts::tests::a_changed_key_reports_what_was_recorded_and_only_a_replacement_accepts_it ... ok
+test prompts::tests::a_password_question_is_an_askpass_event_and_the_reply_answers_it ... ok
+test prompts::tests::a_prompt_with_nobody_attached_is_rejected ... ok
+test prompts::tests::an_unanswered_question_is_a_cancellation_and_an_unanswered_host_key_a_rejection ... ok
+test prompts::tests::each_jump_hop_and_the_host_answer_their_own_password_prompt_from_the_vault ... ok
+test prompts::tests::the_first_reply_wins_and_every_client_hears_the_end ... ok
+test prompts::tests::the_saved_password_answers_a_keyboard_interactive_password_round_once ... ok
+test prompts::tests::unknown_decisions_are_rejections ... ok
+test registry::tests::a_dead_connection_is_replaced ... ok
+test registry::tests::an_evicted_connection_is_closed_and_the_next_caller_connects_anew ... ok
+test registry::tests::an_idle_connection_is_pinged_and_replaced_when_it_does_not_answer ... ok
+test registry::tests::close_all_ends_everything ... ok
+test known_hosts::tests::the_store_remembers_new_keys_and_never_accepts_a_changed_one ... ok
+test registry::tests::different_keys_do_not_share ... ok
+test registry::tests::existing_never_connects ... ok
+test registry::tests::concurrent_callers_share_one_connect ... ok
+test registry::tests::shards_of_one_host_are_separate_connections ... ok
+test registry::tests::waiters_share_a_failed_connect ... ok
+test resume::tests::a_changed_source_cannot_be_continued ... ok
+test resume::tests::hashes_a_file ... ok
+test resume::tests::records_are_found_by_what_was_asked_and_stale_ones_go_with_their_file ... ok
+test resume::tests::uploads_rewind_and_downloads_do_not ... ok
+test shell::tests::a_connection_is_named_by_host_address_and_jump_chain ... ok
+test known_hosts::tests::the_store_wins_over_the_openssh_file ... ok
+test monitor::tests::the_command_runs_the_script_under_sh ... ok
+test shell::tests::connect_failures_carry_a_code_the_ui_can_act_on ... ok
+test shell::tests::unknown_sessions_are_errors_and_closing_them_is_harmless ... ok
+test supervisor::tests::a_clean_exit_ends_the_session_without_reconnecting ... ok
+test supervisor::tests::a_dropped_connection_reconnects_attaches_again_and_keeps_the_id ... ok
+test supervisor::tests::a_failed_first_connect_is_an_error_and_leaves_nothing_behind ... ok
+test supervisor::tests::a_plain_session_does_not_reconnect_by_itself ... ok
+test supervisor::tests::a_plain_session_types_nothing ... ok
+test supervisor::tests::a_refused_password_stops_the_retries_at_once ... ok
+test supervisor::tests::a_shell_killed_by_a_signal_ends_without_reconnecting ... ok
+test supervisor::tests::an_attached_session_types_the_attach_command_once_the_shell_is_up ... ok
+test supervisor::tests::attach_commands_and_settings ... ok
+test supervisor::tests::closing_a_live_session_closes_the_shell_and_the_exit_reaches_the_ui ... ok
+test supervisor::tests::closing_while_waiting_cancels_the_reconnect_and_ends_once ... ok
+test supervisor::tests::delays_double_up_to_the_cap ... ok
+test supervisor::tests::failed_attempts_back_off_and_the_session_ends_after_the_last ... ok
+test supervisor::tests::only_an_attached_session_can_reconnect_on_demand ... ok
+test supervisor::tests::only_connect_failures_that_retrying_cannot_fix_are_fatal ... ok
+test supervisor::tests::reconnect_on_demand_replaces_the_shell_without_waiting_and_ignores_the_old_one ... ok
+test sync::tests::secrets_round_trip_without_the_passphrase ... ok
+test sync::tests::server_urls_must_be_https_except_loopback ... ok
+test sync::tests::the_phones_sync_commands_start_signed_out_and_refuse_what_it_cannot_do ... ok
+test terminal_files::tests::a_directory_cannot_be_sent ... ok
+test terminal_files::tests::a_file_is_read_in_chunks_and_a_received_one_is_renamed_when_done ... ok
+test terminal_files::tests::an_aborted_receive_leaves_nothing ... ok
+test tunnels::tests::a_tunnel_starts_once_and_reports_failures ... ok
+test tunnels::tests::socket_paths_pick_the_unix_ends ... ok
+test tunnels::tests::states_become_the_uis_tunnel_status ... ok
+test tunnels::tests::statuses_match_the_protocol ... ok
+test tunnels::tests::the_default_bind_is_loopback ... ok
+test utf8::tests::escapes_invalid_bytes ... ok
+test utf8::tests::every_byte_round_trips_across_any_split ... ok
+test utf8::tests::flush_releases_a_dangling_lead_byte ... ok
+test utf8::tests::keeps_split_characters_until_complete ... ok
+test registry::tests::leases_are_counted_and_the_connection_lingers ... ok
+test shell::tests::a_host_that_refuses_the_connection_is_a_network_error ... ok
+test shell::tests::a_failed_connect_leaves_no_connection_and_the_files_and_tunnels_see_the_same_error ... ok
+
+test result: ok. 123 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.22s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-import/75c777ac8a025e77\out\easyssh_import-75c777ac8a025e77.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\fuzz.rs (target\debug\build\easyssh-import/145ed2626fc1246b\out\fuzz-145ed2626fc1246b.exe)
+
+running 5 tests
+test hostile_archives_do_not_panic ... ok
+test structured_noise_never_panics ... ok
+test random_bytes_never_panic ... ok
+test deeply_nested_input_is_bounded ... ok
+test mutated_fixtures_never_panic ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.32s
+
+[1m[92m     Running[0m tests\importers.rs (target\debug\build\easyssh-import/40c418d18ed27068\out\importers-40c418d18ed27068.exe)
+
+running 31 tests
+test ansible_detection_does_not_steal ... ok
+test ansible_range_forms ... ok
+test ansible_secrets_and_odd_args ... ok
+test ansible_yaml_aliases_and_vault ... ok
+test ansible_yaml_nesting_vars_and_mappings ... ok
+test adapter_maps_to_core_entities ... ok
+test csv_import ... ok
+test csv_requires_header_and_ignores_secret_columns ... ok
+test finalshell_json ... ok
+test finalshell_single_object_and_zip ... ok
+test mobaxterm_sessions ... ok
+test openssh_glob_matching ... ok
+test openssh_hosts_defaults_and_first_match_wins ... ok
+test openssh_include_without_base_and_depth_cap ... ok
+test openssh_malformed_input_warns ... ok
+test openssh_marks_openssh_only_options ... ok
+test openssh_match_blocks_mark_every_host ... ok
+test putty_reg ... ok
+test putty_reg_utf16 ... ok
+test putty_without_sessions_warns ... ok
+test secrets_never_reach_the_report ... ok
+test securecrt_malformed_xml_warns ... ok
+test securecrt_xml ... ok
+test termius_csv ... ok
+test termius_json ... ok
+test xshell_bad_inputs_warn ... ok
+test xshell_single_file_and_utf16 ... ok
+test xshell_zip ... ok
+test ansible_ini_sections_ranges_and_vars ... ok
+test auto_detection_picks_each_format ... ok
+test ansible_malformed_input_warns_without_panicking ... ok
+
+test result: ok. 31 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-mobile-keys/1fb6e2e688e90296\out\easyssh_mobile_keys-1fb6e2e688e90296.exe)
+
+running 17 tests
+test tests::a_missing_secure_store_is_reported_as_unavailable_not_papered_over ... ok
+test tests::a_lockout_and_a_broken_sensor_are_told_apart ... ok
+test tests::a_dismissed_prompt_falls_back_to_the_passphrase ... ok
+test tests::a_failed_enrolment_turns_nothing_on ... ok
+test tests::a_new_fingerprint_invalidates_the_copy_but_not_the_vault ... ok
+test tests::a_passphrase_leaves_only_the_wrapped_key_in_the_secure_store ... ok
+test tests::biometrics_open_the_vault_without_the_passphrase_once_turned_on ... ok
+test tests::nothing_secret_is_in_errors_or_debug_output ... ok
+test tests::removing_the_passphrase_removes_the_biometric_copy ... ok
+test tests::the_device_key_is_created_once_in_the_secure_store_and_read_back_after_a_lock ... ok
+test tests::the_bridge_calls_carry_a_secret_only_where_one_is_stored ... ok
+test tests::the_key_store_maps_answers_and_errors ... ok
+test tests::the_vault_locks_when_the_app_goes_to_the_background ... ok
+test tests::the_first_run_choice_is_remembered ... ok
+test tests::the_status_json_has_the_shape_the_touch_ui_reads_and_no_secrets ... ok
+test tests::saved_secrets_work_on_a_phone_and_need_the_unlock_after_a_lock ... ok
+test tests::without_an_enrolled_fingerprint_the_method_is_unavailable ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-proto/854564cd6e81c94f\out\easyssh_proto-854564cd6e81c94f.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\codegen.rs (target\debug\build\easyssh-proto/1dd519f4e53e8e67\out\codegen-1dd519f4e53e8e67.exe)
+
+running 1 test
+test generated_types_are_up_to_date ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+[1m[92m     Running[0m tests\v1_compat.rs (target\debug\build\easyssh-proto/e4180cc0e1d0c29e\out\v1_compat-e4180cc0e1d0c29e.exe)
+
+running 15 tests
+test default_app_config_validates ... ok
+test envelopes ... ok
+test entities_validate_individually ... ok
+test command_and_event_payloads_follow_their_kind ... ok
+test every_enum_variant_validates ... ok
+test missing_required_field_is_rejected ... ok
+test populated_app_config_validates ... ok
+test unknown_field_is_rejected ... ok
+test unknown_schema_name_is_an_error ... ok
+test generated_types_round_trip_v1_json ... ok
+test v1_config_with_defaulted_fields_missing_still_validates ... ok
+test wrong_enum_value_is_rejected ... ok
+test wrong_types_and_bad_tagged_target_are_rejected ... ok
+test every_declared_kind_has_a_schema ... ok
+test schema_version_constant_matches_schema ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.86s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-server/a7f6466eec2174ba\out\easyssh_server-a7f6466eec2174ba.exe)
+
+running 2 tests
+test ratelimit::tests::blocks_after_limit_and_keys_are_independent ... ok
+test ratelimit::tests::window_resets ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+[1m[92m     Running[0m unittests src\main.rs (target\debug\build\easyssh-server/7084aae7fbcd0dd0\out\easyssh_server-7084aae7fbcd0dd0.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\integration.rs (target\debug\build\easyssh-server/898a99b5bcfbf91d\out\integration-898a99b5bcfbf91d.exe)
+
+running 17 tests
+test auth_endpoints_are_rate_limited ... ok
+test an_oversized_body_gets_a_413_even_while_the_client_is_still_sending ... ok
+test device_certificate_is_required ... ok
+test a_rotation_that_races_with_a_push_changes_nothing_and_can_be_retried ... ok
+test batch_push_is_all_or_nothing_with_a_report_per_record ... ok
+test certificates_expire_and_are_renewed_without_a_new_device ... ok
+test opaque_sign_in_and_wrong_passphrase ... ok
+test registration_can_be_closed ... ok
+test oversized_requests_are_refused ... ok
+test history_keeps_fifty_versions ... ok
+test revoked_device_is_rejected ... ok
+test revocation_is_recorded_and_earlier_records_stay_valid_for_everyone ... ok
+test server_database_never_holds_plaintext ... ok
+test first_upload_uses_batches_and_the_data_arrives_whole ... ok
+test sharing_roles_and_membership ... ok
+test two_devices_edit_concurrently_and_merge_without_loss ... ok
+test rotation_is_owner_only_all_or_nothing_and_covers_every_record ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 37.86s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-services/9597df49470ffba9\out\easyssh_services-9597df49470ffba9.exe)
+
+running 2 tests
+test settings::tests::odd_secrets_are_refused_and_the_form_round_trips ... ok
+test settings::tests::the_secret_is_sealed_and_never_in_the_form ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+[1m[92m     Running[0m tests\control.rs (target\debug\build\easyssh-services/a1f016f4cc6c2c9e\out\control-a1f016f4cc6c2c9e.exe)
+
+running 10 tests
+test maps_nodes_with_nulls_tags_groups_and_skips_unapproved ... ok
+test a_panel_path_prefix_is_kept ... ok
+test refuses_unsafe_addresses_and_odd_tokens_without_sending ... ok
+test stops_when_the_panel_lists_fewer_than_it_counts ... ok
+test tags_come_in_several_shapes ... ok
+test failures_say_what_happened_and_never_echo_the_token ... ok
+test test_connection_asks_for_one_node_and_reports_the_total ... ok
+test reads_every_page_with_the_token_in_the_header_only ... ok
+test tags_reach_the_stored_host_and_a_host_deleted_by_the_user_comes_back_as_new ... ok
+test importing_again_updates_instead_of_duplicating_and_reports_what_left ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+[1m[92m     Running[0m tests\jumpserver.rs (target\debug\build\easyssh-services/3ce36f11a6424058\out\jumpserver-3ce36f11a6424058.exe)
+
+running 10 tests
+test a_named_organization_is_sent_and_part_of_the_source_key ... ok
+test an_unpaginated_answer_is_read_too ... ok
+test gateway_mode_points_every_host_at_koko ... ok
+test maps_assets_directly_when_the_gateway_is_off ... ok
+test errors_are_plain_and_never_echo_the_secret ... ok
+test refuses_bad_settings_without_sending ... ok
+test the_signature_matches_a_fixed_vector ... ok
+test reads_every_page_signed_with_the_org_header ... ok
+test a_second_jumpserver_does_not_collide_with_the_first ... ok
+test assets_behind_one_gateway_stay_separate_hosts_and_sync_again ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-sessionlog/b1812d003c7387ee\out\easyssh_sessionlog-b1812d003c7387ee.exe)
+
+running 22 tests
+test format::tests::each_log_gets_its_own_salt_and_key ... ok
+test format::tests::data_after_the_final_chunk_is_rejected ... ok
+test format::tests::missing_final_chunk_is_incomplete_not_an_error ... ok
+test format::tests::reordered_chunks_are_rejected ... ok
+test format::tests::round_trip ... ok
+test format::tests::the_timer_cuts_a_chunk ... ok
+test format::tests::truncating_at_a_chunk_boundary_drops_the_final_tag ... ok
+test format::tests::wrong_key_and_foreign_files_fail ... ok
+test settings::tests::missing_fields_take_defaults ... ok
+test settings::tests::off_by_default_and_host_overrides_win ... ok
+test settings::tests::retention_is_bounded ... ok
+test share::tests::a_wrapped_key_opens_the_log_on_another_device ... ok
+test store::tests::create_list_read_delete ... ok
+test store::tests::host_names_are_safe_folder_names ... ok
+test store::tests::ids_cannot_leave_the_log_directory ... ok
+test store::tests::retention_deletes_only_old_logs ... ok
+test store::tests::same_second_logs_do_not_collide ... ok
+test text::tests::carriage_return_and_backspace_overwrite ... ok
+test text::tests::invalid_utf8_and_stray_controls_are_harmless ... ok
+test text::tests::strips_escapes_and_normalises_line_ends ... ok
+test format::tests::every_bit_flip_is_detected ... ok
+test format::tests::large_output_is_cut_at_64_kib ... ok
+
+test result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-ssh/7988cbb91d8ed08d\out\easyssh_ssh-7988cbb91d8ed08d.exe)
+
+running 124 tests
+test agent::tests::unix_without_auth_sock_has_no_agent ... ok
+test agent::tests::disabled_looks_nowhere ... ok
+test agent::tests::identity_agent_wins_over_the_environment ... ok
+test agent::tests::auth_sock_wins_over_windows_defaults ... ok
+test agent::tests::windows_tries_openssh_then_pageant ... ok
+test auth::login_tests::after_a_partial_success_the_remaining_methods_run_again ... ok
+test auth::login_tests::a_refused_saved_password_is_followed_by_asking_the_user ... ok
+test auth::login_tests::a_pem_key_uses_its_pub_file_to_wait_for_the_server ... ok
+test auth::login_tests::identities_follow_openssh_order_and_are_offered_once ... ok
+test auth::login_tests::password_rounds_are_recognised ... ok
+test auth::login_tests::public_parts_are_read_without_the_passphrase ... ok
+test auth::login_tests::a_partial_success_runs_the_key_stage_again ... ok
+test auth::tests::a_bad_key_in_memory_is_an_error_that_names_the_label_only ... ok
+test auth::login_tests::the_saved_password_answers_a_keyboard_interactive_password_round ... ok
+test auth::login_tests::an_encrypted_key_the_server_refuses_never_asks_for_its_passphrase ... ok
+test auth::tests::an_unencrypted_key_in_memory_decodes_without_asking ... ok
+test auth::tests::config_comes_from_params ... ok
+test auth::tests::detects_fido2_keys ... ok
+test auth::tests::disabled_stages_are_left_out ... ok
+test auth::tests::a_saved_passphrase_unlocks_a_key_in_memory_without_asking ... ok
+test auth::tests::memory_identities_enable_the_key_stage_and_stay_out_of_debug_output ... ok
+test auth::tests::stages_follow_what_the_server_offers ... ok
+test auth::tests::stages_run_in_the_documented_order ... ok
+test channels::tests::names_signals_without_the_sig_prefix ... ok
+test channels::tests::tells_an_exit_from_a_signal_from_a_lost_connection ... ok
+test env::tests::falls_back_to_the_app_language_without_a_utf8_locale ... ok
+test env::tests::modes_make_backspace_del_and_input_utf8 ... ok
+test env::tests::passes_a_utf8_local_locale_through ... ok
+test env::tests::the_hosts_set_env_wins ... ok
+test error::tests::no_common_algorithm_is_unsupported_so_openssh_takes_over ... ok
+test forward::tests::failures_are_counted_with_the_last_reason ... ok
+test forward::tests::localhost_and_the_wildcard_mean_both_address_families ... ok
+test forward::tests::localhost_listens_on_one_port_for_both_families ... ok
+test forward::tests::remote_socket_targets_are_found_by_path ... ok
+test forward::tests::remote_targets_are_found_by_address_and_port ... ok
+test forward_tests::a_prohibited_socks_target_is_reported ... ok
+test forward_tests::refused_channels_are_counted_and_the_forward_keeps_listening ... ok
+test hash::tests::a_path_cannot_leave_its_quotes ... ok
+test hash::tests::digests_are_read_from_either_tool_and_nothing_else ... ok
+test known_hosts::tests::any_recorded_key_may_match ... ok
+test known_hosts::tests::append_writes_plain_and_hashed_entries ... ok
+test known_hosts::tests::bracketed_port_22_matches_default_port ... ok
+test known_hosts::tests::file_store_round_trip_and_replace ... ok
+test known_hosts::tests::garbage_lines_are_skipped ... ok
+test known_hosts::tests::hashed_entries_match_with_and_without_port ... ok
+test known_hosts::tests::hashing_file_store_does_not_leak_the_host ... ok
+test known_hosts::tests::host_lists_wildcards_and_negation ... ok
+test known_hosts::tests::memory_store_behaves_like_the_file_store ... ok
+test known_hosts::tests::mismatch_is_a_distinct_status ... ok
+test known_hosts::tests::only_keys_of_the_presented_type_can_change ... ok
+test known_hosts::tests::plain_entry_on_default_port ... ok
+test known_hosts::tests::port_form_is_distinct_from_default_port ... ok
+test known_hosts::tests::remove_host_keeps_other_hosts ... ok
+test known_hosts::tests::revoked_key_is_flagged_and_a_cert_authority_is_left_to_openssh ... ok
+test proxy::tests::connect_through_reaches_the_target_over_a_real_socket ... ok
+test auth::login_tests::an_encrypted_key_the_server_accepts_asks_once_and_signs ... ok
+test proxy::tests::http_connect_200_opens_the_tunnel_and_keeps_the_banner ... ok
+test proxy::tests::http_connect_407_means_login_needed_or_login_refused ... ok
+test proxy::tests::http_connect_brackets_an_ipv6_target ... ok
+test proxy::tests::http_connect_gives_up_on_an_endless_head_and_on_a_hang_up ... ok
+test proxy::tests::http_connect_malformed_replies_are_reported_not_trusted ... ok
+test proxy::tests::http_connect_other_statuses_say_who_said_no ... ok
+test proxy::tests::http_connect_refuses_a_target_or_user_that_could_inject_headers ... ok
+test proxy::tests::http_connect_sends_basic_authentication ... ok
+test proxy::tests::messages_name_the_proxy_and_the_target_but_never_the_login ... ok
+test proxy::tests::socks5_a_peer_that_is_not_socks_is_reported_as_such ... ok
+test proxy::tests::socks5_a_proxy_that_hangs_up_is_a_closed_connection ... ok
+test proxy::tests::socks5_a_proxy_that_needs_a_login_the_host_does_not_have ... ok
+test proxy::tests::socks5_failure_codes_say_who_said_no ... ok
+test proxy::tests::socks5_logs_in_with_username_and_password ... ok
+test proxy::tests::socks5_no_acceptable_method_with_a_login_is_a_refusal ... ok
+test proxy::tests::socks5_reads_a_domain_bound_address_in_the_reply ... ok
+test proxy::tests::socks5_refuses_what_the_protocol_cannot_carry_before_sending_anything ... ok
+test proxy::tests::socks5_sends_ipv4_and_ipv6_literals_as_addresses ... ok
+test proxy::tests::socks5_with_a_login_still_works_when_the_proxy_wants_none ... ok
+test proxy::tests::socks5_without_login_sends_a_domain_name_unresolved ... ok
+test proxy::tests::socks5_wrong_password_is_an_authentication_failure ... ok
+test security_key::tests::der_signatures_become_ssh_mpints ... ok
+test security_key::tests::flags_say_what_the_user_must_do ... ok
+test security_key::tests::malformed_der_is_refused ... ok
+test security_key_tests::a_cancelled_pin_cancels_the_key ... ok
+test security_key_tests::a_device_that_wants_a_pin_the_key_did_not_announce_asks_for_it ... ok
+test security_key_tests::a_key_the_device_does_not_hold_says_so ... ok
+test security_key_tests::a_key_without_touch_does_not_ask_for_one ... ok
+test security_key_tests::a_missing_device_is_a_note_not_a_crash ... ok
+test security_key_tests::a_pin_protected_key_logs_in_after_the_pin ... ok
+test security_key_tests::ecdsa_sk_key_logs_in_and_the_server_verifies_the_signature ... ok
+test security_key_tests::ed25519_sk_key_logs_in_and_the_server_verifies_the_signature ... ok
+test security_key_tests::key_files_round_trip_through_the_loader ... ok
+test security_key_tests::malformed_assertions_are_refused ... ok
+test security_key_tests::signatures_verify_with_ssh_key ... ok
+test security_key_tests::the_counter_goes_up_and_the_flags_are_signed ... ok
+test security_key_tests::the_loader_returns_sk_keys_instead_of_refusing_them ... ok
+test security_key_tests::the_user_is_not_asked_to_touch_for_a_key_the_server_refuses ... ok
+test security_key_tests::too_many_wrong_pins_give_up ... ok
+test security_key_tests::verify_required_keys_ask_for_the_pin_first_and_sign_with_verification ... ok
+test security_key_windows::tests::authenticator_data_is_split_and_checked ... ok
+test security_key_windows::tests::ecdsa_answers_become_verifying_sk_signatures ... ok
+test security_key_windows::tests::ed25519_answers_become_verifying_sk_signatures ... ok
+test security_key_windows::tests::unusable_windows_answers_are_refused ... ok
+test security_key_windows::tests::windows_errors_map_to_actionable_ones ... ok
+test session::tests::recorded_host_key_algorithms_are_offered_first ... ok
+test session_tests::a_refused_session_channel_is_its_own_error_and_the_connection_still_answers ... ok
+test session_tests::keepalive_defaults_match_openssh_fallback ... ok
+test sftp::tests::a_read_error_in_the_middle_fails_the_download ... ok
+test auth::tests::a_wrong_saved_passphrase_falls_back_to_asking_the_user ... ok
+test shell_tests::the_shell_sends_terminal_modes_and_environment_first ... ok
+test socks5::tests::bind_is_refused_with_command_not_supported ... ok
+test socks5::tests::connect_to_domain_name ... ok
+test socks5::tests::connect_to_ipv4 ... ok
+test socks5::tests::connect_to_ipv6 ... ok
+test socks5::tests::rejects_other_versions ... ok
+test socks5::tests::replies_follow_the_clients_version ... ok
+test socks5::tests::reply_has_the_documented_layout ... ok
+test socks5::tests::requires_the_no_auth_method ... ok
+test socks5::tests::socks4_bind_is_rejected ... ok
+test socks5::tests::socks4_connect_to_ipv4 ... ok
+test socks5::tests::socks4_fields_are_bounded ... ok
+test socks5::tests::socks4a_connect_to_a_host_name ... ok
+test socks5::tests::truncated_request_is_an_io_error ... ok
+test socks5::tests::unknown_address_type_is_refused ... ok
+test sftp::tests::downloads_reassemble_answers_that_arrive_out_of_order_and_stop_at_eof ... ok
+test auth::tests::encrypted_identity_asks_for_the_passphrase ... ok
+test proxy::tests::connect_through_tells_an_unreachable_proxy_from_a_silent_one ... ok
+
+test result: ok. 124 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.14s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-store/b4ac2cb89b06ccba\out\easyssh_store-b4ac2cb89b06ccba.exe)
+
+running 73 tests
+test secrets_tests::debug_never_shows_values ... ok
+test meta::tests::bump_advances_vector_and_stamps ... ok
+test secrets_tests::locked_vault_refuses_reads_and_writes_but_flags_still_work ... ok
+test secrets_tests::forget_all_works_while_locked_and_removing_a_host_drops_its_secrets ... ok
+test secrets_tests::ciphertext_is_bound_to_host_and_field ... ok
+test secrets_tests::round_trip_keep_and_clear ... ok
+test secrets_tests::the_proxy_password_is_a_sealed_secret_like_the_others ... ok
+test secrets_tests::unknown_host_is_not_found_and_empty_string_clears ... ok
+test sync::engine_field_tests::a_hosts_engine_choice_travels_with_it ... ok
+test secrets_tests::the_proxy_settings_of_a_host_round_trip_and_stay_out_of_the_secrets ... ok
+test sync::engine_field_tests::a_hosts_environment_travels_and_an_older_record_keeps_it ... ok
+test sync::engine_field_tests::a_hosts_proxy_travels_with_it_but_its_password_does_not ... ok
+test sync_tests::a_host_travels_with_its_fields_but_not_its_secrets ... ok
+test sync_tests::account_secrets_are_sealed_and_cleared_with_sync_state ... ok
+test sync_tests::a_remote_edit_that_replaces_a_local_value_writes_history ... ok
+test sync_tests::an_invalid_remote_host_is_skipped_not_fatal ... ok
+test sync_tests::concurrent_edits_to_different_fields_both_survive ... ok
+test sync_tests::cursor_record_tokens_and_high_water_survive_a_restart ... ok
+test sync_tests::deletes_sync_and_a_later_restore_wins ... ok
+test sync_tests::personal_vault_ids_differ_per_account_and_are_stable ... ok
+test secrets_tests::nothing_readable_reaches_the_database_file ... ok
+test sync_tests::groups_snippets_tunnels_and_known_hosts_sync ... ok
+test sync_tests::sync_store_trait_reads_what_the_store_holds ... ok
+test sync_tests::settings_and_ai_keys_are_not_synced ... ok
+test tests::a_failed_migration_rolls_back_completely ... ok
+test tests::a_serial_host_roundtrips_and_stays_a_serial_host ... ok
+test tests::a_soft_deleted_migrated_host_is_not_resurrected ... ok
+test sync_tests::team_vaults_are_separate_and_carry_a_name ... ok
+test tests::ciphertext_is_bound_to_its_record ... ok
+test tests::deleted_tags_are_not_listed_on_hosts ... ok
+test tests::deleting_twice_does_not_bump_again ... ok
+test sync_tests::same_field_conflict_keeps_one_winner_and_the_loser_in_history ... ok
+test tests::fingerprint_matches_sha256_of_key ... ok
+test tests::foreign_keys_are_enforced ... ok
+test tests::group_crud ... ok
+test tests::host_crud_roundtrips_every_field ... ok
+test tests::host_id_must_be_a_uuid ... ok
+test tests::host_update_changes_tags_and_keeps_created_at ... ok
+test tests::hosts_saved_before_serial_support_still_load ... ok
+test tests::jump_chain_crud_and_validation ... ok
+test tests::known_host_crud_and_lookup ... ok
+test tests::known_hosts_file_import_reads_an_explicit_path ... ok
+test tests::known_hosts_import_keeps_plain_and_hashed_entries_as_written ... ok
+test tests::migrating_a_default_config_imports_only_settings ... ok
+test tests::migrating_a_full_config_keeps_everything ... ok
+test tests::migrating_an_old_config_without_default_fields ... ok
+test tests::migration_backs_up_and_never_touches_the_original ... ok
+test tests::file_database_uses_wal_foreign_keys_and_full_sync ... ok
+test tests::migrations_apply_from_empty ... ok
+test tests::another_device_gets_its_own_vector_entry_and_lamport_goes_up ... ok
+test tests::migration_works_on_a_file_database_and_survives_reopening ... ok
+test tests::not_configured_refuses_to_store_secrets ... ok
+test tests::not_configured_still_stores_hosts_without_secrets ... ok
+test tests::omitted_secrets_are_kept_on_update ... ok
+test tests::public_bump_helper_stamps_and_writes_history ... ok
+test tests::rerun_after_the_file_changed_adds_only_new_records_and_keeps_edits ... ok
+test tests::second_migration_run_is_a_no_op ... ok
+test tests::secret_history_is_encrypted ... ok
+test tests::secrets_are_encrypted_at_rest_and_roundtrip ... ok
+test tests::secrets_never_appear_in_debug_output ... ok
+test tests::settings_crud_and_history ... ok
+test tests::snippet_crud ... ok
+test tests::soft_delete_and_restore_are_stamped_and_recorded ... ok
+test tests::migrations_are_idempotent_across_opens ... ok
+test tests::tag_crud_and_ensure ... ok
+test tests::tombstones_hide_rows_and_restore_brings_them_back ... ok
+test tests::tunnel_crud ... ok
+test tests::unchanged_upsert_writes_nothing ... ok
+test tests::upsert_stamps_fields_and_vector ... ok
+test tests::vaults_are_a_placeholder_table ... ok
+test tests::unusable_v1_files_are_refused_without_a_backup ... ok
+test tests::newer_database_is_refused_and_left_alone ... ok
+test secrets_tests::migration_three_adds_the_table_to_a_version_two_database ... ok
+
+test result: ok. 73 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.79s
+
+[1m[92m     Running[0m tests\app.rs (target\debug\build\easyssh-store/e5f7e6a6d9c115e2\out\app-e5f7e6a6d9c115e2.exe)
+
+running 11 tests
+test a_fresh_install_gets_an_empty_database_and_no_migration ... ok
+test an_unreadable_v1_file_is_reported_and_the_app_still_opens ... ok
+test a_connection_with_every_field_set_roundtrips ... ok
+test app_config_roundtrips_through_the_store ... ok
+test first_start_migrates_keeps_a_backup_and_never_runs_twice ... ok
+test the_database_sits_next_to_the_v1_file ... ok
+test removing_a_host_drops_it_from_the_recent_list ... ok
+test saving_a_snippet_from_a_stale_config_keeps_a_host_the_daemon_added ... ok
+test the_device_id_is_stable_across_opens ... ok
+test telemetry_choice_is_migrated_and_saved_in_the_store ... ok
+test two_processes_starting_together_migrate_once ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.57s
+
+[1m[92m     Running[0m tests\import.rs (target\debug\build\easyssh-store/6b162fe7d7b972bf\out\import-6b162fe7d7b972bf.exe)
+
+running 10 tests
+test a_hostile_host_in_an_apply_request_is_rejected ... ok
+test an_unrecognised_file_is_an_empty_preview_with_a_warning ... ok
+test a_format_override_wins_and_unknown_ids_are_refused ... ok
+test an_oversized_file_is_refused_with_a_clear_error ... ok
+test duplicate_policies_skip_update_and_keep_both ... ok
+test groups_follow_the_chosen_mode ... ok
+test openssh_include_needs_the_base_dir_and_openssh_only_hosts_are_tagged ... ok
+test preview_detects_the_format_and_flags_stored_hosts ... ok
+test repeated_hosts_in_one_import_do_not_duplicate_unless_asked ... ok
+test apply_never_removes_anything ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-sync/aa6fef4afe63f7d0\out\easyssh_sync-aa6fef4afe63f7d0.exe)
+
+running 27 tests
+test merge::tests::before_takes_remote_and_reports_replaced_local_values ... ok
+test merge::tests::after_keeps_local ... ok
+test merge::tests::concurrent_different_fields_merge_without_loss ... ok
+test merge::tests::concurrent_same_field_lww_by_lamport_then_device ... ok
+test merge::tests::delete_after_causal_edit_is_a_plain_delete ... ok
+test merge::tests::equal ... ok
+test merge::tests::merge_is_commutative_and_idempotent ... ok
+test merge::tests::same_vector_different_content_is_combined ... ok
+test merge::tests::table_mismatch_is_rejected ... ok
+test merge::tests::tombstone_ties_are_not_wins_for_the_older_stamp ... ok
+test record::tests::delete_then_edit_revives ... ok
+test merge::tests::tombstone_wins_only_when_newer_than_every_edited_field ... ok
+test record::tests::edit_advances_vector_and_lamport ... ok
+test record::tests::plaintext_round_trip_and_validation ... ok
+test verify::tests::accepts_valid_envelope ... ok
+test verify::tests::rejects_missing_certificate ... ok
+test verify::tests::high_water_snapshot_round_trips ... ok
+test verify::tests::rejects_cert_from_another_account_but_accepts_after_trusting_it ... ok
+test verify::tests::rejects_uncertified_device ... ok
+test verify::tests::expired_certificates_are_judged_at_the_time_the_server_received_the_envelope ... ok
+test wire::tests::batch_results_use_snake_case_tags ... ok
+test wire::tests::device_id_round_trip ... ok
+test wire::tests::member_request_optional_key ... ok
+test wire::tests::push_response_tags ... ok
+test verify::tests::revocation_applies_only_to_envelopes_received_after_it ... ok
+test verify::tests::rollback_is_rejected_but_redelivery_and_newer_are_fine ... ok
+test verify::tests::rejects_tampering_in_every_routed_field ... ok
+
+test result: ok. 27 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+
+[1m[92m     Running[0m tests\engine.rs (target\debug\build\easyssh-sync/99907031765b24d8\out\engine-99907031765b24d8.exe)
+
+running 16 tests
+test a_second_rotation_by_a_stale_device_is_refused ... ok
+test create_pull_and_edit_round_trip ... ok
+test concurrent_delete_and_older_edit_deletes ... ok
+test concurrent_edits_merge_field_by_field_and_converge ... ok
+test envelopes_from_a_revoked_device_are_rejected_only_if_received_after_revocation ... ok
+test delete_is_a_signed_tombstone_and_edit_after_delete_revives ... ok
+test missing_vault_key_is_an_error ... ok
+test forged_and_foreign_envelopes_are_rejected_without_stopping_the_sync ... ok
+test history_lists_replaced_versions_and_restore_works ... ok
+test push_conflict_returns_server_copy_and_client_merges_and_retries ... ok
+test rotation_cannot_skip_records_the_device_does_not_have ... ok
+test rollback_by_the_server_is_rejected ... ok
+test pushes_race_until_merged_without_loss ... ok
+test rotation_that_races_with_a_push_is_refused_whole_and_can_be_retried ... ok
+test rotation_reencrypts_everything_and_old_keys_stop_working ... ok
+test first_upload_goes_in_batches_and_falls_back_on_conflict ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.27s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-telemetry/f0f774e3cf20c817\out\easyssh_telemetry-f0f774e3cf20c817.exe)
+
+running 32 tests
+test dsn::tests::check_url_for_usage_endpoint ... ok
+test dsn::tests::loopback_http_only ... ok
+test dsn::tests::parses_and_derives ... ok
+test dsn::tests::keeps_port_prefix_and_ignores_secret ... ok
+test dsn::tests::rejects_malformed ... ok
+test envelope::tests::oldest_frame_first_and_nothing_extra ... ok
+test report::tests::backtrace_symbols_only ... ok
+test envelope::tests::three_documents_and_a_matching_length ... ok
+test report::tests::construction_scrubs ... ok
+test report::tests::js_stacks_keep_function_names_only ... ok
+test report::tests::llvm_suffix ... ok
+test hook::tests::frontend_errors_are_scrubbed_and_gated ... ok
+test report::tests::bounds ... ok
+test report::tests::rescrubbing_a_stale_report ... ok
+test scrub::tests::handles_multiline_and_unicode ... ok
+test scrub::tests::handles_multiple_secrets_in_one_message ... ok
+test scrub::tests::ipv6_runs_glued_to_words_are_not_addresses ... ok
+test scrub::tests::exact_outputs ... ok
+test scrub::tests::placeholders_do_not_collide_with_patterns ... ok
+test scrub::tests::leaves_ordinary_text_alone ... ok
+test scrub::tests::stack_frames ... ok
+test scrub::tests::truncation_respects_character_boundaries ... ok
+test scrub::tests::is_idempotent ... ok
+test scrub::tests::removes_what_it_must ... ok
+test spool::tests::garbage_files_are_removed_and_state_survives_clear ... ok
+test spool::tests::old_reports_expire ... ok
+test spool::tests::one_report_is_bounded_by_dropping_frames ... ok
+test spool::tests::stale_content_is_scrubbed_on_read ... ok
+test spool::tests::count_cap_drops_the_oldest ... ok
+test spool::tests::write_list_clear ... ok
+test spool::tests::total_size_cap ... ok
+test hook::tests::panic_is_spooled_only_with_capture_on ... ok
+
+test result: ok. 32 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.73s
+
+[1m[92m     Running[0m tests\http.rs (target\debug\build\easyssh-telemetry/e30d2fdccd3f162b\out\http-e30d2fdccd3f162b.exe)
+
+running 9 tests
+test buckets ... ok
+test posts_a_well_formed_envelope ... ok
+test no_upload_without_a_dsn ... ok
+test no_upload_without_consent ... ok
+test usage_endpoint_must_be_https_or_loopback ... ok
+test usage_ping_is_gated_bucketed_and_daily ... ok
+test server_errors_keep_the_report_and_client_errors_drop_it ... ok
+test rate_limit_per_run_and_per_day ... ok
+test offline_keeps_reports_and_backs_off ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.07s
+
+[1m[92m     Running[0m tests\redact_vectors.rs (target\debug\build\easyssh-telemetry/fe9b3dd84273311f\out\redact_vectors-fe9b3dd84273311f.exe)
+
+running 1 test
+test shared_vectors_pass_exactly ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-unlock/530ee995bb3096f0\out\easyssh_unlock-530ee995bb3096f0.exe)
+
+running 3 tests
+test fido_common::tests::challenges_are_random ... ok
+test fido_common::tests::windows_webauthn_errors_map_to_what_the_user_can_do ... ok
+test tests::the_providers_match_the_platform ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-update/2fb81bb21e371a69\out\easyssh_update-2fb81bb21e371a69.exe)
+
+running 15 tests
+test feed::tests::https_only ... ok
+test feed::tests::builds_follow_the_mobile_version_code ... ok
+test feed::tests::newest_picks_highest_applicable_build ... ok
+test feed::tests::keys_and_ids ... ok
+test feed::tests::system_versions ... ok
+test feed::tests::round_trip ... ok
+test fetch::tests::only_github_release_hosts_over_https ... ok
+test fetch::tests::relative_redirects_stay_on_the_origin ... ok
+test feed::tests::archive_refusals ... ok
+test feed::tests::wrong_format_and_schema_are_refused ... ok
+test tests::feed_urls_name_the_platform ... ok
+test tests::every_failure_is_an_error ... ok
+test tests::no_valid_key_means_inert ... ok
+test tests::a_newer_verified_item_is_reported ... ok
+test feed::tests::feed_refusals ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+[1m[92m     Running[0m tests\go_fixtures.rs (target\debug\build\easyssh-update/42fdba2e1c3a358c\out\go_fixtures-42fdba2e1c3a358c.exe)
+
+running 2 tests
+test the_kit_foreign_feed_verifies ... ok
+test a_feed_and_archive_made_by_the_go_tools_verify ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easyssh-vault/81d34a9ebbfcf9fd\out\easyssh_vault-81d34a9ebbfcf9fd.exe)
+
+running 64 tests
+test bound::tests::a_copy_the_platform_dropped_is_forgotten ... ok
+test bound::tests::a_cancelled_unlock_falls_back_without_an_error ... ok
+test bound::tests::a_damaged_copy_is_not_a_key ... ok
+test bound::tests::a_cancelled_enrolment_turns_nothing_on ... ok
+test bound::tests::an_invalidated_key_is_forgotten_and_the_passphrase_remains ... ok
+test bound::tests::enrolling_stores_the_key_behind_the_sensor_and_unlocking_returns_it ... ok
+test bound::tests::lockout_falls_back_but_real_failures_are_reported ... ok
+test bound::tests::nothing_enrolled_means_no_prompt ... ok
+test bound::tests::unenrolling_removes_the_copy_and_is_harmless_twice ... ok
+test fido::tests::a_backend_with_its_own_dialog_is_never_asked_for_a_pin_by_the_vault ... ok
+test fido::tests::a_key_without_hmac_secret_is_refused_and_nothing_is_stored ... ok
+test fido::tests::a_method_that_holds_one_entry_refuses_items ... ok
+test fido::tests::a_cancelled_touch_turns_nothing_on_and_falls_back_when_unlocking ... ok
+test fido::tests::a_cancelled_pin_prompt_falls_back_and_too_many_wrong_pins_stop ... ok
+test fido::tests::a_key_that_answers_differently_is_reported_not_trusted ... ok
+test fido::tests::a_tampered_or_damaged_list_opens_nothing ... ok
+test fido::tests::an_unplugged_key_is_reported_so_the_unlock_button_can_say_so ... ok
+test fido::tests::nothing_enrolled_means_no_prompt_and_no_device_call ... ok
+test fido::tests::enrolling_wraps_the_key_and_unlocking_returns_it ... ok
+test fido::tests::the_list_round_trips ... ok
+test fido::tests::at_most_four_keys_and_labels_are_cleaned ... ok
+test fido::tests::several_keys_each_open_the_vault_and_each_can_be_removed ... ok
+test fido::tests::the_pin_is_asked_for_when_the_key_wants_it ... ok
+test fido::tests::the_stored_copy_holds_neither_the_key_nor_the_hmac_secret ... ok
+test fido::tests::without_anyone_to_ask_a_pin_key_says_what_is_missing ... ok
+test input::tests::keep_set_and_clear ... ok
+test input::tests::refuses_bad_input_without_echoing_it ... ok
+test input::tests::the_proxy_password_is_checked_like_a_password ... ok
+test fido::tests::the_wrapped_copy_is_bound_to_its_slot ... ok
+test prompt::tests::answers_the_exact_password_prompts ... ok
+test prompt::tests::binding_from_connections ... ok
+test prompt::tests::never_answers_a_host_key_question ... ok
+test prompt::tests::passphrase_prompts ... ok
+test prompt::tests::password_prompts_need_an_explicit_user_and_host ... ok
+test prompt::tests::refuses_other_users_hosts_and_decorations ... ok
+test tests::a_background_lock_time_gives_a_grace_period ... ok
+test tests::a_clock_that_went_backwards_locks_instead_of_extending_the_grace_period ... ok
+test fido::tests::removing_the_passphrase_removes_the_copies_and_the_method_works_in_a_vault ... ok
+test tests::an_unlock_provider_can_open_a_passphrase_vault ... ok
+test tests::auto_lock_after_idle_minutes ... ok
+test tests::auto_lock_can_change_or_be_turned_off_and_is_saved ... ok
+test tests::change_and_remove_the_passphrase ... ok
+test tests::activity_restarts_the_idle_timer ... ok
+test tests::derived_keys_need_the_vault_and_are_stable_per_salt ... ok
+test tests::keychain_alone_is_not_enough_once_a_passphrase_is_set ... ok
+test tests::leaving_the_screen_during_a_system_prompt_does_not_cancel_the_unlock ... ok
+test tests::forget_all_removes_everything_even_while_locked ... ok
+test tests::lock_now_and_unlock_with_a_passphrase ... ok
+test tests::returning_without_having_left_changes_nothing ... ok
+test tests::prompt_answers_and_remembering ... ok
+test tests::single_values_are_sealed_to_their_slot ... ok
+test keyfile::tests::every_file_has_its_own_name_and_sweep_clears_leftovers ... ok
+test tests::the_vault_locks_the_moment_the_app_leaves_the_screen_by_default ... ok
+test keyfile::tests::written_private_normalised_and_removed_on_drop ... ok
+test tests::unavailable_keychain_is_reported_not_papered_over ... ok
+test tests::unlock_methods::a_refused_presence_check_does_not_turn_the_method_on ... ok
+test tests::unlock_methods::a_vault_without_a_passphrase_has_nothing_to_enable ... ok
+test tests::unlock_methods::a_declined_prompt_falls_back_to_the_passphrase_and_is_not_repeated ... ok
+test tests::secret_source_returns_saved_values_and_locked_when_locked ... ok
+test tests::the_background_lock_is_limited_and_saved ... ok
+test tests::unlock_methods::enabling_needs_the_passphrase_and_then_unlocks_without_it ... ok
+test tests::unlock_methods::providers_are_tried_in_order_and_unavailable_ones_are_skipped ... ok
+test tests::unlock_methods::disabling_and_removing_the_passphrase_delete_the_copy ... ok
+test tests::without_a_passphrase_the_first_use_unlocks_from_the_keychain ... ok
+
+test result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\easysshd/f26f3517d80073e9\out\easysshd-f26f3517d80073e9.exe)
+
+running 96 tests
+test engine::choice::tests::a_connect_time_fallback_says_why ... ok
+test engine::choice::tests::a_host_override_wins_over_the_global_setting ... ok
+test engine::choice::tests::a_missing_display_gets_a_hint_for_the_platform ... ok
+test engine::choice::tests::only_wanting_russh_needs_the_config_look ... ok
+test engine::choice::tests::every_unsupported_feature_falls_back_to_openssh ... ok
+test engine::choice::tests::openssh_stays_openssh_whatever_the_host_needs ... ok
+test engine::choice::tests::stored_commands_and_forwards_are_openssh_only ... ok
+test engine::choice::tests::the_global_setting_decides_for_auto_hosts ... ok
+test engine::choice::tests::the_reason_names_everything_once ... ok
+test engine::choice::tests::the_x11_toggle_sends_a_host_to_openssh_and_says_so ... ok
+test engine::interact::tests::a_saved_password_answers_only_its_own_prompt_and_only_once ... ok
+test engine::interact::tests::the_saved_password_answers_a_keyboard_interactive_password_round_once ... ok
+test engine::interact::tests::touching_the_key_shows_a_notice_until_it_is_done ... ok
+test engine::interact::tests::the_pin_is_asked_as_a_secret_prompt_and_never_shown_back ... ok
+test engine::interact::tests::a_cancelled_pin_prompt_cancels_the_key ... ok
+test engine::options::tests::globs_match_star_and_question_mark ... ok
+test engine::options::tests::accept_new_still_asks_the_user ... ok
+test engine::options::tests::only_runtime_match_criteria_need_openssh ... ok
+test engine::options::tests::honoured_options_do_not_fall_back ... ok
+test engine::options::tests::openssh_defaults_are_not_unsupported ... ok
+test engine::options::tests::options_russh_cannot_honour_fall_back ... ok
+test engine::options::tests::words_keep_quoted_spaces ... ok
+test engine::options::tests::tokens_expand_like_openssh ... ok
+test engine::options::tests::strict_host_key_checking_refuses_unknown_keys ... ok
+test engine::options::tests::glob_paths_walk_wildcard_directories ... ok
+test engine::plan::tests::forwardx11_in_the_config_needs_openssh ... ok
+test engine::plan::tests::home_relative_paths_expand_in_every_spelling ... ok
+test engine::plan::tests::a_fido2_identity_counts_only_without_an_authenticator_backend ... ok
+test engine::plan::tests::certificate_files_must_exist_to_count ... ok
+test engine::plan::tests::a_certificate_beside_an_identity_counts ... ok
+test engine::plan::tests::identity_agent_picks_or_disables_the_agent ... ok
+test engine::plan::tests::keepalives_follow_the_config_and_zero_keeps_the_default ... ok
+test engine::plan::tests::identities_only_limits_the_agent_to_the_configured_keys ... ok
+test engine::plan::tests::key_paths_expand_tokens ... ok
+test engine::plan::tests::output_without_a_host_is_refused ... ok
+test engine::plan::tests::match_blocks_ssh_g_evaluates_stay_on_russh ... ok
+test engine::plan::tests::parsed_options_reach_the_plan ... ok
+test engine::plan::tests::parses_what_the_engine_needs ... ok
+test engine::plan::tests::reads_set_env ... ok
+test engine::plan::tests::socket_path_forwards_in_the_config_need_openssh ... ok
+test engine::plan::tests::splits_jump_hops ... ok
+test engine::plan::tests::includes_take_quotes_question_marks_and_several_stars ... ok
+test engine::plan::tests::spots_proxycommand_forwards_and_commands ... ok
+test engine::plan::tests::the_user_known_hosts_file_of_the_config_is_read ... ok
+test engine::plan::tests::match_blocks_are_found_in_includes ... ok
+test engine::tests::a_host_without_a_saved_key_offers_none ... ok
+test engine::tests::a_locked_vault_with_a_saved_key_reports_vault_locked ... ok
+test engine::tests::a_saved_key_and_passphrase_become_an_in_memory_identity ... ok
+test frame::tests::oversized_rejected_from_header_alone ... ok
+test frame::tests::roundtrip ... ok
+test frame::tests::truncated_body_is_closed ... ok
+test integration::tests::a_stalled_script_gives_the_output_back ... ok
+test integration::tests::classifies_prompts_and_questions ... ok
+test integration::tests::end_marker_split_across_chunks ... ok
+test engine::plan::tests::without_ssh_the_default_keys_are_tried ... ok
+test integration::tests::never_types_into_a_question_or_after_user_input ... ok
+test integration::tests::injects_after_a_quiet_prompt_and_hides_the_exchange ... ok
+test engine::tests::a_security_key_file_can_be_saved_and_comes_back_as_an_sk_key ... ok
+test integration::tests::unknown_looking_output_waits_longer_and_gives_up ... ok
+test link::tests::an_older_daemon_without_a_reason_is_read_from_the_code ... ok
+test link::tests::reads_why_a_session_ended ... ok
+test integration::tests::scripts_fit_on_one_typed_line ... ok
+test modes::tests::btop_startup_is_restored ... ok
+test integration::tests::a_huge_echo_keeps_the_ready_sequence ... ok
+test modes::tests::defaults_restore_nothing ... ok
+test modes::tests::leaving_a_program_clears_its_modes ... ok
+test modes::tests::modes_split_across_reads ... ok
+test modes::tests::overlong_csi_is_ignored ... ok
+test modes::tests::resets_clear_state ... ok
+test modes::tests::several_modes_in_one_sequence ... ok
+test modes::tests::tmux_style_state ... ok
+test log::tests::messages_stay_on_one_line ... ok
+test monitor_ssh::tests::control_path_gives_up_on_long_runtime_dirs ... ok
+test modes::tests::strings_do_not_confuse_the_parser ... ok
+test monitor_ssh::tests::control_path_is_short_and_per_session ... ok
+test monitor_ssh::tests::no_socket_means_not_connected ... ok
+test serial::tests::eacces_names_the_group_to_join_on_linux ... ok
+test serial::tests::a_missing_device_cannot_be_opened ... ok
+test serial::tests::other_failures_get_their_own_codes ... ok
+test serial::tests::settings_map_onto_the_crates_types ... ok
+test serial::tests::usb_ports_are_described_by_product_and_ids ... ok
+test monitor_ssh::tests::prepare_dir_creates_the_socket_directory ... ok
+test session::tests::seal_open_roundtrip_and_direction_binding ... ok
+test session::tests::replay_and_gap_rejected ... ok
+test supervisor::tests::backoff_doubles_to_the_cap ... ok
+test terminal::tests::drops_oldest_at_the_cap ... ok
+test terminal::tests::never_splits_a_character ... ok
+test terminal::tests::push_offsets_and_replay ... ok
+test terminal::tests::replay_restores_modes_set_by_dropped_text ... ok
+test terminal::tests::small_writes_are_merged ... ok
+test terminal::tests::utf8_stream_keeps_split_characters ... ok
+test terminal::tests::the_exit_payload_says_why_the_session_ended ... ok
+test unlock_prompt::tests::the_touch_notice_closes_when_the_guard_is_dropped ... ok
+test unlock_prompt::tests::the_pin_is_asked_through_the_hub_even_from_a_runtime_thread ... ok
+test serial::tests::listing_ports_does_not_fail_on_a_machine_without_any ... ok
+test log::tests::rotates_and_keeps_three_files ... ok
+
+test result: ok. 96 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+[1m[92m     Running[0m unittests src\main.rs (target\debug\build\easysshd/69f75dd47f93b033\out\easysshd-69f75dd47f93b033.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\hardening.rs (target\debug\build\easysshd/a82035a600b15508\out\hardening-a82035a600b15508.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\import.rs (target\debug\build\easysshd/12f2695b2c4f5100\out\import-12f2695b2c4f5100.exe)
+
+running 3 tests
+test include_resolves_in_the_base_dir_only_when_one_is_given ... ok
+test bad_requests_get_a_clear_error_and_change_nothing ... ok
+test preview_then_apply_announces_the_change_to_every_client ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.55s
+
+[1m[92m     Running[0m tests\ipc.rs (target\debug\build\easysshd/1e9e34ca989829fe\out\ipc-1e9e34ca989829fe.exe)
+
+running 9 tests
+test gap_after_valid_frame_rejected ... ok
+test files_are_removed_on_shutdown ... ok
+test out_of_order_rejected ... ok
+test handshake_and_ping_pong ... ok
+test oversized_length_rejected_without_body ... ok
+test tampered_frame_rejected ... ok
+test replay_rejected ... ok
+test second_instance_refused_and_first_unharmed ... ok
+test wrong_secret_rejected ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+[1m[92m     Running[0m tests\serial.rs (target\debug\build\easysshd/b38f79c9c7420e3c\out\serial-b38f79c9c7420e3c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\sessions.rs (target\debug\build\easysshd/57c161d3cde5cac2\out\sessions-57c161d3cde5cac2.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m     Running[0m tests\store.rs (target\debug\build\easysshd/d9b0f1c509f568ca\out\store-d9b0f1c509f568ca.exe)
+
+running 5 tests
+test a_group_travels_with_the_host_and_hosts_join_it ... ok
+test another_process_can_use_the_database_while_the_daemon_runs ... ok
+test known_hosts_import_list_remove ... ok
+test first_start_migrates_the_v1_file_once ... ok
+test saved_hosts_survive_a_daemon_restart ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.50s
+
+[1m[92m     Running[0m tests\syncflow.rs (target\debug\build\easysshd/f5fe0356377ae99f\out\syncflow-f5fe0356377ae99f.exe)
+
+running 11 tests
+test a_local_change_is_pushed_in_the_background ... ok
+test a_revoked_device_can_no_longer_push ... ok
+test a_same_field_conflict_keeps_the_loser_in_history_and_restore_syncs ... ok
+test a_shared_vault_reaches_a_member_and_the_fingerprints_match ... ok
+test an_edit_on_one_device_appears_on_the_other ... ok
+test concurrent_edits_to_different_fields_both_survive ... ok
+test secrets_are_never_synced ... ok
+test the_account_survives_a_restart_and_the_database_holds_no_plaintext ... ok
+test the_device_certificate_is_renewed_while_signed_in ... ok
+test sign_in_errors_and_url_rules ... ok
+test removing_a_member_replaces_the_vault_key ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.80s
+
+[1m[92m     Running[0m tests\vault.rs (target\debug\build\easysshd/ae5bfb7cb24dd360\out\vault-ae5bfb7cb24dd360.exe)
+
+running 7 tests
+test deleting_a_host_deletes_its_secrets_and_nothing_secret_is_in_the_log ... ok
+test a_locked_vault_asks_for_the_passphrase_and_then_answers ... ok
+test remember_in_vault_saves_the_typed_password_once ... ok
+test an_unbound_process_and_another_host_get_no_saved_answer ... ok
+test the_proxy_password_is_saved_like_a_secret_and_never_listed ... ok
+test vault_commands_status_lock_auto_lock_and_forget_all ... ok
+test stored_password_answers_only_the_exact_host_and_user ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.05s
+
+[1m[92m     Running[0m unittests src\lib.rs (target\debug\build\tauri-plugin-device-key/fa7d1fc7afc33b54\out\tauri_plugin_device_key-fa7d1fc7afc33b54.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m anixops_ssh_lib
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_ai
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_crypto
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_e2e
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_import
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_mobile_keys
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_proto
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_server
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_services
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_sessionlog
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_ssh
+
+running 1 test
+test crates\easyssh-ssh\src\lib.rs - (line 5) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+[1m[92m   Doc-tests[0m easyssh_store
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_sync
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_telemetry
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_unlock
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_update
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easyssh_vault
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m easysshd
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+[1m[92m   Doc-tests[0m tauri_plugin_device_key
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

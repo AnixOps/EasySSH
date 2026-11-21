@@ -1,0 +1,96 @@
+PASS connect (1.7s) TERM=xterm-256color COLORTERM= LANG=C.UTF-8
+PASS cjk-emoji-width (1.2s) 中/文/😀 各占 2 格，竖线与下一行第 9 列对齐
+PASS truecolor (1.2s) 前景色 #ff6400 按 RGB 保存
+PASS ansi-black-contrast (1.2s) 黑色 #1c1c1e，彩色底上最低对比度 8.3:1，最低对比度保护 4.5
+PASS sidebar-toggle (1.3s) 76 列 → 117 列，再次点击展开
+PASS focus-mode (3.5s) 76 列 → 收起侧栏 117 列 → 专注模式 126 列；快捷键和“退出专注模式”按钮可用，重开后记住
+PASS copy-shortcut (1.3s) 双击选中整词，快捷键复制
+PASS ctrl-c-copies-selection (1.5s) 有选中复制，无选中中断
+PASS ctrl-v-pastes (1.2s) 两种快捷键都把剪贴板内容送进远端
+PASS multiline-paste (1.0s) bash 括号粘贴：两行一起放进命令行，按回车才执行
+PASS osc52 (1.4s) 剪贴板得到 from-osc52
+PASS right-click-menu (0.9s) 菜单项：复制、粘贴、全选、在终端中查找、清屏
+PASS triple-click-line (1.1s) 整行选中
+PASS shift-click-extend (1.2s) 选区扩展到点击处
+PASS select-in-mouse-app (1.3s) Shift+拖动选中 "mouse-mod"
+PASS wheel-scrollback (1.5s) 向上滚动 167 行
+PASS shift-pageup (1.2s) 翻上一页（37 行）
+PASS wheel-in-less (1.6s) 滚动后首行为 51
+PASS find (1.7s) 匹配计数 2/4
+PASS url-click (1.8s) 打开 https://example.com/plain-link
+PASS osc8-hyperlink (1.8s) 打开 https://example.com/osc8
+PASS title (1.8s) 标签显示主机名，远端标题在悬停提示里（同 Termius；Windows Terminal 直接显示标题）
+PASS ime-insert (1.3s) 组字后上屏的“你好世界”被远端回显
+PASS keys (1.1s) 编辑结果正确
+PASS vim (1.4s) 进出 vim 正常，原屏幕恢复
+PASS tmux (1.9s) 状态栏显示，分出两个窗格
+PASS htop (1.4s) htop 正常绘制
+PASS resize (2.1s) stty size = 27 67
+PASS zoom (1.5s) 字号 13 → 14 → 12 → 13
+PASS ctrl-wheel-zoom (0.9s) 字号 13 → 14
+PASS ligatures (1.6s) DOM 渲染，font-variant-ligatures: common-ligatures contextual
+PASS split (0.9s) 两个窗格各有一个会话
+PASS tab-switch (1.7s) staging-api ⇄ prod-web-01
+PASS duplicate-tab (1.0s) 两个标签，各自一个会话
+PASS open-host-new-tab (1.0s) 同一主机两个标签
+PASS tab-drag (1.6s) prod-web-01 | staging-api → staging-api | prod-web-01
+PASS tab-rename (0.9s) 右键或双击改名，回车确认，Esc 取消
+PASS exit-reconnect (2.1s) 回车后重新连上，屏幕干净
+PASS reconnect-divider (1.6s) 重连后有分隔线
+PASS keep-session-tmux (2.2s) 重连回到同一个 tmux 会话，之前的输出还在
+session open failed: the EasySSH daemon connection was lost
+FAIL bulk-output (40.4s) timed out waiting for /done-9f8cm5/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-browse (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-navigate (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-upload (35.4s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-download (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-mkdir-rename-delete (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-chmod (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-multi-select (35.4s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-path (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-follow-osc7 (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-follow-integration (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-many-tabs (35.4s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-double-click (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-double-click-binary (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-cancel (35.4s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-resume (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-verify (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-context-menu (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-sort (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL sftp-hidden (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL quick-connect (15.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+PASS search-enter (0.7s) 回车打开 staging-api
+PASS duplicate-host (4.2s) 新主机“prod-web-02 副本”，地址相同
+session open failed: the EasySSH daemon connection was lost
+FAIL forward-local (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL forward-socks (35.3s) timed out waiting for /keyuser@/ on screen:
+session open failed: the EasySSH daemon connection was lost
+FAIL forward-remote (35.3s) timed out waiting for /keyuser@/ on screen:
+PASS settings-search (0.5s) 搜“连字”只剩连字；搜“终端”显示终端组 18 项；搜不到时提示
+session open failed: the EasySSH daemon connection was lost
+FAIL settings-live (35.3s) timed out waiting for /keyuser@/ on screen:
+session opens: 76, median 16 ms, slowest 165 ms, over 5 s: 0
+43/68 passed
